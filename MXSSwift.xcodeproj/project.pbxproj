@@ -8,20 +8,38 @@
 
 /* Begin PBXBuildFile section */
 		701E9AC81F9EEA61007AEE49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701E9AC71F9EEA61007AEE49 /* Assets.xcassets */; };
-		701E9ACB1F9EEA61007AEE49 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 701E9AC91F9EEA61007AEE49 /* LaunchScreen.storyboard */; };
 		703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8C11FBA9B1D0059A632 /* AppDelegate.swift */; };
 		703DA8C61FBA9B1D0059A632 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 703DA8C21FBA9B1D0059A632 /* Info.plist */; };
 		703DA8C71FBA9B1D0059A632 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8C41FBA9B1D0059A632 /* ViewController.swift */; };
+		703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8D51FBAB7AA0059A632 /* MXSBaseVC.swift */; };
+		703DA8D81FBAB8150059A632 /* MXSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8D71FBAB8150059A632 /* MXSTabBarController.swift */; };
+		703DA8DA1FBAB9390059A632 /* MXSHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8D91FBAB9390059A632 /* MXSHomeVC.swift */; };
+		703DA8DC1FBAB9930059A632 /* MXSFoundVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8DB1FBAB9930059A632 /* MXSFoundVC.swift */; };
+		703DA8DE1FBAB9AA0059A632 /* MXSContentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8DD1FBAB9AA0059A632 /* MXSContentVC.swift */; };
+		703DA8E01FBAB9BA0059A632 /* MXSProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8DF1FBAB9BA0059A632 /* MXSProfileVC.swift */; };
+		703DA8E21FBAB9E60059A632 /* MXSTableDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E11FBAB9E60059A632 /* MXSTableDlg.swift */; };
+		703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */; };
+		703DA8E71FBAD0200059A632 /* MXSVCPtc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */; };
+		703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		701E9ABD1F9EEA61007AEE49 /* MXSSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXSSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		701E9AC71F9EEA61007AEE49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		701E9ACA1F9EEA61007AEE49 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		703DA8C11FBA9B1D0059A632 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		703DA8C21FBA9B1D0059A632 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		703DA8C31FBA9B1D0059A632 /* MXSDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MXSDefines.h; sourceTree = "<group>"; };
 		703DA8C41FBA9B1D0059A632 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		703DA8D51FBAB7AA0059A632 /* MXSBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXS\U0010\U0010BaseVC.swift"; sourceTree = "<group>"; };
+		703DA8D71FBAB8150059A632 /* MXSTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTabBarController.swift; sourceTree = "<group>"; };
+		703DA8D91FBAB9390059A632 /* MXSHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeVC.swift; sourceTree = "<group>"; };
+		703DA8DB1FBAB9930059A632 /* MXSFoundVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSFoundVC.swift; sourceTree = "<group>"; };
+		703DA8DD1FBAB9AA0059A632 /* MXSContentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSContentVC.swift; sourceTree = "<group>"; };
+		703DA8DF1FBAB9BA0059A632 /* MXSProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSProfileVC.swift; sourceTree = "<group>"; };
+		703DA8E11FBAB9E60059A632 /* MXSTableDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableDlg.swift; sourceTree = "<group>"; };
+		703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCExchangeCmd.swift; sourceTree = "<group>"; };
+		703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCPtc.swift; sourceTree = "<group>"; };
+		703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNoteVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,13 +72,14 @@
 		701E9ABF1F9EEA61007AEE49 /* MXSSwift */ = {
 			isa = PBXGroup;
 			children = (
+				703DA8E31FBAC9640059A632 /* VCExchangeCmd */,
+				703DA8D41FBAB7600059A632 /* BaseController */,
 				703DA8C91FBA9C350059A632 /* Classes */,
 				703DA8D01FBA9C350059A632 /* Common */,
 				703DA8C81FBA9C350059A632 /* lib */,
 				703DA8D31FBA9C350059A632 /* Model */,
 				703DA8C01FBA9B1D0059A632 /* main */,
 				701E9AC71F9EEA61007AEE49 /* Assets.xcassets */,
-				701E9AC91F9EEA61007AEE49 /* LaunchScreen.storyboard */,
 			);
 			path = MXSSwift;
 			sourceTree = "<group>";
@@ -97,6 +116,7 @@
 		703DA8CA1FBA9C350059A632 /* Content */ = {
 			isa = PBXGroup;
 			children = (
+				703DA8DD1FBAB9AA0059A632 /* MXSContentVC.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -104,6 +124,7 @@
 		703DA8CB1FBA9C350059A632 /* Found */ = {
 			isa = PBXGroup;
 			children = (
+				703DA8DB1FBAB9930059A632 /* MXSFoundVC.swift */,
 			);
 			path = Found;
 			sourceTree = "<group>";
@@ -120,6 +141,7 @@
 		703DA8CD1FBA9C350059A632 /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
+				703DA8D91FBAB9390059A632 /* MXSHomeVC.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -127,6 +149,7 @@
 		703DA8CE1FBA9C350059A632 /* NoteVC */ = {
 			isa = PBXGroup;
 			children = (
+				703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */,
 			);
 			path = NoteVC;
 			sourceTree = "<group>";
@@ -134,6 +157,7 @@
 		703DA8CF1FBA9C350059A632 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				703DA8DF1FBAB9BA0059A632 /* MXSProfileVC.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -150,6 +174,7 @@
 		703DA8D11FBA9C350059A632 /* CommonDelegate */ = {
 			isa = PBXGroup;
 			children = (
+				703DA8E11FBAB9E60059A632 /* MXSTableDlg.swift */,
 			);
 			path = CommonDelegate;
 			sourceTree = "<group>";
@@ -166,6 +191,24 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		703DA8D41FBAB7600059A632 /* BaseController */ = {
+			isa = PBXGroup;
+			children = (
+				703DA8D51FBAB7AA0059A632 /* MXSBaseVC.swift */,
+				703DA8D71FBAB8150059A632 /* MXSTabBarController.swift */,
+				703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */,
+			);
+			path = BaseController;
+			sourceTree = "<group>";
+		};
+		703DA8E31FBAC9640059A632 /* VCExchangeCmd */ = {
+			isa = PBXGroup;
+			children = (
+				703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */,
+			);
+			path = VCExchangeCmd;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,7 +270,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				701E9ACB1F9EEA61007AEE49 /* LaunchScreen.storyboard in Resources */,
 				701E9AC81F9EEA61007AEE49 /* Assets.xcassets in Resources */,
 				703DA8C61FBA9B1D0059A632 /* Info.plist in Resources */,
 			);
@@ -240,23 +282,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				703DA8D81FBAB8150059A632 /* MXSTabBarController.swift in Sources */,
+				703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */,
+				703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */,
+				703DA8E21FBAB9E60059A632 /* MXSTableDlg.swift in Sources */,
 				703DA8C71FBA9B1D0059A632 /* ViewController.swift in Sources */,
+				703DA8DC1FBAB9930059A632 /* MXSFoundVC.swift in Sources */,
+				703DA8E71FBAD0200059A632 /* MXSVCPtc.swift in Sources */,
+				703DA8DE1FBAB9AA0059A632 /* MXSContentVC.swift in Sources */,
+				703DA8DA1FBAB9390059A632 /* MXSHomeVC.swift in Sources */,
+				703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
+				703DA8E01FBAB9BA0059A632 /* MXSProfileVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXVariantGroup section */
-		701E9AC91F9EEA61007AEE49 /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				701E9ACA1F9EEA61007AEE49 /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		701E9ACD1F9EEA61007AEE49 /* Debug */ = {
@@ -374,7 +415,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45E5AAUFA8;
 				INFOPLIST_FILE = MXSSwift/main/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MXSOC.MXSSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -391,7 +432,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 45E5AAUFA8;
 				INFOPLIST_FILE = MXSSwift/main/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MXSOC.MXSSwift;
 				PRODUCT_NAME = "$(TARGET_NAME)";
