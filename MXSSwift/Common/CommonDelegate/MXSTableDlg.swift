@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import 
 
 class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

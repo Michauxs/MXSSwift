@@ -10,15 +10,29 @@ import UIKit
 
 class MXSBaseVC: UIViewController, MXSVCPtc {
 
+	var NavBar : MXSNavBar?
+	
+	let receiveCmdArgsPost = { (args:Any)  in
+		
+	}
+	let receiveCmdArgsBack = { (args:Any)  in
+		
+	}
+	
+	public func receiveArgsBePost(args:Any) {
+		
+	}
+	public func receiveArgsBeBack(args:Any) {
+		
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		self.view.backgroundColor = UIColor.init(white: 0.3, alpha: 1)
-        // Do any additional setup after loading the view.
+		
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+	public func didNavBarLeftClick () {
+		print("BaseVC didNavBarLeftClick")
+	}
 }

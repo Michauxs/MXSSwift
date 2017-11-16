@@ -11,5 +11,7 @@ import Foundation
 @objc protocol MXSVCPtc {
 	
 	@objc optional func ReceiveCmdArgsActionPost(args:Any)
+	
 	@objc optional func ReceiveCmdArgsActionBack(args:Any)
+	
 }

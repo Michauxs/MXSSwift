@@ -9,17 +9,23 @@
 import UIKit
 
 class MXSNoteVC: MXSBaseVC {
-	func ReceiveCmdArgsActionBack(args: Any) {
-		
-	}
-	func ReceiveCmdArgsActionPost(args: Any) {
-		
+	
+	override func receiveArgsBePost(args: Any) {
+		let str = args as! String
+		print("MXSNoteVC receive post : " + str)
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		NavBar = MXSNavBar.init(vc: self)
+		self.view.addSubview(NavBar!)
+		NavBar?.setBackground(color: UIColor.white)
 	}
 	
+	override func didNavBarLeftClick () {
+		print("MXSNoteVC didNavBarLeftClick")
+		MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: "1")
+	}
 	
 }

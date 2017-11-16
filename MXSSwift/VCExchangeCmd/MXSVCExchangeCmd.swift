@@ -9,18 +9,20 @@
 import UIKit
 
 class MXSVCExchangeCmd: NSObject {
-//	class func shard() -> (MXSVCExchangeCmd) {
-//
-//	}
 	
 	static let shared = MXSVCExchangeCmd()
 	
 	func SourseVCPushDestVC(sourse:MXSBaseVC, dest:MXSBaseVC, args:Any) {
 		
+		dest.receiveArgsBePost(args: args)
+		dest.hidesBottomBarWhenPushed = true
 		sourse.navigationController?.pushViewController(dest, animated: true)
+		
 	}
 	
-	func demo() {
-//		SourseVCPushDestVC(sourse: self, dest: self, args: nil)
+	func SourseVCPop (sourse:MXSBaseVC, args:Any) {
+		sourse.navigationController?.popViewController(animated: true)
+		let pop = sourse.navigationController?.viewControllers.last as! MXSBaseVC
+		pop.receiveArgsBeBack(args:args)
 	}
 }
