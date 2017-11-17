@@ -42,31 +42,29 @@ class MXSNavBar: UIView {
 	
 	func setupSubviews() {
 		let screen_width = UIScreen.main.bounds.size.width
-		let self_height = self.bounds.size.height
 		
 		topBackground = UIView.init(frame: CGRect.init(x: 0, y: -20, width: screen_width, height: 20))
 		self.addSubview(topBackground!)
 		
-		leftBtn = UIButton.init(frame: CGRect.init(x: 15, y: 0, width: 44, height: self_height))
-		leftBtn?.setTitle("Back", for: .normal)
-		leftBtn?.setTitleColor(UIColor.black, for: .normal)
+		leftBtn = UIButton.init(text: "Back", fontSize: 16, textColor: UIColor.black, background: UIColor.white)
 		self.addSubview(leftBtn!)
+		leftBtn!.mas_makeConstraints({ (make:MASConstraintMaker!) in
+			make.left.equalTo()(self)?.offset()(10)
+			make.centerY.equalTo()(self)
+			make.size.mas_equalTo()(CGSize.init(width: 44, height: 44))
+		})
 		leftBtn?.addTarget(self, action: #selector(self.didLeftBtnClick), for: .touchUpInside)
 		
-		rightBtn = UIButton.init(frame: CGRect.init(x: screen_width - 15 - 44, y: 0, width: 44, height: self_height))
-		rightBtn?.setTitle("Save", for: .normal)
-		rightBtn?.setTitleColor(UIColor.black, for: .normal)
+		rightBtn = UIButton.init(text: "Save", fontSize: 16, textColor: UIColor.black, background: MXSNothing.shared)
 		self.addSubview(rightBtn!)
+		rightBtn!.mas_makeConstraints({ (make:MASConstraintMaker!) in
+			make.right.equalTo()(self)?.offset()(-10)
+			make.centerY.equalTo()(self)
+			make.size.mas_equalTo()(CGSize.init(width: 44, height: 44))
+		})
 		
 		titleLabel = UILabel.init(text:"Title", fontSize:18, textColor:UIColor.black, alignment:.left)
-//		titleLabel = UILabel.init()
-//		titleLabel?.text = "Title"
-//		titleLabel?.textColor = UIColor.black
-//		titleLabel?.font = UIFont.systemFont(ofSize: 18)
 		self.addSubview(titleLabel!)
-//		titleLabel?.center = CGPoint.init(x: self.center.x, y: self.center.y)
-		titleLabel?.sizeToFit()
-//		titleLabel?.frame = CGRect.init(x: (screen_width-(titleLabel?.bounds.size.width)!)*0.5, y: (44-(titleLabel?.bounds.size.height)!)*0.5, width: (titleLabel?.bounds.size.width)!, height: (titleLabel?.bounds.size.height)!)
 		titleLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
 			make!.center.equalTo()(self)
 		})

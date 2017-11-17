@@ -16,24 +16,24 @@ class MXSHomeVC: MXSBaseVC {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad();
-		self.view.backgroundColor = UIColor.darkGray;
+		view.backgroundColor = UIColor.darkGray;
 		
-		
-		NavBar = MXSNavBar.init(vc: self)
-		self.view.addSubview(NavBar!)
-		NavBar?.setBackground(color: UIColor.white)
+		super.bindingNavBar()
 		NavBar?.hideLeftBtn(ishidden: true)
 		NavBar?.hideRightBtn(ishidden: true)
 		
-		let btn = UIButton.init(type: UIButtonType.contactAdd)
+		let btn = UIButton.init(text: "Action", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(btn)
-		btn.frame = CGRect.init(x: 40, y: 80, width: 50, height: 30)
+		btn.mas_makeConstraints { (make:MASConstraintMaker!) in
+			make.left.equalTo()(view)?.offset()(30)
+			make.top.equalTo()(view)?.offset()(130)
+			make.size.mas_equalTo()(CGSize.init(width: 120, height: 40))
+		}
 		btn.addTarget(self, action: #selector(self.btnClick), for: .touchUpInside)
 	}
 	
 	@objc func btnClick() {
-		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSNoteVC(), args: "0")
+		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSNoteVC(), args: MXSNothing.shared)
 	}
-	
 	
 }
