@@ -19,8 +19,8 @@ class MXSHomeVC: MXSBaseVC {
 		view.backgroundColor = UIColor.darkGray;
 		
 		super.bindingNavBar()
-		NavBar?.hideLeftBtn(ishidden: true)
-		NavBar?.hideRightBtn(ishidden: true)
+		NavBar?.hideLeftBtn()
+		NavBar?.hideRightBtn()
 		
 		let btn = UIButton.init(text: "Action", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(btn)

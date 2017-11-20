@@ -46,7 +46,9 @@ class MXSNavBar: UIView {
 		topBackground = UIView.init(frame: CGRect.init(x: 0, y: -20, width: screen_width, height: 20))
 		self.addSubview(topBackground!)
 		
-		leftBtn = UIButton.init(text: "Back", fontSize: 16, textColor: UIColor.black, background: UIColor.white)
+//		leftBtn = UIButton.init(text: "Back", fontSize: 16, textColor: UIColor.black, background: UIColor.white)
+		leftBtn = UIButton.init()
+		leftBtn?.setImage(UIImage.init(named: "nav_back_theme"), for: .normal)
 		self.addSubview(leftBtn!)
 		leftBtn!.mas_makeConstraints({ (make:MASConstraintMaker!) in
 			make.left.equalTo()(self)?.offset()(10)
@@ -76,15 +78,54 @@ class MXSNavBar: UIView {
 	}
 	
 	//actions
+	//title
+	public func setTitle (value:Any, attr:String) {
+		if attr == kNAVAttrArgsText {
+			titleLabel?.text = value as? String
+		} else if attr == kNAVAttrArgsTextColor {
+			titleLabel?.textColor = value as! UIColor
+		} else if attr == kNAVAttrArgsFont {
+			titleLabel?.font = UIFont.systemFont(ofSize: value as! CGFloat)
+		}
+	}
+	
+	//left-right btn
+	public func setLeftImgBtn (imgName:String) {
+		leftBtn?.setImage(UIImage.init(named: imgName), for: .normal)
+	}
+	public func setRightImgBtn (imgName:String) {
+		rightBtn?.setImage(UIImage.init(named: imgName), for: .normal)
+	}
+	public func setLeftTextBtn (text:String) {
+		leftBtn?.setTitle(text, for: .normal)
+	}
+	public func setRightTextBtn (text:String) {
+		rightBtn?.setTitle(text, for: .normal)
+	}
+	public func replaceLeftBtn (btn:UIButton) {
+		leftBtn = btn
+	}
+	public func replaceRightBtn (btn:UIButton) {
+		rightBtn = btn
+	}
+	
+	public func hideLeftBtn() {
+		leftBtn?.isHidden = true
+	}
+	public func hideRightBtn () {
+		rightBtn?.isHidden = true
+	}
+	public func showLeftBtn() {
+		leftBtn?.isHidden = false
+	}
+	public func showRightBtn () {
+		rightBtn?.isHidden = false
+	}
+	
+	//background
 	public func setBackground ( color:UIColor) {
 		self.backgroundColor = color
 		topBackground?.backgroundColor = color
-	}
-	public func hideLeftBtn ( ishidden:Bool) {
-		leftBtn?.isHidden = ishidden
-	}
-	public func hideRightBtn ( ishidden:Bool) {
-		rightBtn?.isHidden = ishidden
 	}
 	
 }

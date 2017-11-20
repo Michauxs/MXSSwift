@@ -23,6 +23,7 @@
 		70253E1A1FBD9F2100A95274 /* View+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 70253E0D1FBD9F2100A95274 /* View+MASAdditions.m */; };
 		70253E1B1FBD9F2100A95274 /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 70253E101FBD9F2100A95274 /* ViewController+MASAdditions.m */; };
 		70253E1F1FBDA28A00A95274 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70253E1E1FBDA28900A95274 /* ViewController.swift */; };
+		702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702DCD891FC28D49002CC776 /* MXSDefines.swift */; };
 		702E43331FBEDF300017A7D8 /* MXSNothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702E43321FBEDF300017A7D8 /* MXSNothing.swift */; };
 		702E43351FBEE41F0017A7D8 /* MXSFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702E43341FBEE41F0017A7D8 /* MXSFile.swift */; };
 		703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8C11FBA9B1D0059A632 /* AppDelegate.swift */; };
@@ -72,6 +73,7 @@
 		70253E101FBD9F2100A95274 /* ViewController+MASAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+MASAdditions.m"; sourceTree = "<group>"; };
 		70253E1D1FBDA04F00A95274 /* Header-Briding-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Header-Briding-Header.h"; sourceTree = "<group>"; };
 		70253E1E1FBDA28900A95274 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		702DCD891FC28D49002CC776 /* MXSDefines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSDefines.swift; sourceTree = "<group>"; };
 		702E43321FBEDF300017A7D8 /* MXSNothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNothing.swift; sourceTree = "<group>"; };
 		702E43341FBEE41F0017A7D8 /* MXSFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSFile.swift; sourceTree = "<group>"; };
 		703DA8C11FBA9B1D0059A632 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				70253E1D1FBDA04F00A95274 /* Header-Briding-Header.h */,
+				702DCD891FC28D49002CC776 /* MXSDefines.swift */,
 			);
 			path = "Support Files";
 			sourceTree = "<group>";
@@ -416,6 +419,7 @@
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
 				70253E1A1FBD9F2100A95274 /* View+MASAdditions.m in Sources */,
 				70253E171FBD9F2100A95274 /* MASViewConstraint.m in Sources */,
+				702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */,
 				70253E131FBD9F2100A95274 /* MASConstraint.m in Sources */,
 				703DA8E01FBAB9BA0059A632 /* MXSProfileVC.swift in Sources */,
 			);
