@@ -35,7 +35,11 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 		NavBar?.setBackground(color: UIColor.white)
 	}
 	
+	//navbar notify
 	public func didNavBarLeftClick () {
 		print("BaseVC didNavBarLeftClick")
+	}
+	public func didNavBarRightClick () {
+		print("BaseVC didNavBarRightClick")
 	}
 }

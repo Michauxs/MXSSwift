@@ -10,26 +10,18 @@ import UIKit
 
 class MXSNavBar: UIView {
 	
-	var leftBtn : UIButton?
-	var rightBtn : UIButton?
+	public var leftBtn : UIButton?
+	public var rightBtn : UIButton?
 	var titleLabel : UILabel?
 	var topBackground : UIView?
 	weak var controller : MXSBaseVC?
-
-	//init with controller
-//	public func initWithVC (vc:MXSBaseVC) {
-//
-//		let screen_width = UIScreen.main.bounds.size.width
-//		super.init(frame: CGRect.init(x: 0, y: 20, width: screen_width, height: 44))
-//		setupSubviews()
-//		controller = vc
-//	}
 	
 	override init(frame: CGRect) {
 		super.init(frame: frame)
 		setupSubviews()
 	}
 	
+	//init with controller
 	convenience init(vc:MXSBaseVC) {
 		let screen_width = UIScreen.main.bounds.size.width
 		self.init(frame: CGRect.init(x: 0, y: 20, width: screen_width, height: 44))
@@ -58,12 +50,14 @@ class MXSNavBar: UIView {
 		leftBtn?.addTarget(self, action: #selector(self.didLeftBtnClick), for: .touchUpInside)
 		
 		rightBtn = UIButton.init(text: "Save", fontSize: 16, textColor: UIColor.black, background: MXSNothing.shared)
+		rightBtn?.setTitleColor(UIColor.gray, for: .disabled)
 		self.addSubview(rightBtn!)
 		rightBtn!.mas_makeConstraints({ (make:MASConstraintMaker!) in
 			make.right.equalTo()(self)?.offset()(-10)
 			make.centerY.equalTo()(self)
 			make.size.mas_equalTo()(CGSize.init(width: 44, height: 44))
 		})
+		rightBtn?.addTarget(self, action: #selector(self.didRightBtnClick), for: .touchUpInside)
 		
 		titleLabel = UILabel.init(text:"Title", fontSize:18, textColor:UIColor.black, alignment:.left)
 		self.addSubview(titleLabel!)
@@ -75,6 +69,9 @@ class MXSNavBar: UIView {
 	//notifies
 	@objc func didLeftBtnClick () {
 		controller?.didNavBarLeftClick()
+	}
+	@objc func didRightBtnClick () {
+		controller?.didNavBarRightClick()
 	}
 	
 	//actions
@@ -102,10 +99,21 @@ class MXSNavBar: UIView {
 	public func setRightTextBtn (text:String) {
 		rightBtn?.setTitle(text, for: .normal)
 	}
+	
+	public func updateRightEnableState (isable:Bool) {
+		rightBtn?.isEnabled = isable
+	}
+	
 	public func replaceLeftBtn (btn:UIButton) {
+		btn.frame = (leftBtn?.frame)!
+		self.addSubview(btn)
+		btn.addTarget(self, action: #selector(self.didLeftBtnClick), for: .touchUpInside)
 		leftBtn = btn
 	}
 	public func replaceRightBtn (btn:UIButton) {
+		btn.frame = (rightBtn?.frame)!
+		self.addSubview(btn)
+		btn.addTarget(self, action: #selector(self.didRightBtnClick), for: .touchUpInside)
 		rightBtn = btn
 	}
 	

@@ -37,6 +37,7 @@
 		703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */; };
 		703DA8E71FBAD0200059A632 /* MXSVCPtc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */; };
 		703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */; };
+		70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70669FE51FC3E3DE001C209C /* MXSNetWork.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -88,6 +89,7 @@
 		703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCExchangeCmd.swift; sourceTree = "<group>"; };
 		703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCPtc.swift; sourceTree = "<group>"; };
 		703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNoteVC.swift; sourceTree = "<group>"; };
+		70669FE51FC3E3DE001C209C /* MXSNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNetWork.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -190,6 +192,7 @@
 			children = (
 				702E43321FBEDF300017A7D8 /* MXSNothing.swift */,
 				702E43341FBEE41F0017A7D8 /* MXSFile.swift */,
+				70669FE51FC3E3DE001C209C /* MXSNetWork.swift */,
 			);
 			path = CommonClass;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 				70253E1A1FBD9F2100A95274 /* View+MASAdditions.m in Sources */,
 				70253E171FBD9F2100A95274 /* MASViewConstraint.m in Sources */,
 				702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */,
+				70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */,
 				70253E131FBD9F2100A95274 /* MASConstraint.m in Sources */,
 				703DA8E01FBAB9BA0059A632 /* MXSProfileVC.swift in Sources */,
 			);
