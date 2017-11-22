@@ -25,7 +25,6 @@
 		70253E1F1FBDA28A00A95274 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70253E1E1FBDA28900A95274 /* ViewController.swift */; };
 		702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702DCD891FC28D49002CC776 /* MXSDefines.swift */; };
 		702E43331FBEDF300017A7D8 /* MXSNothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702E43321FBEDF300017A7D8 /* MXSNothing.swift */; };
-		702E43351FBEE41F0017A7D8 /* MXSFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702E43341FBEE41F0017A7D8 /* MXSFile.swift */; };
 		703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8C11FBA9B1D0059A632 /* AppDelegate.swift */; };
 		703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8D51FBAB7AA0059A632 /* MXSBaseVC.swift */; };
 		703DA8D81FBAB8150059A632 /* MXSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8D71FBAB8150059A632 /* MXSTabBarController.swift */; };
@@ -37,6 +36,8 @@
 		703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */; };
 		703DA8E71FBAD0200059A632 /* MXSVCPtc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */; };
 		703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */; };
+		70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FAD1FC577BA004EAE1D /* MXSTableView.swift */; };
+		70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FB11FC58783004EAE1D /* MXSHomeCell.swift */; };
 		70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70669FE51FC3E3DE001C209C /* MXSNetWork.swift */; };
 		9590C4F1BC17910CE38A89E5 /* Pods_MXSSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */; };
 /* End PBXBuildFile section */
@@ -79,7 +80,6 @@
 		70253E1E1FBDA28900A95274 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		702DCD891FC28D49002CC776 /* MXSDefines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSDefines.swift; sourceTree = "<group>"; };
 		702E43321FBEDF300017A7D8 /* MXSNothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNothing.swift; sourceTree = "<group>"; };
-		702E43341FBEE41F0017A7D8 /* MXSFile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSFile.swift; sourceTree = "<group>"; };
 		703DA8C11FBA9B1D0059A632 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		703DA8C21FBA9B1D0059A632 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		703DA8D51FBAB7AA0059A632 /* MXSBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXS\U0010\U0010BaseVC.swift"; sourceTree = "<group>"; };
@@ -92,6 +92,8 @@
 		703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCExchangeCmd.swift; sourceTree = "<group>"; };
 		703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCPtc.swift; sourceTree = "<group>"; };
 		703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNoteVC.swift; sourceTree = "<group>"; };
+		70663FAD1FC577BA004EAE1D /* MXSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableView.swift; sourceTree = "<group>"; };
+		70663FB11FC58783004EAE1D /* MXSHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeCell.swift; sourceTree = "<group>"; };
 		70669FE51FC3E3DE001C209C /* MXSNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNetWork.swift; sourceTree = "<group>"; };
 		C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MXSSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -207,7 +209,6 @@
 			isa = PBXGroup;
 			children = (
 				702E43321FBEDF300017A7D8 /* MXSNothing.swift */,
-				702E43341FBEE41F0017A7D8 /* MXSFile.swift */,
 				70669FE51FC3E3DE001C209C /* MXSNetWork.swift */,
 			);
 			path = CommonClass;
@@ -271,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				703DA8D91FBAB9390059A632 /* MXSHomeVC.swift */,
+				70663FB11FC58783004EAE1D /* MXSHomeCell.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -313,6 +315,7 @@
 			isa = PBXGroup;
 			children = (
 				70253DEF1FBD780200A95274 /* MXSNavBar.swift */,
+				70663FAD1FC577BA004EAE1D /* MXSTableView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 				703DA8D81FBAB8150059A632 /* MXSTabBarController.swift in Sources */,
 				70253DF01FBD780200A95274 /* MXSNavBar.swift in Sources */,
 				703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */,
+				70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */,
 				703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */,
 				703DA8E21FBAB9E60059A632 /* MXSTableDlg.swift in Sources */,
 				70253E161FBD9F2100A95274 /* MASViewAttribute.m in Sources */,
@@ -495,10 +499,10 @@
 				703DA8DE1FBAB9AA0059A632 /* MXSContentVC.swift in Sources */,
 				703DA8DA1FBAB9390059A632 /* MXSHomeVC.swift in Sources */,
 				70253DF31FBD99F600A95274 /* UILabel+Extension.swift in Sources */,
-				702E43351FBEE41F0017A7D8 /* MXSFile.swift in Sources */,
 				70253E121FBD9F2100A95274 /* MASCompositeConstraint.m in Sources */,
 				702E43331FBEDF300017A7D8 /* MXSNothing.swift in Sources */,
 				70253E181FBD9F2100A95274 /* NSArray+MASAdditions.m in Sources */,
+				70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */,
 				703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
 				70253E1A1FBD9F2100A95274 /* View+MASAdditions.m in Sources */,

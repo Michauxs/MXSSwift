@@ -8,22 +8,36 @@
 
 import UIKit
 
+
 class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
+	
+	var queryData : Array<Any>?
+	var cellName : String?
+	var rowHeight : CGFloat?
+	var controller : MXSBaseVC?
+	
+	
+	func changeData(data:Array<Any>) {
+		queryData = data
+	}
+	
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return 4;
+		return (queryData?.count)!;
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "", for: indexPath)
+		let cell:MXSHomeCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSHomeCell
+//		let cell = UITableViewCell.init(style: .default, reuseIdentifier: "DEFAULT")
+		cell.textLabel?.text = queryData?[indexPath.row] as? String
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return 64
+		return rowHeight!
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		
+		controller?.tableSelectedRowAt(indexPath: indexPath)
 	}
 	
 }

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MXSNothing : NSObject {
+class MXSNothing : Any {
 	
 	static public let shared = MXSNothing()
 }

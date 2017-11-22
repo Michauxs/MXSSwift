@@ -18,27 +18,21 @@ class MXSNetWork : NSObject {
 		let RemoteRootURL = "http://altlys.com:9000/"
 	#endif
 	
+	let headers: HTTPHeaders = [
+		"Content-Type": "application/json",
+		"Accept": "application/json"
+	]
+	
+	// MARK: singleton
 	static let shared = MXSNetWork.init()
 	
-	public func requestRemote(route:String, completeBlock:(Any) -> (Any)) {
-		
-		let para : Parameters = ["phone":"17600365924"]
-		let headers: HTTPHeaders = [
-			"Content-Type": "application/json",
-			"Accept": "application/json"
-		]
-		
-//		var args:Any?
+	public func requestRemote(route:String, para:Dictionary<String, Any>, completeBlock:@escaping (Any) -> Void) {
 		
 		Alamofire.request( RemoteRootURL + "al/code/send", method: .post, parameters: para, encoding: JSONEncoding.default, headers: headers).responseJSON { response in
-			args = response.result.value
-			completeBlock(args)
+			completeBlock(response.result.value as Any)
 		}
-//		return args as Any
 	}
 	
-	let completeBlock:(Any) -> (Any) = {(args:Any)->Any in
-		return args
-	}
+	
 	
 }

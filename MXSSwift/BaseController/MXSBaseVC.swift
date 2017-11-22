@@ -11,11 +11,7 @@ import UIKit
 class MXSBaseVC: UIViewController, MXSVCPtc {
 
 	var NavBar : MXSNavBar?
-	
-//	let receiveCmdArgsPost = { (args:Any)  in
-//	}
-//	let receiveCmdArgsBack = { (args:Any)  in
-//	}
+	var TableView : MXSTableView?
 	
 	public func receiveArgsBePost(args:Any) {
 		print("no subVC received args be post")
@@ -27,6 +23,7 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
     override func viewDidLoad() {
         super.viewDidLoad()
 		view.backgroundColor = UIColor.init(white: 0.3, alpha: 1)
+		automaticallyAdjustsScrollViewInsets = false
     }
 
 	public func bindingNavBar () {
@@ -34,18 +31,29 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 		view.addSubview(NavBar!)
 		NavBarLayout()
 	}
-	
-	//layout
-	public func NavBarLayout() {
-		
-		NavBar?.setBackground(color: UIColor.white)
+	public func bindingTableView (style:UITableViewStyle = UITableViewStyle.grouped) {
+		TableView = MXSTableView.init(frame: .zero, style: style)
+		view.addSubview(TableView!)
+		TableLayout()
 	}
 	
-	//navbar notify
+	//MARK: layout
+	public func NavBarLayout() {
+		NavBar?.setBackground(color: UIColor.white)
+	}
+	public func TableLayout() {
+		TableView?.backgroundColor = UIColor.brown
+	}
+	
+	//MARK: navbar notify
 	public func didNavBarLeftClick () {
 		print("BaseVC didNavBarLeftClick")
 	}
 	public func didNavBarRightClick () {
 		print("BaseVC didNavBarRightClick")
+	}
+	
+	public func tableSelectedRowAt (indexPath:IndexPath) {
+		
 	}
 }
