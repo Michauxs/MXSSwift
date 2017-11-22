@@ -16,7 +16,7 @@ extension UIButton {
 		self.setTitle(text, for: .normal)
 		self.setTitleColor(textColor, for: .normal)
 		self.titleLabel?.font = UIFont.systemFont(ofSize: fontSize)
-		if !(background is MXSNothing) {
+		if ((background as AnyObject).isKind(of: object_getClass(UIColor.self)!)) {
 			self.backgroundColor = (background as! UIColor)
 		}
 	}

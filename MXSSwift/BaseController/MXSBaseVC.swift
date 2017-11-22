@@ -32,6 +32,12 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	public func bindingNavBar () {
 		NavBar = MXSNavBar.init(vc: self)
 		view.addSubview(NavBar!)
+		NavBarLayout()
+	}
+	
+	//layout
+	public func NavBarLayout() {
+		
 		NavBar?.setBackground(color: UIColor.white)
 	}
 	

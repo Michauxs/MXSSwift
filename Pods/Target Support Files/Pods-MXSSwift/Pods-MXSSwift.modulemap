@@ -1,0 +1,6 @@
+framework module Pods_MXSSwift {
+  umbrella header "Pods-MXSSwift-umbrella.h"
+
+  export *
+  module * { export * }
+}

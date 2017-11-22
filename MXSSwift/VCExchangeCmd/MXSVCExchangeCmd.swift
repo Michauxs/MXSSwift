@@ -13,7 +13,7 @@ class MXSVCExchangeCmd: NSObject {
 	static let shared = MXSVCExchangeCmd()
 	
 	func SourseVCPushDestVC(sourse:MXSBaseVC, dest:MXSBaseVC, args:Any) {
-		if !(args is MXSNothing) {
+		if !(args as! String == kMXSNil) {
 			dest.receiveArgsBePost(args: args)
 		}
 		dest.hidesBottomBarWhenPushed = true
@@ -24,7 +24,7 @@ class MXSVCExchangeCmd: NSObject {
 	func SourseVCPop (sourse:MXSBaseVC, args:Any) {
 		sourse.navigationController?.popViewController(animated: true)
 		let pop = sourse.navigationController?.viewControllers.last as! MXSBaseVC
-		if !(args is MXSNothing) {
+		if !(args as! String == kMXSNil) {
 			pop.receiveArgsBeBack(args:args)
 		}
 	}
@@ -34,7 +34,7 @@ class MXSVCExchangeCmd: NSObject {
 			if vc.isKind(of: object_getClass(dest)!) {
 				
 				sourse.navigationController?.popToViewController(vc, animated: true)
-				if !(args is MXSNothing) {
+				if !(args as! String == kMXSNil) {
 					(vc as! MXSBaseVC).receiveArgsBeBack(args:args)
 				}
 			}
@@ -43,7 +43,7 @@ class MXSVCExchangeCmd: NSObject {
 	func SourseVCPopToRoot(sourse:MXSBaseVC, args:Any) {
 		sourse.navigationController?.popToRootViewController(animated: true)
 		let pop = sourse.navigationController?.viewControllers.last as! MXSBaseVC
-		if !(args is MXSNothing) {
+		if !(args as! String == kMXSNil) {
 			pop.receiveArgsBeBack(args:args)
 		}
 	}
