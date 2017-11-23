@@ -36,6 +36,9 @@
 		703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */; };
 		703DA8E71FBAD0200059A632 /* MXSVCPtc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */; };
 		703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */; };
+		705818341FC6ABFF009CE7E0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818331FC6ABFF009CE7E0 /* UIView+Extension.swift */; };
+		705818361FC6AF31009CE7E0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818351FC6AF31009CE7E0 /* UIColor+Extension.swift */; };
+		705818381FC6B62B009CE7E0 /* MXSHomeDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818371FC6B62B009CE7E0 /* MXSHomeDlg.swift */; };
 		70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FAD1FC577BA004EAE1D /* MXSTableView.swift */; };
 		70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FB11FC58783004EAE1D /* MXSHomeCell.swift */; };
 		70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70669FE51FC3E3DE001C209C /* MXSNetWork.swift */; };
@@ -92,6 +95,9 @@
 		703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCExchangeCmd.swift; sourceTree = "<group>"; };
 		703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCPtc.swift; sourceTree = "<group>"; };
 		703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNoteVC.swift; sourceTree = "<group>"; };
+		705818331FC6ABFF009CE7E0 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		705818351FC6AF31009CE7E0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		705818371FC6B62B009CE7E0 /* MXSHomeDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeDlg.swift; sourceTree = "<group>"; };
 		70663FAD1FC577BA004EAE1D /* MXSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableView.swift; sourceTree = "<group>"; };
 		70663FB11FC58783004EAE1D /* MXSHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeCell.swift; sourceTree = "<group>"; };
 		70669FE51FC3E3DE001C209C /* MXSNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNetWork.swift; sourceTree = "<group>"; };
@@ -159,6 +165,8 @@
 			children = (
 				70253DF21FBD99F600A95274 /* UILabel+Extension.swift */,
 				70253DF41FBD9D3B00A95274 /* UIButton+Extension.swift */,
+				705818331FC6ABFF009CE7E0 /* UIView+Extension.swift */,
+				705818351FC6AF31009CE7E0 /* UIColor+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -273,6 +281,7 @@
 			children = (
 				703DA8D91FBAB9390059A632 /* MXSHomeVC.swift */,
 				70663FB11FC58783004EAE1D /* MXSHomeCell.swift */,
+				705818371FC6B62B009CE7E0 /* MXSHomeDlg.swift */,
 			);
 			path = HomeVC;
 			sourceTree = "<group>";
@@ -504,11 +513,14 @@
 				70253E181FBD9F2100A95274 /* NSArray+MASAdditions.m in Sources */,
 				70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */,
 				703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */,
+				705818361FC6AF31009CE7E0 /* UIColor+Extension.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
 				70253E1A1FBD9F2100A95274 /* View+MASAdditions.m in Sources */,
 				70253E171FBD9F2100A95274 /* MASViewConstraint.m in Sources */,
+				705818341FC6ABFF009CE7E0 /* UIView+Extension.swift in Sources */,
 				702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */,
 				70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */,
+				705818381FC6B62B009CE7E0 /* MXSHomeDlg.swift in Sources */,
 				70253E131FBD9F2100A95274 /* MASConstraint.m in Sources */,
 				703DA8E01FBAB9BA0059A632 /* MXSProfileVC.swift in Sources */,
 			);

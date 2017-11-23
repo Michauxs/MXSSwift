@@ -12,7 +12,7 @@ class MXSProfileVC: MXSBaseVC {
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		
-		self.view.backgroundColor = UIColor.brown;
+		self.view.backgroundColor = UIColor.random;
 		
 	}
 }

@@ -27,8 +27,7 @@ class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell:MXSHomeCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSHomeCell
-//		let cell = UITableViewCell.init(style: .default, reuseIdentifier: "DEFAULT")
-		cell.textLabel?.text = queryData?[indexPath.row] as? String
+		cell.titleLabel?.text = queryData?[indexPath.row] as? String
 		return cell
 	}
 	

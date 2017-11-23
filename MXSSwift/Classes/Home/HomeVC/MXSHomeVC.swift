@@ -11,7 +11,7 @@ import UIKit
 class MXSHomeVC: MXSBaseVC {
 	
 	
-	
+	//MARK:life cycle
 	override func receiveArgsBeBack(args: Any) {
 		print("MXSHomeVC receive back : " + (args as! String))
 	}
@@ -21,33 +21,36 @@ class MXSHomeVC: MXSBaseVC {
 		view.backgroundColor = UIColor.darkGray;
 		
 		super.bindingNavBar()
-		super.bindingTableView()
+		super.bindingTableView(style: .plain)
 		
-		let data_arr = ["123", "456", "456", "456", "456"]
+		let data_arr = ["车和日当午", "汗滴禾下土", "是指盘中餐", "粒粒皆辛苦", "23333"]
 		TableView?.dlg?.queryData = data_arr
 		
 		let btn = UIButton.init(text: "Push", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(btn)
 		btn.mas_makeConstraints { (make:MASConstraintMaker!) in
 			make.left.equalTo()(view)?.offset()(30)
-			make.top.equalTo()(NavBar?.mas_bottom)?.offset()(130)
+			make.bottom.equalTo()(view)?.offset()(-30-TAB_BAR_H)
 			make.size.mas_equalTo()(CGSize.init(width: 120, height: 40))
 		}
 		btn.addTarget(self, action: #selector(self.btnClick), for: .touchUpInside)
+		btn.isHidden = true
 		
 		let exchangeBtn = UIButton.init(text: "Action", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(exchangeBtn)
 		exchangeBtn.mas_makeConstraints { (make:MASConstraintMaker!) in
-			make.left.equalTo()(view)?.offset()(30)
-			make.top.equalTo()(view)?.offset()(130)
+			make.right.equalTo()(view)?.offset()(-30)
+			make.bottom.equalTo()(view)?.offset()(-30-TAB_BAR_H)
 			make.size.mas_equalTo()(CGSize.init(width: 120, height: 40))
 		}
 		exchangeBtn.addTarget(self, action: #selector(self.exBtnClick), for: .touchUpInside)
+		exchangeBtn.isHidden = true
 	}
 	
-	//layout
+	//MARK:layout
 	override func NavBarLayout() {
 		super.NavBarLayout()
+		NavBar?.titleLabel?.text = "首页"
 		NavBar?.rightBtn?.isHidden = true
 		NavBar?.leftBtn?.isHidden = true
 	}
@@ -56,10 +59,10 @@ class MXSHomeVC: MXSBaseVC {
 		TableView!.mas_makeConstraints { (make:MASConstraintMaker!) in
 			make?.edges.equalTo()(view)?.insets()(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: TAB_BAR_H, right: 0))
 		}
-		TableView?.register(cellName: "MXSHomeCell", delegate: MXSTableDlg(), vc: self, rowHeight:50)
+		TableView?.register(cellName: "MXSHomeCell", delegate: MXSTableDlg(), vc: self, rowHeight:90)
 	}
 	
-	//acions
+	//MARK:acions
 	@objc func btnClick() {
 		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSNoteVC(), args: kMXSNil)
 	}
@@ -86,5 +89,12 @@ class MXSHomeVC: MXSBaseVC {
 //		})
 //		print("_____continue02______")
 	}
+	
+	
+	//MARK:notifies
+	override func tableSelectedRowAt(indexPath: IndexPath) {
+		btnClick()
+	}
+	
 	
 }
