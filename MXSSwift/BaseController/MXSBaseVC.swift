@@ -34,6 +34,8 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	public func bindingTableView (style:UITableViewStyle = UITableViewStyle.plain) {
 		TableView = MXSTableView.init(frame: .zero, style: style)
 		view.addSubview(TableView!)
+		TableView?.backgroundColor = UIColor.white
+		TableView?.separatorStyle = .none
 		TableLayout()
 	}
 	
@@ -42,8 +44,7 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 		NavBar?.setBackground(color: UIColor.white)
 	}
 	public func TableLayout() {
-		TableView?.backgroundColor = UIColor.white
-		TableView?.separatorStyle = .none
+		
 	}
 	
 	//MARK: navbar notify
@@ -54,7 +55,12 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 		print("BaseVC didNavBarRightClick")
 	}
 	
+	//MARK: table notify
 	public func tableSelectedRowAt (indexPath:IndexPath) {
 		print("no subclass feedback this invoke /method")
+	}
+	public func tableDidScroll (offset_y:CGFloat) {
+		print("no subclass feedback this invoke /method")
+		print(offset_y)
 	}
 }

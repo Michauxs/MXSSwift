@@ -39,4 +39,11 @@ class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 		controller?.tableSelectedRowAt(indexPath: indexPath)
 	}
 	
+	
+	
+	//MARK:scrollview
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		let offset_y = scrollView.contentOffset.y
+		controller?.tableDidScroll(offset_y: offset_y)
+	}
 }

@@ -39,6 +39,7 @@
 		705818341FC6ABFF009CE7E0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818331FC6ABFF009CE7E0 /* UIView+Extension.swift */; };
 		705818361FC6AF31009CE7E0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818351FC6AF31009CE7E0 /* UIColor+Extension.swift */; };
 		705818381FC6B62B009CE7E0 /* MXSHomeDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818371FC6B62B009CE7E0 /* MXSHomeDlg.swift */; };
+		7058183A1FC6C63A009CE7E0 /* MXSProfileDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818391FC6C63A009CE7E0 /* MXSProfileDlg.swift */; };
 		70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FAD1FC577BA004EAE1D /* MXSTableView.swift */; };
 		70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FB11FC58783004EAE1D /* MXSHomeCell.swift */; };
 		70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70669FE51FC3E3DE001C209C /* MXSNetWork.swift */; };
@@ -98,6 +99,7 @@
 		705818331FC6ABFF009CE7E0 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		705818351FC6AF31009CE7E0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		705818371FC6B62B009CE7E0 /* MXSHomeDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeDlg.swift; sourceTree = "<group>"; };
+		705818391FC6C63A009CE7E0 /* MXSProfileDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSProfileDlg.swift; sourceTree = "<group>"; };
 		70663FAD1FC577BA004EAE1D /* MXSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableView.swift; sourceTree = "<group>"; };
 		70663FB11FC58783004EAE1D /* MXSHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeCell.swift; sourceTree = "<group>"; };
 		70669FE51FC3E3DE001C209C /* MXSNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNetWork.swift; sourceTree = "<group>"; };
@@ -298,6 +300,7 @@
 			isa = PBXGroup;
 			children = (
 				703DA8DF1FBAB9BA0059A632 /* MXSProfileVC.swift */,
+				705818391FC6C63A009CE7E0 /* MXSProfileDlg.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -512,6 +515,7 @@
 				702E43331FBEDF300017A7D8 /* MXSNothing.swift in Sources */,
 				70253E181FBD9F2100A95274 /* NSArray+MASAdditions.m in Sources */,
 				70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */,
+				7058183A1FC6C63A009CE7E0 /* MXSProfileDlg.swift in Sources */,
 				703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */,
 				705818361FC6AF31009CE7E0 /* UIColor+Extension.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
