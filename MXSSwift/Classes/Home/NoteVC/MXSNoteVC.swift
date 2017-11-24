@@ -12,7 +12,7 @@ class MXSNoteVC: MXSBaseVC {
 	
 	override func receiveArgsBePost(args: Any) {
 		let str = args as! String
-		print("MXSNoteVC receive post : " + str)
+		MXSLog("MXSNoteVC receive post : " + str)
 	}
 	
 	override func viewDidLoad() {
@@ -22,7 +22,7 @@ class MXSNoteVC: MXSBaseVC {
 	}
 	
 	override func didNavBarLeftClick () {
-		print("MXSNoteVC didNavBarLeftClick")
+		MXSLog("MXSNoteVC didNavBarLeftClick")
 		MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: "1")
 	}
 	

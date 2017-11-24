@@ -40,7 +40,6 @@ class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	
-	
 	//MARK:scrollview
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let offset_y = scrollView.contentOffset.y

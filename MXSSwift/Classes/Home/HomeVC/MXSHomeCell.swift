@@ -20,7 +20,7 @@ class MXSHomeCell: UITableViewCell {
 	
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
-//		backgroundColor = UIColor.random
+		
 		backgroundColor = UIColor.white
 		selectionStyle = .none
 		
@@ -45,7 +45,7 @@ class MXSHomeCell: UITableViewCell {
 		addSubview(themeLabel!)
 		themeLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
 			make.left.equalTo()(titleLabel)
-			make.top.equalTo()(titleLabel?.mas_bottom)?.offset()(5)
+			make.top.equalTo()(titleLabel?.mas_bottom)?.offset()(3)
 		})
 
 		priceLabel = UILabel.init(text: "¥:88", fontSize: 12, textColor: UIColor.red, alignment: .left)
@@ -60,7 +60,7 @@ class MXSHomeCell: UITableViewCell {
 		addSubview(ageLabel!)
 		ageLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
 			make.left.equalTo()(titleLabel)
-			make.top.equalTo()(themeLabel?.mas_bottom)?.offset()(5)
+			make.top.equalTo()(themeLabel?.mas_bottom)?.offset()(8)
 		})
 
 		bookLabel = UILabel.init(text: "已预订：6/8", fontSize: 12, textColor: UIColor.brown, alignment: .left)
@@ -71,11 +71,11 @@ class MXSHomeCell: UITableViewCell {
 			make.centerY.equalTo()(ageLabel)
 		})
 		
-		addrLabel = UILabel.init(text: "场地地址:Service address info", fontSize: 12, textColor: UIColor.random, alignment: .left)
+		addrLabel = UILabel.init(text: "地址:Service address info", fontSize: 12, textColor: UIColor.random, alignment: .left)
 		addSubview(addrLabel!)
 		addrLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
 			make.left.equalTo()(titleLabel)
-			make.top.equalTo()(ageLabel?.mas_bottom)?.offset()(5)
+			make.top.equalTo()(ageLabel?.mas_bottom)?.offset()(8)
 		})
 
 	}

@@ -12,7 +12,7 @@ class MXSContentVC: MXSBaseVC {
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		
-		self.view.backgroundColor = UIColor.red;
+		self.view.backgroundColor = UIColor.theme;
 		
 	}
 }

@@ -14,10 +14,10 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	var TableView : MXSTableView?
 	
 	public func receiveArgsBePost(args:Any) {
-		print("no subVC received args be post")
+		MXSLog("no subclass received args be post")
 	}
 	public func receiveArgsBeBack(args:Any) {
-		print("no subVC received args be back")
+		MXSLog("no subclass received args be back")
 	}
 	
     override func viewDidLoad() {
@@ -49,18 +49,17 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	
 	//MARK: navbar notify
 	public func didNavBarLeftClick () {
-		print("BaseVC didNavBarLeftClick")
+		MXSLog("no subclass respond method: didNavBarLeftClick")
 	}
 	public func didNavBarRightClick () {
-		print("BaseVC didNavBarRightClick")
+		MXSLog("no subclass respond method: didNavBarRightClick")
 	}
 	
 	//MARK: table notify
 	public func tableSelectedRowAt (indexPath:IndexPath) {
-		print("no subclass feedback this invoke /method")
+		
 	}
 	public func tableDidScroll (offset_y:CGFloat) {
-		print("no subclass feedback this invoke /method")
-		print(offset_y)
+		
 	}
 }

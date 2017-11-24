@@ -11,7 +11,7 @@ import UIKit
 class MXSProfileVC: MXSBaseVC {
 	
 	var userImageView : UIImageView?
-	var coverViewHeight : CGFloat = 120
+	var coverViewHeight : CGFloat = 150
 	
 	override func viewDidLoad() {
 		super.viewDidLoad();
@@ -35,17 +35,16 @@ class MXSProfileVC: MXSBaseVC {
 	//MARK:layout
 	override func TableLayout() {
 		TableView!.mas_makeConstraints({ (make:MASConstraintMaker!) in
-			make.edges.equalTo()(view)?.insets()(UIEdgeInsets.init(top: 0, left: 0, bottom: TAB_BAR_H, right: 0))
+			make.edges.equalTo()(view)?.insets()(UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0))
 		})
 		TableView?.contentInset = UIEdgeInsetsMake(coverViewHeight, 0, 0, 0)
-		TableView?.register(cellName: "MXSHomeCell", delegate: MXSProfileDlg(), vc: self, rowHeight:60)
-		let data_arr = ["车和日当午", "汗滴禾下土", "是指盘中餐", "粒粒皆辛苦", "23333"]
-		TableView?.dlg?.queryData = data_arr
+		TableView?.register(cellName: "MXSProfileCell", delegate: MXSProfileDlg(), vc: self, rowHeight:44)
+		
+		TableView?.dlg?.queryData = ["Model Exchange", "My Collection", "Person Setting", "About DongDa", "App Setting"]
 	}
 	
 	override func tableDidScroll(offset_y: CGFloat) {
 		let y = coverViewHeight + offset_y
-		print(y)
 		if y < 0 {
 			userImageView!.mas_updateConstraints({ (make:MASConstraintMaker!) in
 				make.height.mas_equalTo()(-offset_y)

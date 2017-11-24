@@ -13,7 +13,7 @@ class MXSHomeVC: MXSBaseVC {
 	
 	//MARK:life cycle
 	override func receiveArgsBeBack(args: Any) {
-		print("MXSHomeVC receive back : " + (args as! String))
+		MXSLog("MXSHomeVC receive back : " + (args as! String))
 	}
 	
 	override func viewDidLoad() {
@@ -57,7 +57,7 @@ class MXSHomeVC: MXSBaseVC {
 	override func TableLayout() {
 		super.TableLayout()
 		TableView!.mas_makeConstraints { (make:MASConstraintMaker!) in
-			make?.edges.equalTo()(view)?.insets()(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: TAB_BAR_H, right: 0))
+			make?.edges.equalTo()(view)?.insets()(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		}
 		TableView?.register(cellName: "MXSHomeCell", delegate: MXSTableDlg(), vc: self, rowHeight:90)
 	}
@@ -74,20 +74,13 @@ class MXSHomeVC: MXSBaseVC {
 		TableView?.reloadData()
 		
 //		let para = ["phone":"17600365924"]
-//		print("_____start01______")
+//		MXSLog("_____start01______")
 //		MXSNetWork.shared.requestRemote(route: "", para:para, completeBlock: { result in
-//			print("_____end01______")
-//			print(result)
+//			MXSLog("_____end01______")
+//			MXSLog(result)
 //		})
-//		print("_____continue01______")
+//		MXSLog("_____continue01______")
 		
-//		//并行测试
-//		print("_____start02______")
-//		MXSNetWork.shared.requestRemote(route: "", completeBlock: { result in
-//			print("_____end02______")
-//			print(result)
-//		})
-//		print("_____continue02______")
 	}
 	
 	

@@ -43,6 +43,8 @@
 		70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FAD1FC577BA004EAE1D /* MXSTableView.swift */; };
 		70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FB11FC58783004EAE1D /* MXSHomeCell.swift */; };
 		70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70669FE51FC3E3DE001C209C /* MXSNetWork.swift */; };
+		70A00E201FC7E753007C649C /* MXSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A00E1F1FC7E753007C649C /* MXSTableViewCell.swift */; };
+		70A00E221FC7EC36007C649C /* MXSProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A00E211FC7EC36007C649C /* MXSProfileCell.swift */; };
 		9590C4F1BC17910CE38A89E5 /* Pods_MXSSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -103,6 +105,8 @@
 		70663FAD1FC577BA004EAE1D /* MXSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableView.swift; sourceTree = "<group>"; };
 		70663FB11FC58783004EAE1D /* MXSHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeCell.swift; sourceTree = "<group>"; };
 		70669FE51FC3E3DE001C209C /* MXSNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNetWork.swift; sourceTree = "<group>"; };
+		70A00E1F1FC7E753007C649C /* MXSTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableViewCell.swift; sourceTree = "<group>"; };
+		70A00E211FC7EC36007C649C /* MXSProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSProfileCell.swift; sourceTree = "<group>"; };
 		C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MXSSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -150,8 +154,8 @@
 			children = (
 				703DA8E31FBAC9640059A632 /* VCExchangeCmd */,
 				703DA8D41FBAB7600059A632 /* BaseController */,
-				703DA8C91FBA9C350059A632 /* Classes */,
 				703DA8D01FBA9C350059A632 /* Common */,
+				703DA8C91FBA9C350059A632 /* Classes */,
 				703DA8C81FBA9C350059A632 /* lib */,
 				70253DF11FBD99B600A95274 /* Extension */,
 				703DA8D31FBA9C350059A632 /* Model */,
@@ -301,6 +305,7 @@
 			children = (
 				703DA8DF1FBAB9BA0059A632 /* MXSProfileVC.swift */,
 				705818391FC6C63A009CE7E0 /* MXSProfileDlg.swift */,
+				70A00E211FC7EC36007C649C /* MXSProfileCell.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -328,6 +333,7 @@
 			children = (
 				70253DEF1FBD780200A95274 /* MXSNavBar.swift */,
 				70663FAD1FC577BA004EAE1D /* MXSTableView.swift */,
+				70A00E1F1FC7E753007C649C /* MXSTableViewCell.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -520,6 +526,8 @@
 				705818361FC6AF31009CE7E0 /* UIColor+Extension.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
 				70253E1A1FBD9F2100A95274 /* View+MASAdditions.m in Sources */,
+				70A00E201FC7E753007C649C /* MXSTableViewCell.swift in Sources */,
+				70A00E221FC7EC36007C649C /* MXSProfileCell.swift in Sources */,
 				70253E171FBD9F2100A95274 /* MASViewConstraint.m in Sources */,
 				705818341FC6ABFF009CE7E0 /* UIView+Extension.swift in Sources */,
 				702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */,

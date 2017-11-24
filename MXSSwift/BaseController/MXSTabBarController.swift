@@ -13,7 +13,7 @@ class MXSTabBarController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let vc_arr = [MXSHomeVC(), MXSContentVC(), MXSFoundVC(), MXSProfileVC()]
+		let vc_arr = [MXSHomeVC(), /*MXSContentVC(), MXSFoundVC(), */MXSProfileVC()]
 		var nav_arr = Array<UINavigationController>()
 		
 		for vc in vc_arr {
@@ -26,11 +26,13 @@ class MXSTabBarController: UITabBarController {
 		self.viewControllers = nav_arr
 		
 		let title_arr = ["HOME", "CONT", "FOUN", "SET"]
-		for i in 0...title_arr.count-1 {
+		for i in 0...nav_arr.count-1 {
 			let str = title_arr[i] as String
 			setVCTabBarItem(vc: vc_arr[i], title: str, imageName: "tab_icon_" + String(i))
 		}
 		
+		tabBar.barTintColor = UIColor.white
+		tabBar.isTranslucent = false
 	}
 	
 	func setVCTabBarItem(vc:MXSBaseVC, title:String, imageName:String) {

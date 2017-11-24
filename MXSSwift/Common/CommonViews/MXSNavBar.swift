@@ -12,8 +12,9 @@ class MXSNavBar: UIView {
 	
 	public var leftBtn : UIButton?
 	public var rightBtn : UIButton?
-	var titleLabel : UILabel?
-	var topBackground : UIView?
+	public var titleLabel : UILabel?
+	public var topBackground : UIView?
+	public var btmLineLayer : CALayer?
 	weak var controller : MXSBaseVC?
 	
 	override init(frame: CGRect) {
@@ -23,8 +24,7 @@ class MXSNavBar: UIView {
 	
 	//init with controller
 	convenience init(vc:MXSBaseVC) {
-		let screen_width = UIScreen.main.bounds.size.width
-		self.init(frame: CGRect.init(x: 0, y: 20, width: screen_width, height: 44))
+		self.init(frame: CGRect.init(x: 0, y: 20, width: SCREEN_WIDTH, height: 44))
 		controller = vc
 	}
 	
@@ -33,9 +33,8 @@ class MXSNavBar: UIView {
 	}
 	
 	func setupSubviews() {
-		let screen_width = UIScreen.main.bounds.size.width
 		
-		topBackground = UIView.init(frame: CGRect.init(x: 0, y: -20, width: screen_width, height: 20))
+		topBackground = UIView.init(frame: CGRect.init(x: 0, y: -20, width: SCREEN_WIDTH, height: 20))
 		self.addSubview(topBackground!)
 		
 //		leftBtn = UIButton.init(text: "Back", fontSize: 16, textColor: UIColor.black, background: UIColor.white)
@@ -59,11 +58,16 @@ class MXSNavBar: UIView {
 		})
 		rightBtn?.addTarget(self, action: #selector(self.didRightBtnClick), for: .touchUpInside)
 		
-		titleLabel = UILabel.init(text:"Title", fontSize:18, textColor:UIColor.black, alignment:.left)
+		titleLabel = UILabel.init(text:"Title", fontSize:16, textColor:UIColor.black, alignment:.left)
 		self.addSubview(titleLabel!)
 		titleLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
 			make!.center.equalTo()(self)
 		})
+		
+		btmLineLayer = CALayer.init()
+		layer.addSublayer(btmLineLayer!)
+		btmLineLayer?.frame = CGRect.init(x: 0, y: NAV_BAR_H-0.5, width: SCREEN_WIDTH, height: 0.5)
+		btmLineLayer?.backgroundColor = UIColor.grayline.cgColor
 	}
 	
 	//notifies
