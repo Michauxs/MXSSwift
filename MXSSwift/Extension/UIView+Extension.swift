@@ -19,4 +19,9 @@ extension UIView {
 		clipsToBounds = true
 	}
 	
+	public func resizeScaleAspectFill() {
+		
+		contentMode = UIViewContentMode.scaleAspectFill
+		clipsToBounds = true
+	}
 }

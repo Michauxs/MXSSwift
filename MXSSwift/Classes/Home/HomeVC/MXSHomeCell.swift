@@ -25,7 +25,7 @@ class MXSHomeCell: UITableViewCell {
 		selectionStyle = .none
 		
 		thumImageView = UIImageView.init(image: UIImage.init(named: "default_img"))
-		thumImageView?.contentMode = UIViewContentMode.scaleAspectFill
+		thumImageView?.resizeScaleAspectFill()
 		addSubview(thumImageView!)
 		thumImageView!.mas_makeConstraints { (make:MASConstraintMaker!) in
 			make.left.equalTo()(self)?.offset()(10)
