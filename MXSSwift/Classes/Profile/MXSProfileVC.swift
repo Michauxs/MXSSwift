@@ -47,7 +47,7 @@ class MXSProfileVC: MXSBaseVC {
 	
 	//MARK:notifies
 	override func tableSelectedRowAt(indexPath: IndexPath) {
-		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSImagePickerVC(), args: kMXSNil)
+		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSImagePickerVC(), args: MXSNothing.shared)
 	}
 	
 	override func tableDidScroll(offset_y: CGFloat) {

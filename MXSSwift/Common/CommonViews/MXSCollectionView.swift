@@ -14,6 +14,9 @@ class MXSCollectionView: UICollectionView {
 
 	override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
 		super.init(frame: frame, collectionViewLayout: layout)
+		showsVerticalScrollIndicator = false
+		showsHorizontalScrollIndicator = false
+		
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

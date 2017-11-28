@@ -33,6 +33,8 @@ class MXSTabBarController: UITabBarController {
 		
 		tabBar.barTintColor = UIColor.white
 		tabBar.isTranslucent = false
+		
+		selectedIndex = 1
 	}
 	
 	func setVCTabBarItem(vc:MXSBaseVC, title:String, imageName:String) {
@@ -41,7 +43,7 @@ class MXSTabBarController: UITabBarController {
 		let selectImage = UIImage(named:(imageName as String)+"_select")?.withRenderingMode(.alwaysOriginal)
 		
 		let attr_color_normal:Dictionary = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 10), NSAttributedStringKey.foregroundColor:UIColor.darkGray]
-		let attr_color_select:Dictionary = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 10), NSAttributedStringKey.foregroundColor:UIColor.darkGray]
+		let attr_color_select:Dictionary = [NSAttributedStringKey.font:UIFont.systemFont(ofSize: 10), NSAttributedStringKey.foregroundColor:UIColor.theme]
 		
 		vc.tabBarItem = UITabBarItem.init(title: title, image: image, selectedImage: selectImage)
 		vc.tabBarItem!.setTitleTextAttributes(attr_color_normal, for: UIControlState.normal)

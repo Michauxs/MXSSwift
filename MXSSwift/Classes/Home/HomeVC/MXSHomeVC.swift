@@ -64,7 +64,7 @@ class MXSHomeVC: MXSBaseVC {
 	
 	//MARK:acions
 	@objc func btnClick() {
-		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSNoteVC(), args: kMXSNil)
+		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSNoteVC(), args: MXSNothing.shared)
 	}
 	
 	@objc func exBtnClick() {

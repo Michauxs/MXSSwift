@@ -23,7 +23,7 @@ class MXSNoteVC: MXSBaseVC {
 	
 	override func didNavBarLeftClick () {
 		MXSLog("MXSNoteVC didNavBarLeftClick")
-		MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: "1")
+		MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: MXSNothing.shared)
 	}
 	
 }

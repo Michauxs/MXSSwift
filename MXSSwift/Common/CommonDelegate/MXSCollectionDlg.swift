@@ -8,19 +8,26 @@
 
 import UIKit
 
-class MXSCollectionDlg: NSObject, UICollectionViewDelegate, UICollectionViewDataSource {
+class MXSCollectionDlg: NSObject, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
 	
-	var queryData : Any?
+	var queryData : Array<Any>?
 	var itemSize : CGSize?
 	var cellName : String?
 	var controller : MXSBaseVC?
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-		return 3
+		if queryData != nil {
+			MXSLog(queryData as Any)
+			return (queryData?.count)!
+		} else {
+			
+			return 0
+		}
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-		let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "mxs", for: indexPath)
+		let cell:MXSCollectionViewCell = collectionView.dequeueReusableCell(withReuseIdentifier: cellName!, for: indexPath) as! MXSCollectionViewCell
+		cell.cellData = queryData?[indexPath.row]
 		return cell
 	}
 	
@@ -28,7 +35,7 @@ class MXSCollectionDlg: NSObject, UICollectionViewDelegate, UICollectionViewData
 		
 	}
 	
-	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
+	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
 		return itemSize!
 	}
 	

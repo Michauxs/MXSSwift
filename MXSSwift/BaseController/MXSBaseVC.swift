@@ -22,7 +22,7 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		view.backgroundColor = UIColor.init(white: 0.3, alpha: 1)
+		view.backgroundColor = UIColor.init(white: 0.85, alpha: 1)
 		automaticallyAdjustsScrollViewInsets = false
     }
 
@@ -38,6 +38,17 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 		TableView?.separatorStyle = .none
 		TableLayout()
 	}
+	public func bindingCollectionView (layout:UICollectionViewFlowLayout) -> MXSCollectionView {
+		let CollectionView = MXSCollectionView.init(frame: .zero, collectionViewLayout: layout)
+		view.addSubview(CollectionView)
+//		LayoutView(view: CollectionView)
+		return CollectionView
+	}
+	public func bindingView () -> UIView {
+		let view_dest = UIView.init()
+		view.addSubview(view_dest)
+		return view_dest
+	}
 	
 	//MARK: layout
 	public func NavBarLayout() {
@@ -46,10 +57,14 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	public func TableLayout() {
 		
 	}
+	public func LayoutView (view: UIView) {
+		
+	}
 	
 	//MARK: navbar notify
 	public func didNavBarLeftClick () {
 		MXSLog("no subclass respond method: didNavBarLeftClick")
+		MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: MXSNothing.shared)
 	}
 	public func didNavBarRightClick () {
 		MXSLog("no subclass respond method: didNavBarRightClick")

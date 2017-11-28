@@ -10,33 +10,24 @@ import UIKit
 import AssetsLibrary
 
 class MXSImagePickerVC: MXSBaseVC {
-	//资源库管理类
+	
 	var assetsLibrary =  ALAssetsLibrary()
-	//保存照片集合
 	var assets = [ALAsset]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		var countOne:Int = 0
-		//ALAssetsGroupSavedPhotos表示只读取相机胶卷（ALAssetsGroupAll则读取全部相簿）
-		assetsLibrary.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group: ALAssetsGroup!, stop) in
-			MXSLog("is goin")
-			if group != nil {
-				let assetBlock : ALAssetsGroupEnumerationResultsBlock = { (result: ALAsset!, index: Int, stop) in
-					if result != nil {
-						self.assets.append(result)
-						countOne+=1
-					}
-				}
-				group.enumerateAssets(assetBlock)
-				MXSLog("assets:\(countOne)")
-				let img = self.assets[0].thumbnail().takeUnretainedValue()
-				MXSLog(img)
-			}
-			
-		}, failureBlock: { (fail) in
-			MXSLog(fail as Any)
-		})
+		bindingNavBar()
+		let coverImage = UIImageView.init(image: UIImage.init(named: "default_img"))
+		view.addSubview(coverImage)
+		coverImage.mas_makeConstraints { (make:MASConstraintMaker!) in
+			make.center.equalTo()(view)
+			make.size.mas_equalTo()(CGSize.init(width: SCREEN_WIDTH, height: SCREEN_WIDTH))
+		}
+		
+		MXSALAssetCmd.shard.enumALAsset { (assets) in
+			coverImage.image = MXSALAssetCmd.shard.getOriginalImage(asset: assets[0])
+		}
+		
 	}
 }

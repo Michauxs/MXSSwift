@@ -24,8 +24,6 @@ let kNAVAttrArgsTextColor =					"text_color"
 //let kNAVAttrArgsText =					"text"
 
 
-let kMXSNil = 								"nil"
-
 
 func MXSLog(_ args:Any) {
 	#if DEBUG
