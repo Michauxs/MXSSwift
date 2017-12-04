@@ -12,31 +12,50 @@ import AssetsLibrary
 class MXSALAssetCmd: NSObject {
 	
 	static public let shard = MXSALAssetCmd()
+	let assetsLibrary =  ALAssetsLibrary()
+	var assets = [ALAsset]()
 	
 	public func enumALAsset(completeBlock:@escaping (_ assets:Array<ALAsset>) -> Void) {
 	
-		let assetsLibrary =  ALAssetsLibrary()
-		var assets = [ALAsset]()
 		MXSLog("is go go")
 		assetsLibrary.enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group: ALAssetsGroup!, stop) in
 			MXSLog("is go in")
 			if group != nil {
 				let assetBlock : ALAssetsGroupEnumerationResultsBlock = { (result: ALAsset!, index: Int, stop) in
 					if result != nil {
-						assets.append(result)
+						self.assets.append(result)
 					}
 				}
 				group.enumerateAssets(assetBlock)
 				MXSLog("is go on")
-				completeBlock(assets)
+				completeBlock(self.assets)
 			}
-			
 			
 		}, failureBlock: { (fail) in
 			MXSLog(fail as Any)
 		})
-		
 	}
+	
+//	public func loadingAlasset (assets:UnsafeMutablePointer<Array<ALAsset>>, completeBlock:@escaping () -> Void) {
+//
+//		MXSLog("is go go")
+//		ALAssetsLibrary().enumerateGroupsWithTypes(ALAssetsGroupSavedPhotos, usingBlock: { (group: ALAssetsGroup!, stop) in
+//			MXSLog("is go in")
+//			if group != nil {
+//				let assetBlock : ALAssetsGroupEnumerationResultsBlock = { (result: ALAsset!, index: Int, stop) in
+//					if result != nil {
+//						assets.move().append(result)
+//					}
+//				}
+//				group.enumerateAssets(assetBlock)
+//				MXSLog("is go on")
+//				completeBlock()
+//			}
+//
+//		}, failureBlock: { (fail) in
+//			MXSLog(fail as Any)
+//		})
+//	}
 	
 	//获取缩略图
 	public func getThumImage(asset:ALAsset) -> UIImage {

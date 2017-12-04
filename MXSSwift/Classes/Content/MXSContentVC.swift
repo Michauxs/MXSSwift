@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import AssetsLibrary
 
 class MXSContentVC: MXSBaseVC {
 	
 	var collectionView : MXSCollectionView?
+	var demoArr : Array<ALAsset>?
+	
 	
 	override func viewDidLoad() {
 		super.viewDidLoad();
@@ -26,23 +29,25 @@ class MXSContentVC: MXSBaseVC {
 		collectionView = bindingCollectionView(layout: layout)
 		CollectionLayout()
 		
-		MXSALAssetCmd.shard.enumALAsset { (assets) in
-//			self.collectionView?.dlg?.queryData = assets
+		MXSPHAssetCmd.shard.enumPHAssets { (assets) in
+			(self.collectionView?.dlg as! MXSContentCDlg).queryData_content = assets
 			MXSLog(assets as Any)
-			
-			var images = [UIImage]()
-			for asset in assets {
-				images.append(MXSALAssetCmd.shard.getThumImage(asset: asset))
-			}
-			self.collectionView?.dlg?.queryData = images
 			self.collectionView?.reloadData()
+//			let img = MXSPHAssetCmd.shard.getAssetThumbnail(asset: assets[0])
+//			MXSLog(img)
 		}
+		
+//		MXSALAssetCmd.shard.enumALAsset { (assets) in
+//			self.collectionView?.dlg?.queryData = assets
+//			MXSLog(assets as Any)
+//			self.collectionView?.reloadData()
+//		}
 	}
 	
 	//MARK: layout
 	override func NavBarLayout() {
 		NavBar?.titleLabel?.text = "Photos"
-		NavBar?.rightBtn?.isHidden = true
+//		NavBar?.rightBtn?.isHidden = true
 		NavBar?.leftBtn?.isHidden = true
 	}
 	
@@ -57,7 +62,11 @@ class MXSContentVC: MXSBaseVC {
 //		let col:CGFloat = 4
 		let w_h = (SCREEN_WIDTH - 15 - 1) / 4
 //		let w_h = SCREEN_WIDTH / 2
-		collectionView?.register(cellName: "MXSContentItemCell", delegate: MXSCollectionDlg(), vc: self, itemSize: CGSize.init(width: w_h, height: w_h))
+		collectionView?.register(cellName: "MXSContentItemCell", delegate: MXSContentCDlg(), vc: self, itemSize: CGSize.init(width: w_h, height: w_h))
 	}
-	
+
+	//MARK:notifies
+	override func didNavBarRightClick() {
+		MXSLog(self.demoArr as Any)
+	}
 }

@@ -43,6 +43,9 @@
 		705818361FC6AF31009CE7E0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818351FC6AF31009CE7E0 /* UIColor+Extension.swift */; };
 		705818381FC6B62B009CE7E0 /* MXSHomeDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818371FC6B62B009CE7E0 /* MXSHomeDlg.swift */; };
 		7058183A1FC6C63A009CE7E0 /* MXSProfileDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818391FC6C63A009CE7E0 /* MXSProfileDlg.swift */; };
+		706003C21FD5269700759938 /* MXSPHAssetCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706003C11FD5269700759938 /* MXSPHAssetCmd.swift */; };
+		706003C51FD52C9500759938 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706003C41FD52C8300759938 /* Photos.framework */; };
+		706003C61FD52C9D00759938 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706003C31FD52C8300759938 /* PhotosUI.framework */; };
 		70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FAD1FC577BA004EAE1D /* MXSTableView.swift */; };
 		70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FB11FC58783004EAE1D /* MXSHomeCell.swift */; };
 		70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70669FE51FC3E3DE001C209C /* MXSNetWork.swift */; };
@@ -113,6 +116,9 @@
 		705818351FC6AF31009CE7E0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		705818371FC6B62B009CE7E0 /* MXSHomeDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeDlg.swift; sourceTree = "<group>"; };
 		705818391FC6C63A009CE7E0 /* MXSProfileDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSProfileDlg.swift; sourceTree = "<group>"; };
+		706003C11FD5269700759938 /* MXSPHAssetCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPHAssetCmd.swift; sourceTree = "<group>"; };
+		706003C31FD52C8300759938 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
+		706003C41FD52C8300759938 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		70663FAD1FC577BA004EAE1D /* MXSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableView.swift; sourceTree = "<group>"; };
 		70663FB11FC58783004EAE1D /* MXSHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeCell.swift; sourceTree = "<group>"; };
 		70669FE51FC3E3DE001C209C /* MXSNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNetWork.swift; sourceTree = "<group>"; };
@@ -131,6 +137,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				706003C61FD52C9D00759938 /* PhotosUI.framework in Frameworks */,
+				706003C51FD52C9500759938 /* Photos.framework in Frameworks */,
 				9590C4F1BC17910CE38A89E5 /* Pods_MXSSwift.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -383,6 +391,7 @@
 			children = (
 				703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */,
 				704BD99B1FCD30C10096DCE9 /* MXSALAssetCmd.swift */,
+				706003C11FD5269700759938 /* MXSPHAssetCmd.swift */,
 			);
 			path = MXSCmd;
 			sourceTree = "<group>";
@@ -398,6 +407,8 @@
 		8088668B00251996CB9E07AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				706003C41FD52C8300759938 /* Photos.framework */,
+				706003C31FD52C8300759938 /* PhotosUI.framework */,
 				C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */,
 			);
 			name = Frameworks;
@@ -564,6 +575,7 @@
 				70253E1A1FBD9F2100A95274 /* View+MASAdditions.m in Sources */,
 				70A00E201FC7E753007C649C /* MXSTableViewCell.swift in Sources */,
 				70A7E7941FCBFA7D00B80A7B /* MXSContentItemCell.swift in Sources */,
+				706003C21FD5269700759938 /* MXSPHAssetCmd.swift in Sources */,
 				70A7E7971FCC004900B80A7B /* MXSImagePickerVC.swift in Sources */,
 				70A00E221FC7EC36007C649C /* MXSProfileCell.swift in Sources */,
 				70253E171FBD9F2100A95274 /* MASViewConstraint.m in Sources */,

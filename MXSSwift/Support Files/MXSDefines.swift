@@ -25,8 +25,8 @@ let kNAVAttrArgsTextColor =					"text_color"
 
 
 
-func MXSLog(_ args:Any) {
+func MXSLog(_ args:Any, _ sign:String = "MXSSwift") {
 	#if DEBUG
-		print(Date.init(), ":", args)
+		print(Date.init(), sign, ":", args)
 	#endif
 }
