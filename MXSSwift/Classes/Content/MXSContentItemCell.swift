@@ -37,12 +37,15 @@ class MXSContentItemCell: MXSCollectionViewCell {
 			}
 //			coverImage?.image = MXSALAssetCmd.shard.getThumImage(asset: cellData as! ALAsset)
 //			coverImage?.image = cellData as? UIImage
-//			coverImage?.image = MXSPHAssetCmd.shard.getAssetThumbnail(asset: cellData as! PHAsset)
-			let opt = PHImageRequestOptions()
-			opt.isSynchronous = false
-			PHImageManager.default().requestImage(for: cellData as! PHAsset, targetSize: CGSize.init(width: 60, height: 60), contentMode: PHImageContentMode.aspectFit, options: opt, resultHandler: { (thum, info) in
-				self.coverImage?.image = thum
-			})
+			coverImage?.image = MXSPHAssetCmd.shard.getAssetThumbnail(asset: cellData as! PHAsset)
+//			let opt = PHImageRequestOptions()
+//			opt.isSynchronous = true
+//			PHImageManager.default().requestImage(for: cellData as! PHAsset, targetSize: CGSize.init(width: 60, height: 60), contentMode: PHImageContentMode.aspectFit, options: opt, resultHandler: { (thum, info) in
+//				DispatchQueue.main.async {
+//
+//					self.coverImage?.image = thum
+//				}
+//			})
 		}
 	}
 }

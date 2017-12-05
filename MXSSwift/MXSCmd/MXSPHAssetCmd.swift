@@ -11,6 +11,8 @@ import Photos
 
 class MXSPHAssetCmd: NSObject {
 
+	var assetsFetchResults : PHFetchResult<PHAsset>?
+	
 	static public let shard = MXSPHAssetCmd()
 	
 	public func enumPHAssets(completeBlock:@escaping (_ assets:PHFetchResult<PHAsset>) -> Void) {
@@ -28,23 +30,15 @@ class MXSPHAssetCmd: NSObject {
 			//只获取图片
 			allPhotosOptions.predicate = NSPredicate(format: "mediaType = %d", PHAssetMediaType.image.rawValue)
 			
-			let assetsFetchResults = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: allPhotosOptions)
-			completeBlock(assetsFetchResults)
+			self.assetsFetchResults = PHAsset.fetchAssets(with: PHAssetMediaType.image, options: allPhotosOptions)
+			completeBlock(self.assetsFetchResults!)
 			
-			MXSLog(assetsFetchResults, "PHassets:")
+			MXSLog(self.assetsFetchResults as Any, "PHassets:")
 			// 初始化和重置缓存
 //			self.imageManager = PHCachingImageManager()
 //			self.resetCachedAssets()
 			
-			//collection view 重新加载数据
-			//		DispatchQueue.main.async{
-			//			self.collectionView?.reloadData()
-			//		}
 			
-			assetsFetchResults.enumerateObjects({ (asset, i, nil) in
-				//获取每一个资源(PHAsset)
-				print("\(asset)")
-			})
 		})
 	}
 	

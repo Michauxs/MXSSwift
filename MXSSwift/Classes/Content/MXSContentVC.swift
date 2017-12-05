@@ -32,7 +32,12 @@ class MXSContentVC: MXSBaseVC {
 		MXSPHAssetCmd.shard.enumPHAssets { (assets) in
 			(self.collectionView?.dlg as! MXSContentCDlg).queryData_content = assets
 			MXSLog(assets as Any)
-			self.collectionView?.reloadData()
+			MXSLog((self.collectionView?.dlg as! MXSContentCDlg).queryData_content as Any)
+			
+//			self.collectionView?.reloadData()
+			DispatchQueue.main.async{
+				self.collectionView?.reloadData()
+			}
 //			let img = MXSPHAssetCmd.shard.getAssetThumbnail(asset: assets[0])
 //			MXSLog(img)
 		}

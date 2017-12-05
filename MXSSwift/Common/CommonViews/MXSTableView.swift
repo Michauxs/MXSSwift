@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Refresher
 
 class MXSTableView: UITableView {
 

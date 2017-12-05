@@ -7,6 +7,7 @@
 //
 
 import UIKit
+//import
 
 class MXSHomeVC: MXSBaseVC {
 	
@@ -60,6 +61,14 @@ class MXSHomeVC: MXSBaseVC {
 			make?.edges.equalTo()(view)?.insets()(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		}
 		TableView?.register(cellName: "MXSHomeCell", delegate: MXSTableDlg(), vc: self, rowHeight:90)
+		TableView?.addPullToRefreshWithAction {
+			OperationQueue().addOperation {
+				sleep(2)
+				OperationQueue.main.addOperation {
+					self.TableView?.stopPullToRefresh()
+				}
+			}
+		}
 	}
 	
 	//MARK:acions

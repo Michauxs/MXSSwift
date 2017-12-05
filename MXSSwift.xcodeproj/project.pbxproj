@@ -49,6 +49,9 @@
 		70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FAD1FC577BA004EAE1D /* MXSTableView.swift */; };
 		70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FB11FC58783004EAE1D /* MXSHomeCell.swift */; };
 		70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70669FE51FC3E3DE001C209C /* MXSNetWork.swift */; };
+		709254251FD66FF600195632 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709254261FD66FF600195632 /* SnapKit.framework */; };
+		709254271FD675DC00195632 /* Refresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709254281FD675DC00195632 /* Refresher.framework */; };
+		709254291FD675E500195632 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7092542A1FD675E500195632 /* Alamofire.framework */; };
 		70A00E201FC7E753007C649C /* MXSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A00E1F1FC7E753007C649C /* MXSTableViewCell.swift */; };
 		70A00E221FC7EC36007C649C /* MXSProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A00E211FC7EC36007C649C /* MXSProfileCell.swift */; };
 		70A7E78E1FCBB6FA00B80A7B /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E78D1FCBB6FA00B80A7B /* UIImage+Extension.swift */; };
@@ -122,6 +125,9 @@
 		70663FAD1FC577BA004EAE1D /* MXSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableView.swift; sourceTree = "<group>"; };
 		70663FB11FC58783004EAE1D /* MXSHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeCell.swift; sourceTree = "<group>"; };
 		70669FE51FC3E3DE001C209C /* MXSNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNetWork.swift; sourceTree = "<group>"; };
+		709254261FD66FF600195632 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		709254281FD675DC00195632 /* Refresher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Refresher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7092542A1FD675E500195632 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70A00E1F1FC7E753007C649C /* MXSTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableViewCell.swift; sourceTree = "<group>"; };
 		70A00E211FC7EC36007C649C /* MXSProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSProfileCell.swift; sourceTree = "<group>"; };
 		70A7E78D1FCBB6FA00B80A7B /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -137,6 +143,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				709254291FD675E500195632 /* Alamofire.framework in Frameworks */,
+				709254271FD675DC00195632 /* Refresher.framework in Frameworks */,
+				709254251FD66FF600195632 /* SnapKit.framework in Frameworks */,
 				706003C61FD52C9D00759938 /* PhotosUI.framework in Frameworks */,
 				706003C51FD52C9500759938 /* Photos.framework in Frameworks */,
 				9590C4F1BC17910CE38A89E5 /* Pods_MXSSwift.framework in Frameworks */,
@@ -407,6 +416,9 @@
 		8088668B00251996CB9E07AC /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7092542A1FD675E500195632 /* Alamofire.framework */,
+				709254281FD675DC00195632 /* Refresher.framework */,
+				709254261FD66FF600195632 /* SnapKit.framework */,
 				706003C41FD52C8300759938 /* Photos.framework */,
 				706003C31FD52C8300759938 /* PhotosUI.framework */,
 				C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */,
@@ -492,10 +504,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-MXSSwift/Pods-MXSSwift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Refresher/Refresher.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Refresher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -35,5 +35,9 @@ class MXSCollectionView: UICollectionView {
 		dlg?.controller = vc
 		dlg?.cellName = cellName
 		dlg?.itemSize = itemSize
+		
+		// 告诉编译器它的真实类型
+//		let viewControllerClass = cellClass as! UIViewController.Type
+//		let viewController = viewControllerClass.init()
 	}
 }

@@ -34,7 +34,7 @@ class MXSTabBarController: UITabBarController {
 		tabBar.barTintColor = UIColor.white
 		tabBar.isTranslucent = false
 		
-		selectedIndex = 1
+		selectedIndex = 2
 	}
 	
 	func setVCTabBarItem(vc:MXSBaseVC, title:String, imageName:String) {
