@@ -59,6 +59,7 @@
 		70A7E7921FCBF86000B80A7B /* MXSCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7911FCBF86000B80A7B /* MXSCollectionView.swift */; };
 		70A7E7941FCBFA7D00B80A7B /* MXSContentItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7931FCBFA7D00B80A7B /* MXSContentItemCell.swift */; };
 		70A7E7971FCC004900B80A7B /* MXSImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7961FCC004900B80A7B /* MXSImagePickerVC.swift */; };
+		70C8879E1FD6C389009F65A8 /* xcode_complete.json in Resources */ = {isa = PBXBuildFile; fileRef = 70C8879D1FD6C388009F65A8 /* xcode_complete.json */; };
 		9590C4F1BC17910CE38A89E5 /* Pods_MXSSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -135,6 +136,7 @@
 		70A7E7911FCBF86000B80A7B /* MXSCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSCollectionView.swift; sourceTree = "<group>"; };
 		70A7E7931FCBFA7D00B80A7B /* MXSContentItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSContentItemCell.swift; sourceTree = "<group>"; };
 		70A7E7961FCC004900B80A7B /* MXSImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSImagePickerVC.swift; sourceTree = "<group>"; };
+		70C8879D1FD6C388009F65A8 /* xcode_complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xcode_complete.json; sourceTree = "<group>"; };
 		C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MXSSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -247,6 +249,7 @@
 		70253E1C1FBDA00A00A95274 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				70C8879D1FD6C388009F65A8 /* xcode_complete.json */,
 				70253E1D1FBDA04F00A95274 /* Header-Briding-Header.h */,
 				702DCD891FC28D49002CC776 /* MXSDefines.swift */,
 			);
@@ -490,6 +493,7 @@
 			files = (
 				70253E111FBD9F2100A95274 /* Info.plist in Resources */,
 				701E9AC81F9EEA61007AEE49 /* Assets.xcassets in Resources */,
+				70C8879E1FD6C389009F65A8 /* xcode_complete.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

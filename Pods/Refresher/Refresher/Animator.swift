@@ -28,6 +28,7 @@ import UIKit
 internal class AnimatorView: UIView {
     fileprivate let titleLabel: UILabel = {
         let label = UILabel()
+		label.font = UIFont.systemFont(ofSize: 13)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
