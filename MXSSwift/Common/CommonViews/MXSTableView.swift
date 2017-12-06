@@ -29,6 +29,11 @@ class MXSTableView: UITableView {
 		register(cellClass, forCellReuseIdentifier: cellName)
 //		register(MXSHomeCell.classForCoder(), forCellReuseIdentifier: cellName)
 		
+        if rowHeight != 0 {
+            estimatedRowHeight = 80;
+            self.rowHeight = UITableViewAutomaticDimension;
+        }
+        
 		dlg = delegate
 		self.delegate = dlg
 		self.dataSource = dlg
