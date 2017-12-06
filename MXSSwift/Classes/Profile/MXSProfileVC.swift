@@ -40,14 +40,14 @@ class MXSProfileVC: MXSBaseVC {
 		TableView?.contentInset = UIEdgeInsetsMake(coverViewHeight, 0, 0, 0)
 		TableView?.register(cellName: "MXSProfileCell", delegate: MXSProfileDlg(), vc: self, rowHeight:44)
 		
-		TableView?.dlg?.queryData = ["ModelExchange", "MyCollection", "PersonSetting", "AboutDongDa", "AppSetting"]
+		TableView?.dlg?.queryData = ["XcodeComplete", "MyCollection", "PersonSetting", "AboutDongDa", "AppSetting"]
 	}
 	
 	
 	
 	//MARK:notifies
 	override func tableSelectedRowAt(indexPath: IndexPath) {
-		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSImagePickerVC(), args: MXSNothing.shared)
+		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSXcodePSVC(), args: MXSNothing.shared)
 	}
 	
 	override func tableDidScroll(offset_y: CGFloat) {

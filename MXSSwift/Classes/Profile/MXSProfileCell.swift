@@ -27,7 +27,7 @@ class MXSProfileCell: MXSTableViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	var cellData: Any? {
+	 override var cellData: Any? {
 		willSet{
 			
 		}
