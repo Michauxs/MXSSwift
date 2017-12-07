@@ -16,6 +16,10 @@ class MXSProfileDlg: MXSTableDlg {
 		return cell
 	}
 	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return rowHeight!
+	}
+
 //	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
 //		return 44
 //	}

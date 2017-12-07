@@ -40,17 +40,13 @@ class MXSXcodePSTDlg: MXSTableDlg {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 40
     }
+	
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let head = UIView()
-        head.backgroundColor = UIColor.white
-        let label = UILabel.init(text: "Head", fontSize: 13, textColor: .black, alignment: .left)
-        head.addSubview(label)
-        label.snp.makeConstraints { (make) in
-            make.left.equalTo(head).offset(15)
-            make.centerY.equalTo(head)
-        }
-        label.text = sections?[section]
-        return head
+//		let head:MXSXcodeTableHeadView = tableView.dequeueReusableHeaderFooterView(withIdentifier: "MXSXcodeTableHeadView") as MXSXcodeTableHeadView
+
+		let headerView = MXSXcodeTableHeadView(reuseIdentifier: "MXSXcodeTableHeadView")
+		headerView.label?.text = sections?[section]
+        return headerView
     }
 	
 }

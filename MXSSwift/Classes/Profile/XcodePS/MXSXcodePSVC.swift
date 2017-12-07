@@ -35,7 +35,7 @@ class MXSXcodePSVC: MXSBaseVC {
 
 	//MARK:Layout
 	override func NavBarLayout() {
-		
+		super.NavBarLayout()
 	}
 	
 	override func TableLayout() {
@@ -43,6 +43,7 @@ class MXSXcodePSVC: MXSBaseVC {
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
         TableView?.register(cellName: "MXSXcodePSCell", delegate: MXSXcodePSTDlg(), vc: self, rowHeight: 0)
+		TableView?.register(MXSXcodeTableHeadView.classForCoder(), forHeaderFooterViewReuseIdentifier: "MXSXcodeTableHeadView")
 	}
 	
 	

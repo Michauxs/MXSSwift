@@ -10,4 +10,8 @@ import UIKit
 
 class MXSHomeDlg: MXSTableDlg {
 
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return rowHeight!
+	}
+
 }

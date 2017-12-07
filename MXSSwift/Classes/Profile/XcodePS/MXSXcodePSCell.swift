@@ -22,7 +22,7 @@ class MXSXcodePSCell: MXSTableViewCell {
         nameLabel = UILabel.init(text: "Title", fontSize: 13, textColor: .black, alignment: .left)
         addSubview(nameLabel!)
         nameLabel?.snp.makeConstraints({ (make) in
-            make.top.equalTo(self).offset(5)
+            make.top.equalTo(self).offset(15)
             make.left.equalTo(self).offset(15)
         })
         
@@ -40,6 +40,7 @@ class MXSXcodePSCell: MXSTableViewCell {
             make.top.equalTo(urlLabel!.snp.bottom).offset(3)
             make.left.equalTo(nameLabel!)
             make.right.equalTo(self).offset(-15)
+			make.bottom.equalTo(self).offset(-15)
         })
         
         

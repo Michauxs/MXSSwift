@@ -60,7 +60,7 @@ class MXSHomeVC: MXSBaseVC {
 		TableView!.mas_makeConstraints { (make:MASConstraintMaker!) in
 			make?.edges.equalTo()(view)?.insets()(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		}
-		TableView?.register(cellName: "MXSHomeCell", delegate: MXSTableDlg(), vc: self, rowHeight:90)
+		TableView?.register(cellName: "MXSHomeCell", delegate: MXSHomeDlg(), vc: self, rowHeight:90)
 		TableView?.addPullToRefreshWithAction {
 			OperationQueue().addOperation {
 				sleep(2)

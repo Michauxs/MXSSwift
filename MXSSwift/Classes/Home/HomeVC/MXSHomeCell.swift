@@ -40,19 +40,19 @@ class MXSHomeCell: UITableViewCell {
 			make.left.equalTo()(thumImageView?.mas_right)?.offset()(15)
 			make.top.equalTo()(thumImageView)
 		})
-
-		themeLabel = UILabel.init(text: "服务主题", fontSize: 12, textColor: UIColor.black, alignment: .left)
-		addSubview(themeLabel!)
-		themeLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
+		
+		priceLabel = UILabel.init(text: "¥:88", fontSize: 13, textColor: UIColor.red, alignment: .left)
+		addSubview(priceLabel!)
+		priceLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
 			make.left.equalTo()(titleLabel)
 			make.top.equalTo()(titleLabel?.mas_bottom)?.offset()(3)
 		})
 
-		priceLabel = UILabel.init(text: "¥:88", fontSize: 12, textColor: UIColor.red, alignment: .left)
-		addSubview(priceLabel!)
-		priceLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
-			make.right.equalTo()(self)?.offset()(-10)
-			make.centerY.equalTo()(themeLabel)
+		themeLabel = UILabel.init(text: "服务主题", fontSize: 12, textColor: UIColor.black, alignment: .left)
+		addSubview(themeLabel!)
+		themeLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
+			make.left.equalTo()(priceLabel?.mas_right)?.offset()(15)
+			make.bottom.equalTo()(priceLabel)
 		})
 
 		ageLabel = UILabel.init(text: "年龄：2-8", fontSize: 12, textColor: UIColor.orange, alignment: .left)
@@ -60,7 +60,7 @@ class MXSHomeCell: UITableViewCell {
 		addSubview(ageLabel!)
 		ageLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
 			make.left.equalTo()(titleLabel)
-			make.top.equalTo()(themeLabel?.mas_bottom)?.offset()(8)
+			make.top.equalTo()(priceLabel?.mas_bottom)?.offset()(8)
 		})
 
 		bookLabel = UILabel.init(text: "已预订：6/8", fontSize: 12, textColor: UIColor.brown, alignment: .left)
