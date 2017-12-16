@@ -29,6 +29,10 @@
 		7044B1B81FE4CD090047AE9C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B31FE4CD090047AE9C /* UIImage+Extension.swift */; };
 		7044B1B91FE4CD090047AE9C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B41FE4CD090047AE9C /* UILabel+Extension.swift */; };
 		7044B1BA1FE4CD090047AE9C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B51FE4CD090047AE9C /* UIView+Extension.swift */; };
+		7044B1C41FE50E720047AE9C /* DailyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1C21FE50E720047AE9C /* DailyModel.xcdatamodeld */; };
+		7044B1C71FE50F850047AE9C /* MXSDiary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1C51FE50F850047AE9C /* MXSDiary+CoreDataClass.swift */; };
+		7044B1C81FE50F850047AE9C /* MXSDiary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1C61FE50F850047AE9C /* MXSDiary+CoreDataProperties.swift */; };
+		7044B1CA1FE510700047AE9C /* MXSDiary+ContextOpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1C91FE510700047AE9C /* MXSDiary+ContextOpt.swift */; };
 		704660881FD7B74D006EA759 /* MXSXcodePSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704660871FD7B74D006EA759 /* MXSXcodePSVC.swift */; };
 		7046608A1FD7F4C3006EA759 /* MXSXcodePSTDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704660891FD7F4C3006EA759 /* MXSXcodePSTDlg.swift */; };
 		7046608C1FD7F500006EA759 /* MXSXcodePSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046608B1FD7F500006EA759 /* MXSXcodePSCell.swift */; };
@@ -84,6 +88,10 @@
 		7044B1B31FE4CD090047AE9C /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		7044B1B41FE4CD090047AE9C /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		7044B1B51FE4CD090047AE9C /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		7044B1C31FE50E720047AE9C /* DailyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DailyModel.xcdatamodel; sourceTree = "<group>"; };
+		7044B1C51FE50F850047AE9C /* MXSDiary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7044B1C61FE50F850047AE9C /* MXSDiary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		7044B1C91FE510700047AE9C /* MXSDiary+ContextOpt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSDiary+ContextOpt.swift"; sourceTree = "<group>"; };
 		704660871FD7B74D006EA759 /* MXSXcodePSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSXcodePSVC.swift; sourceTree = "<group>"; };
 		704660891FD7F4C3006EA759 /* MXSXcodePSTDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSXcodePSTDlg.swift; sourceTree = "<group>"; };
 		7046608B1FD7F500006EA759 /* MXSXcodePSCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSXcodePSCell.swift; sourceTree = "<group>"; };
@@ -362,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				7075C00F1FE3EDAA00E03491 /* CoreData */,
+				7044B1C91FE510700047AE9C /* MXSDiary+ContextOpt.swift */,
 			);
 			path = Daily;
 			sourceTree = "<group>";
@@ -369,6 +378,9 @@
 		7075C00F1FE3EDAA00E03491 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
+				7044B1C51FE50F850047AE9C /* MXSDiary+CoreDataClass.swift */,
+				7044B1C61FE50F850047AE9C /* MXSDiary+CoreDataProperties.swift */,
+				7044B1C21FE50E720047AE9C /* DailyModel.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -529,6 +541,7 @@
 				704660881FD7B74D006EA759 /* MXSXcodePSVC.swift in Sources */,
 				70253E1F1FBDA28A00A95274 /* ViewController.swift in Sources */,
 				703DA8D81FBAB8150059A632 /* MXSTabBarController.swift in Sources */,
+				7044B1C41FE50E720047AE9C /* DailyModel.xcdatamodeld in Sources */,
 				7044B1B71FE4CD090047AE9C /* UIColor+Extension.swift in Sources */,
 				70253DF01FBD780200A95274 /* MXSNavBar.swift in Sources */,
 				703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */,
@@ -553,6 +566,7 @@
 				7046608C1FD7F500006EA759 /* MXSXcodePSCell.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
 				704BD99C1FCD30C10096DCE9 /* MXSALAssetCmd.swift in Sources */,
+				7044B1C81FE50F850047AE9C /* MXSDiary+CoreDataProperties.swift in Sources */,
 				7044B1BA1FE4CD090047AE9C /* UIView+Extension.swift in Sources */,
 				70A00E201FC7E753007C649C /* MXSTableViewCell.swift in Sources */,
 				70A7E7941FCBFA7D00B80A7B /* MXSContentItemCell.swift in Sources */,
@@ -560,7 +574,9 @@
 				70A7E7971FCC004900B80A7B /* MXSImagePickerVC.swift in Sources */,
 				70A00E221FC7EC36007C649C /* MXSProfileCell.swift in Sources */,
 				7044B1B81FE4CD090047AE9C /* UIImage+Extension.swift in Sources */,
+				7044B1CA1FE510700047AE9C /* MXSDiary+ContextOpt.swift in Sources */,
 				702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */,
+				7044B1C71FE50F850047AE9C /* MXSDiary+CoreDataClass.swift in Sources */,
 				70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */,
 				70A7E7921FCBF86000B80A7B /* MXSCollectionView.swift in Sources */,
 				705818381FC6B62B009CE7E0 /* MXSHomeDlg.swift in Sources */,
@@ -738,6 +754,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		7044B1C21FE50E720047AE9C /* DailyModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				7044B1C31FE50E720047AE9C /* DailyModel.xcdatamodel */,
+			);
+			currentVersion = 7044B1C31FE50E720047AE9C /* DailyModel.xcdatamodel */;
+			path = DailyModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 701E9AB51F9EEA61007AEE49 /* Project object */;
 }
