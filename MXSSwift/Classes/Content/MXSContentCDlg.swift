@@ -15,9 +15,6 @@ class MXSContentCDlg: MXSCollectionDlg {
 	
 	override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		
-		queryData_content?.enumerateObjects({ (asset, i, nil) in
-			print("\(asset)")
-		})
 		return queryData_content?.count ?? 0
 	}
 	

@@ -21,11 +21,11 @@ class MXSTableViewCell: UITableViewCell {
 		let btmLine = UIView.init()
 		btmLine.backgroundColor = UIColor.grayline
 		addSubview(btmLine)
-		btmLine.mas_makeConstraints { (make:MASConstraintMaker!) in
-			make.bottom.equalTo()(self)
-			make.left.equalTo()(self)
-			make.right.equalTo()(self)
-			make.height.mas_equalTo()(0.5)
+		btmLine.snp.makeConstraints { (make) in
+			make.left.equalTo(self)
+			make.right.equalTo(self)
+			make.bottom.equalTo(self)
+			make.height.equalTo(0.5)
 		}
 		
 	}

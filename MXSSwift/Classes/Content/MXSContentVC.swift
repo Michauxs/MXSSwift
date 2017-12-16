@@ -8,6 +8,7 @@
 
 import UIKit
 import AssetsLibrary
+import SnapKit
 
 class MXSContentVC: MXSBaseVC {
 	
@@ -57,12 +58,8 @@ class MXSContentVC: MXSBaseVC {
 	}
 	
 	func CollectionLayout () {
-		collectionView!.mas_makeConstraints({ (make:MASConstraintMaker!) in
-			make.top.equalTo()(view)?.offset()(S_N_BAR_H)
-			make.left.equalTo()(view)
-			make.right.equalTo()(view)
-			//			make.height.mas_equalTo()(250)
-			make.bottom.equalTo()(view)
+		collectionView?.snp.makeConstraints({ (make) in
+			make.edges.equalTo(self.view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
 //		let col:CGFloat = 4
 		let w_h = (SCREEN_WIDTH - 15 - 1) / 4

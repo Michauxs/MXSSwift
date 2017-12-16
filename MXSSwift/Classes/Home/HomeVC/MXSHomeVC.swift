@@ -29,20 +29,20 @@ class MXSHomeVC: MXSBaseVC {
 		
 		let btn = UIButton.init(text: "Push", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(btn)
-		btn.mas_makeConstraints { (make:MASConstraintMaker!) in
-			make.left.equalTo()(view)?.offset()(30)
-			make.bottom.equalTo()(view)?.offset()(-30-TAB_BAR_H)
-			make.size.mas_equalTo()(CGSize.init(width: 120, height: 40))
+		btn.snp.makeConstraints { (make) in
+			make.left.equalTo(view).offset(30)
+			make.bottom.equalTo(view).offset(-30-TAB_BAR_H)
+			make.size.equalTo(CGSize.init(width: 120, height: 40))
 		}
 		btn.addTarget(self, action: #selector(self.btnClick), for: .touchUpInside)
 		btn.isHidden = true
 		
 		let exchangeBtn = UIButton.init(text: "Action", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(exchangeBtn)
-		exchangeBtn.mas_makeConstraints { (make:MASConstraintMaker!) in
-			make.right.equalTo()(view)?.offset()(-30)
-			make.bottom.equalTo()(view)?.offset()(-30-TAB_BAR_H)
-			make.size.mas_equalTo()(CGSize.init(width: 120, height: 40))
+		exchangeBtn.snp.makeConstraints { (make) in
+			make.right.equalTo(view).offset(-30)
+			make.bottom.equalTo(view).offset(-30-TAB_BAR_H)
+			make.size.equalTo(CGSize.init(width: 120, height: 40))
 		}
 		exchangeBtn.addTarget(self, action: #selector(self.exBtnClick), for: .touchUpInside)
 		exchangeBtn.isHidden = true
@@ -57,9 +57,9 @@ class MXSHomeVC: MXSBaseVC {
 	}
 	override func TableLayout() {
 		super.TableLayout()
-		TableView!.mas_makeConstraints { (make:MASConstraintMaker!) in
-			make?.edges.equalTo()(view)?.insets()(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
-		}
+		TableView?.snp.makeConstraints({ (make) in
+			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
+		})
 		TableView?.register(cellName: "MXSHomeCell", delegate: MXSHomeDlg(), vc: self, rowHeight:90)
 		TableView?.addPullToRefreshWithAction {
 			OperationQueue().addOperation {

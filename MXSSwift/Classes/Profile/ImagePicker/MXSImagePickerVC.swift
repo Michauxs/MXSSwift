@@ -20,9 +20,9 @@ class MXSImagePickerVC: MXSBaseVC {
 		bindingNavBar()
 		let coverImage = UIImageView.init(image: UIImage.init(named: "default_img"))
 		view.addSubview(coverImage)
-		coverImage.mas_makeConstraints { (make:MASConstraintMaker!) in
-			make.center.equalTo()(view)
-			make.size.mas_equalTo()(CGSize.init(width: SCREEN_WIDTH, height: SCREEN_WIDTH))
+		coverImage.snp.makeConstraints { (make) in
+			make.center.equalTo(view)
+			make.size.equalTo(CGSize.init(width: SCREEN_WIDTH, height: SCREEN_WIDTH))
 		}
 		
 		MXSALAssetCmd.shard.enumALAsset { (assets) in

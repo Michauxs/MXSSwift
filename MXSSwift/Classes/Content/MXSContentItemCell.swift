@@ -20,8 +20,8 @@ class MXSContentItemCell: MXSCollectionViewCell {
 		coverImage = UIImageView.init(image: UIImage.init(named: "default_img"))
 		coverImage?.resizeScaleAspectFill()
 		addSubview(coverImage!)
-		coverImage!.mas_makeConstraints({ (make:MASConstraintMaker!) in
-			make.edges.equalTo()(self)
+		coverImage?.snp.makeConstraints({ (make) in
+			make.edges.equalTo(self)
 		})
 	}
 	

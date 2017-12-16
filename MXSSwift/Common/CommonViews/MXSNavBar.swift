@@ -41,27 +41,27 @@ class MXSNavBar: UIView {
 		leftBtn = UIButton.init()
 		leftBtn?.setImage(UIImage.init(named: "nav_back_theme"), for: .normal)
 		self.addSubview(leftBtn!)
-		leftBtn!.mas_makeConstraints({ (make:MASConstraintMaker!) in
-			make.left.equalTo()(self)?.offset()(10)
-			make.centerY.equalTo()(self)
-			make.size.mas_equalTo()(CGSize.init(width: 44, height: 44))
+		leftBtn?.snp.makeConstraints({ (make) in
+			make.left.equalTo(self).offset(10)
+			make.centerY.equalTo(self).offset(0)
+			make.size.equalTo(CGSize.init(width: 44, height: 44))
 		})
 		leftBtn?.addTarget(self, action: #selector(self.didLeftBtnClick), for: .touchUpInside)
 		
 		rightBtn = UIButton.init(text: "Save", fontSize: 16, textColor: UIColor.black, background: MXSNothing.shared)
 		rightBtn?.setTitleColor(UIColor.gray, for: .disabled)
 		self.addSubview(rightBtn!)
-		rightBtn!.mas_makeConstraints({ (make:MASConstraintMaker!) in
-			make.right.equalTo()(self)?.offset()(-10)
-			make.centerY.equalTo()(self)
-			make.size.mas_equalTo()(CGSize.init(width: 44, height: 44))
+		rightBtn?.snp.makeConstraints({ (make) in
+			make.right.equalTo(self).offset(-10)
+			make.centerY.equalTo(self)
+			make.size.equalTo(CGSize.init(width: 44, height: 44))
 		})
 		rightBtn?.addTarget(self, action: #selector(self.didRightBtnClick), for: .touchUpInside)
 		
 		titleLabel = UILabel.init(text:"Title", fontSize:16, textColor:UIColor.black, alignment:.left)
 		self.addSubview(titleLabel!)
-		titleLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
-			make!.center.equalTo()(self)
+		titleLabel?.snp.makeConstraints({ (make) in
+			make.center.equalTo(self)
 		})
 		
 		btmLineLayer = CALayer.init()
