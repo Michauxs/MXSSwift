@@ -17,10 +17,10 @@ class MXSProfileCell: MXSTableViewCell {
 		
 		titleLabel = UILabel.init(text: "User info", fontSize: 14, textColor: UIColor.black, alignment: .left)
 		addSubview(titleLabel!)
-		titleLabel!.mas_makeConstraints({ (make:MASConstraintMaker!) in
-			make.centerY.equalTo()(self)
-			make.left.equalTo()(self)?.offset()(15)
-		})
+		titleLabel!.snp.makeConstraints { (make) in
+			make.centerY.equalTo(self)
+			make.left.equalTo(self).offset(15)
+		}
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

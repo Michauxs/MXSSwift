@@ -13,6 +13,11 @@
 		702BB9F31FD8E4AE0083E123 /* MXSXcodeTableHeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702BB9F21FD8E4AE0083E123 /* MXSXcodeTableHeadView.swift */; };
 		702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702DCD891FC28D49002CC776 /* MXSDefines.swift */; };
 		702E43331FBEDF300017A7D8 /* MXSNothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702E43321FBEDF300017A7D8 /* MXSNothing.swift */; };
+		7036035F1FE75F3C00CF3E09 /* MXSDocumentCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7036035E1FE75F3C00CF3E09 /* MXSDocumentCmd.swift */; };
+		7036036B1FE7AF9B00CF3E09 /* MXSDaily.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 703603691FE7AF9B00CF3E09 /* MXSDaily.xcdatamodeld */; };
+		7036036E1FE7B06400CF3E09 /* MXSDiary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7036036C1FE7B06400CF3E09 /* MXSDiary+CoreDataClass.swift */; };
+		7036036F1FE7B06400CF3E09 /* MXSDiary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7036036D1FE7B06400CF3E09 /* MXSDiary+CoreDataProperties.swift */; };
+		703603741FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703603731FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift */; };
 		703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8C11FBA9B1D0059A632 /* AppDelegate.swift */; };
 		703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8D51FBAB7AA0059A632 /* MXSBaseVC.swift */; };
 		703DA8D81FBAB8150059A632 /* MXSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8D71FBAB8150059A632 /* MXSTabBarController.swift */; };
@@ -29,9 +34,6 @@
 		7044B1B81FE4CD090047AE9C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B31FE4CD090047AE9C /* UIImage+Extension.swift */; };
 		7044B1B91FE4CD090047AE9C /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B41FE4CD090047AE9C /* UILabel+Extension.swift */; };
 		7044B1BA1FE4CD090047AE9C /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B51FE4CD090047AE9C /* UIView+Extension.swift */; };
-		7044B1C41FE50E720047AE9C /* DailyModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1C21FE50E720047AE9C /* DailyModel.xcdatamodeld */; };
-		7044B1C71FE50F850047AE9C /* MXSDiary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1C51FE50F850047AE9C /* MXSDiary+CoreDataClass.swift */; };
-		7044B1C81FE50F850047AE9C /* MXSDiary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1C61FE50F850047AE9C /* MXSDiary+CoreDataProperties.swift */; };
 		7044B1CA1FE510700047AE9C /* MXSDiary+ContextOpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1C91FE510700047AE9C /* MXSDiary+ContextOpt.swift */; };
 		704660881FD7B74D006EA759 /* MXSXcodePSVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704660871FD7B74D006EA759 /* MXSXcodePSVC.swift */; };
 		7046608A1FD7F4C3006EA759 /* MXSXcodePSTDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704660891FD7F4C3006EA759 /* MXSXcodePSTDlg.swift */; };
@@ -71,6 +73,12 @@
 		702BB9F21FD8E4AE0083E123 /* MXSXcodeTableHeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSXcodeTableHeadView.swift; sourceTree = "<group>"; };
 		702DCD891FC28D49002CC776 /* MXSDefines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSDefines.swift; sourceTree = "<group>"; };
 		702E43321FBEDF300017A7D8 /* MXSNothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNothing.swift; sourceTree = "<group>"; };
+		7036035E1FE75F3C00CF3E09 /* MXSDocumentCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSDocumentCmd.swift; sourceTree = "<group>"; };
+		7036036A1FE7AF9B00CF3E09 /* MXSDaily.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MXSDaily.xcdatamodel; sourceTree = "<group>"; };
+		7036036C1FE7B06400CF3E09 /* MXSDiary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataClass.swift"; sourceTree = "<group>"; };
+		7036036D1FE7B06400CF3E09 /* MXSDiary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		703603701FE7B36E00CF3E09 /* MXSDaily_1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MXSDaily_1.1.xcdatamodel; sourceTree = "<group>"; };
+		703603731FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSDiaryModelCmd.swift; sourceTree = "<group>"; };
 		703DA8C11FBA9B1D0059A632 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		703DA8C21FBA9B1D0059A632 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		703DA8D51FBAB7AA0059A632 /* MXSBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXS\U0010\U0010BaseVC.swift"; sourceTree = "<group>"; };
@@ -88,9 +96,6 @@
 		7044B1B31FE4CD090047AE9C /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		7044B1B41FE4CD090047AE9C /* UILabel+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		7044B1B51FE4CD090047AE9C /* UIView+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
-		7044B1C31FE50E720047AE9C /* DailyModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DailyModel.xcdatamodel; sourceTree = "<group>"; };
-		7044B1C51FE50F850047AE9C /* MXSDiary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7044B1C61FE50F850047AE9C /* MXSDiary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7044B1C91FE510700047AE9C /* MXSDiary+ContextOpt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSDiary+ContextOpt.swift"; sourceTree = "<group>"; };
 		704660871FD7B74D006EA759 /* MXSXcodePSVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSXcodePSVC.swift; sourceTree = "<group>"; };
 		704660891FD7F4C3006EA759 /* MXSXcodePSTDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSXcodePSTDlg.swift; sourceTree = "<group>"; };
@@ -275,6 +280,7 @@
 		703DA8CF1FBA9C350059A632 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				704CEE481FE8F6530055DDBB /* Diary */,
 				704660861FD7B72C006EA759 /* XcodePS */,
 				70A7E7951FCC002400B80A7B /* ImagePicker */,
 				703DA8DF1FBAB9BA0059A632 /* MXSProfileVC.swift */,
@@ -319,6 +325,7 @@
 			isa = PBXGroup;
 			children = (
 				7075C00E1FE3ED9500E03491 /* Daily */,
+				7036035E1FE75F3C00CF3E09 /* MXSDocumentCmd.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -366,9 +373,33 @@
 			path = XcodePS;
 			sourceTree = "<group>";
 		};
+		704CEE481FE8F6530055DDBB /* Diary */ = {
+			isa = PBXGroup;
+			children = (
+				704CEE491FE8F6530055DDBB /* Edit */,
+				704CEE4A1FE8F6530055DDBB /* Show */,
+			);
+			path = Diary;
+			sourceTree = "<group>";
+		};
+		704CEE491FE8F6530055DDBB /* Edit */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Edit;
+			sourceTree = "<group>";
+		};
+		704CEE4A1FE8F6530055DDBB /* Show */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Show;
+			sourceTree = "<group>";
+		};
 		7075C00E1FE3ED9500E03491 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				703603731FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift */,
 				7075C00F1FE3EDAA00E03491 /* CoreData */,
 				7044B1C91FE510700047AE9C /* MXSDiary+ContextOpt.swift */,
 			);
@@ -378,9 +409,9 @@
 		7075C00F1FE3EDAA00E03491 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				7044B1C51FE50F850047AE9C /* MXSDiary+CoreDataClass.swift */,
-				7044B1C61FE50F850047AE9C /* MXSDiary+CoreDataProperties.swift */,
-				7044B1C21FE50E720047AE9C /* DailyModel.xcdatamodeld */,
+				7036036C1FE7B06400CF3E09 /* MXSDiary+CoreDataClass.swift */,
+				7036036D1FE7B06400CF3E09 /* MXSDiary+CoreDataProperties.swift */,
+				703603691FE7AF9B00CF3E09 /* MXSDaily.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -541,7 +572,6 @@
 				704660881FD7B74D006EA759 /* MXSXcodePSVC.swift in Sources */,
 				70253E1F1FBDA28A00A95274 /* ViewController.swift in Sources */,
 				703DA8D81FBAB8150059A632 /* MXSTabBarController.swift in Sources */,
-				7044B1C41FE50E720047AE9C /* DailyModel.xcdatamodeld in Sources */,
 				7044B1B71FE4CD090047AE9C /* UIColor+Extension.swift in Sources */,
 				70253DF01FBD780200A95274 /* MXSNavBar.swift in Sources */,
 				703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */,
@@ -551,6 +581,7 @@
 				70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */,
 				703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */,
 				703DA8E21FBAB9E60059A632 /* MXSTableDlg.swift in Sources */,
+				7036036E1FE7B06400CF3E09 /* MXSDiary+CoreDataClass.swift in Sources */,
 				703DA8DC1FBAB9930059A632 /* MXSFoundVC.swift in Sources */,
 				703DA8E71FBAD0200059A632 /* MXSVCPtc.swift in Sources */,
 				703DA8DE1FBAB9AA0059A632 /* MXSContentVC.swift in Sources */,
@@ -560,15 +591,18 @@
 				704BD99E1FCD41FA0096DCE9 /* MXSCollectionViewCell.swift in Sources */,
 				70A7E7901FCBF1E700B80A7B /* MXSCollectionDlg.swift in Sources */,
 				70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */,
+				7036035F1FE75F3C00CF3E09 /* MXSDocumentCmd.swift in Sources */,
 				7046608A1FD7F4C3006EA759 /* MXSXcodePSTDlg.swift in Sources */,
 				7058183A1FC6C63A009CE7E0 /* MXSProfileDlg.swift in Sources */,
 				703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */,
 				7046608C1FD7F500006EA759 /* MXSXcodePSCell.swift in Sources */,
+				7036036B1FE7AF9B00CF3E09 /* MXSDaily.xcdatamodeld in Sources */,
+				703603741FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
 				704BD99C1FCD30C10096DCE9 /* MXSALAssetCmd.swift in Sources */,
-				7044B1C81FE50F850047AE9C /* MXSDiary+CoreDataProperties.swift in Sources */,
 				7044B1BA1FE4CD090047AE9C /* UIView+Extension.swift in Sources */,
 				70A00E201FC7E753007C649C /* MXSTableViewCell.swift in Sources */,
+				7036036F1FE7B06400CF3E09 /* MXSDiary+CoreDataProperties.swift in Sources */,
 				70A7E7941FCBFA7D00B80A7B /* MXSContentItemCell.swift in Sources */,
 				706003C21FD5269700759938 /* MXSPHAssetCmd.swift in Sources */,
 				70A7E7971FCC004900B80A7B /* MXSImagePickerVC.swift in Sources */,
@@ -576,7 +610,6 @@
 				7044B1B81FE4CD090047AE9C /* UIImage+Extension.swift in Sources */,
 				7044B1CA1FE510700047AE9C /* MXSDiary+ContextOpt.swift in Sources */,
 				702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */,
-				7044B1C71FE50F850047AE9C /* MXSDiary+CoreDataClass.swift in Sources */,
 				70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */,
 				70A7E7921FCBF86000B80A7B /* MXSCollectionView.swift in Sources */,
 				705818381FC6B62B009CE7E0 /* MXSHomeDlg.swift in Sources */,
@@ -635,7 +668,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -686,7 +719,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -756,13 +789,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7044B1C21FE50E720047AE9C /* DailyModel.xcdatamodeld */ = {
+		703603691FE7AF9B00CF3E09 /* MXSDaily.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7044B1C31FE50E720047AE9C /* DailyModel.xcdatamodel */,
+				703603701FE7B36E00CF3E09 /* MXSDaily_1.1.xcdatamodel */,
+				7036036A1FE7AF9B00CF3E09 /* MXSDaily.xcdatamodel */,
 			);
-			currentVersion = 7044B1C31FE50E720047AE9C /* DailyModel.xcdatamodel */;
-			path = DailyModel.xcdatamodeld;
+			currentVersion = 703603701FE7B36E00CF3E09 /* MXSDaily_1.1.xcdatamodel */;
+			path = MXSDaily.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

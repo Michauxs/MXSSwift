@@ -2,7 +2,7 @@
 //  MXSDiary+CoreDataProperties.swift
 //  MXSSwift
 //
-//  Created by Alfred Yang on 16/12/17.
+//  Created by Alfred Yang on 18/12/17.
 //  Copyright © 2017年 MXS. All rights reserved.
 //
 //
@@ -19,13 +19,7 @@ extension MXSDiary {
 
     @NSManaged public var date_daily: NSDate?
     @NSManaged public var date_creat: NSDate?
+    @NSManaged public var diary_content: String?
     @NSManaged public var weather: Int32
-    @NSManaged public var diary_context: String?
 
-}
-
-extension MXSDiary {
-	
-	@objc(addDiaryObjext:)
-	@NSManaged public func addDiaryObject(_ value:MXSDiary)
 }
