@@ -40,7 +40,7 @@ class MXSProfileVC: MXSBaseVC {
 		TableView?.contentInset = UIEdgeInsetsMake(coverViewHeight, 0, 0, 0)
 		TableView?.register(cellName: "MXSProfileCell", delegate: MXSProfileDlg(), vc: self, rowHeight:44)
 		
-		TableView?.dlg?.queryData = ["Xcode Complete", "My Diray", "Person Demo", "AboutDongDa", "AppSetting"]
+		TableView?.dlg?.queryData = ["Xcode Complete", "My Diray", "Fetch Diary", "AboutDongDa", "AppSetting"]
 	}
 	
 	//MARK:notifies
@@ -50,11 +50,16 @@ class MXSProfileVC: MXSBaseVC {
 		} else if indexPath.row == 1 {
 			MXSDiary.addDiaryWithDictionary(["key":"1"])
 		} else if indexPath.row == 2 {
-			MXSDiary.demoWithDictionary(["key":"1"])
+			let arr = MXSDiary.fetchDiaryObjects()
+			MXSLog(arr.count)
+			
 		} else if indexPath.row == 3 {
-			MXSDiary.demoWithDictionary(["key":"1"])
+			
 		} else if indexPath.row == 4 {
-			MXSDiary.demoWithDictionary(["key":"1"])
+//			MXSDiary.findDiaryObjects2 {(fetch) in
+//				let diary = fetch.first
+//				MXSLog(diary!.diary_content as Any)
+//			}
 		}
 	}
 	

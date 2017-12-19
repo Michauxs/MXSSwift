@@ -11,7 +11,7 @@ import CoreData
 
 class MXSDiaryModelCmd: NSObject {
 
-	static public let shared = MXSDocumentCmd()
+	static public let shared = MXSDiaryModelCmd()
 	
 	lazy var applicationDocumentsDirectory: URL = {
 		let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)

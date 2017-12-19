@@ -12,51 +12,76 @@ import CoreData
 
 extension MXSDiary {
 	
+	static let MXSDiaryEntityName = "MXSDiary"
+	
 	static public func addDiaryWithDictionary(_ value: Dictionary<String, Any>) {
-		
-//		let doc = MXSDocumentCmd.shared.getDocument() as UIManagedDocument
-		
-//		let diary = NSEntityDescription.insertNewObject(forEntityName: "MXSDiary", into:doc.managedObjectContext ) as! MXSDiary
 //		let entity = NSEntityDescription.entity(forEntityName: "MXSDiary", in: doc.managedObjectContext)
 //		let diary = NSManagedObject(entity: entity!, insertInto: doc.managedObjectContext) as! MXSDiary
 		
-		let doc = MXSDiaryModelCmd().managedObjectContext
-		let diary = NSEntityDescription.insertNewObject(forEntityName: "MXSDiary", into:doc ) as! MXSDiary
+		let context = MXSDiaryModelCmd.shared.managedObjectContext
+		let diary = NSEntityDescription.insertNewObject(forEntityName: MXSDiaryEntityName, into:context ) as! MXSDiary
 		
 		diary.date_creat = NSDate.init()
 		diary.date_daily = NSDate.init()
 		diary.weather = 0
 		diary.diary_content = "今天的特别的早"
 		
-		//保存
 		do {
-			try doc.save()
+			try context.save()
+			MXSLog("保存成功")
 		} catch {
 			fatalError("不能保存：\(error)")
 		}
 		
 	}
 	
-	static public func demoWithDictionary(_ value: Dictionary<String, Any>) {
+	static public func fetchDiaryObjects() -> Array<MXSDiary> {
 		
-//		_ = MXSDocumentCmd.shared.managedContext
+		let context = MXSDiaryModelCmd.shared.managedObjectContext
+		let fetchRequest : NSFetchRequest<MXSDiary> = (MXSDiary.fetchRequest())
+		fetchRequest.fetchLimit = 8 //每页大小
+//		fetchRequest.fetchOffset = 1 * 20 //第几页
 		
-//		let manager = FileManager.default()
-//		let urlForDocument = manager.URLsForDirectory( NSSearchPathDirectory.DocumentDirectory, inDomains:NSSearchPathDomainMask.UserDomainMask)
-//		let url = urlForDocument[0] as NSURL
-//		createFile("test.txt", fileBaseUrl: url)
+		//设置查询条件:参考exsitsObject
+		//let predicate = NSPredicate(format: "id= '1' ", "")
+		//fetchRequest.predicate = predicate
 		
+		//设置排序
+		//		let stuIdSort = NSSortDescriptor(key: "stuId", ascending: false)	//按学生ID降序
+		//		let nameSort = NSSortDescriptor(key: "name", ascending: true)	//按照姓名升序
+		//合并多重条件
+		//		let sortDescriptors:[NSSortDescriptor] = [stuIdSort,nameSort]
+		//		fetchRequest.sortDescriptors = sortDescriptors
+		
+		do {
+			let fetchedObjects = try context.fetch(fetchRequest)
+			
+//			for info:MXSDiary in fetchedObjects {
+//				MXSLog("id=\(info.weather)")
+//				MXSLog("name=\(String(describing: info.date_creat))")
+//				MXSLog("sex=\(String(describing: info.date_daily))")
+//				MXSLog("classId=\(String(describing: info.diary_content))")
+//				MXSLog("-------------------")
+//			}
+			return fetchedObjects
+		}
+		catch {
+			fatalError("不能保存：\(error)")
+		}
+		return []
 	}
-//	func createFile(name:String,fileBaseUrl:NSURL){
-//		let manager = NSFileManager.defaultManager()
-//
-//		let file = fileBaseUrl.URLByAppendingPathComponent(name)
-//		print("文件: \(file)")
-//		let exist = manager.fileExistsAtPath(file.path!)
-//		if !exist {
-//			let data = NSData(base64EncodedString:"aGVsbG8gd29ybGQ=",options:.IgnoreUnknownCharacters)
-//			let createSuccess = manager.createFileAtPath(file.path!,contents:data,attributes:nil)
-//			print("文件创建结果: \(createSuccess)")
-//		}
-//	}
+	
+	static public func fetchDiaryObjects2(completeBlock:@escaping (_ fetch:[MXSDiary]) -> Void) {
+		MXSLog("fetch")
+		let context = MXSDiaryModelCmd.shared.managedObjectContext
+		let fetchRequest : NSFetchRequest<MXSDiary> = (MXSDiary.fetchRequest())
+		do {
+			let fetchedObjects = try context.fetch(fetchRequest)
+			completeBlock(fetchedObjects)
+		}
+		catch {
+			completeBlock([])
+			fatalError("不能保存：\(error)")
+		}
+	}
 }

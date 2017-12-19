@@ -399,9 +399,9 @@
 		7075C00E1FE3ED9500E03491 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				7044B1C91FE510700047AE9C /* MXSDiary+ContextOpt.swift */,
 				703603731FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift */,
 				7075C00F1FE3EDAA00E03491 /* CoreData */,
-				7044B1C91FE510700047AE9C /* MXSDiary+ContextOpt.swift */,
 			);
 			path = Daily;
 			sourceTree = "<group>";
