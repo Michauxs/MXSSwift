@@ -10,7 +10,11 @@ import UIKit
 
 class MXSTableViewCell: UITableViewCell {
 
-    var cellData : Any?
+	var cellData : Any? {
+		didSet {
+			
+		}
+	}
     
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)

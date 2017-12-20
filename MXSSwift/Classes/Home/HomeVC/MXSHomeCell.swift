@@ -9,7 +9,7 @@
 import UIKit
 //import SnapKit
 
-class MXSHomeCell: UITableViewCell {
+class MXSHomeCell: MXSTableViewCell {
 	
 	var thumImageView : UIImageView?
 	var titleLabel : UILabel?
@@ -22,9 +22,6 @@ class MXSHomeCell: UITableViewCell {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		
-		backgroundColor = UIColor.white
-		selectionStyle = .none
-		
 		thumImageView = UIImageView.init(image: UIImage.init(named: "default_img"))
 		thumImageView?.resizeScaleAspectFill()
 		addSubview(thumImageView!)
@@ -32,7 +29,7 @@ class MXSHomeCell: UITableViewCell {
 			make.left.equalTo(self).offset(10)
 			make.top.equalTo(self).offset(6)
 			make.bottom.equalTo(self).offset(-6)
-			make.width.equalTo(100)
+			make.width.equalTo(SCREEN_WIDTH*0.5 - 10)
 		})
 		
 		titleLabel = UILabel.init(text: "服务标题", fontSize: 13, textColor: UIColor.black, alignment: .left)
@@ -86,6 +83,12 @@ class MXSHomeCell: UITableViewCell {
 	}
 	
 	//MARK:acions
+	override var cellData: Any? {
+		didSet {
+			titleLabel?.text = cellData as? String
+		}
+	}
+	
 	public func setCellData(data:Any) {
 		let cell_info:Dictionary<String,Any> = data as! Dictionary<String,Any>
 		titleLabel?.text = cell_info["title"] as? String

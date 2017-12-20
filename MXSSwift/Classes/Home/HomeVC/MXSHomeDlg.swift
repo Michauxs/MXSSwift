@@ -9,7 +9,13 @@
 import UIKit
 
 class MXSHomeDlg: MXSTableDlg {
-
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell:MXSHomeCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSHomeCell
+		cell.cellData = queryData?[indexPath.row]
+		return cell
+	}
+	
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return rowHeight!
 	}

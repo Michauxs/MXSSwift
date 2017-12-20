@@ -21,6 +21,9 @@ class MXSTableView: UITableView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	/*
+	*不设置rowHeight:使用默认64，设置为0:使用自动高度的cell
+	*/
 	func register(cellName:String, delegate:MXSTableDlg, vc:MXSBaseVC, rowHeight:CGFloat = 64) {
 		
 		//获取命名空间
@@ -29,7 +32,7 @@ class MXSTableView: UITableView {
 		register(cellClass, forCellReuseIdentifier: cellName)
 //		register(MXSHomeCell.classForCoder(), forCellReuseIdentifier: cellName)
 		
-        if rowHeight != 0 {
+        if rowHeight == 0 {
             estimatedRowHeight = 80;
             self.rowHeight = UITableViewAutomaticDimension;
         }

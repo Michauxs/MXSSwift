@@ -55,6 +55,7 @@ class MXSHomeVC: MXSBaseVC {
 		NavBar?.rightBtn?.isHidden = true
 		NavBar?.leftBtn?.isHidden = true
 	}
+	
 	override func TableLayout() {
 		super.TableLayout()
 		TableView?.snp.makeConstraints({ (make) in

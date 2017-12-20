@@ -8,7 +8,15 @@
 
 import UIKit
 
-
+/*
+*	子类注意事项：
+		1.注册/获取cell都是通过 具体cell类的String，不能使用通用cell基类的名字String， 必须独自实现 cellForRowAt；
+		2.自动高度UITableViewAutomaticDimension的cell 不能再实现heightForRowAt，所以此方法交由子类自行实现；
+	PS：通用TableView基类的注册方法的rowheight高的设置选项：
+		1.设置：即row的高度
+		2:不设置：使用方法的默认64
+		3.设置为0:即 使用自动高度，此时子类Dlg不用且不能实现方法：heightForRowAt
+*/
 class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 	
 	var queryData : Array<Any>?
@@ -26,15 +34,14 @@ class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell:MXSHomeCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSHomeCell
-		cell.titleLabel?.text = queryData?[indexPath.row] as? String
+		let cell:MXSTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSTableViewCell
+		cell.cellData = queryData?[indexPath.row]
 		return cell
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		controller?.tableSelectedRowAt(indexPath: indexPath)
 	}
-	
 	
 	//MARK:scrollview
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
