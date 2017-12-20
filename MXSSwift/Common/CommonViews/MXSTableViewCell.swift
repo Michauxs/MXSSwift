@@ -21,17 +21,6 @@ class MXSTableViewCell: UITableViewCell {
 		
 		backgroundColor = UIColor.white
 		selectionStyle = .none
-		
-		let btmLine = UIView.init()
-		btmLine.backgroundColor = UIColor.grayline
-		addSubview(btmLine)
-		btmLine.snp.makeConstraints { (make) in
-			make.left.equalTo(self)
-			make.right.equalTo(self)
-			make.bottom.equalTo(self)
-			make.height.equalTo(0.5)
-		}
-		
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

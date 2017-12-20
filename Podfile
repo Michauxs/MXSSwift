@@ -6,4 +6,6 @@ target 'MXSSwift' do
 pod 'Alamofire', '~> 4.5'
 pod 'SnapKit', '~> 4.0.0'
 pod 'Refresher'
+pod "ESPullToRefresh"
+pod 'MJRefresh'
 end

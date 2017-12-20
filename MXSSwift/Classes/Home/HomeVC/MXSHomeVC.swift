@@ -7,7 +7,7 @@
 //
 
 import UIKit
-//import
+import MJRefresh
 
 class MXSHomeVC: MXSBaseVC {
 	
@@ -24,7 +24,8 @@ class MXSHomeVC: MXSBaseVC {
 		super.bindingNavBar()
 		super.bindingTableView(style: .plain)
 		
-		let data_arr = ["车和日当午", "汗滴禾下土", "是指盘中餐", "粒粒皆辛苦", "23333"]
+		let data_arr = MXSDiary.fetchDiaryObjects()
+//		let data_arr = ["车和日当午", "汗滴禾下土", "是指盘中餐", "粒粒皆辛苦", "23333"]
 		TableView?.dlg?.queryData = data_arr
 		
 		let btn = UIButton.init(text: "Push", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
@@ -52,7 +53,8 @@ class MXSHomeVC: MXSBaseVC {
 	override func NavBarLayout() {
 		super.NavBarLayout()
 		NavBar?.titleLabel?.text = "首页"
-		NavBar?.rightBtn?.isHidden = true
+		NavBar?.rightBtn?.setTitle("Add", for: .normal)
+//		NavBar?.rightBtn?.isHidden = true
 		NavBar?.leftBtn?.isHidden = true
 	}
 	
@@ -62,17 +64,43 @@ class MXSHomeVC: MXSBaseVC {
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
 		TableView?.register(cellName: "MXSHomeCell", delegate: MXSHomeDlg(), vc: self, rowHeight:90)
-		TableView?.addPullToRefreshWithAction {
-			OperationQueue().addOperation {
-				sleep(2)
-				OperationQueue.main.addOperation {
-					self.TableView?.stopPullToRefresh()
-				}
-			}
-		}
+//		TableView?.addPullToRefreshWithAction {
+//			OperationQueue().addOperation {
+//				sleep(2)
+//				OperationQueue.main.addOperation {
+//					self.TableView?.stopPullToRefresh()
+//				}
+//			}
+//		}
+		
+		TableView?.mj_header = MJRefreshNormalHeader.init()
+		TableView?.mj_header.setRefreshingTarget(self, refreshingAction: #selector(loadNewData))
+		
+//		TableView?.mj_footer = MJRefreshAutoNormalFooter.init()
+//		TableView?.mj_footer = MJRefreshFooter.init()
+//		TableView?.mj_footer = MJRefreshAutoFooter()
+//		TableView?.mj_footer = MJRefreshBackFooter()
+//		TableView?.mj_footer.setRefreshingTarget( self, refreshingAction: #selector(loadMoreData))
+		TableView?.mj_footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreData))
 	}
 	
 	//MARK:acions
+	@objc func loadNewData() {
+		let data_arr = MXSDiary.fetchDiaryObjects()
+		TableView?.dlg?.queryData = data_arr
+		TableView?.reloadData()
+		
+		TableView?.mj_header.endRefreshing()
+	}
+	@objc func loadMoreData() {
+		let data_arr = MXSDiary.fetchDiaryObjects()
+		TableView?.dlg?.queryData = data_arr
+		TableView?.reloadData()
+		
+		TableView?.mj_footer.endRefreshing()
+	}
+	
+	
 	@objc func btnClick() {
 		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSNoteVC(), args: MXSNothing.shared)
 	}
@@ -95,6 +123,10 @@ class MXSHomeVC: MXSBaseVC {
 	
 	
 	//MARK:notifies
+	override func didNavBarRightClick() {
+		MXSDiary.addDiaryWithDictionary(["key":"1"])
+	}
+	
 	override func tableSelectedRowAt(indexPath: IndexPath) {
 		btnClick()
 	}

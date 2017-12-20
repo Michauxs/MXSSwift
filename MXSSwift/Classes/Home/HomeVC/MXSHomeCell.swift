@@ -85,7 +85,8 @@ class MXSHomeCell: MXSTableViewCell {
 	//MARK:acions
 	override var cellData: Any? {
 		didSet {
-			titleLabel?.text = cellData as? String
+			
+			titleLabel?.text = (cellData as? MXSDiary)?.diary_content
 		}
 	}
 	
