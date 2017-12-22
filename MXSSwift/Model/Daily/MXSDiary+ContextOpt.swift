@@ -23,8 +23,11 @@ extension MXSDiary {
 		
 		diary.date_creat = NSDate.init()
 		diary.date_daily = NSDate.init()
-		diary.weather = 0
+		diary.weather = 10
+		diary.mood = 5
 		diary.diary_content = "今天的特别的早"
+		diary.diary_think = "thinking about"
+		diary.uuid = String.MD5String()
 		
 		do {
 			try context.save()

@@ -27,7 +27,20 @@ let kNAVAttrArgsTextColor =					"text_color"
 
 
 
-
+enum WeatherState: Int {
+	case 晴 = 10
+	case 多云 = 20
+	case 阴 = 21
+	case 小雨 = 30
+	case 中雨 = 31
+	case 大雨 = 32
+	case 阵雨 = 33
+	case 小雪 = 40
+	case 中雪 = 41
+	case 大雪 = 42
+	case 小雨夹雪 = 43
+	case 雾 = 50
+}
 
 
 func MXSLog(_ args:Any, _ sign:String = "MXSSwift") {

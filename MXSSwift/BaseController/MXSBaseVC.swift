@@ -23,7 +23,7 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		view.backgroundColor = UIColor.init(white: 0.85, alpha: 1)
+		view.backgroundColor = UIColor.white
 		automaticallyAdjustsScrollViewInsets = false
     }
 

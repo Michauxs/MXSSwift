@@ -11,5 +11,6 @@
 
 //#import "Masonry.h"
 //#import "MJRefresh.h"
+#import <CommonCrypto/CommonCrypto.h>
 
 #endif /* Header_Briding_Header_h */

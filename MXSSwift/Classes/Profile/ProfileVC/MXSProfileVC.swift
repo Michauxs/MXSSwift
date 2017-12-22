@@ -38,7 +38,7 @@ class MXSProfileVC: MXSBaseVC {
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0))
 		}
 		TableView?.contentInset = UIEdgeInsetsMake(coverViewHeight, 0, 0, 0)
-		TableView?.register(cellName: "MXSProfileCell", delegate: MXSProfileDlg(), vc: self, rowHeight:44)
+		TableView?.register(cellName: "MXSProfileCell", delegate: MXSProfileDlg(), vc: self)
 		
 		TableView?.dlg?.queryData = ["Xcode Complete", "My Diray", "Fetch Diary", "AboutDongDa", "AppSetting"]
 	}
@@ -48,10 +48,11 @@ class MXSProfileVC: MXSBaseVC {
 		if indexPath.row == 0 {
 			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSXcodePSVC(), args: MXSNothing.shared)
 		} else if indexPath.row == 1 {
-			MXSDiary.addDiaryWithDictionary(["key":"1"])
+			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSDiaryVC(), args: MXSNothing.shared)
+			
 		} else if indexPath.row == 2 {
-			let arr = MXSDiary.fetchDiaryObjects()
-			MXSLog(arr.count)
+//			let arr = MXSDiary.fetchDiaryObjects()
+//			MXSLog(arr.count)
 			
 		} else if indexPath.row == 3 {
 			

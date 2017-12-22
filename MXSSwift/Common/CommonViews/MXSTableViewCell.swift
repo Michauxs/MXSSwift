@@ -27,4 +27,16 @@ class MXSTableViewCell: UITableViewCell {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
+	//MARK:actions
+	public func drawBtmLine() {
+		let line = UIView.init()
+		addSubview(line)
+		line.backgroundColor = UIColor.grayline
+		line.snp.makeConstraints { (make) in
+			make.right.equalTo(self)
+			make.left.equalTo(self).offset(15)
+			make.bottom.equalTo(self)
+			make.height.equalTo(0.5)
+		}
+	}
 }

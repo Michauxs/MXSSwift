@@ -10,12 +10,13 @@ import UIKit
 
 class MXSDiaryDlg: MXSTableDlg {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell:MXSHomeCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSHomeCell
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSDiaryCell
 		cell.cellData = queryData?[indexPath.row]
 		return cell
 	}
 	
-	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-		return rowHeight!
-	}
+//	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+//		return rowHeight!
+//	}
 }

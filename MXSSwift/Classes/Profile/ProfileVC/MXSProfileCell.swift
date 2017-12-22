@@ -21,6 +21,8 @@ class MXSProfileCell: MXSTableViewCell {
 			make.centerY.equalTo(self)
 			make.left.equalTo(self).offset(15)
 		}
+		
+		drawBtmLine()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
