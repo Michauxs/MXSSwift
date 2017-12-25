@@ -80,6 +80,9 @@
 		706882A31FEA6F5B003F21DD /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7068828E1FEA6F5B003F21DD /* UIScrollView+MJRefresh.m */; };
 		706882A41FEA6F5B003F21DD /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 706882901FEA6F5B003F21DD /* UIView+MJExtension.m */; };
 		706882A51FEA8A02003F21DD /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706882A61FEA8A02003F21DD /* MJRefresh.framework */; };
+		707141061FF0D4180036CE16 /* MXSPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707141051FF0D4180036CE16 /* MXSPickerView.swift */; };
+		707141081FF0E1930036CE16 /* MXSPickerDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707141071FF0E1930036CE16 /* MXSPickerDlg.swift */; };
+		7071410C1FF11A640036CE16 /* MXSToolsCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7071410B1FF11A640036CE16 /* MXSToolsCmd.swift */; };
 		709254251FD66FF600195632 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709254261FD66FF600195632 /* SnapKit.framework */; };
 		709254271FD675DC00195632 /* Refresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709254281FD675DC00195632 /* Refresher.framework */; };
 		709254291FD675E500195632 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7092542A1FD675E500195632 /* Alamofire.framework */; };
@@ -191,6 +194,9 @@
 		7068828F1FEA6F5B003F21DD /* UIView+MJExtension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+MJExtension.h"; sourceTree = "<group>"; };
 		706882901FEA6F5B003F21DD /* UIView+MJExtension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+MJExtension.m"; sourceTree = "<group>"; };
 		706882A61FEA8A02003F21DD /* MJRefresh.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MJRefresh.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		707141051FF0D4180036CE16 /* MXSPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickerView.swift; sourceTree = "<group>"; };
+		707141071FF0E1930036CE16 /* MXSPickerDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickerDlg.swift; sourceTree = "<group>"; };
+		7071410B1FF11A640036CE16 /* MXSToolsCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSToolsCmd.swift; sourceTree = "<group>"; };
 		709254261FD66FF600195632 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		709254281FD675DC00195632 /* Refresher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Refresher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7092542A1FD675E500195632 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -385,6 +391,7 @@
 			children = (
 				703DA8E11FBAB9E60059A632 /* MXSTableDlg.swift */,
 				70A7E78F1FCBF1E700B80A7B /* MXSCollectionDlg.swift */,
+				707141071FF0E1930036CE16 /* MXSPickerDlg.swift */,
 			);
 			path = CommonDelegate;
 			sourceTree = "<group>";
@@ -397,6 +404,7 @@
 				70A00E1F1FC7E753007C649C /* MXSTableViewCell.swift */,
 				70A7E7911FCBF86000B80A7B /* MXSCollectionView.swift */,
 				704BD99D1FCD41FA0096DCE9 /* MXSCollectionViewCell.swift */,
+				707141051FF0D4180036CE16 /* MXSPickerView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -426,6 +434,7 @@
 				703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */,
 				704BD99B1FCD30C10096DCE9 /* MXSALAssetCmd.swift */,
 				706003C11FD5269700759938 /* MXSPHAssetCmd.swift */,
+				7071410B1FF11A640036CE16 /* MXSToolsCmd.swift */,
 			);
 			path = MXSCmd;
 			sourceTree = "<group>";
@@ -805,8 +814,10 @@
 				703DA8E71FBAD0200059A632 /* MXSVCPtc.swift in Sources */,
 				7068829B1FEA6F5B003F21DD /* MJRefreshBackStateFooter.m in Sources */,
 				703DA8DE1FBAB9AA0059A632 /* MXSContentVC.swift in Sources */,
+				7071410C1FF11A640036CE16 /* MXSToolsCmd.swift in Sources */,
 				706882931FEA6F5B003F21DD /* MJRefreshComponent.m in Sources */,
 				7044B1B61FE4CD090047AE9C /* UIButton+Extension.swift in Sources */,
+				707141081FF0E1930036CE16 /* MXSPickerDlg.swift in Sources */,
 				706882921FEA6F5B003F21DD /* MJRefreshBackFooter.m in Sources */,
 				703DA8DA1FBAB9390059A632 /* MXSHomeVC.swift in Sources */,
 				706882941FEA6F5B003F21DD /* MJRefreshFooter.m in Sources */,
@@ -844,6 +855,7 @@
 				70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */,
 				7042EFCB1FEB8004004BE421 /* MXSDiary+CoreDataClass.swift in Sources */,
 				70A7E7921FCBF86000B80A7B /* MXSCollectionView.swift in Sources */,
+				707141061FF0D4180036CE16 /* MXSPickerView.swift in Sources */,
 				706882A11FEA6F5B003F21DD /* NSBundle+MJRefresh.m in Sources */,
 				706882A01FEA6F5B003F21DD /* MJRefreshConst.m in Sources */,
 				7042EFCC1FEB8004004BE421 /* MXSDiary+CoreDataProperties.swift in Sources */,

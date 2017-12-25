@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 let SCREEN_WIDTH =							UIScreen.main.bounds.width
-let SCREEN_HEWGHT =							UIScreen.main.bounds.height
+let SCREEN_HEIGHT =							UIScreen.main.bounds.height
 let SCREEN_SCALE =							UIScreen.main.scale
 
 let STATUS_BAR_H: CGFloat =					20
@@ -26,21 +26,8 @@ let kNAVAttrArgsTextColor =					"text_color"
 //let kNAVAttrArgsText =					"text"
 
 
+let kMXSWeathers =							["晴", "多云", "阴", "小雨", "中雨", "大雨", "阵雨", "小雪", "中雪", "大雪", "小雨夹雪", "雾"]
 
-enum WeatherState: Int {
-	case 晴 = 10
-	case 多云 = 20
-	case 阴 = 21
-	case 小雨 = 30
-	case 中雨 = 31
-	case 大雨 = 32
-	case 阵雨 = 33
-	case 小雪 = 40
-	case 中雪 = 41
-	case 大雪 = 42
-	case 小雨夹雪 = 43
-	case 雾 = 50
-}
 
 
 func MXSLog(_ args:Any, _ sign:String = "MXSSwift") {

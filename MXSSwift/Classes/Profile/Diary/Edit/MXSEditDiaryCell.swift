@@ -32,7 +32,8 @@ class MXSEditDiaryCell: MXSTableViewCell {
 		contentLabel?.snp.makeConstraints({ (make) in
 			make.left.equalTo(titleLabel!.snp.right).offset(20)
 			make.top.equalTo(titleLabel!)
-			make.right.equalTo(self).offset(-15)
+//			make.right.equalTo(self).offset(-15)
+			make.right.lessThanOrEqualTo(self).offset(-15)
 			make.bottom.equalTo(self).offset(-10)
 		})
 		

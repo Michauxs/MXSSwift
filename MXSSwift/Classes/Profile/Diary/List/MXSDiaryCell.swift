@@ -61,6 +61,8 @@ class MXSDiaryCell: MXSTableViewCell {
 		contentLabel?.snp.makeConstraints({ (make) in
 			make.left.equalTo(dateLabel!)
 			make.top.equalTo(gradingView!.snp.bottom).offset(8)
+//			make.right.equalTo(self).offset(-15)
+			make.right.lessThanOrEqualTo(self).offset(-15)
 		})
 		
 		thinkLabel = UILabel.init(text: "Xinlicexie", fontSize: 12, textColor: UIColor.brown, alignment: .left)
@@ -70,6 +72,8 @@ class MXSDiaryCell: MXSTableViewCell {
 		thinkLabel?.snp.makeConstraints({ (make) in
 			make.left.equalTo(dateLabel!)
 			make.top.equalTo(contentLabel!.snp.bottom).offset(5)
+//			make.right.equalTo(self).offset(-15)
+			make.right.lessThanOrEqualTo(self).offset(-15)
 			make.bottom.equalTo(self).offset(-10)
 		})
 		
@@ -83,8 +87,8 @@ class MXSDiaryCell: MXSTableViewCell {
 	//MARK:acions
 	override var cellData: Any? {
 		didSet {
-			dateLabel?.text = (cellData as! MXSDiary).uuid
-//			weatherLabel?.text = WeatherState(rawValue:10) as String
+			dateLabel?.text = MXSToolsCmd.shared.dateConvertString((cellData as! MXSDiary).date_daily! as Date, defFormat: "yyyy-MM-dd EEE")
+			weatherLabel?.text = MXSToolsCmd.shared.transWeather(Int((cellData as! MXSDiary).weather))
 			contentLabel?.text = (cellData as! MXSDiary).diary_content
 			thinkLabel?.text = (cellData as! MXSDiary).diary_think
 		}

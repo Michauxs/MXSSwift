@@ -15,6 +15,8 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 	var contentTextView : UITextView?
 	var thinkTextView : UITextView?
 	
+	var pickerView : MXSPickerView?
+	
     override func viewDidLoad() {
         super.viewDidLoad()
 		
@@ -34,9 +36,19 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		dateLabel = UILabel.init(text: "Date", fontSize: 13, textColor: UIColor.black, alignment: .left)
 		view.addSubview(dateLabel!)
 		dateLabel?.snp.makeConstraints({ (make) in
-			make.left.equalTo(view).offset(15+60)
+			make.left.equalTo(view).offset(15 + 60)
 			make.centerY.equalTo(dateTitle)
 		})
+		
+		let todayBtn = UIButton.init(text: "Today", fontSize: 13, textColor: UIColor.theme, background: MXSNothing.shared)
+		todayBtn.setRadius(radius: 4, borderColor: UIColor.theme, borderWidth: 0.5)
+		view.addSubview(todayBtn)
+		todayBtn.snp.makeConstraints { (make) in
+			make.right.equalTo(view).offset(-15)
+			make.centerY.equalTo(dateTitle)
+			make.size.equalTo(CGSize.init(width: 40, height: 20))
+		}
+		todayBtn.addTarget(self, action: #selector(signTodayBtnClick), for: .touchUpInside)
 		
 		let weatherTitle = UILabel.init(text: "Weather", fontSize: 13, textColor: UIColor.black, alignment: .left)
 		view.addSubview(weatherTitle)
@@ -45,12 +57,34 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 			make.top.equalTo(dateTitle.snp.bottom).offset(44)
 		})
 		
-		weatherLabel = UILabel.init(text: "Sunny", fontSize: 13, textColor: UIColor.black, alignment: .left)
+		let addOptBtn = UIButton.init(type: .contactAdd)
+		view.addSubview(addOptBtn)
+		addOptBtn.snp.makeConstraints { (make) in
+			make.right.equalTo(view).offset(-15)
+			make.centerY.equalTo(weatherTitle);
+		}
+		addOptBtn.addTarget(self, action: #selector(didWeatherTap), for: .touchUpInside)
+		
+		weatherLabel = UILabel.init(text: "weather", fontSize: 13, textColor: UIColor.gray, alignment: .left)
 		view.addSubview(weatherLabel!)
 		weatherLabel?.snp.makeConstraints({ (make) in
 			make.left.equalTo(dateLabel!)
 			make.centerY.equalTo(weatherTitle)
+			make.right.equalTo(addOptBtn.snp.left).offset(-15)
 		})
+//		weatherLabel?.isUserInteractionEnabled = true
+//		weatherLabel?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(didWeatherTap)))
+		
+		
+		let line = UIView.init()
+		line.backgroundColor = UIColor.grayline
+		view.addSubview(line)
+		line.snp.makeConstraints { (make) in
+			make.top.equalTo(weatherLabel!.snp.bottom).offset(8)
+			make.left.equalTo(weatherLabel!)
+			make.right.equalTo(view).offset(-15)
+			make.height.equalTo(0.5)
+		}
 		
 		let contentTitle = UILabel.init(text: "Content", fontSize: 13, textColor: UIColor.black, alignment: .left)
 		view.addSubview(contentTitle)
@@ -60,13 +94,13 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		})
 		
 		contentTextView = UITextView.init()
-		contentTextView?.text = "content"
+		contentTextView?.text = ""
 		view.addSubview(contentTextView!)
 		contentTextView?.snp.makeConstraints({ (make) in
 			make.left.equalTo(dateLabel!)
 			make.top.equalTo(contentTitle)
 			make.right.equalTo(view).offset(-15)
-			make.height.equalTo(30)
+			make.height.greaterThanOrEqualTo(25)
 		})
 		
 		let thinkTitle = UILabel.init(text: "Think", fontSize: 13, textColor: UIColor.black, alignment: .left)
@@ -77,13 +111,13 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		})
 		
 		thinkTextView = UITextView.init()
-		thinkTextView?.text = "think"
+		thinkTextView?.text = ""
 		view.addSubview(thinkTextView!)
 		thinkTextView?.snp.makeConstraints({ (make) in
 			make.left.equalTo(dateLabel!)
 			make.top.equalTo(thinkTitle)
 			make.right.equalTo(view).offset(-15)
-			make.height.equalTo(30)
+			make.height.greaterThanOrEqualTo(25)
 		})
 		
 		contentTextView?.isEditable = true
@@ -91,18 +125,111 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		
 		thinkTextView?.isEditable = true
 		thinkTextView?.isScrollEnabled = false
-//		thinkTextView.
 		
 		contentTextView?.delegate = self
 		thinkTextView?.delegate = self
 		
-	}
-	
-	func textViewDidChange(_ textView: UITextView) {
+		contentTextView?.textContainerInset = UIEdgeInsets.init(top: 2, left: 0, bottom: 2, right: 0)
+		thinkTextView?.textContainerInset = UIEdgeInsets.init(top: 2, left: 0, bottom: 2, right: 0)
 		
+		contentTextView?.backgroundColor = UIColor.grayline
+		thinkTextView?.backgroundColor = UIColor.grayline
+		
+		view.isUserInteractionEnabled = true
+		view.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapElse)))
+		
+		pickerView = MXSPickerView.init(vc: self)
+		view.addSubview(pickerView!)
+		pickerView?.registDelegate(MXSPickerDlg())
+//		let weather_data = kMXSWeathers
+		pickerView?.dlg?.loadData = kMXSWeathers
 	}
 	
-	func textViewShouldEndEditing(_ textView: UITextView) -> Bool {
+	//MARK:actions
+	@objc func tapElse () {
+		view.endEditing(true)
+	}
+	
+	@objc func signTodayBtnClick () {
+		let today = dateConvertString(Date.init())
+		dateLabel?.text = today
+	}
+	
+	@objc func didWeatherTap() {
+		pickerView?.showInSupView()
+	}
+	
+	
+	func dateConvertString(_ date:Date) -> String {
+		
+		let formatter = DateFormatter()
+		formatter.timeZone = TimeZone.init(identifier: "UTC")
+		formatter.locale = Locale.init(identifier: "zh_CN")
+		formatter.dateFormat = "yyyy-MM-dd"
+		
+		return formatter.string(from: date)
+	}
+	func stringConvertDate(_ str:String) -> Date {
+		
+		let formatter = DateFormatter()
+		formatter.timeZone = TimeZone.init(identifier: "UTC")
+		formatter.locale = Locale.init(identifier: "zh_CN")
+		formatter.dateFormat = "yyyy-MM-dd"
+		
+		return formatter.date(from: str)!
+	}
+	
+	//MARK:notifies
+	override func didNavBarRightClick() {
+		
+		var dic = Dictionary<String, Any>.init()
+		let wth = weatherLabel?.text
+		if wth!.contains("转") {
+			let arr = wth!.components(separatedBy: "转")
+			let first = kMXSWeathers.index(of: arr.first!)
+			let last = kMXSWeathers.index(of: arr.last!)
+			
+			dic["weather"] = (first!+10)*100 + last!+10
+		} else {
+			let index = kMXSWeathers.index(of: wth!)! + 10
+			dic["weather"] = index
+		}
+		
+		dic["date_daily"] = stringConvertDate(dateLabel!.text!)
+		dic["diary_content"] = contentTextView?.text
+		dic["diary_think"] = thinkTextView?.text
+		MXSDiary.addDiaryWithDictionary(dic)
+	}
+	
+	override func pickerSave() {
+		let row = pickerView?.picker?.selectedRow(inComponent: 0)
+		let weather = kMXSWeathers[row!]
+		
+		if weatherLabel?.text == "weather" {
+			weatherLabel?.text = weather
+		} else {
+			let yet = weatherLabel?.text
+			weatherLabel?.text = yet! + "转" + weather
+		}
+	}
+	
+	//MARK:textview delegate
+	func textViewDidChange(_ textView: UITextView) {
+//		MXSLog(textView.bounds.size.height)
+//		if !textView.isScrollEnabled {
+//			if textView.bounds.size.height >= 50 {
+//				textView.isScrollEnabled = true
+//			}
+//		} else {
+//			if textView.bounds.size.height < 50 {
+//				textView.isScrollEnabled = false
+//			}
+//		}
+	}
+	
+	func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+		
+		
 		return true
 	}
 	

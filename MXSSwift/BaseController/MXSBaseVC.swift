@@ -27,6 +27,7 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 		automaticallyAdjustsScrollViewInsets = false
     }
 
+	//MARK:Actions
 	public func bindingNavBar () {
 		NavBar = MXSNavBar.init(vc: self)
 		view.addSubview(NavBar!)
@@ -50,6 +51,14 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 		view.addSubview(view_dest)
 		return view_dest
 	}
+	
+	public func pickerSave () {
+		MXSLog("no subclass fb: pickerSave()")
+	}
+	public func pickerCancel () {
+		MXSLog("nothing todo, but must be revoked")
+	}
+	
 	
 	//MARK: layout
 	public func NavBarLayout() {

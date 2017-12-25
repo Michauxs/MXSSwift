@@ -22,11 +22,11 @@ extension MXSDiary {
 		let diary = NSEntityDescription.insertNewObject(forEntityName: MXSDiaryEntityName, into:context ) as! MXSDiary
 		
 		diary.date_creat = NSDate.init()
-		diary.date_daily = NSDate.init()
-		diary.weather = 10
+		diary.date_daily = value["date_daily"] as? NSDate
+		diary.weather = Int32(value["weather"] as! Int)
 		diary.mood = 5
-		diary.diary_content = "今天的特别的早"
-		diary.diary_think = "thinking about"
+		diary.diary_content = value["diary_content"] as? String
+		diary.diary_think = value["diary_think"] as? String
 		diary.uuid = String.MD5String()
 		
 		do {
@@ -42,7 +42,7 @@ extension MXSDiary {
 		
 		let context = MXSDiaryModelCmd.shared.managedObjectContext
 		let fetchRequest : NSFetchRequest<MXSDiary> = (MXSDiary.fetchRequest())
-		fetchRequest.fetchLimit = 8 //每页大小
+//		fetchRequest.fetchLimit = 8 //每页大小
 //		fetchRequest.fetchOffset = 1 * 20 //第几页
 		
 		//设置查询条件:参考exsitsObject
