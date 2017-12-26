@@ -43,8 +43,8 @@ class MXSPickerView: UIView {
 		addSubview(Bground!)
 		Bground?.backgroundColor = UIColor.lightGray
 		
-		Bground?.isUserInteractionEnabled = true
-		Bground?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapElse)))
+		isUserInteractionEnabled = true
+		addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapElse)))
 		
 		cancelBtn = UIButton.init(text: "Cancel", fontSize: 13, textColor: UIColor.gray, background: MXSNothing.shared)
 		Bground?.addSubview(cancelBtn!)

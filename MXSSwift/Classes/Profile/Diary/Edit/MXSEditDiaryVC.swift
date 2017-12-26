@@ -30,6 +30,7 @@ class MXSEditDiaryVC: MXSBaseVC {
 	override func NavBarLayout() {
 		super.NavBarLayout()
 		NavBar?.titleLabel?.text = "Edit Diary"
+		NavBar?.rightBtn?.setTitle("Del", for: .normal)
 	}
 	
 	override func TableLayout() {
@@ -42,10 +43,11 @@ class MXSEditDiaryVC: MXSBaseVC {
 	
 	//MARK:notifies
 	override func didNavBarRightClick() {
-		
+		MXSDiary.removeDiaryObjects([DiaryData!])
+		didNavBarLeftClick()
 	}
 	
-	override func tableSelectedRowAt(indexPath: IndexPath) {
+	override func tableSelectedRowAt(_ indexPath: IndexPath) {
 		
 	}
 }

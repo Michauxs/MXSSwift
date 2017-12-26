@@ -28,10 +28,7 @@ class MXSEditDiaryDlg: MXSTableDlg {
 			cell.cellData = dateConvertString(date)
 		}
 		else if indexPath.row == 1 {
-			var wea = "sunny"
-			if queryDataSub?.weather == 20 {
-				wea = "cloud"
-			}
+			let wea = MXSToolsCmd.shared.transWeather(Int(queryDataSub!.weather))
 			cell.cellData = wea
 		}
 		else if indexPath.row == 2 {

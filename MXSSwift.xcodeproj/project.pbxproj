@@ -79,7 +79,6 @@
 		706882A21FEA6F5B003F21DD /* UIScrollView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7068828C1FEA6F5B003F21DD /* UIScrollView+MJExtension.m */; };
 		706882A31FEA6F5B003F21DD /* UIScrollView+MJRefresh.m in Sources */ = {isa = PBXBuildFile; fileRef = 7068828E1FEA6F5B003F21DD /* UIScrollView+MJRefresh.m */; };
 		706882A41FEA6F5B003F21DD /* UIView+MJExtension.m in Sources */ = {isa = PBXBuildFile; fileRef = 706882901FEA6F5B003F21DD /* UIView+MJExtension.m */; };
-		706882A51FEA8A02003F21DD /* MJRefresh.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706882A61FEA8A02003F21DD /* MJRefresh.framework */; };
 		707141061FF0D4180036CE16 /* MXSPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707141051FF0D4180036CE16 /* MXSPickerView.swift */; };
 		707141081FF0E1930036CE16 /* MXSPickerDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707141071FF0E1930036CE16 /* MXSPickerDlg.swift */; };
 		7071410C1FF11A640036CE16 /* MXSToolsCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7071410B1FF11A640036CE16 /* MXSToolsCmd.swift */; };
@@ -214,7 +213,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				706882A51FEA8A02003F21DD /* MJRefresh.framework in Frameworks */,
 				706882601FEA5F96003F21DD /* ESPullToRefresh.framework in Frameworks */,
 				709254291FD675E500195632 /* Alamofire.framework in Frameworks */,
 				709254271FD675DC00195632 /* Refresher.framework in Frameworks */,
@@ -729,7 +727,6 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-MXSSwift/Pods-MXSSwift-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/ESPullToRefresh/ESPullToRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Refresher/Refresher.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
@@ -737,7 +734,6 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ESPullToRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Refresher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);

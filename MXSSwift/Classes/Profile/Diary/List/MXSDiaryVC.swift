@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MJRefresh
 
 class MXSDiaryVC: MXSBaseVC {
 	
@@ -41,10 +40,8 @@ class MXSDiaryVC: MXSBaseVC {
 	//MARK:layout
 	override func NavBarLayout() {
 		super.NavBarLayout()
-		NavBar?.titleLabel?.text = "Diary"
+		NavBar?.titleLabel?.text = "Diary List"
 		NavBar?.rightBtn?.setTitle("Add", for: .normal)
-//		NavBar?.rightBtn?.isHidden = true
-//		NavBar?.leftBtn?.isHidden = true
 	}
 	
 	override func TableLayout() {
@@ -53,13 +50,11 @@ class MXSDiaryVC: MXSBaseVC {
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
 		TableView?.register(cellName: "MXSDiaryCell", delegate: MXSDiaryDlg(), vc: self, rowHeight:0)
-		
-		TableView?.mj_header = MJRefreshNormalHeader.init()
-		TableView?.mj_header.setRefreshingTarget(self, refreshingAction: #selector(loadNewData))
-		
-		TableView?.mj_footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreData))
-//		TableView?.mj_footer.
-//		TableView?.mj_footer = MJRefreshAutoStateFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreData))
+		TableView?.addPullToRefreshWithAction {
+			OperationQueue().addOperation {
+				self.loadNewData()
+			}
+		}
 	}
 	
 	//MARK:acions
@@ -67,16 +62,16 @@ class MXSDiaryVC: MXSBaseVC {
 		let data_arr = MXSDiary.fetchDiaryObjects()
 		TableView?.dlg?.queryData = data_arr
 		TableView?.reloadData()
+		OperationQueue.main.addOperation {
+			self.TableView?.stopPullToRefresh()
+		}
 		
-		TableView?.mj_header.endRefreshing()
 	}
 	@objc func loadMoreData() {
 		let data_arr = MXSDiary.fetchDiaryObjects()
 		TableView?.dlg?.queryData = data_arr
 		TableView?.reloadData()
 		
-		TableView?.mj_footer.endRefreshing()
-//		TableView?.mj_footer.isHidden = true
 	}
 	
 	
@@ -93,11 +88,10 @@ class MXSDiaryVC: MXSBaseVC {
 	
 	//MARK:notifies
 	override func didNavBarRightClick() {
-//		MXSDiary.addDiaryWithDictionary(["key":"1"])
 		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSShowDiaryVC(), args: MXSNothing.shared)
 	}
 	
-	override func tableSelectedRowAt(indexPath: IndexPath) {
+	override func tableSelectedRowAt(_ indexPath: IndexPath) {
 		
 		let diary = TableView?.dlg?.queryData![indexPath.row]
 		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSEditDiaryVC(), args: diary as Any)

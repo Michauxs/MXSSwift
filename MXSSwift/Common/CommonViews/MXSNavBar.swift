@@ -42,13 +42,13 @@ class MXSNavBar: UIView {
 		leftBtn?.setImage(UIImage.init(named: "nav_back_theme"), for: .normal)
 		self.addSubview(leftBtn!)
 		leftBtn?.snp.makeConstraints({ (make) in
-			make.left.equalTo(self).offset(10)
+			make.left.equalTo(self).offset(0)
 			make.centerY.equalTo(self).offset(0)
 			make.size.equalTo(CGSize.init(width: 44, height: 44))
 		})
 		leftBtn?.addTarget(self, action: #selector(self.didLeftBtnClick), for: .touchUpInside)
 		
-		rightBtn = UIButton.init(text: "Save", fontSize: 16, textColor: UIColor.black, background: MXSNothing.shared)
+		rightBtn = UIButton.init(text: "Seter", fontSize: 16, textColor: UIColor.black, background: MXSNothing.shared)
 		rightBtn?.setTitleColor(UIColor.gray, for: .disabled)
 		self.addSubview(rightBtn!)
 		rightBtn?.snp.makeConstraints({ (make) in

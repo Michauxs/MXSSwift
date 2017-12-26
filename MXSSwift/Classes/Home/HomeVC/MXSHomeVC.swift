@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import MJRefresh
 
 class MXSHomeVC: MXSBaseVC {
 	
@@ -64,24 +63,12 @@ class MXSHomeVC: MXSBaseVC {
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
 		TableView?.register(cellName: "MXSHomeCell", delegate: MXSHomeDlg(), vc: self, rowHeight:90)
-//		TableView?.addPullToRefreshWithAction {
-//			OperationQueue().addOperation {
-//				sleep(2)
-//				OperationQueue.main.addOperation {
-//					self.TableView?.stopPullToRefresh()
-//				}
-//			}
-//		}
+		TableView?.addPullToRefreshWithAction {
+			OperationQueue().addOperation {
+				self.loadNewData()
+			}
+		}
 		
-		TableView?.mj_header = MJRefreshNormalHeader.init()
-		TableView?.mj_header.setRefreshingTarget(self, refreshingAction: #selector(loadNewData))
-		
-//		TableView?.mj_footer = MJRefreshAutoNormalFooter.init()
-//		TableView?.mj_footer = MJRefreshFooter.init()
-//		TableView?.mj_footer = MJRefreshAutoFooter()
-//		TableView?.mj_footer = MJRefreshBackFooter()
-//		TableView?.mj_footer.setRefreshingTarget( self, refreshingAction: #selector(loadMoreData))
-		TableView?.mj_footer = MJRefreshAutoNormalFooter.init(refreshingTarget: self, refreshingAction: #selector(loadMoreData))
 	}
 	
 	//MARK:acions
@@ -90,14 +77,15 @@ class MXSHomeVC: MXSBaseVC {
 		TableView?.dlg?.queryData = data_arr
 		TableView?.reloadData()
 		
-		TableView?.mj_header.endRefreshing()
+		OperationQueue.main.addOperation {
+			self.TableView?.stopPullToRefresh()
+		}
 	}
 	@objc func loadMoreData() {
 		let data_arr = MXSDiary.fetchDiaryObjects()
 		TableView?.dlg?.queryData = data_arr
 		TableView?.reloadData()
 		
-		TableView?.mj_footer.endRefreshing()
 	}
 	
 	
@@ -127,7 +115,7 @@ class MXSHomeVC: MXSBaseVC {
 		MXSDiary.addDiaryWithDictionary(["key":"1"])
 	}
 	
-	override func tableSelectedRowAt(indexPath: IndexPath) {
+	override func tableSelectedRowAt(_ indexPath: IndexPath) {
 		btnClick()
 	}
 	

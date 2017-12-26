@@ -44,7 +44,7 @@ class MXSProfileVC: MXSBaseVC {
 	}
 	
 	//MARK:notifies
-	override func tableSelectedRowAt(indexPath: IndexPath) {
+	override func tableSelectedRowAt(_ indexPath: IndexPath) {
 		if indexPath.row == 0 {
 			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSXcodePSVC(), args: MXSNothing.shared)
 		} else if indexPath.row == 1 {

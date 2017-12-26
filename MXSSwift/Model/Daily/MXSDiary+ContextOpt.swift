@@ -50,22 +50,14 @@ extension MXSDiary {
 		//fetchRequest.predicate = predicate
 		
 		//设置排序
-		//		let stuIdSort = NSSortDescriptor(key: "stuId", ascending: false)	//按学生ID降序
+		let desc = NSSortDescriptor(key: "date_daily", ascending: false)	//按学生ID降序
 		//		let nameSort = NSSortDescriptor(key: "name", ascending: true)	//按照姓名升序
 		//合并多重条件
-		//		let sortDescriptors:[NSSortDescriptor] = [stuIdSort,nameSort]
-		//		fetchRequest.sortDescriptors = sortDescriptors
+		//		fetchRequest.sortDescriptors = [stuIdSort,nameSort]
+		fetchRequest.sortDescriptors = [desc]
 		
 		do {
 			let fetchedObjects = try context.fetch(fetchRequest)
-			
-//			for info:MXSDiary in fetchedObjects {
-//				MXSLog("id=\(info.weather)")
-//				MXSLog("name=\(String(describing: info.date_creat))")
-//				MXSLog("sex=\(String(describing: info.date_daily))")
-//				MXSLog("classId=\(String(describing: info.diary_content))")
-//				MXSLog("-------------------")
-//			}
 			return fetchedObjects
 		}
 		catch {
@@ -73,6 +65,29 @@ extension MXSDiary {
 		}
 		return []
 	}
+	
+	
+	static public func removeDiaryObjects(_ array:Array<MXSDiary>) {
+		
+		let context = MXSDiaryModelCmd.shared.managedObjectContext
+		
+		for diary in array {
+			context.delete(diary)
+		}
+		do {
+			try context.save()
+			MXSLog("删除成功")
+		} catch {
+			fatalError("不能删除：\(error)")
+		}
+//		let fetchRequest : NSFetchRequest<MXSDiary> = (MXSDiary.fetchRequest())
+//
+//		//设置查询条件:参考exsitsObject
+//		let predicate = NSPredicate(format: "uuid= %@ ", diary.uuid!)
+//		fetchRequest.predicate = predicate
+		
+	}
+	
 	
 	static public func fetchDiaryObjects2(completeBlock:@escaping (_ fetch:[MXSDiary]) -> Void) {
 		MXSLog("fetch")

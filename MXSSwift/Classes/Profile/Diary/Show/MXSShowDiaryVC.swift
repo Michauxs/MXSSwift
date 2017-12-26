@@ -145,6 +145,13 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		pickerView?.dlg?.loadData = kMXSWeathers
 	}
 	
+	//MARK:layout
+	override func NavBarLayout() {
+		super.NavBarLayout()
+		NavBar?.titleLabel?.text = "Diary Edit"
+		NavBar?.rightBtn?.setTitle("Save", for: .normal)
+	}
+	
 	//MARK:actions
 	@objc func tapElse () {
 		view.endEditing(true)

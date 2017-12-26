@@ -40,7 +40,7 @@ class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		controller?.tableSelectedRowAt(indexPath: indexPath)
+		controller?.tableSelectedRowAt(indexPath)
 	}
 	
 	//MARK:scrollview
