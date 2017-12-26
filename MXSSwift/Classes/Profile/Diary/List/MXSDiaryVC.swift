@@ -61,8 +61,9 @@ class MXSDiaryVC: MXSBaseVC {
 	@objc func loadNewData() {
 		let data_arr = MXSDiary.fetchDiaryObjects()
 		TableView?.dlg?.queryData = data_arr
-		TableView?.reloadData()
+		
 		OperationQueue.main.addOperation {
+			self.TableView?.reloadData()
 			self.TableView?.stopPullToRefresh()
 		}
 		

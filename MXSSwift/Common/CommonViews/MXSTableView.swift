@@ -15,6 +15,8 @@ class MXSTableView: UITableView {
 	
 	override init(frame: CGRect, style: UITableViewStyle) {
 		super.init(frame: .zero, style: style)
+		backgroundColor = UIColor.lightBlack
+		separatorStyle = .none
 	}
 	
 	required init?(coder aDecoder: NSCoder) {

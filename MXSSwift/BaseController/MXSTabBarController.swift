@@ -31,7 +31,7 @@ class MXSTabBarController: UITabBarController {
 			setVCTabBarItem(vc: vc_arr[i], title: str, imageName: "tab_icon_" + String(i))
 		}
 		
-		tabBar.barTintColor = UIColor.white
+		tabBar.barTintColor = UIColor.lightBlack
 		tabBar.isTranslucent = false
 		
 		selectedIndex = 2

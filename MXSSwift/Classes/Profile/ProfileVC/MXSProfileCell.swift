@@ -15,7 +15,7 @@ class MXSProfileCell: MXSTableViewCell {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		
-		titleLabel = UILabel.init(text: "User info", fontSize: 14, textColor: UIColor.black, alignment: .left)
+		titleLabel = UILabel.init(text: "User info", fontSize: 14, textColor: UIColor.white, alignment: .left)
 		addSubview(titleLabel!)
 		titleLabel!.snp.makeConstraints { (make) in
 			make.centerY.equalTo(self)

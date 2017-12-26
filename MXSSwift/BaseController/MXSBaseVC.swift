@@ -23,7 +23,7 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		view.backgroundColor = UIColor.white
+		view.backgroundColor = UIColor.lightBlack
 		automaticallyAdjustsScrollViewInsets = false
     }
 
@@ -36,8 +36,6 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	public func bindingTableView (style:UITableViewStyle = UITableViewStyle.plain) {
 		TableView = MXSTableView.init(frame: .zero, style: style)
 		view.addSubview(TableView!)
-		TableView?.backgroundColor = UIColor.white
-		TableView?.separatorStyle = .none
 		TableLayout()
 	}
 	public func bindingCollectionView (layout:UICollectionViewFlowLayout) -> MXSCollectionView {

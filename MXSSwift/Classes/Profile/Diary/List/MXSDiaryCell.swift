@@ -21,7 +21,7 @@ class MXSDiaryCell: MXSTableViewCell {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		
-		dateLabel = UILabel.init(text: "2017-12-12 EEEE", fontSize: 13, textColor: UIColor.black, alignment: .left)
+		dateLabel = UILabel.init(text: "2017-12-12 EEEE", fontSize: 13, textColor: UIColor.white, alignment: .left)
 		addSubview(dateLabel!)
 		dateLabel?.snp.makeConstraints({ (make) in
 			make.left.equalTo(self).offset(15)
@@ -43,7 +43,7 @@ class MXSDiaryCell: MXSTableViewCell {
 //			make.size.equalTo(CGSize.init(width: 96, height: 15))
 //		}
 		
-		let contentTitle = UILabel.init(text: "EXP：", fontSize: 13, textColor: UIColor.black, alignment: .left)
+		let contentTitle = UILabel.init(text: "EXP：", fontSize: 13, textColor: UIColor.white, alignment: .left)
 		addSubview(contentTitle)
 		contentTitle.snp.makeConstraints({ (make) in
 			make.left.equalTo(self).offset(15)
@@ -59,7 +59,7 @@ class MXSDiaryCell: MXSTableViewCell {
 			make.right.lessThanOrEqualTo(self).offset(-15)
 		})
 		
-		let thinkTitle = UILabel.init(text: "FEEL：", fontSize: 13, textColor: UIColor.black, alignment: .left)
+		let thinkTitle = UILabel.init(text: "FEEL：", fontSize: 13, textColor: UIColor.white, alignment: .left)
 		addSubview(thinkTitle)
 		thinkTitle.snp.makeConstraints({ (make) in
 			make.left.equalTo(self).offset(15)

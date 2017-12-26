@@ -19,7 +19,7 @@ class MXSTableViewCell: UITableViewCell {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		
-		backgroundColor = UIColor.white
+		backgroundColor = UIColor.lightBlack
 		selectionStyle = .none
 	}
 	
@@ -31,7 +31,7 @@ class MXSTableViewCell: UITableViewCell {
 	public func drawBtmLine() {
 		let line = UIView.init()
 		addSubview(line)
-		line.backgroundColor = UIColor.grayline
+		line.backgroundColor = UIColor.dullLine
 		line.snp.makeConstraints { (make) in
 			make.right.equalTo(self)
 			make.left.equalTo(self).offset(15)

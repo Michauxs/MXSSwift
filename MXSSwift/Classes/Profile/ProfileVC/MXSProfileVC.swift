@@ -15,7 +15,7 @@ class MXSProfileVC: MXSBaseVC {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad();
-		view.backgroundColor = UIColor.random;
+//		view.backgroundColor = UIColor.random;
 		
 		super.bindingTableView()
 		
@@ -40,27 +40,22 @@ class MXSProfileVC: MXSBaseVC {
 		TableView?.contentInset = UIEdgeInsetsMake(coverViewHeight, 0, 0, 0)
 		TableView?.register(cellName: "MXSProfileCell", delegate: MXSProfileDlg(), vc: self)
 		
-		TableView?.dlg?.queryData = ["Xcode Complete", "My Diray", "Fetch Diary", "AboutDongDa", "AppSetting"]
+		TableView?.dlg?.queryData = ["My Diray", "Fetch Diary",  "Xcode Complete","About DongDa", "App Setting"]
 	}
 	
 	//MARK:notifies
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
 		if indexPath.row == 0 {
-			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSXcodePSVC(), args: MXSNothing.shared)
-		} else if indexPath.row == 1 {
 			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSDiaryVC(), args: MXSNothing.shared)
+		} else if indexPath.row == 1 {
 			
 		} else if indexPath.row == 2 {
-//			let arr = MXSDiary.fetchDiaryObjects()
-//			MXSLog(arr.count)
+			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSXcodePSVC(), args: MXSNothing.shared)
 			
 		} else if indexPath.row == 3 {
 			
 		} else if indexPath.row == 4 {
-//			MXSDiary.findDiaryObjects2 {(fetch) in
-//				let diary = fetch.first
-//				MXSLog(diary!.diary_content as Any)
-//			}
+			
 		}
 	}
 	

@@ -158,7 +158,7 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 	}
 	
 	@objc func signTodayBtnClick () {
-		let today = dateConvertString(Date.init())
+		let today = MXSToolsCmd.shared.dateConvertString(Date.init())
 		dateLabel?.text = today
 	}
 	
@@ -166,25 +166,6 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		pickerView?.showInSupView()
 	}
 	
-	
-	func dateConvertString(_ date:Date) -> String {
-		
-		let formatter = DateFormatter()
-		formatter.timeZone = TimeZone.init(identifier: "UTC")
-		formatter.locale = Locale.init(identifier: "zh_CN")
-		formatter.dateFormat = "yyyy-MM-dd"
-		
-		return formatter.string(from: date)
-	}
-	func stringConvertDate(_ str:String) -> Date {
-		
-		let formatter = DateFormatter()
-		formatter.timeZone = TimeZone.init(identifier: "UTC")
-		formatter.locale = Locale.init(identifier: "zh_CN")
-		formatter.dateFormat = "yyyy-MM-dd"
-		
-		return formatter.date(from: str)!
-	}
 	
 	//MARK:notifies
 	override func didNavBarRightClick() {
@@ -202,10 +183,12 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 			dic["weather"] = index
 		}
 		
-		dic["date_daily"] = stringConvertDate(dateLabel!.text!)
+		dic["date_daily"] = MXSToolsCmd.shared.stringConvertDate(dateLabel!.text!)
 		dic["diary_content"] = contentTextView?.text
 		dic["diary_think"] = thinkTextView?.text
 		MXSDiary.addDiaryWithDictionary(dic)
+		
+		didNavBarLeftClick()
 	}
 	
 	override func pickerSave() {
