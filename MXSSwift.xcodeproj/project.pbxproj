@@ -52,6 +52,7 @@
 		706003C21FD5269700759938 /* MXSPHAssetCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706003C11FD5269700759938 /* MXSPHAssetCmd.swift */; };
 		706003C51FD52C9500759938 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706003C41FD52C8300759938 /* Photos.framework */; };
 		706003C61FD52C9D00759938 /* PhotosUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706003C31FD52C8300759938 /* PhotosUI.framework */; };
+		7063BDF51FF35253003B6AE3 /* MXSBtmAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7063BDF41FF35253003B6AE3 /* MXSBtmAlertView.swift */; };
 		70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FAD1FC577BA004EAE1D /* MXSTableView.swift */; };
 		70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70663FB11FC58783004EAE1D /* MXSHomeCell.swift */; };
 		70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70669FE51FC3E3DE001C209C /* MXSNetWork.swift */; };
@@ -145,6 +146,7 @@
 		706003C11FD5269700759938 /* MXSPHAssetCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPHAssetCmd.swift; sourceTree = "<group>"; };
 		706003C31FD52C8300759938 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
 		706003C41FD52C8300759938 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		7063BDF41FF35253003B6AE3 /* MXSBtmAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSBtmAlertView.swift; sourceTree = "<group>"; };
 		70663FAD1FC577BA004EAE1D /* MXSTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableView.swift; sourceTree = "<group>"; };
 		70663FB11FC58783004EAE1D /* MXSHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeCell.swift; sourceTree = "<group>"; };
 		70669FE51FC3E3DE001C209C /* MXSNetWork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNetWork.swift; sourceTree = "<group>"; };
@@ -403,6 +405,7 @@
 				70A7E7911FCBF86000B80A7B /* MXSCollectionView.swift */,
 				704BD99D1FCD41FA0096DCE9 /* MXSCollectionViewCell.swift */,
 				707141051FF0D4180036CE16 /* MXSPickerView.swift */,
+				7063BDF41FF35253003B6AE3 /* MXSBtmAlertView.swift */,
 			);
 			path = CommonViews;
 			sourceTree = "<group>";
@@ -850,6 +853,7 @@
 				702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */,
 				70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */,
 				7042EFCB1FEB8004004BE421 /* MXSDiary+CoreDataClass.swift in Sources */,
+				7063BDF51FF35253003B6AE3 /* MXSBtmAlertView.swift in Sources */,
 				70A7E7921FCBF86000B80A7B /* MXSCollectionView.swift in Sources */,
 				707141061FF0D4180036CE16 /* MXSPickerView.swift in Sources */,
 				706882A11FEA6F5B003F21DD /* NSBundle+MJRefresh.m in Sources */,

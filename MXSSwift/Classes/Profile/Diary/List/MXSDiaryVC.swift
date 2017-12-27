@@ -10,6 +10,8 @@ import UIKit
 
 class MXSDiaryVC: MXSBaseVC {
 	
+	var diaryData : Array<MXSDiary>?
+	
 	//MARK:life cycle
 	override func receiveArgsBeBack(args: Any) {
 		MXSLog("MXSDiaryVC receive back : " + (args as! String))
@@ -22,8 +24,8 @@ class MXSDiaryVC: MXSBaseVC {
 		super.bindingNavBar()
 		super.bindingTableView(style: .plain)
 		
-		let data_arr = MXSDiary.fetchDiaryObjects()
-		TableView?.dlg?.queryData = data_arr
+		diaryData = MXSDiary.fetchDiaryObjects()
+		TableView?.dlg?.queryData = diaryData
 		
 		let btn = UIButton.init(text: "Action", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(btn)
@@ -59,8 +61,8 @@ class MXSDiaryVC: MXSBaseVC {
 	
 	//MARK:acions
 	@objc func loadNewData() {
-		let data_arr = MXSDiary.fetchDiaryObjects()
-		TableView?.dlg?.queryData = data_arr
+		diaryData = MXSDiary.fetchDiaryObjects()
+		TableView?.dlg?.queryData = diaryData
 		
 		OperationQueue.main.addOperation {
 			self.TableView?.reloadData()
@@ -83,7 +85,6 @@ class MXSDiaryVC: MXSBaseVC {
 	
 	@objc func exBtnClick() {
 		TableView?.reloadData()
-		
 	}
 	
 	
@@ -93,8 +94,20 @@ class MXSDiaryVC: MXSBaseVC {
 	}
 	
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
+		alertView.titleLabel?.text = "did click"
+		alertView.showAlert()
 		
-		let diary = TableView?.dlg?.queryData![indexPath.row]
-		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSEditDiaryVC(), args: diary as Any)
+//		let diary = TableView?.dlg?.queryData![indexPath.row]
+//		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSEditDiaryVC(), args: diary as Any)
+	}
+	
+	override func tableDeletedRowAt(_ indexPath: IndexPath) {
+		let diary = diaryData![indexPath.row]
+//		diaryData?.remove(at: indexPath.row)
+		MXSDiary.removeDiaryObjects([diary])
+		
+		diaryData = MXSDiary.fetchDiaryObjects()
+		TableView?.dlg?.queryData = diaryData
+		TableView?.deleteRows(at: [indexPath], with: .left)
 	}
 }

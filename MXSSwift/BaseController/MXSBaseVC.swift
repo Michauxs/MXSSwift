@@ -14,6 +14,14 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	var NavBar : MXSNavBar?
 	var TableView : MXSTableView?
 	
+	lazy var alertView : MXSBtmAlertView = {
+		let alert_view = MXSBtmAlertView.init(vc:self)
+		UIApplication.shared.keyWindow?.addSubview(alert_view)
+//		 .addSubview(alert_view)
+//		alert_view.showAlert()
+		return alert_view
+	}()
+	
 	public func receiveArgsBePost(args:Any) {
 		MXSLog("no subclass received args be post")
 	}

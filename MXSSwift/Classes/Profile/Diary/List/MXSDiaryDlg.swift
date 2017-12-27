@@ -24,9 +24,7 @@ class MXSDiaryDlg: MXSTableDlg {
 		return "Delete"
 	}
 	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-		MXSDiary.removeDiaryObjects([queryData![indexPath.row] as! MXSDiary])
-//		tableView.reloadRows(at: [indexPath], with: .none)
-		tableView.reloadData()
+
 		controller?.tableDeletedRowAt(indexPath)
 	}
 	
