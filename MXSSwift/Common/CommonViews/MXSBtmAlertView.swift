@@ -56,7 +56,10 @@ class MXSBtmAlertView: UIView {
 			make.size.equalTo(CGSize.init(width: 44, height: 44))
 		})
 		closeBtn?.addTarget(self, action: #selector(closeBtnClick), for: .touchUpInside)
-		
+		let line = CALayer.init()
+		line.backgroundColor = UIColor.theme.cgColor
+		line.frame = CGRect.init(x: 0, y: 43.5, width: 44, height: 0.5)
+		closeBtn?.layer.addSublayer(line)
 		
 		isUserInteractionEnabled = false
 		addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(tapElse)))
@@ -64,7 +67,7 @@ class MXSBtmAlertView: UIView {
 	
 	//MARK:Actions
 	@objc func tapBground(){
-		
+		//避免点击底部bg时回弹alert
 	}
 	
 	@objc func tapElse() {
@@ -77,19 +80,20 @@ class MXSBtmAlertView: UIView {
 	
 	func hideAlert() {
 		isUserInteractionEnabled = false
-		UIView.animate(withDuration: 1.25, animations: {
+		UIView.animate(withDuration: 0.25, animations: {
 			self.Bground?.frame = CGRect.init(x: 0, y: SCREEN_HEIGHT, width: SCREEN_WIDTH, height: self.playHeight)
 		}) { (complete) in
 			self.frame = CGRect.init(x: 0, y: SCREEN_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
+			self.controller?.hideBtmAlertComplete()
 		}
 	}
 	
 	func showAlert() {
 		self.frame = CGRect.init(x: 0, y: 0, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
-		UIView.animate(withDuration: 1.25, animations: {
+		UIView.animate(withDuration: 0.25, animations: {
 			self.Bground?.frame = CGRect.init(x: 0, y: SCREEN_HEIGHT-self.playHeight, width: SCREEN_WIDTH, height: self.playHeight)
 		}) { (complete) in
-			isUserInteractionEnabled = true
+			self.isUserInteractionEnabled = true
 		}
 	}
 }

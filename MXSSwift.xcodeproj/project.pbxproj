@@ -18,7 +18,6 @@
 		702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702DCD891FC28D49002CC776 /* MXSDefines.swift */; };
 		702E43331FBEDF300017A7D8 /* MXSNothing.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702E43321FBEDF300017A7D8 /* MXSNothing.swift */; };
 		7036035F1FE75F3C00CF3E09 /* MXSDocumentCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7036035E1FE75F3C00CF3E09 /* MXSDocumentCmd.swift */; };
-		703603741FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703603731FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift */; };
 		703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8C11FBA9B1D0059A632 /* AppDelegate.swift */; };
 		703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8D51FBAB7AA0059A632 /* MXSBaseVC.swift */; };
 		703DA8D81FBAB8150059A632 /* MXSTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8D71FBAB8150059A632 /* MXSTabBarController.swift */; };
@@ -29,10 +28,7 @@
 		703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */; };
 		703DA8E71FBAD0200059A632 /* MXSVCPtc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */; };
 		703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */; };
-		7042EFC01FEB715B004BE421 /* MXSDaily.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 7042EFBE1FEB715B004BE421 /* MXSDaily.xcdatamodeld */; };
 		7042EFC81FEB7F99004BE421 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7042EFC71FEB7F99004BE421 /* String+Extension.swift */; };
-		7042EFCB1FEB8004004BE421 /* MXSDiary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7042EFC91FEB8004004BE421 /* MXSDiary+CoreDataClass.swift */; };
-		7042EFCC1FEB8004004BE421 /* MXSDiary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7042EFCA1FEB8004004BE421 /* MXSDiary+CoreDataProperties.swift */; };
 		7044B1B61FE4CD090047AE9C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B11FE4CD090047AE9C /* UIButton+Extension.swift */; };
 		7044B1B71FE4CD090047AE9C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B21FE4CD090047AE9C /* UIColor+Extension.swift */; };
 		7044B1B81FE4CD090047AE9C /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B31FE4CD090047AE9C /* UIImage+Extension.swift */; };
@@ -83,6 +79,10 @@
 		707141061FF0D4180036CE16 /* MXSPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707141051FF0D4180036CE16 /* MXSPickerView.swift */; };
 		707141081FF0E1930036CE16 /* MXSPickerDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707141071FF0E1930036CE16 /* MXSPickerDlg.swift */; };
 		7071410C1FF11A640036CE16 /* MXSToolsCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7071410B1FF11A640036CE16 /* MXSToolsCmd.swift */; };
+		707ACC111FF4A60A009E42E9 /* MXSCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC0D1FF4A60A009E42E9 /* MXSCoreData.xcdatamodeld */; };
+		707ACC161FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC141FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift */; };
+		707ACC171FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC151FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift */; };
+		707ACC191FF4A67B009E42E9 /* MXSCoreDataCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC181FF4A67B009E42E9 /* MXSCoreDataCmd.swift */; };
 		709254251FD66FF600195632 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709254261FD66FF600195632 /* SnapKit.framework */; };
 		709254271FD675DC00195632 /* Refresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709254281FD675DC00195632 /* Refresher.framework */; };
 		709254291FD675E500195632 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7092542A1FD675E500195632 /* Alamofire.framework */; };
@@ -90,7 +90,7 @@
 		70A7E7901FCBF1E700B80A7B /* MXSCollectionDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E78F1FCBF1E700B80A7B /* MXSCollectionDlg.swift */; };
 		70A7E7921FCBF86000B80A7B /* MXSCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7911FCBF86000B80A7B /* MXSCollectionView.swift */; };
 		70A7E7941FCBFA7D00B80A7B /* MXSContentItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7931FCBFA7D00B80A7B /* MXSContentItemCell.swift */; };
-		70A7E7971FCC004900B80A7B /* MXSImagePickerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7961FCC004900B80A7B /* MXSImagePickerVC.swift */; };
+		70A7E7971FCC004900B80A7B /* MXSPickImgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7961FCC004900B80A7B /* MXSPickImgVC.swift */; };
 		70C8879E1FD6C389009F65A8 /* xcode_complete.json in Resources */ = {isa = PBXBuildFile; fileRef = 70C8879D1FD6C388009F65A8 /* xcode_complete.json */; };
 		9590C4F1BC17910CE38A89E5 /* Pods_MXSSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */; };
 /* End PBXBuildFile section */
@@ -111,7 +111,6 @@
 		702DCD891FC28D49002CC776 /* MXSDefines.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSDefines.swift; sourceTree = "<group>"; };
 		702E43321FBEDF300017A7D8 /* MXSNothing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNothing.swift; sourceTree = "<group>"; };
 		7036035E1FE75F3C00CF3E09 /* MXSDocumentCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSDocumentCmd.swift; sourceTree = "<group>"; };
-		703603731FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSDiaryModelCmd.swift; sourceTree = "<group>"; };
 		703DA8C11FBA9B1D0059A632 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		703DA8C21FBA9B1D0059A632 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		703DA8D51FBAB7AA0059A632 /* MXSBaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXS\U0010\U0010BaseVC.swift"; sourceTree = "<group>"; };
@@ -123,10 +122,7 @@
 		703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCExchangeCmd.swift; sourceTree = "<group>"; };
 		703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCPtc.swift; sourceTree = "<group>"; };
 		703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNoteVC.swift; sourceTree = "<group>"; };
-		7042EFBF1FEB715B004BE421 /* MXSDaily.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MXSDaily.xcdatamodel; sourceTree = "<group>"; };
 		7042EFC71FEB7F99004BE421 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
-		7042EFC91FEB8004004BE421 /* MXSDiary+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataClass.swift"; sourceTree = "<group>"; };
-		7042EFCA1FEB8004004BE421 /* MXSDiary+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7044B1B11FE4CD090047AE9C /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7044B1B21FE4CD090047AE9C /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		7044B1B31FE4CD090047AE9C /* UIImage+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
@@ -198,6 +194,10 @@
 		707141051FF0D4180036CE16 /* MXSPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickerView.swift; sourceTree = "<group>"; };
 		707141071FF0E1930036CE16 /* MXSPickerDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickerDlg.swift; sourceTree = "<group>"; };
 		7071410B1FF11A640036CE16 /* MXSToolsCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSToolsCmd.swift; sourceTree = "<group>"; };
+		707ACC0E1FF4A60A009E42E9 /* MXSDaily.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MXSDaily.xcdatamodel; sourceTree = "<group>"; };
+		707ACC141FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		707ACC151FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataClass.swift"; sourceTree = "<group>"; };
+		707ACC181FF4A67B009E42E9 /* MXSCoreDataCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSCoreDataCmd.swift; sourceTree = "<group>"; };
 		709254261FD66FF600195632 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		709254281FD675DC00195632 /* Refresher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Refresher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7092542A1FD675E500195632 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,7 +205,7 @@
 		70A7E78F1FCBF1E700B80A7B /* MXSCollectionDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSCollectionDlg.swift; sourceTree = "<group>"; };
 		70A7E7911FCBF86000B80A7B /* MXSCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSCollectionView.swift; sourceTree = "<group>"; };
 		70A7E7931FCBFA7D00B80A7B /* MXSContentItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSContentItemCell.swift; sourceTree = "<group>"; };
-		70A7E7961FCC004900B80A7B /* MXSImagePickerVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSImagePickerVC.swift; sourceTree = "<group>"; };
+		70A7E7961FCC004900B80A7B /* MXSPickImgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickImgVC.swift; sourceTree = "<group>"; };
 		70C8879D1FD6C388009F65A8 /* xcode_complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xcode_complete.json; sourceTree = "<group>"; };
 		C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MXSSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -413,6 +413,7 @@
 		703DA8D31FBA9C350059A632 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				707ACC0C1FF4A60A009E42E9 /* CoreData */,
 				7075C00E1FE3ED9500E03491 /* Daily */,
 				7036035E1FE75F3C00CF3E09 /* MXSDocumentCmd.swift */,
 			);
@@ -475,9 +476,9 @@
 		704CC1021FEB9BDB00063E0A /* ProfileVC */ = {
 			isa = PBXGroup;
 			children = (
-				704CC1041FEB9BF400063E0A /* MXSProfileCell.swift */,
-				704CC1031FEB9BF400063E0A /* MXSProfileDlg.swift */,
 				704CC1051FEB9BF400063E0A /* MXSProfileVC.swift */,
+				704CC1031FEB9BF400063E0A /* MXSProfileDlg.swift */,
+				704CC1041FEB9BF400063E0A /* MXSProfileCell.swift */,
 			);
 			path = ProfileVC;
 			sourceTree = "<group>";
@@ -610,19 +611,18 @@
 		7075C00E1FE3ED9500E03491 /* Daily */ = {
 			isa = PBXGroup;
 			children = (
+				707ACC151FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift */,
+				707ACC141FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift */,
 				7044B1C91FE510700047AE9C /* MXSDiary+ContextOpt.swift */,
-				703603731FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift */,
-				7075C00F1FE3EDAA00E03491 /* CoreData */,
 			);
 			path = Daily;
 			sourceTree = "<group>";
 		};
-		7075C00F1FE3EDAA00E03491 /* CoreData */ = {
+		707ACC0C1FF4A60A009E42E9 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				7042EFC91FEB8004004BE421 /* MXSDiary+CoreDataClass.swift */,
-				7042EFCA1FEB8004004BE421 /* MXSDiary+CoreDataProperties.swift */,
-				7042EFBE1FEB715B004BE421 /* MXSDaily.xcdatamodeld */,
+				707ACC181FF4A67B009E42E9 /* MXSCoreDataCmd.swift */,
+				707ACC0D1FF4A60A009E42E9 /* MXSCoreData.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -630,7 +630,7 @@
 		70A7E7951FCC002400B80A7B /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
-				70A7E7961FCC004900B80A7B /* MXSImagePickerVC.swift */,
+				70A7E7961FCC004900B80A7B /* MXSPickImgVC.swift */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -803,7 +803,9 @@
 				706882971FEA6F5B003F21DD /* MJRefreshAutoNormalFooter.m in Sources */,
 				704CC1061FEB9BF400063E0A /* MXSProfileDlg.swift in Sources */,
 				7068825B1FEA4904003F21DD /* MXSDiaryVC.swift in Sources */,
+				707ACC191FF4A67B009E42E9 /* MXSCoreDataCmd.swift in Sources */,
 				7023BF971FECFF3C001FF435 /* MXSEditDiaryVC.swift in Sources */,
+				707ACC171FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift in Sources */,
 				706882A21FEA6F5B003F21DD /* UIScrollView+MJExtension.m in Sources */,
 				70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */,
 				703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */,
@@ -825,6 +827,7 @@
 				704BD99E1FCD41FA0096DCE9 /* MXSCollectionViewCell.swift in Sources */,
 				706882911FEA6F5B003F21DD /* MJRefreshAutoFooter.m in Sources */,
 				7023BF9B1FED02E8001FF435 /* MXSEditDiaryCell.swift in Sources */,
+				707ACC161FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift in Sources */,
 				70A7E7901FCBF1E700B80A7B /* MXSCollectionDlg.swift in Sources */,
 				7042EFC81FEB7F99004BE421 /* String+Extension.swift in Sources */,
 				70663FB21FC58783004EAE1D /* MXSHomeCell.swift in Sources */,
@@ -833,8 +836,6 @@
 				7068825D1FEA4947003F21DD /* MXSDiaryCell.swift in Sources */,
 				703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */,
 				7046608C1FD7F500006EA759 /* MXSXcodePSCell.swift in Sources */,
-				7042EFC01FEB715B004BE421 /* MXSDaily.xcdatamodeld in Sources */,
-				703603741FE7E3F800CF3E09 /* MXSDiaryModelCmd.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
 				704BD99C1FCD30C10096DCE9 /* MXSALAssetCmd.swift in Sources */,
 				7023BF9D1FED2EFA001FF435 /* MXSShowDiaryVC.swift in Sources */,
@@ -845,20 +846,19 @@
 				704CC1081FEB9BF400063E0A /* MXSProfileVC.swift in Sources */,
 				7068829C1FEA6F5B003F21DD /* MJRefreshGifHeader.m in Sources */,
 				706003C21FD5269700759938 /* MXSPHAssetCmd.swift in Sources */,
-				70A7E7971FCC004900B80A7B /* MXSImagePickerVC.swift in Sources */,
+				70A7E7971FCC004900B80A7B /* MXSPickImgVC.swift in Sources */,
 				706882991FEA6F5B003F21DD /* MJRefreshBackGifFooter.m in Sources */,
 				7044B1B81FE4CD090047AE9C /* UIImage+Extension.swift in Sources */,
 				706882A31FEA6F5B003F21DD /* UIScrollView+MJRefresh.m in Sources */,
+				707ACC111FF4A60A009E42E9 /* MXSCoreData.xcdatamodeld in Sources */,
 				7044B1CA1FE510700047AE9C /* MXSDiary+ContextOpt.swift in Sources */,
 				702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */,
 				70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */,
-				7042EFCB1FEB8004004BE421 /* MXSDiary+CoreDataClass.swift in Sources */,
 				7063BDF51FF35253003B6AE3 /* MXSBtmAlertView.swift in Sources */,
 				70A7E7921FCBF86000B80A7B /* MXSCollectionView.swift in Sources */,
 				707141061FF0D4180036CE16 /* MXSPickerView.swift in Sources */,
 				706882A11FEA6F5B003F21DD /* NSBundle+MJRefresh.m in Sources */,
 				706882A01FEA6F5B003F21DD /* MJRefreshConst.m in Sources */,
-				7042EFCC1FEB8004004BE421 /* MXSDiary+CoreDataProperties.swift in Sources */,
 				705818381FC6B62B009CE7E0 /* MXSHomeDlg.swift in Sources */,
 				7068829E1FEA6F5B003F21DD /* MJRefreshStateHeader.m in Sources */,
 			);
@@ -1036,13 +1036,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		7042EFBE1FEB715B004BE421 /* MXSDaily.xcdatamodeld */ = {
+		707ACC0D1FF4A60A009E42E9 /* MXSCoreData.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				7042EFBF1FEB715B004BE421 /* MXSDaily.xcdatamodel */,
+				707ACC0E1FF4A60A009E42E9 /* MXSDaily.xcdatamodel */,
 			);
-			currentVersion = 7042EFBF1FEB715B004BE421 /* MXSDaily.xcdatamodel */;
-			path = MXSDaily.xcdatamodeld;
+			currentVersion = 707ACC0E1FF4A60A009E42E9 /* MXSDaily.xcdatamodel */;
+			path = MXSCoreData.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

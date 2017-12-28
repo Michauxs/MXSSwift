@@ -16,7 +16,7 @@ class MXSEditDiaryCell: MXSTableViewCell {
 	override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 		super.init(style: style, reuseIdentifier: reuseIdentifier)
 		
-		titleLabel = UILabel.init(text: "Title", fontSize: 13, textColor: UIColor.black, alignment: .left)
+		titleLabel = UILabel.init(text: "Title", fontSize: 13, textColor: UIColor.dullWhite, alignment: .left)
 		titleLabel?.numberOfLines = 3
 		addSubview(titleLabel!)
 		titleLabel?.snp.makeConstraints({ (make) in

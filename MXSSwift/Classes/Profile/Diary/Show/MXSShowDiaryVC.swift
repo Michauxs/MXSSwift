@@ -26,14 +26,14 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
     }
 	
 	func setupUI() {
-		let dateTitle = UILabel.init(text: "Date", fontSize: 13, textColor: UIColor.black, alignment: .left)
+		let dateTitle = UILabel.init(text: "Date", fontSize: 13, textColor: UIColor.dullWhite, alignment: .left)
 		view.addSubview(dateTitle)
 		dateTitle.snp.makeConstraints({ (make) in
 			make.left.equalTo(view).offset(15)
 			make.top.equalTo(view).offset(S_N_BAR_H+44)
 		})
 		
-		dateLabel = UILabel.init(text: "Date", fontSize: 13, textColor: UIColor.black, alignment: .left)
+		dateLabel = UILabel.init(text: "Date", fontSize: 13, textColor: UIColor.gray, alignment: .left)
 		view.addSubview(dateLabel!)
 		dateLabel?.snp.makeConstraints({ (make) in
 			make.left.equalTo(view).offset(15 + 60)
@@ -50,7 +50,7 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		}
 		todayBtn.addTarget(self, action: #selector(signTodayBtnClick), for: .touchUpInside)
 		
-		let weatherTitle = UILabel.init(text: "Weather", fontSize: 13, textColor: UIColor.black, alignment: .left)
+		let weatherTitle = UILabel.init(text: "Weather", fontSize: 13, textColor: UIColor.dullWhite, alignment: .left)
 		view.addSubview(weatherTitle)
 		weatherTitle.snp.makeConstraints({ (make) in
 			make.left.equalTo(view).offset(15)
@@ -76,17 +76,17 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 //		weatherLabel?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(didWeatherTap)))
 		
 		
-		let line = UIView.init()
-		line.backgroundColor = UIColor.grayline
-		view.addSubview(line)
-		line.snp.makeConstraints { (make) in
-			make.top.equalTo(weatherLabel!.snp.bottom).offset(8)
-			make.left.equalTo(weatherLabel!)
-			make.right.equalTo(view).offset(-15)
-			make.height.equalTo(0.5)
-		}
+//		let line = UIView.init()
+//		line.backgroundColor = UIColor.grayline
+//		view.addSubview(line)
+//		line.snp.makeConstraints { (make) in
+//			make.top.equalTo(weatherLabel!.snp.bottom).offset(8)
+//			make.left.equalTo(weatherLabel!)
+//			make.right.equalTo(view).offset(-15)
+//			make.height.equalTo(0.5)
+//		}
 		
-		let contentTitle = UILabel.init(text: "Content", fontSize: 13, textColor: UIColor.black, alignment: .left)
+		let contentTitle = UILabel.init(text: "Content", fontSize: 13, textColor: UIColor.dullWhite, alignment: .left)
 		view.addSubview(contentTitle)
 		contentTitle.snp.makeConstraints({ (make) in
 			make.left.equalTo(view).offset(15)
@@ -103,7 +103,7 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 			make.height.greaterThanOrEqualTo(25)
 		})
 		
-		let thinkTitle = UILabel.init(text: "Think", fontSize: 13, textColor: UIColor.black, alignment: .left)
+		let thinkTitle = UILabel.init(text: "Think", fontSize: 13, textColor: UIColor.dullWhite, alignment: .left)
 		view.addSubview(thinkTitle)
 		thinkTitle.snp.makeConstraints({ (make) in
 			make.left.equalTo(view).offset(15)
@@ -188,6 +188,11 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		dic["diary_think"] = thinkTextView?.text
 		MXSDiary.addDiaryWithDictionary(dic)
 		
+		alertView.titleLabel?.text = "Diary has been saved"
+		alertView.showAlert()
+	}
+	
+	override func hideBtmAlertComplete(_ title: String) {
 		didNavBarLeftClick()
 	}
 	
@@ -205,20 +210,10 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 	
 	//MARK:textview delegate
 	func textViewDidChange(_ textView: UITextView) {
-//		MXSLog(textView.bounds.size.height)
-//		if !textView.isScrollEnabled {
-//			if textView.bounds.size.height >= 50 {
-//				textView.isScrollEnabled = true
-//			}
-//		} else {
-//			if textView.bounds.size.height < 50 {
-//				textView.isScrollEnabled = false
-//			}
-//		}
+
 	}
 	
 	func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-		
 		
 		return true
 	}

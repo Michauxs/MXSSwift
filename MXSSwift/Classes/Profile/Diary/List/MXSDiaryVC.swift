@@ -94,11 +94,9 @@ class MXSDiaryVC: MXSBaseVC {
 	}
 	
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
-		alertView.titleLabel?.text = "did click"
-		alertView.showAlert()
 		
-//		let diary = TableView?.dlg?.queryData![indexPath.row]
-//		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSEditDiaryVC(), args: diary as Any)
+		let diary = TableView?.dlg?.queryData![indexPath.row]
+		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSEditDiaryVC(), args: diary as Any)
 	}
 	
 	override func tableDeletedRowAt(_ indexPath: IndexPath) {

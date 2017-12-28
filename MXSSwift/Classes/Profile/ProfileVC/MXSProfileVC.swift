@@ -19,7 +19,7 @@ class MXSProfileVC: MXSBaseVC {
 		
 		super.bindingTableView()
 		
-		userImageView = UIImageView.init(image: UIImage.init(named: "default_user"))
+		userImageView = UIImageView.init(image: UIImage.init(named: "default_img"))
 		userImageView?.contentMode = UIViewContentMode.scaleAspectFill
 		userImageView?.clipsToBounds = true
 		TableView?.addSubview(userImageView!)

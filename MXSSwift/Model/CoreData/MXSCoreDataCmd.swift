@@ -9,9 +9,9 @@
 import UIKit
 import CoreData
 
-class MXSDiaryModelCmd: NSObject {
+class MXSCoreDataCmd: NSObject {
 
-	static public let shared = MXSDiaryModelCmd()
+	static public let shared = MXSCoreDataCmd()
 	
 	lazy var applicationDocumentsDirectory: URL = {
 		let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -19,14 +19,14 @@ class MXSDiaryModelCmd: NSObject {
 	}()
 	
 	lazy var managedObjectModel: NSManagedObjectModel = {
-		let modelURL = Bundle.main.url(forResource: "MXSDaily", withExtension: "momd")!
+		let modelURL = Bundle.main.url(forResource: "MXSCoreData", withExtension: "momd")!
 		return NSManagedObjectModel(contentsOf: modelURL)!
 	}()
 	
 	lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
 		
 		let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-		let url = self.applicationDocumentsDirectory.appendingPathComponent("MXSDiaryData.sqlite")
+		let url = self.applicationDocumentsDirectory.appendingPathComponent("MXSCoreData.sqlite")
 		var failureReason = "There was an error creating or loading the application's saved data."
 		do {
 			try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)

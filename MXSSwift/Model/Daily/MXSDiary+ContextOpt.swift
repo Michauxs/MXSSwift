@@ -18,7 +18,7 @@ extension MXSDiary {
 //		let entity = NSEntityDescription.entity(forEntityName: "MXSDiary", in: doc.managedObjectContext)
 //		let diary = NSManagedObject(entity: entity!, insertInto: doc.managedObjectContext) as! MXSDiary
 		
-		let context = MXSDiaryModelCmd.shared.managedObjectContext
+		let context = MXSCoreDataCmd.shared.managedObjectContext
 		let diary = NSEntityDescription.insertNewObject(forEntityName: MXSDiaryEntityName, into:context ) as! MXSDiary
 		
 		diary.date_creat = NSDate.init()
@@ -40,7 +40,7 @@ extension MXSDiary {
 	
 	static public func fetchDiaryObjects() -> Array<MXSDiary> {
 		
-		let context = MXSDiaryModelCmd.shared.managedObjectContext
+		let context = MXSCoreDataCmd.shared.managedObjectContext
 		let fetchRequest : NSFetchRequest<MXSDiary> = (MXSDiary.fetchRequest())
 //		fetchRequest.fetchLimit = 8 //每页大小
 //		fetchRequest.fetchOffset = 1 * 20 //第几页
@@ -69,7 +69,7 @@ extension MXSDiary {
 	
 	static public func removeDiaryObjects(_ array:Array<MXSDiary>) {
 		
-		let context = MXSDiaryModelCmd.shared.managedObjectContext
+		let context = MXSCoreDataCmd.shared.managedObjectContext
 		
 		for diary in array {
 			context.delete(diary)
@@ -91,7 +91,7 @@ extension MXSDiary {
 	
 	static public func fetchDiaryObjects2(completeBlock:@escaping (_ fetch:[MXSDiary]) -> Void) {
 		MXSLog("fetch")
-		let context = MXSDiaryModelCmd.shared.managedObjectContext
+		let context = MXSCoreDataCmd.shared.managedObjectContext
 		let fetchRequest : NSFetchRequest<MXSDiary> = (MXSDiary.fetchRequest())
 		do {
 			let fetchedObjects = try context.fetch(fetchRequest)

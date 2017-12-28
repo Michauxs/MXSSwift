@@ -96,4 +96,8 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	public func tableDeletedRowAt (_ indexPath:IndexPath) {
 		
 	}
+	//MARK: navbar notify
+	public func hideBtmAlertComplete (_ title:String = "Title") {
+		MXSLog("no subclass respond method: hideBtmAlertComplete")
+	}
 }

@@ -19,7 +19,7 @@ class MXSXcodePSCell: MXSTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        nameLabel = UILabel.init(text: "Title", fontSize: 13, textColor: .black, alignment: .left)
+        nameLabel = UILabel.init(text: "Title", fontSize: 13, textColor: .dullWhite, alignment: .left)
         addSubview(nameLabel!)
         nameLabel?.snp.makeConstraints({ (make) in
             make.top.equalTo(self).offset(15)

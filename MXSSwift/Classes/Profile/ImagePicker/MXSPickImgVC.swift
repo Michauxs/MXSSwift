@@ -9,7 +9,7 @@
 import UIKit
 import AssetsLibrary
 
-class MXSImagePickerVC: MXSBaseVC {
+class MXSPickImgVC: MXSBaseVC {
 	
 	var assetsLibrary =  ALAssetsLibrary()
 	var assets = [ALAsset]()

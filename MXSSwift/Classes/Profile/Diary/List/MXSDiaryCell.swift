@@ -77,6 +77,8 @@ class MXSDiaryCell: MXSTableViewCell {
 			make.bottom.equalTo(self).offset(-15)
 		})
 		
+		
+		
 		drawBtmLine()
 	}
 	
