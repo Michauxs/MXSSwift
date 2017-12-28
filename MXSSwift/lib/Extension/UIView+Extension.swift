@@ -25,4 +25,9 @@ extension UIView {
 		contentMode = UIViewContentMode.scaleAspectFill
 		clipsToBounds = true
 	}
+	
+//	public func addTapGestrue (vc:MXSBaseVC) {	//Method cannot be declared public because its parameter uses an internal type
+//		isUserInteractionEnabled = true
+//
+//	}
 }

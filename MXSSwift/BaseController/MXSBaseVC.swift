@@ -68,7 +68,7 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	
 	//MARK: layout
 	public func NavBarLayout() {
-		NavBar?.setBackground(color: UIColor.white)
+//		NavBar?.setBackground(color: UIColor.white)
 	}
 	public func TableLayout() {
 		
@@ -96,7 +96,16 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	public func tableDeletedRowAt (_ indexPath:IndexPath) {
 		
 	}
-	//MARK: navbar notify
+	
+	//MARK: collection notify
+	public func collectionSelectedRowAt (_ indexPath:IndexPath) {
+		
+	}
+	public func collectionDidScroll (offset_y:CGFloat) {
+		
+	}
+	
+	//MARK: btmAlert notify
 	public func hideBtmAlertComplete (_ title:String = "Title") {
 		MXSLog("no subclass respond method: hideBtmAlertComplete")
 	}

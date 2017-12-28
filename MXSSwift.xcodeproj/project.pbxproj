@@ -83,6 +83,9 @@
 		707ACC161FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC141FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift */; };
 		707ACC171FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC151FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift */; };
 		707ACC191FF4A67B009E42E9 /* MXSCoreDataCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC181FF4A67B009E42E9 /* MXSCoreDataCmd.swift */; };
+		707ACC1B1FF4BF79009E42E9 /* MXSPickImgCDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC1A1FF4BF79009E42E9 /* MXSPickImgCDlg.swift */; };
+		707ACC1D1FF4BFAF009E42E9 /* MXSPickImgItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC1C1FF4BFAF009E42E9 /* MXSPickImgItem.swift */; };
+		707ACC1F1FF4C9C8009E42E9 /* MXSFileStorageCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC1E1FF4C9C8009E42E9 /* MXSFileStorageCmd.swift */; };
 		709254251FD66FF600195632 /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709254261FD66FF600195632 /* SnapKit.framework */; };
 		709254271FD675DC00195632 /* Refresher.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 709254281FD675DC00195632 /* Refresher.framework */; };
 		709254291FD675E500195632 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7092542A1FD675E500195632 /* Alamofire.framework */; };
@@ -198,6 +201,9 @@
 		707ACC141FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		707ACC151FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataClass.swift"; sourceTree = "<group>"; };
 		707ACC181FF4A67B009E42E9 /* MXSCoreDataCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSCoreDataCmd.swift; sourceTree = "<group>"; };
+		707ACC1A1FF4BF79009E42E9 /* MXSPickImgCDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickImgCDlg.swift; sourceTree = "<group>"; };
+		707ACC1C1FF4BFAF009E42E9 /* MXSPickImgItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickImgItem.swift; sourceTree = "<group>"; };
+		707ACC1E1FF4C9C8009E42E9 /* MXSFileStorageCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSFileStorageCmd.swift; sourceTree = "<group>"; };
 		709254261FD66FF600195632 /* SnapKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SnapKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		709254281FD675DC00195632 /* Refresher.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Refresher.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7092542A1FD675E500195632 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -437,6 +443,7 @@
 				704BD99B1FCD30C10096DCE9 /* MXSALAssetCmd.swift */,
 				706003C11FD5269700759938 /* MXSPHAssetCmd.swift */,
 				7071410B1FF11A640036CE16 /* MXSToolsCmd.swift */,
+				707ACC1E1FF4C9C8009E42E9 /* MXSFileStorageCmd.swift */,
 			);
 			path = MXSCmd;
 			sourceTree = "<group>";
@@ -631,6 +638,8 @@
 			isa = PBXGroup;
 			children = (
 				70A7E7961FCC004900B80A7B /* MXSPickImgVC.swift */,
+				707ACC1A1FF4BF79009E42E9 /* MXSPickImgCDlg.swift */,
+				707ACC1C1FF4BFAF009E42E9 /* MXSPickImgItem.swift */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -792,6 +801,7 @@
 				703DA8D81FBAB8150059A632 /* MXSTabBarController.swift in Sources */,
 				7044B1B71FE4CD090047AE9C /* UIColor+Extension.swift in Sources */,
 				70253DF01FBD780200A95274 /* MXSNavBar.swift in Sources */,
+				707ACC1F1FF4C9C8009E42E9 /* MXSFileStorageCmd.swift in Sources */,
 				7068829D1FEA6F5B003F21DD /* MJRefreshNormalHeader.m in Sources */,
 				703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */,
 				706882A41FEA6F5B003F21DD /* UIView+MJExtension.m in Sources */,
@@ -819,12 +829,14 @@
 				706882931FEA6F5B003F21DD /* MJRefreshComponent.m in Sources */,
 				7044B1B61FE4CD090047AE9C /* UIButton+Extension.swift in Sources */,
 				707141081FF0E1930036CE16 /* MXSPickerDlg.swift in Sources */,
+				707ACC1D1FF4BFAF009E42E9 /* MXSPickImgItem.swift in Sources */,
 				706882921FEA6F5B003F21DD /* MJRefreshBackFooter.m in Sources */,
 				703DA8DA1FBAB9390059A632 /* MXSHomeVC.swift in Sources */,
 				706882941FEA6F5B003F21DD /* MJRefreshFooter.m in Sources */,
 				702E43331FBEDF300017A7D8 /* MXSNothing.swift in Sources */,
 				7068825F1FEA495F003F21DD /* MXSDiaryDlg.swift in Sources */,
 				704BD99E1FCD41FA0096DCE9 /* MXSCollectionViewCell.swift in Sources */,
+				707ACC1B1FF4BF79009E42E9 /* MXSPickImgCDlg.swift in Sources */,
 				706882911FEA6F5B003F21DD /* MJRefreshAutoFooter.m in Sources */,
 				7023BF9B1FED02E8001FF435 /* MXSEditDiaryCell.swift in Sources */,
 				707ACC161FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift in Sources */,

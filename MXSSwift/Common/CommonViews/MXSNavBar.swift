@@ -48,7 +48,7 @@ class MXSNavBar: UIView {
 		})
 		leftBtn?.addTarget(self, action: #selector(self.didLeftBtnClick), for: .touchUpInside)
 		
-		rightBtn = UIButton.init(text: "Seter", fontSize: 16, textColor: UIColor.black, background: MXSNothing.shared)
+		rightBtn = UIButton.init(text: "Setting", fontSize: 16, textColor: UIColor.black, background: MXSNothing.shared)
 		rightBtn?.setTitleColor(UIColor.gray, for: .disabled)
 		self.addSubview(rightBtn!)
 		rightBtn?.snp.makeConstraints({ (make) in
@@ -64,10 +64,17 @@ class MXSNavBar: UIView {
 			make.center.equalTo(self)
 		})
 		
+		setBackground(color: UIColor.lightBlack)
+		addBtmLine()
+	}
+	
+	//MARK: UI
+	public func addBtmLine () {
+		
 		btmLineLayer = CALayer.init()
 		layer.addSublayer(btmLineLayer!)
 		btmLineLayer?.frame = CGRect.init(x: 0, y: NAV_BAR_H-0.5, width: SCREEN_WIDTH, height: 0.5)
-		btmLineLayer?.backgroundColor = UIColor.grayline.cgColor
+		btmLineLayer?.backgroundColor = UIColor.dullLine.cgColor
 	}
 	
 	//notifies

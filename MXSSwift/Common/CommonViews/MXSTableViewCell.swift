@@ -38,5 +38,14 @@ class MXSTableViewCell: UITableViewCell {
 			make.bottom.equalTo(self)
 			make.height.equalTo(0.5)
 		}
+		let line2 = UIView.init()
+		addSubview(line2)
+		line2.backgroundColor = UIColor.black
+		line2.snp.makeConstraints { (make) in
+			make.right.equalTo(self)
+			make.left.equalTo(self).offset(15)
+			make.bottom.equalTo(self).offset(-0.5)
+			make.height.equalTo(0.5)
+		}
 	}
 }

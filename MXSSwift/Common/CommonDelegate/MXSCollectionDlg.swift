@@ -31,7 +31,7 @@ class MXSCollectionDlg: NSObject, UICollectionViewDelegate, UICollectionViewData
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-		
+		controller?.collectionSelectedRowAt(indexPath)
 	}
 	
 	func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

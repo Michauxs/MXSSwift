@@ -57,4 +57,15 @@ class MXSPHAssetCmd: NSObject {
 		return img!
 	}
 	
+	public func getOriginalImage(asset:PHAsset) -> UIImage {
+		
+		var img : UIImage?
+		let opt = PHImageRequestOptions()
+		opt.isSynchronous = true
+		PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: opt, resultHandler: { (thum, info) in
+			img = thum
+		})
+		return img!
+	}
+	
 }

@@ -23,14 +23,14 @@ extension UIColor {
 		}
 	}
 	
-	open class var dullLine: UIColor {
-		get {
-			return UIColor.init(white: 0.55, alpha: 1)
-		}
-	}
 	open class var dullWhite: UIColor {
 		get {
 			return UIColor.init(white: 0.75, alpha: 1)
+		}
+	}
+	open class var dullLine: UIColor {
+		get {
+			return UIColor.init(white: 0.55, alpha: 1)
 		}
 	}
 	open class var darkLine: UIColor {
