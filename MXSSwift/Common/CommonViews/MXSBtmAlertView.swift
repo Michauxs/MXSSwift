@@ -84,7 +84,7 @@ class MXSBtmAlertView: UIView {
 			self.Bground?.frame = CGRect.init(x: 0, y: SCREEN_HEIGHT, width: SCREEN_WIDTH, height: self.playHeight)
 		}) { (complete) in
 			self.frame = CGRect.init(x: 0, y: SCREEN_HEIGHT, width: SCREEN_WIDTH, height: SCREEN_HEIGHT)
-			self.controller?.hideBtmAlertComplete()
+			self.controller?.hideBtmAlertComplete((self.titleLabel?.text)!)
 		}
 	}
 	

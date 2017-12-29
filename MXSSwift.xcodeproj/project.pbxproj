@@ -40,7 +40,7 @@
 		7046608C1FD7F500006EA759 /* MXSXcodePSCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046608B1FD7F500006EA759 /* MXSXcodePSCell.swift */; };
 		704BD99C1FCD30C10096DCE9 /* MXSALAssetCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704BD99B1FCD30C10096DCE9 /* MXSALAssetCmd.swift */; };
 		704BD99E1FCD41FA0096DCE9 /* MXSCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704BD99D1FCD41FA0096DCE9 /* MXSCollectionViewCell.swift */; };
-		704BD9A01FCD42880096DCE9 /* MXSContentCDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704BD99F1FCD42880096DCE9 /* MXSContentCDlg.swift */; };
+		704BD9A01FCD42880096DCE9 /* MXSContentTDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704BD99F1FCD42880096DCE9 /* MXSContentTDlg.swift */; };
 		704CC1061FEB9BF400063E0A /* MXSProfileDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704CC1031FEB9BF400063E0A /* MXSProfileDlg.swift */; };
 		704CC1071FEB9BF400063E0A /* MXSProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704CC1041FEB9BF400063E0A /* MXSProfileCell.swift */; };
 		704CC1081FEB9BF400063E0A /* MXSProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704CC1051FEB9BF400063E0A /* MXSProfileVC.swift */; };
@@ -79,10 +79,15 @@
 		707141061FF0D4180036CE16 /* MXSPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707141051FF0D4180036CE16 /* MXSPickerView.swift */; };
 		707141081FF0E1930036CE16 /* MXSPickerDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707141071FF0E1930036CE16 /* MXSPickerDlg.swift */; };
 		7071410C1FF11A640036CE16 /* MXSToolsCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7071410B1FF11A640036CE16 /* MXSToolsCmd.swift */; };
-		707ACC111FF4A60A009E42E9 /* MXSCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC0D1FF4A60A009E42E9 /* MXSCoreData.xcdatamodeld */; };
+		707A8D311FF6134F00596AE5 /* MXSMenuModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 707A8D2F1FF6134F00596AE5 /* MXSMenuModel.xcdatamodeld */; };
+		707A8D3B1FF6152E00596AE5 /* MXSMenuDataCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A8D3A1FF6152E00596AE5 /* MXSMenuDataCmd.swift */; };
+		707A8D3E1FF6157000596AE5 /* MXSMenu+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A8D3C1FF6157000596AE5 /* MXSMenu+CoreDataClass.swift */; };
+		707A8D3F1FF6157000596AE5 /* MXSMenu+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A8D3D1FF6157000596AE5 /* MXSMenu+CoreDataProperties.swift */; };
+		707A8D411FF615B100596AE5 /* MXSMenu+ContrxtOpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707A8D401FF615B100596AE5 /* MXSMenu+ContrxtOpt.swift */; };
+		707ACC111FF4A60A009E42E9 /* MXSDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC0D1FF4A60A009E42E9 /* MXSDiary.xcdatamodeld */; };
 		707ACC161FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC141FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift */; };
 		707ACC171FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC151FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift */; };
-		707ACC191FF4A67B009E42E9 /* MXSCoreDataCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC181FF4A67B009E42E9 /* MXSCoreDataCmd.swift */; };
+		707ACC191FF4A67B009E42E9 /* MXSDiaryDataCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC181FF4A67B009E42E9 /* MXSDiaryDataCmd.swift */; };
 		707ACC1B1FF4BF79009E42E9 /* MXSPickImgCDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC1A1FF4BF79009E42E9 /* MXSPickImgCDlg.swift */; };
 		707ACC1D1FF4BFAF009E42E9 /* MXSPickImgItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC1C1FF4BFAF009E42E9 /* MXSPickImgItem.swift */; };
 		707ACC1F1FF4C9C8009E42E9 /* MXSFileStorageCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 707ACC1E1FF4C9C8009E42E9 /* MXSFileStorageCmd.swift */; };
@@ -92,7 +97,7 @@
 		70A00E201FC7E753007C649C /* MXSTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A00E1F1FC7E753007C649C /* MXSTableViewCell.swift */; };
 		70A7E7901FCBF1E700B80A7B /* MXSCollectionDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E78F1FCBF1E700B80A7B /* MXSCollectionDlg.swift */; };
 		70A7E7921FCBF86000B80A7B /* MXSCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7911FCBF86000B80A7B /* MXSCollectionView.swift */; };
-		70A7E7941FCBFA7D00B80A7B /* MXSContentItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7931FCBFA7D00B80A7B /* MXSContentItemCell.swift */; };
+		70A7E7941FCBFA7D00B80A7B /* MXSContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7931FCBFA7D00B80A7B /* MXSContentCell.swift */; };
 		70A7E7971FCC004900B80A7B /* MXSPickImgVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A7E7961FCC004900B80A7B /* MXSPickImgVC.swift */; };
 		70C8879E1FD6C389009F65A8 /* xcode_complete.json in Resources */ = {isa = PBXBuildFile; fileRef = 70C8879D1FD6C388009F65A8 /* xcode_complete.json */; };
 		9590C4F1BC17910CE38A89E5 /* Pods_MXSSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */; };
@@ -137,7 +142,7 @@
 		7046608B1FD7F500006EA759 /* MXSXcodePSCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSXcodePSCell.swift; sourceTree = "<group>"; };
 		704BD99B1FCD30C10096DCE9 /* MXSALAssetCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSALAssetCmd.swift; sourceTree = "<group>"; };
 		704BD99D1FCD41FA0096DCE9 /* MXSCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSCollectionViewCell.swift; sourceTree = "<group>"; };
-		704BD99F1FCD42880096DCE9 /* MXSContentCDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSContentCDlg.swift; sourceTree = "<group>"; };
+		704BD99F1FCD42880096DCE9 /* MXSContentTDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSContentTDlg.swift; sourceTree = "<group>"; };
 		704CC1031FEB9BF400063E0A /* MXSProfileDlg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSProfileDlg.swift; sourceTree = "<group>"; };
 		704CC1041FEB9BF400063E0A /* MXSProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSProfileCell.swift; sourceTree = "<group>"; };
 		704CC1051FEB9BF400063E0A /* MXSProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSProfileVC.swift; sourceTree = "<group>"; };
@@ -197,10 +202,16 @@
 		707141051FF0D4180036CE16 /* MXSPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickerView.swift; sourceTree = "<group>"; };
 		707141071FF0E1930036CE16 /* MXSPickerDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickerDlg.swift; sourceTree = "<group>"; };
 		7071410B1FF11A640036CE16 /* MXSToolsCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSToolsCmd.swift; sourceTree = "<group>"; };
+		707A8D2B1FF5F1FA00596AE5 /* MXSDaily1.1.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MXSDaily1.1.xcdatamodel; sourceTree = "<group>"; };
+		707A8D301FF6134F00596AE5 /* MXSMenuModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MXSMenuModel.xcdatamodel; sourceTree = "<group>"; };
+		707A8D3A1FF6152E00596AE5 /* MXSMenuDataCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSMenuDataCmd.swift; sourceTree = "<group>"; };
+		707A8D3C1FF6157000596AE5 /* MXSMenu+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSMenu+CoreDataClass.swift"; sourceTree = "<group>"; };
+		707A8D3D1FF6157000596AE5 /* MXSMenu+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSMenu+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		707A8D401FF615B100596AE5 /* MXSMenu+ContrxtOpt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSMenu+ContrxtOpt.swift"; sourceTree = "<group>"; };
 		707ACC0E1FF4A60A009E42E9 /* MXSDaily.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MXSDaily.xcdatamodel; sourceTree = "<group>"; };
 		707ACC141FF4A672009E42E9 /* MXSDiary+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		707ACC151FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "MXSDiary+CoreDataClass.swift"; sourceTree = "<group>"; };
-		707ACC181FF4A67B009E42E9 /* MXSCoreDataCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSCoreDataCmd.swift; sourceTree = "<group>"; };
+		707ACC181FF4A67B009E42E9 /* MXSDiaryDataCmd.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSDiaryDataCmd.swift; sourceTree = "<group>"; };
 		707ACC1A1FF4BF79009E42E9 /* MXSPickImgCDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickImgCDlg.swift; sourceTree = "<group>"; };
 		707ACC1C1FF4BFAF009E42E9 /* MXSPickImgItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickImgItem.swift; sourceTree = "<group>"; };
 		707ACC1E1FF4C9C8009E42E9 /* MXSFileStorageCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSFileStorageCmd.swift; sourceTree = "<group>"; };
@@ -210,7 +221,7 @@
 		70A00E1F1FC7E753007C649C /* MXSTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSTableViewCell.swift; sourceTree = "<group>"; };
 		70A7E78F1FCBF1E700B80A7B /* MXSCollectionDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSCollectionDlg.swift; sourceTree = "<group>"; };
 		70A7E7911FCBF86000B80A7B /* MXSCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSCollectionView.swift; sourceTree = "<group>"; };
-		70A7E7931FCBFA7D00B80A7B /* MXSContentItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSContentItemCell.swift; sourceTree = "<group>"; };
+		70A7E7931FCBFA7D00B80A7B /* MXSContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSContentCell.swift; sourceTree = "<group>"; };
 		70A7E7961FCC004900B80A7B /* MXSPickImgVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPickImgVC.swift; sourceTree = "<group>"; };
 		70C8879D1FD6C388009F65A8 /* xcode_complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xcode_complete.json; sourceTree = "<group>"; };
 		C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MXSSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -330,8 +341,8 @@
 			isa = PBXGroup;
 			children = (
 				703DA8DD1FBAB9AA0059A632 /* MXSContentVC.swift */,
-				704BD99F1FCD42880096DCE9 /* MXSContentCDlg.swift */,
-				70A7E7931FCBFA7D00B80A7B /* MXSContentItemCell.swift */,
+				704BD99F1FCD42880096DCE9 /* MXSContentTDlg.swift */,
+				70A7E7931FCBFA7D00B80A7B /* MXSContentCell.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -419,6 +430,8 @@
 		703DA8D31FBA9C350059A632 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				707A8D291FF5F08800596AE5 /* Menu */,
+				707A8D2A1FF5F08800596AE5 /* RandomHistory */,
 				707ACC0C1FF4A60A009E42E9 /* CoreData */,
 				7075C00E1FE3ED9500E03491 /* Daily */,
 				7036035E1FE75F3C00CF3E09 /* MXSDocumentCmd.swift */,
@@ -625,11 +638,30 @@
 			path = Daily;
 			sourceTree = "<group>";
 		};
+		707A8D291FF5F08800596AE5 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				707A8D3C1FF6157000596AE5 /* MXSMenu+CoreDataClass.swift */,
+				707A8D3D1FF6157000596AE5 /* MXSMenu+CoreDataProperties.swift */,
+				707A8D2F1FF6134F00596AE5 /* MXSMenuModel.xcdatamodeld */,
+				707A8D3A1FF6152E00596AE5 /* MXSMenuDataCmd.swift */,
+				707A8D401FF615B100596AE5 /* MXSMenu+ContrxtOpt.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		707A8D2A1FF5F08800596AE5 /* RandomHistory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = RandomHistory;
+			sourceTree = "<group>";
+		};
 		707ACC0C1FF4A60A009E42E9 /* CoreData */ = {
 			isa = PBXGroup;
 			children = (
-				707ACC181FF4A67B009E42E9 /* MXSCoreDataCmd.swift */,
-				707ACC0D1FF4A60A009E42E9 /* MXSCoreData.xcdatamodeld */,
+				707ACC181FF4A67B009E42E9 /* MXSDiaryDataCmd.swift */,
+				707ACC0D1FF4A60A009E42E9 /* MXSDiary.xcdatamodeld */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -806,19 +838,21 @@
 				703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */,
 				706882A41FEA6F5B003F21DD /* UIView+MJExtension.m in Sources */,
 				702BB9F31FD8E4AE0083E123 /* MXSXcodeTableHeadView.swift in Sources */,
-				704BD9A01FCD42880096DCE9 /* MXSContentCDlg.swift in Sources */,
+				704BD9A01FCD42880096DCE9 /* MXSContentTDlg.swift in Sources */,
 				704CC1071FEB9BF400063E0A /* MXSProfileCell.swift in Sources */,
 				706882951FEA6F5B003F21DD /* MJRefreshHeader.m in Sources */,
 				7044B1B91FE4CD090047AE9C /* UILabel+Extension.swift in Sources */,
 				706882971FEA6F5B003F21DD /* MJRefreshAutoNormalFooter.m in Sources */,
 				704CC1061FEB9BF400063E0A /* MXSProfileDlg.swift in Sources */,
 				7068825B1FEA4904003F21DD /* MXSDiaryVC.swift in Sources */,
-				707ACC191FF4A67B009E42E9 /* MXSCoreDataCmd.swift in Sources */,
+				707ACC191FF4A67B009E42E9 /* MXSDiaryDataCmd.swift in Sources */,
 				7023BF971FECFF3C001FF435 /* MXSEditDiaryVC.swift in Sources */,
 				707ACC171FF4A672009E42E9 /* MXSDiary+CoreDataClass.swift in Sources */,
 				706882A21FEA6F5B003F21DD /* UIScrollView+MJExtension.m in Sources */,
 				70663FAE1FC577BB004EAE1D /* MXSTableView.swift in Sources */,
+				707A8D3B1FF6152E00596AE5 /* MXSMenuDataCmd.swift in Sources */,
 				703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */,
+				707A8D3F1FF6157000596AE5 /* MXSMenu+CoreDataProperties.swift in Sources */,
 				703DA8E21FBAB9E60059A632 /* MXSTableDlg.swift in Sources */,
 				7068829A1FEA6F5B003F21DD /* MJRefreshBackNormalFooter.m in Sources */,
 				703DA8DC1FBAB9930059A632 /* MXSFoundVC.swift in Sources */,
@@ -832,6 +866,8 @@
 				707ACC1D1FF4BFAF009E42E9 /* MXSPickImgItem.swift in Sources */,
 				706882921FEA6F5B003F21DD /* MJRefreshBackFooter.m in Sources */,
 				703DA8DA1FBAB9390059A632 /* MXSHomeVC.swift in Sources */,
+				707A8D411FF615B100596AE5 /* MXSMenu+ContrxtOpt.swift in Sources */,
+				707A8D3E1FF6157000596AE5 /* MXSMenu+CoreDataClass.swift in Sources */,
 				706882941FEA6F5B003F21DD /* MJRefreshFooter.m in Sources */,
 				702E43331FBEDF300017A7D8 /* MXSNothing.swift in Sources */,
 				7068825F1FEA495F003F21DD /* MXSDiaryDlg.swift in Sources */,
@@ -846,6 +882,7 @@
 				7036035F1FE75F3C00CF3E09 /* MXSDocumentCmd.swift in Sources */,
 				7046608A1FD7F4C3006EA759 /* MXSXcodePSTDlg.swift in Sources */,
 				7068825D1FEA4947003F21DD /* MXSDiaryCell.swift in Sources */,
+				707A8D311FF6134F00596AE5 /* MXSMenuModel.xcdatamodeld in Sources */,
 				703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */,
 				7046608C1FD7F500006EA759 /* MXSXcodePSCell.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
@@ -854,7 +891,7 @@
 				7044B1BA1FE4CD090047AE9C /* UIView+Extension.swift in Sources */,
 				70A00E201FC7E753007C649C /* MXSTableViewCell.swift in Sources */,
 				706882981FEA6F5B003F21DD /* MJRefreshAutoStateFooter.m in Sources */,
-				70A7E7941FCBFA7D00B80A7B /* MXSContentItemCell.swift in Sources */,
+				70A7E7941FCBFA7D00B80A7B /* MXSContentCell.swift in Sources */,
 				704CC1081FEB9BF400063E0A /* MXSProfileVC.swift in Sources */,
 				7068829C1FEA6F5B003F21DD /* MJRefreshGifHeader.m in Sources */,
 				706003C21FD5269700759938 /* MXSPHAssetCmd.swift in Sources */,
@@ -862,7 +899,7 @@
 				706882991FEA6F5B003F21DD /* MJRefreshBackGifFooter.m in Sources */,
 				7044B1B81FE4CD090047AE9C /* UIImage+Extension.swift in Sources */,
 				706882A31FEA6F5B003F21DD /* UIScrollView+MJRefresh.m in Sources */,
-				707ACC111FF4A60A009E42E9 /* MXSCoreData.xcdatamodeld in Sources */,
+				707ACC111FF4A60A009E42E9 /* MXSDiary.xcdatamodeld in Sources */,
 				7044B1CA1FE510700047AE9C /* MXSDiary+ContextOpt.swift in Sources */,
 				702DCD8A1FC28D49002CC776 /* MXSDefines.swift in Sources */,
 				70669FE61FC3E3DE001C209C /* MXSNetWork.swift in Sources */,
@@ -1048,13 +1085,24 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		707ACC0D1FF4A60A009E42E9 /* MXSCoreData.xcdatamodeld */ = {
+		707A8D2F1FF6134F00596AE5 /* MXSMenuModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				707A8D301FF6134F00596AE5 /* MXSMenuModel.xcdatamodel */,
+			);
+			currentVersion = 707A8D301FF6134F00596AE5 /* MXSMenuModel.xcdatamodel */;
+			path = MXSMenuModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+		707ACC0D1FF4A60A009E42E9 /* MXSDiary.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				707A8D2B1FF5F1FA00596AE5 /* MXSDaily1.1.xcdatamodel */,
 				707ACC0E1FF4A60A009E42E9 /* MXSDaily.xcdatamodel */,
 			);
 			currentVersion = 707ACC0E1FF4A60A009E42E9 /* MXSDaily.xcdatamodel */;
-			path = MXSCoreData.xcdatamodeld;
+			path = MXSDiary.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

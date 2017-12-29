@@ -13,62 +13,118 @@ import SnapKit
 class MXSContentVC: MXSBaseVC {
 	
 	var collectionView : MXSCollectionView?
-	var demoArr : Array<ALAsset>?
-	
+	var menuArr : Array<String>?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad();
-		self.view.backgroundColor = UIColor.white;
 		
 		bindingNavBar()
+		bindingTableView()
 		
-		let layout = UICollectionViewFlowLayout.init()
-		layout.scrollDirection = UICollectionViewScrollDirection.vertical
-		layout.minimumLineSpacing = 5
-		layout.minimumInteritemSpacing = 5
-		
-		collectionView = bindingCollectionView(layout: layout)
-		CollectionLayout()
-		
-		MXSPHAssetCmd.shard.enumPHAssets { (assets) in
-			(self.collectionView?.dlg as! MXSContentCDlg).queryData_content = assets
-			MXSLog(assets as Any)
-			MXSLog((self.collectionView?.dlg as! MXSContentCDlg).queryData_content as Any)
-			
-//			self.collectionView?.reloadData()
-			DispatchQueue.main.async{
-				self.collectionView?.reloadData()
-			}
-//			let img = MXSPHAssetCmd.shard.getAssetThumbnail(asset: assets[0])
-//			MXSLog(img)
+		let menuData = MXSMenu.fetchDish()
+		menuArr = Array.init()
+		for dish in menuData {
+			menuArr?.append(dish.name!)
 		}
+		TableView?.dlg?.queryData = menuArr
 		
-//		MXSALAssetCmd.shard.enumALAsset { (assets) in
-//			self.collectionView?.dlg?.queryData = assets
-//			MXSLog(assets as Any)
-//			self.collectionView?.reloadData()
-//		}
+		let btn = UIButton.init(text: "Random", fontSize: 16, textColor: UIColor.orange, background: UIColor.white)
+		view .addSubview(btn)
+		btn.snp.makeConstraints { (make) in
+			make.right.equalTo(view).offset(-30)
+			make.bottom.equalTo(view).offset(-30-TAB_BAR_H)
+			make.size.equalTo(CGSize.init(width: 60, height: 40))
+		}
+		btn.addTarget(self, action: #selector(randomClick), for: .touchUpInside)
 	}
 	
 	//MARK: layout
 	override func NavBarLayout() {
-		NavBar?.titleLabel?.text = "Photos"
-//		NavBar?.rightBtn?.isHidden = true
+		NavBar?.titleLabel?.text = "Let It Go"
+		NavBar?.rightBtn?.setTitle("Add", for: .normal)
 		NavBar?.leftBtn?.isHidden = true
 	}
 	
-	func CollectionLayout () {
-		collectionView?.snp.makeConstraints({ (make) in
-			make.edges.equalTo(self.view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
-		})
-//		let col:CGFloat = 4
-		let w_h = (SCREEN_WIDTH - 15 - 1) / 4
-//		let w_h = SCREEN_WIDTH / 2
-		collectionView?.register(cellName: "MXSContentItemCell", delegate: MXSContentCDlg(), vc: self, itemSize: CGSize.init(width: w_h, height: w_h))
+	override func TableLayout() {
+		TableView!.snp.makeConstraints { (make) in
+			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
+		}
+		TableView?.register(cellName: "MXSContentCell", delegate: MXSContentTDlg(), vc: self)
+		TableView?.addPullToRefreshWithAction {
+			OperationQueue().addOperation {
+				self.loadNewData()
+			}
+		}
+	}
+	//MARK:acions
+	@objc func loadNewData() {
+		
+		TableView?.dlg?.queryData = menuArr
+		
+		OperationQueue.main.addOperation {
+			self.TableView?.reloadData()
+			self.TableView?.stopPullToRefresh()
+		}
 	}
 
+	@objc func randomClick() {
+		let alert = UIAlertController.init(title: "Random", message: "please input progress Count", preferredStyle: .alert)
+		alert.addTextField { (textFiled) in
+			textFiled.keyboardType = .numberPad
+		}
+		
+		alert.addAction(UIAlertAction.init(title: "Certain", style: .default, handler: { (action) in
+			let textfield = alert.textFields?.first
+			
+			var result = Array<String>.init()
+			for _ in 1...Int((textfield?.text!)!)! {
+				let sum = self.menuArr?.count
+				let index_random = arc4random() % UInt32(sum!)
+				result.append(self.menuArr![Int(index_random)])
+			}
+			
+			self.TableView?.dlg?.queryData = result
+			self.TableView?.reloadData()
+			
+			//save coredata
+			MXSMenu.addDish(self.menuArr!)
+		}))
+		alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: { (action) in
+			
+		}))
+		
+		present(alert, animated: true, completion: nil)
+	}
+	
 	//MARK:notifies
 	override func didNavBarRightClick() {
-		MXSLog(self.demoArr as Any)
+		let alert = UIAlertController.init(title: "Add Option", message: "options", preferredStyle: .alert)
+		
+		alert.addTextField { (textFiled) in
+//			textFiled.keyboardType = .numberPad
+		}
+		
+		alert.addAction(UIAlertAction.init(title: "Certain", style: .default, handler: { (action) in
+			let textfield = alert.textFields?.first
+			
+			self.menuArr?.append((textfield?.text)!)
+			self.TableView?.dlg?.queryData = self.menuArr
+			self.TableView?.reloadData()
+		}))
+		alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: { (action) in
+			
+		}))
+		
+		present(alert, animated: true, completion: nil)
+		
+	}
+	
+	override func tableDeletedRowAt(_ indexPath: IndexPath) {
+		let name = menuArr![indexPath.row]
+		MXSMenu.removeDish(name)
+		
+		menuArr?.remove(at: indexPath.row)
+		TableView?.dlg?.queryData = menuArr
+		TableView?.deleteRows(at: [indexPath], with: .left)
 	}
 }

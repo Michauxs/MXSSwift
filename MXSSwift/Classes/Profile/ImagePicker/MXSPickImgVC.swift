@@ -37,6 +37,11 @@ class MXSPickImgVC: MXSBaseVC {
 				self.collectionView?.reloadData()
 			}
 		}
+//		MXSALAssetCmd.shard.enumALAsset { (assets) in
+//			self.collectionView?.dlg?.queryData = assets
+//			MXSLog(assets as Any)
+//			self.collectionView?.reloadData()
+//		}
 	}
 	
 	//MARK: layout

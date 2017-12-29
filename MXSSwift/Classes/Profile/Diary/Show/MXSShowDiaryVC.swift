@@ -46,7 +46,7 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		todayBtn.snp.makeConstraints { (make) in
 			make.right.equalTo(view).offset(-15)
 			make.centerY.equalTo(dateTitle)
-			make.size.equalTo(CGSize.init(width: 40, height: 20))
+			make.size.equalTo(CGSize.init(width: 50, height: 30))
 		}
 		todayBtn.addTarget(self, action: #selector(signTodayBtnClick), for: .touchUpInside)
 		
@@ -57,11 +57,13 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 			make.top.equalTo(dateTitle.snp.bottom).offset(44)
 		})
 		
-		let addOptBtn = UIButton.init(type: .contactAdd)
+		let addOptBtn = UIButton.init(text: "Setting", fontSize: 13, textColor: UIColor.theme, background: MXSNothing.shared)
+		addOptBtn.setRadius(radius: 4, borderColor: UIColor.theme, borderWidth: 0.5)
 		view.addSubview(addOptBtn)
 		addOptBtn.snp.makeConstraints { (make) in
 			make.right.equalTo(view).offset(-15)
-			make.centerY.equalTo(weatherTitle);
+			make.centerY.equalTo(weatherTitle)
+			make.size.equalTo(CGSize.init(width: 50, height: 30))
 		}
 		addOptBtn.addTarget(self, action: #selector(didWeatherTap), for: .touchUpInside)
 		
@@ -170,6 +172,12 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 	//MARK:notifies
 	override func didNavBarRightClick() {
 		
+		if contentTextView?.text.count == 0 || thinkTextView?.text.count == 0 {
+			alertView.titleLabel?.text = "Diary is not complete"
+			alertView.showAlert()
+			return
+		}
+		
 		var dic = Dictionary<String, Any>.init()
 		let wth = weatherLabel?.text
 		if wth!.contains("转") {
@@ -193,7 +201,10 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 	}
 	
 	override func hideBtmAlertComplete(_ title: String) {
-		didNavBarLeftClick()
+		
+		if title == "Diary has been saved" {
+			didNavBarLeftClick()
+		}
 	}
 	
 	override func pickerSave() {

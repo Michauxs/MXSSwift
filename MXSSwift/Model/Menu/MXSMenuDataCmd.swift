@@ -1,17 +1,17 @@
 //
-//  MXSDiaryModelCmd.swift
+//  MXSMenuDataCmd.swift
 //  MXSSwift
 //
-//  Created by Alfred Yang on 18/12/17.
+//  Created by Alfred Yang on 29/12/17.
 //  Copyright © 2017年 MXS. All rights reserved.
 //
 
 import UIKit
 import CoreData
 
-class MXSCoreDataCmd: NSObject {
-
-	static public let shared = MXSCoreDataCmd()
+class MXSMenuDataCmd: NSObject {
+	
+	static public let shared = MXSMenuDataCmd()
 	
 	lazy var applicationDocumentsDirectory: URL = {
 		let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
@@ -19,14 +19,14 @@ class MXSCoreDataCmd: NSObject {
 	}()
 	
 	lazy var managedObjectModel: NSManagedObjectModel = {
-		let modelURL = Bundle.main.url(forResource: "MXSCoreData", withExtension: "momd")!
+		let modelURL = Bundle.main.url(forResource: "MXSMenuModel", withExtension: "momd")!
 		return NSManagedObjectModel(contentsOf: modelURL)!
 	}()
 	
 	lazy var persistentStoreCoordinator: NSPersistentStoreCoordinator = {
 		
 		let coordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-		let url = self.applicationDocumentsDirectory.appendingPathComponent("MXSCoreData.sqlite")
+		let url = self.applicationDocumentsDirectory.appendingPathComponent("MXSMenuData.sqlite")
 		var failureReason = "There was an error creating or loading the application's saved data."
 		do {
 			try coordinator.addPersistentStore(ofType: NSSQLiteStoreType, configurationName: nil, at: url, options: nil)
@@ -51,5 +51,4 @@ class MXSCoreDataCmd: NSObject {
 		managedObjectContext.persistentStoreCoordinator = coordinator
 		return managedObjectContext
 	}()
-	
 }

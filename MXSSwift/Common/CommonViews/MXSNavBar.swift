@@ -48,7 +48,7 @@ class MXSNavBar: UIView {
 		})
 		leftBtn?.addTarget(self, action: #selector(self.didLeftBtnClick), for: .touchUpInside)
 		
-		rightBtn = UIButton.init(text: "Setting", fontSize: 16, textColor: UIColor.black, background: MXSNothing.shared)
+		rightBtn = UIButton.init(text: "Setting", fontSize: 16, textColor: UIColor.dullLine, background: MXSNothing.shared)
 		rightBtn?.setTitleColor(UIColor.gray, for: .disabled)
 		self.addSubview(rightBtn!)
 		rightBtn?.snp.makeConstraints({ (make) in
@@ -58,7 +58,7 @@ class MXSNavBar: UIView {
 		})
 		rightBtn?.addTarget(self, action: #selector(self.didRightBtnClick), for: .touchUpInside)
 		
-		titleLabel = UILabel.init(text:"Title", fontSize:16, textColor:UIColor.black, alignment:.left)
+		titleLabel = UILabel.init(text:"Title", fontSize:16, textColor:UIColor.dullLine, alignment:.left)
 		self.addSubview(titleLabel!)
 		titleLabel?.snp.makeConstraints({ (make) in
 			make.center.equalTo(self)
