@@ -23,8 +23,14 @@ class MXSHomeVC: MXSBaseVC {
 		super.bindingNavBar()
 		super.bindingTableView(style: .plain)
 		
-		let data_arr = MXSDiary.fetchDiaryObjects()
-//		let data_arr = ["车和日当午", "汗滴禾下土", "是指盘中餐", "粒粒皆辛苦", "23333"]
+		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+//		let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+		let fileNameList = try? FileManager.default.contentsOfDirectory(atPath: docuDir.first!)
+		for name in fileNameList! {
+			print(name)
+		}
+		
+		let data_arr = fileNameList
 		TableView?.dlg?.queryData = data_arr
 		
 		let btn = UIButton.init(text: "Push", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
@@ -62,7 +68,7 @@ class MXSHomeVC: MXSBaseVC {
 		TableView?.snp.makeConstraints({ (make) in
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
-		TableView?.register(cellName: "MXSHomeCell", delegate: MXSHomeDlg(), vc: self, rowHeight:90)
+		TableView?.register(cellName: "MXSHomeCell", delegate: MXSHomeDlg(), vc: self, rowHeight:44)
 		TableView?.addPullToRefreshWithAction {
 			OperationQueue().addOperation {
 				self.loadNewData()
@@ -73,8 +79,10 @@ class MXSHomeVC: MXSBaseVC {
 	
 	//MARK:acions
 	@objc func loadNewData() {
-		let data_arr = MXSDiary.fetchDiaryObjects()
-		TableView?.dlg?.queryData = data_arr
+		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+		let fileNameList = try? FileManager.default.contentsOfDirectory(atPath: docuDir.first!)
+		
+		TableView?.dlg?.queryData = fileNameList
 		
 		OperationQueue.main.addOperation {
 			self.TableView?.reloadData()
@@ -112,11 +120,12 @@ class MXSHomeVC: MXSBaseVC {
 	
 	//MARK:notifies
 	override func didNavBarRightClick() {
-		MXSDiary.addDiaryWithDictionary(["key":"1"])
+		
 	}
 	
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
-		btnClick()
+		let videoName = TableView?.dlg?.queryData![indexPath.row]
+		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSAVPlayVC(), args: videoName as Any)
 	}
 	
 	

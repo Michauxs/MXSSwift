@@ -44,6 +44,7 @@
 		704CC1061FEB9BF400063E0A /* MXSProfileDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704CC1031FEB9BF400063E0A /* MXSProfileDlg.swift */; };
 		704CC1071FEB9BF400063E0A /* MXSProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704CC1041FEB9BF400063E0A /* MXSProfileCell.swift */; };
 		704CC1081FEB9BF400063E0A /* MXSProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704CC1051FEB9BF400063E0A /* MXSProfileVC.swift */; };
+		704CC9432007702E007740EC /* MXSAVPlayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 704CC9422007702D007740EC /* MXSAVPlayVC.swift */; };
 		705818381FC6B62B009CE7E0 /* MXSHomeDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 705818371FC6B62B009CE7E0 /* MXSHomeDlg.swift */; };
 		706003C21FD5269700759938 /* MXSPHAssetCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706003C11FD5269700759938 /* MXSPHAssetCmd.swift */; };
 		706003C51FD52C9500759938 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 706003C41FD52C8300759938 /* Photos.framework */; };
@@ -146,6 +147,7 @@
 		704CC1031FEB9BF400063E0A /* MXSProfileDlg.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSProfileDlg.swift; sourceTree = "<group>"; };
 		704CC1041FEB9BF400063E0A /* MXSProfileCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSProfileCell.swift; sourceTree = "<group>"; };
 		704CC1051FEB9BF400063E0A /* MXSProfileVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MXSProfileVC.swift; sourceTree = "<group>"; };
+		704CC9422007702D007740EC /* MXSAVPlayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSAVPlayVC.swift; sourceTree = "<group>"; };
 		705818371FC6B62B009CE7E0 /* MXSHomeDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSHomeDlg.swift; sourceTree = "<group>"; };
 		706003C11FD5269700759938 /* MXSPHAssetCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSPHAssetCmd.swift; sourceTree = "<group>"; };
 		706003C31FD52C8300759938 /* PhotosUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PhotosUI.framework; path = System/Library/Frameworks/PhotosUI.framework; sourceTree = SDKROOT; };
@@ -358,6 +360,7 @@
 		703DA8CC1FBA9C350059A632 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				704CC93D20063A25007740EC /* AVPlayVC */,
 				703DA8CD1FBA9C350059A632 /* HomeVC */,
 				703DA8CE1FBA9C350059A632 /* NoteVC */,
 			);
@@ -501,6 +504,14 @@
 				704CC1041FEB9BF400063E0A /* MXSProfileCell.swift */,
 			);
 			path = ProfileVC;
+			sourceTree = "<group>";
+		};
+		704CC93D20063A25007740EC /* AVPlayVC */ = {
+			isa = PBXGroup;
+			children = (
+				704CC9422007702D007740EC /* MXSAVPlayVC.swift */,
+			);
+			path = AVPlayVC;
 			sourceTree = "<group>";
 		};
 		704CEE481FE8F6530055DDBB /* Diary */ = {
@@ -887,6 +898,7 @@
 				7046608C1FD7F500006EA759 /* MXSXcodePSCell.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,
 				704BD99C1FCD30C10096DCE9 /* MXSALAssetCmd.swift in Sources */,
+				704CC9432007702E007740EC /* MXSAVPlayVC.swift in Sources */,
 				7023BF9D1FED2EFA001FF435 /* MXSShowDiaryVC.swift in Sources */,
 				7044B1BA1FE4CD090047AE9C /* UIView+Extension.swift in Sources */,
 				70A00E201FC7E753007C649C /* MXSTableViewCell.swift in Sources */,

@@ -7,26 +7,76 @@
 //
 
 import UIKit
+import SnapKit
 
 class MXSVCExchangeCmd: NSObject {
 	
 	static let shared = MXSVCExchangeCmd()
+	let keyView = UIApplication.shared.keyWindow
+	let halfViewWidth:CGFloat = 243.5
+	
+	lazy var AnimateLeftView : UIImageView = {
+		
+		let left_view = UIImageView.init(image: UIImage.init(named: "trans_arrow_left"))
+		left_view.tag = 999
+		keyView!.addSubview(left_view)
+		left_view.frame = CGRect.init(x: -halfViewWidth, y: 0, width: halfViewWidth, height: SCREEN_HEIGHT)
+		return left_view
+	}()
+	lazy var AnimateRightView : UIImageView = {
+		
+		let right_view = UIImageView.init(image: UIImage.init(named: "trans_arrow_right"))
+		right_view.tag = 999
+		keyView!.addSubview(right_view)
+		right_view.frame = CGRect.init(x: SCREEN_WIDTH, y: 0, width: halfViewWidth, height: SCREEN_HEIGHT)
+		return right_view
+	}()
 	
 	func SourseVCPushDestVC(sourse:MXSBaseVC, dest:MXSBaseVC, args:Any) {
 		if !(args is MXSNothing) {
 			dest.receiveArgsBePost(args: args)
 		}
-		dest.hidesBottomBarWhenPushed = true
-		sourse.navigationController?.pushViewController(dest, animated: true)
-		
+		let _ = AnimateLeftView
+		let _ = AnimateRightView
+		UIView.animate(withDuration: 0.5, animations: {
+			self.AnimateLeftView.frame = CGRect.init(x: 0, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
+			self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH-self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
+		}) { (complete) in
+			
+			dest.hidesBottomBarWhenPushed = true
+			sourse.navigationController?.pushViewController(dest, animated: false)
+			
+			DispatchQueue.main.asyncAfter(deadline: .now()+0.75, execute: {
+				UIView.animate(withDuration: 0.5, animations: {
+					self.AnimateLeftView.frame = CGRect.init(x: -self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
+					self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
+				})
+			})
+		}
 	}
 	
 	func SourseVCPop (sourse:MXSBaseVC, args:Any) {
-		sourse.navigationController?.popViewController(animated: true)
-		let pop = sourse.navigationController?.viewControllers.last as! MXSBaseVC
-		if !(args is MXSNothing) {
-			pop.receiveArgsBeBack(args:args)
+		
+		UIView.animate(withDuration: 0.5, animations: {
+			self.AnimateLeftView.frame = CGRect.init(x: 0, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
+			self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH-self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
+		}) { (complete) in
+			
+			let nav = sourse.navigationController
+			nav?.popViewController(animated: false)
+			let pop = nav?.viewControllers.last as! MXSBaseVC
+			if !(args is MXSNothing) {
+				pop.receiveArgsBeBack(args:args)
+			}
+			
+			DispatchQueue.main.asyncAfter(deadline: .now()+0.75, execute: {
+				UIView.animate(withDuration: 0.5, animations: {
+					self.AnimateLeftView.frame = CGRect.init(x: -self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
+					self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
+				})
+			})
 		}
+		
 	}
 	
 	func SourseVCPopToDest(sourse:MXSBaseVC, dest:MXSBaseVC, args:Any) {
