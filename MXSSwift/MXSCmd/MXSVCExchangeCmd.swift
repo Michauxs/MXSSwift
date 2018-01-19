@@ -36,8 +36,9 @@ class MXSVCExchangeCmd: NSObject {
 		if !(args is MXSNothing) {
 			dest.receiveArgsBePost(args: args)
 		}
-		let _ = AnimateLeftView
-		let _ = AnimateRightView
+		
+		AnimateRightView.isHidden = false
+		AnimateLeftView.isHidden = false
 		UIView.animate(withDuration: 0.5, animations: {
 			self.AnimateLeftView.frame = CGRect.init(x: 0, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 			self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH-self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
@@ -50,13 +51,17 @@ class MXSVCExchangeCmd: NSObject {
 				UIView.animate(withDuration: 0.5, animations: {
 					self.AnimateLeftView.frame = CGRect.init(x: -self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 					self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
-				})
+				}) {(complete) in
+					self.AnimateRightView.isHidden = true
+					self.AnimateLeftView.isHidden = true
+				}
 			})
 		}
 	}
 	
 	func SourseVCPop (sourse:MXSBaseVC, args:Any) {
-		
+		self.AnimateRightView.isHidden = false
+		self.AnimateLeftView.isHidden = false
 		UIView.animate(withDuration: 0.5, animations: {
 			self.AnimateLeftView.frame = CGRect.init(x: 0, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 			self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH-self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
@@ -73,7 +78,10 @@ class MXSVCExchangeCmd: NSObject {
 				UIView.animate(withDuration: 0.5, animations: {
 					self.AnimateLeftView.frame = CGRect.init(x: -self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 					self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
-				})
+				}) {(complete) in
+					self.AnimateRightView.isHidden = true
+					self.AnimateLeftView.isHidden = true
+				}
 			})
 		}
 		
@@ -98,7 +106,20 @@ class MXSVCExchangeCmd: NSObject {
 		}
 	}
 	
-	
+	//MARK: module
+	public func PresentVC(_ sourse:MXSBaseVC, dest:MXSBaseVC, args:Any) {
+		if !(args is MXSNothing) {
+			dest.receiveArgsBePost(args:args)
+		}
+		sourse.navigationController?.present(dest, animated: true, completion: {
+			
+		})
+	}
+	public func DismissVC (_ vc:MXSBaseVC, args:Any) {
+		vc.dismiss(animated: true) {
+			
+		}
+	}
 	
 	//		var count: UInt32 = 0
 	//		let methods = class_copyMethodList(MXSTableView.self, &count)

@@ -46,6 +46,7 @@ class MXSPickImgVC: MXSBaseVC {
 	
 	//MARK: layout
 	override func NavBarLayout() {
+		super.NavBarLayout()
 		NavBar?.titleLabel?.text = "Photos"
 		NavBar?.rightBtn?.isHidden = true
 //		NavBar?.leftBtn?.isHidden = true

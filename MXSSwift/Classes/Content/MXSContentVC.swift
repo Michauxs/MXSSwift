@@ -40,12 +40,14 @@ class MXSContentVC: MXSBaseVC {
 	
 	//MARK: layout
 	override func NavBarLayout() {
+		super.NavBarLayout()
 		NavBar?.titleLabel?.text = "Let It Go"
 		NavBar?.rightBtn?.setTitle("Add", for: .normal)
 		NavBar?.leftBtn?.isHidden = true
 	}
 	
 	override func TableLayout() {
+		super.TableLayout()
 		TableView!.snp.makeConstraints { (make) in
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		}

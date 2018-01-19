@@ -23,14 +23,7 @@ class MXSHomeVC: MXSBaseVC {
 		super.bindingNavBar()
 		super.bindingTableView(style: .plain)
 		
-		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-//		let urls = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-		let fileNameList = try? FileManager.default.contentsOfDirectory(atPath: docuDir.first!)
-		for name in fileNameList! {
-			print(name)
-		}
-		
-		let data_arr = fileNameList
+		let data_arr = MXSFileStorageCmd.shared.enumVideoFileNameList()
 		TableView?.dlg?.queryData = data_arr
 		
 		let btn = UIButton.init(text: "Push", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
@@ -68,7 +61,7 @@ class MXSHomeVC: MXSBaseVC {
 		TableView?.snp.makeConstraints({ (make) in
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
-		TableView?.register(cellName: "MXSHomeCell", delegate: MXSHomeDlg(), vc: self, rowHeight:44)
+		TableView?.register(cellName: "MXSHomeCell", delegate: MXSHomeDlg(), vc: self)
 		TableView?.addPullToRefreshWithAction {
 			OperationQueue().addOperation {
 				self.loadNewData()
@@ -79,9 +72,8 @@ class MXSHomeVC: MXSBaseVC {
 	
 	//MARK:acions
 	@objc func loadNewData() {
-		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-		let fileNameList = try? FileManager.default.contentsOfDirectory(atPath: docuDir.first!)
 		
+		let fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
 		TableView?.dlg?.queryData = fileNameList
 		
 		OperationQueue.main.addOperation {
@@ -125,7 +117,8 @@ class MXSHomeVC: MXSBaseVC {
 	
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
 		let videoName = TableView?.dlg?.queryData![indexPath.row]
-		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSAVPlayVC(), args: videoName as Any)
+//		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSAVPlayVC(), args: videoName as Any)
+		MXSVCExchangeCmd.shared.PresentVC(self, dest: MXSAVPlayVC(), args: videoName as Any)
 	}
 	
 	

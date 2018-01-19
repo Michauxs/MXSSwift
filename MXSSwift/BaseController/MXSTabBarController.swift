@@ -17,7 +17,7 @@ class MXSTabBarController: UITabBarController {
 		var nav_arr = Array<UINavigationController>()
 		
 		for vc in vc_arr {
-			let nav_c = UINavigationController.init()
+			let nav_c = MXSNavigationVC.init()
 			nav_c.pushViewController(vc, animated: false)
 			nav_c.setNavigationBarHidden(true, animated: false)
 			nav_arr.append(nav_c)
@@ -48,5 +48,19 @@ class MXSTabBarController: UITabBarController {
 		vc.tabBarItem = UITabBarItem.init(title: title, image: image, selectedImage: selectImage)
 		vc.tabBarItem!.setTitleTextAttributes(attr_color_normal, for: UIControlState.normal)
 		vc.tabBarItem!.setTitleTextAttributes(attr_color_select, for: UIControlState.selected)
+	}
+	
+	//MARK: application
+	override var shouldAutorotate: Bool {
+		return false
+	}
+	
+	override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+		return .portrait
+		//		return .portraitUpsideDown
+	}
+	
+	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+		return .portrait
 	}
 }

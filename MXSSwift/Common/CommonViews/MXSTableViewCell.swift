@@ -31,7 +31,7 @@ class MXSTableViewCell: UITableViewCell {
 	public func drawBtmLine() {
 		let line = UIView.init()
 		addSubview(line)
-		line.backgroundColor = UIColor.dullLine
+		line.backgroundColor = UIColor.darkLine
 		line.snp.makeConstraints { (make) in
 			make.right.equalTo(self)
 			make.left.equalTo(self).offset(15)

@@ -28,6 +28,7 @@
 		703DA8E51FBAC97A0059A632 /* MXSVCExchangeCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */; };
 		703DA8E71FBAD0200059A632 /* MXSVCPtc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */; };
 		703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */; };
+		703E60AD2011CE6B00145889 /* MXSNavigationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703E60AC2011CE6B00145889 /* MXSNavigationVC.swift */; };
 		7042EFC81FEB7F99004BE421 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7042EFC71FEB7F99004BE421 /* String+Extension.swift */; };
 		7044B1B61FE4CD090047AE9C /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B11FE4CD090047AE9C /* UIButton+Extension.swift */; };
 		7044B1B71FE4CD090047AE9C /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7044B1B21FE4CD090047AE9C /* UIColor+Extension.swift */; };
@@ -131,6 +132,7 @@
 		703DA8E41FBAC97A0059A632 /* MXSVCExchangeCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCExchangeCmd.swift; sourceTree = "<group>"; };
 		703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVCPtc.swift; sourceTree = "<group>"; };
 		703DA8E81FBAD37E0059A632 /* MXSNoteVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNoteVC.swift; sourceTree = "<group>"; };
+		703E60AC2011CE6B00145889 /* MXSNavigationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSNavigationVC.swift; sourceTree = "<group>"; };
 		7042EFC71FEB7F99004BE421 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		7044B1B11FE4CD090047AE9C /* UIButton+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		7044B1B21FE4CD090047AE9C /* UIColor+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
@@ -448,6 +450,7 @@
 				703DA8D51FBAB7AA0059A632 /* MXSBaseVC.swift */,
 				703DA8D71FBAB8150059A632 /* MXSTabBarController.swift */,
 				703DA8E61FBAD0200059A632 /* MXSVCPtc.swift */,
+				703E60AC2011CE6B00145889 /* MXSNavigationVC.swift */,
 			);
 			path = BaseController;
 			sourceTree = "<group>";
@@ -894,6 +897,7 @@
 				7046608A1FD7F4C3006EA759 /* MXSXcodePSTDlg.swift in Sources */,
 				7068825D1FEA4947003F21DD /* MXSDiaryCell.swift in Sources */,
 				707A8D311FF6134F00596AE5 /* MXSMenuModel.xcdatamodeld in Sources */,
+				703E60AD2011CE6B00145889 /* MXSNavigationVC.swift in Sources */,
 				703DA8D61FBAB7AA0059A632 /* MXSBaseVC.swift in Sources */,
 				7046608C1FD7F500006EA759 /* MXSXcodePSCell.swift in Sources */,
 				703DA8C51FBA9B1D0059A632 /* AppDelegate.swift in Sources */,

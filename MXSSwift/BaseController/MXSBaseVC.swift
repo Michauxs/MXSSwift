@@ -68,6 +68,12 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	
 	//MARK: layout
 	public func NavBarLayout() {
+		NavBar!.snp.makeConstraints { (make) in
+			make.left.equalTo(view)
+			make.right.equalTo(view)
+			make.top.equalTo(view).offset(STATUS_BAR_H)
+			make.height.equalTo(NAV_BAR_H)
+		}
 //		NavBar?.setBackground(color: UIColor.white)
 	}
 	public func TableLayout() {
@@ -109,4 +115,17 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	public func hideBtmAlertComplete (_ title:String = "Title") {
 		MXSLog("no subclass respond method: hideBtmAlertComplete")
 	}
+	
+	//MARK: application
+	override var shouldAutorotate: Bool {
+		return false
+	}
+	override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation {
+		return .portrait
+	}
+	
+	override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
+		return .portrait
+	}
+	
 }

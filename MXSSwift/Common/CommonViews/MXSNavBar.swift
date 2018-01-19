@@ -14,7 +14,7 @@ class MXSNavBar: UIView {
 	public var rightBtn : UIButton?
 	public var titleLabel : UILabel?
 	public var topBackground : UIView?
-	public var btmLineLayer : CALayer?
+	public var btmLineView : UIView?
 	weak var controller : MXSBaseVC?
 	
 	override init(frame: CGRect) {
@@ -24,7 +24,8 @@ class MXSNavBar: UIView {
 	
 	//init with controller
 	convenience init(vc:MXSBaseVC) {
-		self.init(frame: CGRect.init(x: 0, y: 20, width: SCREEN_WIDTH, height: 44))
+//		self.init(frame: CGRect.init(x: 0, y: STATUS_BAR_H, width: SCREEN_WIDTH, height: NAV_BAR_H))
+		self.init(frame: CGRect.zero)
 		controller = vc
 	}
 	
@@ -34,8 +35,14 @@ class MXSNavBar: UIView {
 	
 	func setupSubviews() {
 		
-		topBackground = UIView.init(frame: CGRect.init(x: 0, y: -20, width: SCREEN_WIDTH, height: 20))
+		topBackground = UIView.init()
 		self.addSubview(topBackground!)
+		topBackground?.snp.makeConstraints({ (make) in
+			make.bottom.equalTo(self.snp.top)
+			make.left.equalTo(self)
+			make.right.equalTo(self)
+			make.height.equalTo(STATUS_BAR_H)
+		})
 		
 //		leftBtn = UIButton.init(text: "Back", fontSize: 16, textColor: UIColor.black, background: UIColor.white)
 		leftBtn = UIButton.init()
@@ -71,10 +78,15 @@ class MXSNavBar: UIView {
 	//MARK: UI
 	public func addBtmLine () {
 		
-		btmLineLayer = CALayer.init()
-		layer.addSublayer(btmLineLayer!)
-		btmLineLayer?.frame = CGRect.init(x: 0, y: NAV_BAR_H-0.5, width: SCREEN_WIDTH, height: 0.5)
-		btmLineLayer?.backgroundColor = UIColor.dullLine.cgColor
+		btmLineView = UIView.init()
+		addSubview(btmLineView!)
+		btmLineView?.backgroundColor = UIColor.darkLine
+		btmLineView?.snp.makeConstraints({ (make) in
+			make.bottom.equalTo(self)
+			make.left.equalTo(self)
+			make.right.equalTo(self)
+			make.height.equalTo(0.5)
+		})
 	}
 	
 	//notifies
