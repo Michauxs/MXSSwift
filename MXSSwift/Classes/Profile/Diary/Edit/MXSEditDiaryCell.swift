@@ -27,7 +27,7 @@ class MXSEditDiaryCell: MXSTableViewCell {
 		
 		
 		contentLabel = UILabel.init(text: "略", fontSize: 12, textColor: UIColor.gray, alignment: .left)
-		contentLabel?.numberOfLines = 3
+		contentLabel?.numberOfLines = 0
 		addSubview(contentLabel!)
 		contentLabel?.snp.makeConstraints({ (make) in
 			make.left.equalTo(titleLabel!.snp.right).offset(20)

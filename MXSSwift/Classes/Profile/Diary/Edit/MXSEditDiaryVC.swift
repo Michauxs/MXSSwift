@@ -28,7 +28,7 @@ class MXSEditDiaryVC: MXSBaseVC {
 	
 	//MARK:layout
 	override func NavBarLayout() {
-		
+		super.NavBarLayout()
 		NavBar?.titleLabel?.text = "Edit Diary"
 		NavBar?.rightBtn?.setTitle("Del", for: .normal)
 	}

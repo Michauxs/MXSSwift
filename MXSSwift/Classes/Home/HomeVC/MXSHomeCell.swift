@@ -79,10 +79,12 @@ class MXSHomeCell: MXSTableViewCell {
 //		})
 		
 		titleLabel = UILabel.init(text: "Video Name", fontSize: 13, textColor: .dullWhite, alignment: .left)
+		titleLabel?.numberOfLines = 1
 		addSubview(titleLabel!)
 		titleLabel?.snp.makeConstraints({ (make) in
 			make.left.equalTo(self).offset(15)
 			make.centerY.equalTo(self)
+			make.right.equalTo(self).offset(-100)
 		})
 		historyNoteLabel = UILabel.init(text: "00:00/00:00", fontSize: 12, textColor: .gray, alignment: .right)
 		addSubview(historyNoteLabel!)

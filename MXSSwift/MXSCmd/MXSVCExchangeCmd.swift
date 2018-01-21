@@ -39,7 +39,7 @@ class MXSVCExchangeCmd: NSObject {
 		
 		AnimateRightView.isHidden = false
 		AnimateLeftView.isHidden = false
-		UIView.animate(withDuration: 0.5, animations: {
+		UIView.animate(withDuration: 0.35, animations: {
 			self.AnimateLeftView.frame = CGRect.init(x: 0, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 			self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH-self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 		}) { (complete) in
@@ -47,8 +47,8 @@ class MXSVCExchangeCmd: NSObject {
 			dest.hidesBottomBarWhenPushed = true
 			sourse.navigationController?.pushViewController(dest, animated: false)
 			
-			DispatchQueue.main.asyncAfter(deadline: .now()+0.75, execute: {
-				UIView.animate(withDuration: 0.5, animations: {
+			DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+				UIView.animate(withDuration: 0.35, animations: {
 					self.AnimateLeftView.frame = CGRect.init(x: -self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 					self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 				}) {(complete) in
@@ -62,7 +62,7 @@ class MXSVCExchangeCmd: NSObject {
 	func SourseVCPop (sourse:MXSBaseVC, args:Any) {
 		self.AnimateRightView.isHidden = false
 		self.AnimateLeftView.isHidden = false
-		UIView.animate(withDuration: 0.5, animations: {
+		UIView.animate(withDuration: 0.35, animations: {
 			self.AnimateLeftView.frame = CGRect.init(x: 0, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 			self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH-self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 		}) { (complete) in
@@ -74,8 +74,8 @@ class MXSVCExchangeCmd: NSObject {
 				pop.receiveArgsBeBack(args:args)
 			}
 			
-			DispatchQueue.main.asyncAfter(deadline: .now()+0.75, execute: {
-				UIView.animate(withDuration: 0.5, animations: {
+			DispatchQueue.main.asyncAfter(deadline: .now()+0.5, execute: {
+				UIView.animate(withDuration: 0.35, animations: {
 					self.AnimateLeftView.frame = CGRect.init(x: -self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 					self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 				}) {(complete) in

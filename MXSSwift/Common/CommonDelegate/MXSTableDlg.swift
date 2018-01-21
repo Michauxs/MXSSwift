@@ -43,6 +43,19 @@ class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 		controller?.tableSelectedRowAt(indexPath)
 	}
 	
+	
+	func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+		return false
+	}
+	
+	func tableView(_ tableView: UITableView, titleForDeleteConfirmationButtonForRowAt indexPath: IndexPath) -> String? {
+		return "Delete"
+	}
+	func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+		
+		controller?.tableDeletedRowAt(indexPath)
+	}
+	
 	//MARK:scrollview
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 		let offset_y = scrollView.contentOffset.y

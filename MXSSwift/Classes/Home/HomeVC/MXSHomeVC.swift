@@ -10,6 +10,7 @@ import UIKit
 
 class MXSHomeVC: MXSBaseVC {
 	
+	var fileNameList : Array<String>?
 	
 	//MARK:life cycle
 	override func receiveArgsBeBack(args: Any) {
@@ -23,8 +24,8 @@ class MXSHomeVC: MXSBaseVC {
 		super.bindingNavBar()
 		super.bindingTableView(style: .plain)
 		
-		let data_arr = MXSFileStorageCmd.shared.enumVideoFileNameList()
-		TableView?.dlg?.queryData = data_arr
+		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
+		TableView?.dlg?.queryData = fileNameList
 		
 		let btn = UIButton.init(text: "Push", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(btn)
@@ -73,7 +74,7 @@ class MXSHomeVC: MXSBaseVC {
 	//MARK:acions
 	@objc func loadNewData() {
 		
-		let fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
+		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
 		TableView?.dlg?.queryData = fileNameList
 		
 		OperationQueue.main.addOperation {
@@ -121,5 +122,15 @@ class MXSHomeVC: MXSBaseVC {
 		MXSVCExchangeCmd.shared.PresentVC(self, dest: MXSAVPlayVC(), args: videoName as Any)
 	}
 	
+	override func tableDeletedRowAt(_ indexPath: IndexPath) {
+		let name = fileNameList![indexPath.row]
+		
+		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+		try? FileManager.default.removeItem(atPath: docuDir.first!+"/"+name)
+		
+		fileNameList?.remove(at: indexPath.row)
+		TableView?.dlg?.queryData = fileNameList
+		TableView?.deleteRows(at: [indexPath], with: .left)
+	}
 	
 }
