@@ -22,11 +22,13 @@ class MXSAVPlayVC: MXSBaseVC {
 	var progressView : UIView?
 	
 	var expectProgress :UILabel?
+	var signShowView :UILabel?
 	
 	var autoActionTimer :Timer?
 	var secondCount : CGFloat = 0
 	var idleCount : CGFloat = 0
 	var isUserInter : Bool = false
+	var isBePlaying : Bool = false
 	
 	var moniInterval : TimeInterval = 0.1
 	var time_node : Double = 0
@@ -39,14 +41,12 @@ class MXSAVPlayVC: MXSBaseVC {
 	
     override func viewDidLoad() {
         super.viewDidLoad()
-		
 		super.bindingNavBar()
 		
 		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
 		let videoURL = NSURL.init(fileURLWithPath: docuDir.first!+"/"+videoName!)
 		let avItem = AVPlayerItem.init(url: videoURL as URL)
 		avPlayer = AVPlayer.init(playerItem: avItem)
-		
 		let avLayer = AVPlayerLayer.init(player: avPlayer)
 		avLayer.videoGravity = .resizeAspect
 		avLayer.frame = CGRect.init(x: 0, y: 0, width: SCREEN_HEIGHT, height: SCREEN_WIDTH)
@@ -58,11 +58,21 @@ class MXSAVPlayVC: MXSBaseVC {
 		autoActionTimer = Timer.scheduledTimer(timeInterval: moniInterval, target: self, selector: #selector(timerRun), userInfo: nil, repeats: true)
 		autoActionTimer?.fireDate = Date.distantFuture
 		
-		expectProgress = UILabel.init(text: "00:00 / 00:00", fontSize: 14, textColor: UIColor.init(white: 1, alpha: 0.75), alignment: .right)
+		signShowView = UILabel.init(text: "Michauxs", fontSize: 80, textColor: UIColor.init(white: 1, alpha: 0.65), alignment: .center)
+		view.addSubview(signShowView!)
+		signShowView!.snp.makeConstraints { (make) in
+			make.center.equalToSuperview()
+		}
+		
+		let progressHeight:CGFloat = 30
+		expectProgress = UILabel.init(text: "00:00", fontSize: 14, textColor: UIColor.init(white: 1, alpha: 0.65), alignment: .center)
+		expectProgress?.setRadius(radius: progressHeight/2, borderColor: MXSNothing.shared, borderWidth: 0, backgropund: UIColor.init(white: 1, alpha: 0.5) as Any)
 		view.addSubview(expectProgress!)
 		expectProgress!.snp.makeConstraints { (make) in
-			make.centerX.equalTo(view).offset(-SCREEN_HEIGHT*0.25)
-			make.centerY.equalTo(view)
+			make.centerX.equalTo(view)
+			make.centerY.equalTo(view).offset(-SCREEN_WIDTH*0.25)
+			make.height.equalTo(progressHeight)
+			make.width.equalTo(90)
 		}
 		expectProgress?.isHidden = true
 		
@@ -100,7 +110,7 @@ class MXSAVPlayVC: MXSBaseVC {
 		progressView!.snp.makeConstraints { (make) in
 			make.top.equalTo(BtmControlView!)
 			make.left.equalTo(BtmControlView!)
-//			make.right.equalTo(BtmControlView!)
+//			make.width.equalToSuperview().dividedBy(0.2)
 			make.width.equalTo(0)
 			make.height.equalTo(1.5)
 		}
@@ -120,8 +130,21 @@ class MXSAVPlayVC: MXSBaseVC {
 	
 	override func viewDidAppear(_ animated: Bool) {
 		super.viewDidAppear(animated)
-		avPlayer?.play()
-		autoActionTimer?.fireDate = Date.distantPast
+		signShowView?.isHidden = true
+		
+		let second = UserDefaults.standard.double(forKey: videoName!)
+		if second != 0 {
+			avPlayer?.currentItem?.seek(to: CMTime.init(seconds: second, preferredTimescale: 1), completionHandler: { (complete) in
+				self.avPlayer?.play()
+				self.isBePlaying = true
+				self.autoActionTimer?.fireDate = Date.distantPast
+			})
+		} else {
+			avPlayer?.play()
+			self.isBePlaying = true
+			autoActionTimer?.fireDate = Date.distantPast
+		}
+		
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
@@ -165,6 +188,8 @@ class MXSAVPlayVC: MXSBaseVC {
 			}
 			case .began: do {
 				avPlayer?.pause()
+//				self.isBePlaying = false
+				pauseResumBtn?.isSelected = true
 				autoActionTimer?.fireDate = Date.distantFuture
 				time_node = (avPlayer!.currentItem?.currentTime().seconds)!
 				pan_node = pan.translation(in: view).x
@@ -179,11 +204,12 @@ class MXSAVPlayVC: MXSBaseVC {
 				let miniter_d = Int(duration!)%60;
 				let second_t = Int(expect)/60;
 				let miniter_t = Int(expect)%60;
-				let str = String(format: "%.2d:%.2d / %.2d:%.2d", arguments: [second_t, miniter_t, second_d, miniter_d])
 				if !isUserInter {
+					let str = String(format: "%.2d:%.2d ", arguments: [second_t, miniter_t])
 					expectProgress?.isHidden = false
 					expectProgress?.text = str
 				} else {
+					let str = String(format: "%.2d:%.2d / %.2d:%.2d", arguments: [second_t, miniter_t, second_d, miniter_d])
 					progressSecond?.text = str
 				}
 				
@@ -197,12 +223,15 @@ class MXSAVPlayVC: MXSBaseVC {
 				let changed = ((p - pan_node + CGFloat.init(time_node)) < 0) ? 0 : (p - pan_node + CGFloat.init(time_node))
 				
 				avPlayer?.currentItem?.seek(to: CMTime.init(seconds: Double.init(changed), preferredTimescale: 1), completionHandler: { (complete) in
-					self.avPlayer?.play()
+					
+					if self.isBePlaying {
+						self.avPlayer?.play()
+						self.isBePlaying = true
+						self.pauseResumBtn?.isSelected = false
+					}
 					self.autoActionTimer?.fireDate = Date.distantPast
 					self.expectProgress?.isHidden = true
 				})
-				time_node  = 0
-				pan_node = 0
 			}
 			default : do {
 				
@@ -211,15 +240,18 @@ class MXSAVPlayVC: MXSBaseVC {
 	}
 	
 	@objc func playFinished () {
-		autoActionTimer?.fireDate = Date.distantFuture
+		
 		autoActionTimer?.invalidate()
-		didNavBarLeftClick()
+		autoActionTimer = nil
+		MXSVCExchangeCmd.shared.DismissVC(self, args: "note")
 	}
 	@objc func pauseResumClicked (_ btn:UIButton) {
 		if btn.isSelected {
 			avPlayer?.play()
+			self.isBePlaying = true
 		} else {
 			avPlayer?.pause()
+			self.isBePlaying = false
 		}
 		btn.isSelected = !btn.isSelected
 	}
@@ -301,6 +333,12 @@ class MXSAVPlayVC: MXSBaseVC {
 	
 	// MARK: - nitifies
 	override func didNavBarLeftClick() {
-		MXSVCExchangeCmd.shared.DismissVC(self, args: MXSNothing.shared)
+		
+		let current = avPlayer?.currentItem?.currentTime().seconds
+		let user = UserDefaults.standard
+		user.set(current, forKey: videoName!)
+		user.synchronize()
+		
+		MXSVCExchangeCmd.shared.DismissVC(self, args: "note")
 	}
 }

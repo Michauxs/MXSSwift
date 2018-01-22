@@ -41,7 +41,7 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		})
 		
 		let todayBtn = UIButton.init(text: "Today", fontSize: 13, textColor: UIColor.theme, background: MXSNothing.shared)
-		todayBtn.setRadius(radius: 4, borderColor: UIColor.theme, borderWidth: 0.5)
+		todayBtn.setRadius(radius: 4, borderColor: UIColor.theme, borderWidth: 0.5, backgropund: MXSNothing.shared)
 		view.addSubview(todayBtn)
 		todayBtn.snp.makeConstraints { (make) in
 			make.right.equalTo(view).offset(-15)
@@ -58,7 +58,7 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		})
 		
 		let addOptBtn = UIButton.init(text: "Setting", fontSize: 13, textColor: UIColor.theme, background: MXSNothing.shared)
-		addOptBtn.setRadius(radius: 4, borderColor: UIColor.theme, borderWidth: 0.5)
+		addOptBtn.setRadius(radius: 4, borderColor: UIColor.theme, borderWidth: 0.5, backgropund: MXSNothing.shared)
 		view.addSubview(addOptBtn)
 		addOptBtn.snp.makeConstraints { (make) in
 			make.right.equalTo(view).offset(-15)

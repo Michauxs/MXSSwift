@@ -86,7 +86,7 @@ class MXSHomeCell: MXSTableViewCell {
 			make.centerY.equalTo(self)
 			make.right.equalTo(self).offset(-100)
 		})
-		historyNoteLabel = UILabel.init(text: "00:00/00:00", fontSize: 12, textColor: .gray, alignment: .right)
+		historyNoteLabel = UILabel.init(text: "played:00:00", fontSize: 12, textColor: .gray, alignment: .right)
 		addSubview(historyNoteLabel!)
 		historyNoteLabel?.snp.makeConstraints({ (make) in
 			make.right.equalTo(self).offset(-15)
@@ -104,7 +104,19 @@ class MXSHomeCell: MXSTableViewCell {
 	override var cellData: Any? {
 		didSet {
 			
-			titleLabel?.text = cellData as? String
+			let name = cellData as? String
+			titleLabel?.text = name
+			
+			let second = UserDefaults.standard.double(forKey: name!)
+			if second == 0 {
+				historyNoteLabel?.text = "Never played"
+			} else {
+				
+				let second_t = Int(second)/60;
+				let miniter_t = Int(second)%60;
+				let str = String(format: "Progress %.2d:%.2d", arguments: [second_t, miniter_t])
+				historyNoteLabel?.text = str
+			}
 		}
 	}
 	

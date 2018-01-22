@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		701E9AC81F9EEA61007AEE49 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 701E9AC71F9EEA61007AEE49 /* Assets.xcassets */; };
+		702296212015D33300DD71E0 /* MXSVideo+ContextOpt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702296202015D33300DD71E0 /* MXSVideo+ContextOpt.swift */; };
+		702296232015D37300DD71E0 /* MXSVideoDataCmd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702296222015D37300DD71E0 /* MXSVideoDataCmd.swift */; };
+		702296262015D87800DD71E0 /* MXSVideo+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702296242015D87800DD71E0 /* MXSVideo+CoreDataClass.swift */; };
+		702296272015D87800DD71E0 /* MXSVideo+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702296252015D87800DD71E0 /* MXSVideo+CoreDataProperties.swift */; };
 		7023BF971FECFF3C001FF435 /* MXSEditDiaryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7023BF961FECFF3C001FF435 /* MXSEditDiaryVC.swift */; };
 		7023BF991FED02CA001FF435 /* MXSEditDiaryDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7023BF981FED02CA001FF435 /* MXSEditDiaryDlg.swift */; };
 		7023BF9B1FED02E8001FF435 /* MXSEditDiaryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7023BF9A1FED02E8001FF435 /* MXSEditDiaryCell.swift */; };
@@ -111,6 +115,10 @@
 		55F8D7FC42357A024FB3DA5B /* Pods-MXSSwift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MXSSwift.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MXSSwift/Pods-MXSSwift.debug.xcconfig"; sourceTree = "<group>"; };
 		701E9ABD1F9EEA61007AEE49 /* MXSSwift.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MXSSwift.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		701E9AC71F9EEA61007AEE49 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		702296202015D33300DD71E0 /* MXSVideo+ContextOpt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSVideo+ContextOpt.swift"; sourceTree = "<group>"; };
+		702296222015D37300DD71E0 /* MXSVideoDataCmd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSVideoDataCmd.swift; sourceTree = "<group>"; };
+		702296242015D87800DD71E0 /* MXSVideo+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSVideo+CoreDataClass.swift"; sourceTree = "<group>"; };
+		702296252015D87800DD71E0 /* MXSVideo+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MXSVideo+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7023BF961FECFF3C001FF435 /* MXSEditDiaryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSEditDiaryVC.swift; sourceTree = "<group>"; };
 		7023BF981FED02CA001FF435 /* MXSEditDiaryDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSEditDiaryDlg.swift; sourceTree = "<group>"; };
 		7023BF9A1FED02E8001FF435 /* MXSEditDiaryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSEditDiaryCell.swift; sourceTree = "<group>"; };
@@ -481,7 +489,11 @@
 		704490392014BA4900B82E67 /* Video */ = {
 			isa = PBXGroup;
 			children = (
+				702296242015D87800DD71E0 /* MXSVideo+CoreDataClass.swift */,
+				702296252015D87800DD71E0 /* MXSVideo+CoreDataProperties.swift */,
 				7044903A2014BA7E00B82E67 /* MXSVideoModel.xcdatamodeld */,
+				702296202015D33300DD71E0 /* MXSVideo+ContextOpt.swift */,
+				702296222015D37300DD71E0 /* MXSVideoDataCmd.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -863,12 +875,15 @@
 				703DA8E91FBAD37E0059A632 /* MXSNoteVC.swift in Sources */,
 				706882A41FEA6F5B003F21DD /* UIView+MJExtension.m in Sources */,
 				702BB9F31FD8E4AE0083E123 /* MXSXcodeTableHeadView.swift in Sources */,
+				702296262015D87800DD71E0 /* MXSVideo+CoreDataClass.swift in Sources */,
 				704BD9A01FCD42880096DCE9 /* MXSContentTDlg.swift in Sources */,
 				704CC1071FEB9BF400063E0A /* MXSProfileCell.swift in Sources */,
 				706882951FEA6F5B003F21DD /* MJRefreshHeader.m in Sources */,
 				7044B1B91FE4CD090047AE9C /* UILabel+Extension.swift in Sources */,
 				706882971FEA6F5B003F21DD /* MJRefreshAutoNormalFooter.m in Sources */,
 				704CC1061FEB9BF400063E0A /* MXSProfileDlg.swift in Sources */,
+				702296272015D87800DD71E0 /* MXSVideo+CoreDataProperties.swift in Sources */,
+				702296212015D33300DD71E0 /* MXSVideo+ContextOpt.swift in Sources */,
 				7068825B1FEA4904003F21DD /* MXSDiaryVC.swift in Sources */,
 				707ACC191FF4A67B009E42E9 /* MXSDiaryDataCmd.swift in Sources */,
 				7023BF971FECFF3C001FF435 /* MXSEditDiaryVC.swift in Sources */,
@@ -907,6 +922,7 @@
 				7036035F1FE75F3C00CF3E09 /* MXSDocumentCmd.swift in Sources */,
 				7046608A1FD7F4C3006EA759 /* MXSXcodePSTDlg.swift in Sources */,
 				7068825D1FEA4947003F21DD /* MXSDiaryCell.swift in Sources */,
+				702296232015D37300DD71E0 /* MXSVideoDataCmd.swift in Sources */,
 				707A8D311FF6134F00596AE5 /* MXSMenuModel.xcdatamodeld in Sources */,
 				703E60AD2011CE6B00145889 /* MXSNavigationVC.swift in Sources */,
 				7044903C2014BA7E00B82E67 /* MXSVideoModel.xcdatamodeld in Sources */,

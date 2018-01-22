@@ -15,6 +15,7 @@ class MXSHomeVC: MXSBaseVC {
 	//MARK:life cycle
 	override func receiveArgsBeBack(args: Any) {
 		MXSLog("MXSHomeVC receive back : " + (args as! String))
+		TableView?.reloadData()
 	}
 	
 	override func viewDidLoad() {
@@ -51,9 +52,9 @@ class MXSHomeVC: MXSBaseVC {
 	//MARK:layout
 	override func NavBarLayout() {
 		super.NavBarLayout()
-		NavBar?.titleLabel?.text = "首页"
+		NavBar?.titleLabel?.text = "Local Media"
 		NavBar?.rightBtn?.setTitle("Add", for: .normal)
-//		NavBar?.rightBtn?.isHidden = true
+		NavBar?.rightBtn?.isHidden = true
 		NavBar?.leftBtn?.isHidden = true
 	}
 	
