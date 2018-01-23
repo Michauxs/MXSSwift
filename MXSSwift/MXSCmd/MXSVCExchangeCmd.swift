@@ -12,8 +12,10 @@ import SnapKit
 class MXSVCExchangeCmd: NSObject {
 	
 	static let shared = MXSVCExchangeCmd()
+	
 	let keyView = UIApplication.shared.keyWindow
 	let halfViewWidth:CGFloat = 243.5
+	var moduleSourse : MXSBaseVC?
 	
 	lazy var AnimateLeftView : UIImageView = {
 		
@@ -111,13 +113,14 @@ class MXSVCExchangeCmd: NSObject {
 		if !(args is MXSNothing) {
 			dest.receiveArgsBePost(args:args)
 		}
+		moduleSourse = sourse.navigationController?.viewControllers.last as? MXSBaseVC
 		sourse.navigationController?.present(dest, animated: true, completion: {
 			
 		})
 	}
 	public func DismissVC (_ vc:MXSBaseVC, args:Any) {
 		vc.dismiss(animated: true) {
-			
+			self.moduleSourse?.receiveArgsBeBack(args:args)
 		}
 	}
 	

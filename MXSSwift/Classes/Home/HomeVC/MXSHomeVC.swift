@@ -84,8 +84,8 @@ class MXSHomeVC: MXSBaseVC {
 		}
 	}
 	@objc func loadMoreData() {
-		let data_arr = MXSDiary.fetchDiaryObjects()
-		TableView?.dlg?.queryData = data_arr
+		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
+		TableView?.dlg?.queryData = fileNameList
 		
 		TableView?.reloadData()
 	}

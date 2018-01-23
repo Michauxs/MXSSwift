@@ -65,14 +65,14 @@ class MXSAVPlayVC: MXSBaseVC {
 		}
 		
 		let progressHeight:CGFloat = 30
-		expectProgress = UILabel.init(text: "00:00", fontSize: 14, textColor: UIColor.init(white: 1, alpha: 0.65), alignment: .center)
-		expectProgress?.setRadius(radius: progressHeight/2, borderColor: MXSNothing.shared, borderWidth: 0, backgropund: UIColor.init(white: 1, alpha: 0.5) as Any)
+		expectProgress = UILabel.init(text: "00:00", fontSize: 14, textColor: UIColor.init(white: 1, alpha: 0.75), alignment: .center)
+		expectProgress?.setRadius(radius: progressHeight/2, borderColor: MXSNothing.shared, borderWidth: 0, backgropund: UIColor.init(white: 1, alpha: 0.35) as Any)
 		view.addSubview(expectProgress!)
 		expectProgress!.snp.makeConstraints { (make) in
 			make.centerX.equalTo(view)
 			make.centerY.equalTo(view).offset(-SCREEN_WIDTH*0.25)
 			make.height.equalTo(progressHeight)
-			make.width.equalTo(90)
+			make.width.equalTo(100)
 		}
 		expectProgress?.isHidden = true
 		
@@ -240,6 +240,8 @@ class MXSAVPlayVC: MXSBaseVC {
 	}
 	
 	@objc func playFinished () {
+		UserDefaults.standard.removeObject(forKey: videoName!)
+		UserDefaults.standard.synchronize()
 		
 		autoActionTimer?.invalidate()
 		autoActionTimer = nil
