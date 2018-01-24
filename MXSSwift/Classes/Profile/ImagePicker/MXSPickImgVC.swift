@@ -22,8 +22,8 @@ class MXSPickImgVC: MXSBaseVC {
 		
 		let layout = UICollectionViewFlowLayout.init()
 		layout.scrollDirection = UICollectionViewScrollDirection.vertical
-		layout.minimumLineSpacing = 3
-		layout.minimumInteritemSpacing = 3
+		layout.minimumLineSpacing = 2
+		layout.minimumInteritemSpacing = 2
 		
 		collectionView = bindingCollectionView(layout: layout)
 		CollectionLayout()
@@ -57,7 +57,7 @@ class MXSPickImgVC: MXSBaseVC {
 			make.edges.equalTo(self.view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
 
-		let w_h = (SCREEN_WIDTH - 10) / 4
+		let w_h = (SCREEN_WIDTH - 7) / 4
 		collectionView?.register(cellName: "MXSPickImgItem", delegate: MXSPickImgCDlg(), vc: self, itemSize: CGSize.init(width: w_h, height: w_h))
 	}
 	

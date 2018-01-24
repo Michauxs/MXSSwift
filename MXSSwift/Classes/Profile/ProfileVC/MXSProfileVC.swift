@@ -67,7 +67,7 @@ class MXSProfileVC: MXSBaseVC {
 		TableView?.contentInset = UIEdgeInsetsMake(coverViewHeight, 0, 0, 0)
 		TableView?.register(cellName: "MXSProfileCell", delegate: MXSProfileDlg(), vc: self)
 		
-		TableView?.dlg?.queryData = ["My Diray", "Edit Diary",  "Xcode Complete","About DongDa", "App Setting"]
+		TableView?.dlg?.queryData = ["My Diray", "Edit Diary",  "Xcode Complete","About DongDa -TODO", "App Setting -TODO"]
 	}
 	
 	//MARK:actions

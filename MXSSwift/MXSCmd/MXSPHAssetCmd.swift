@@ -12,6 +12,11 @@ import Photos
 class MXSPHAssetCmd: NSObject {
 
 	var assetsFetchResults : PHFetchResult<PHAsset>?
+//	var requestID : PHImageRequestID?
+	
+	lazy var requestID : PHImageRequestID = {
+		return -1
+	}()
 	
 	static public let shard = MXSPHAssetCmd()
 	
@@ -51,7 +56,7 @@ class MXSPHAssetCmd: NSObject {
 //		let sema = DispatchSemaphore.init(value: 0)
 //		sema.signal()
 //		sema.wait(timeout: (DispatchTime.now()+30))
-		PHImageManager.default().requestImage(for: asset, targetSize: CGSize.init(width: 60, height: 60), contentMode: PHImageContentMode.aspectFit, options: opt, resultHandler: { (thum, info) in
+		PHImageManager.default().requestImage(for: asset, targetSize: CGSize.init(width: 60*SCREEN_SCALE, height: 60*SCREEN_SCALE), contentMode: PHImageContentMode.aspectFit, options: opt, resultHandler: { (thum, info) in
 			img = thum
 		})
 		return img!
@@ -62,9 +67,27 @@ class MXSPHAssetCmd: NSObject {
 		var img : UIImage?
 		let opt = PHImageRequestOptions()
 		opt.isSynchronous = true
-		PHImageManager.default().requestImage(for: asset, targetSize: PHImageManagerMaximumSize, contentMode: .default, options: opt, resultHandler: { (thum, info) in
+		opt.deliveryMode = .fastFormat
+		opt.isNetworkAccessAllowed = true
+		opt.progressHandler = {(progress, error, stop, info) in
+			MXSLog("load progress:" + "\(progress)")
+		}
+		
+		PHImageManager.default().cancelImageRequest(self.requestID)
+		
+		let expectSize = CGSize.init(width: 375*SCREEN_SCALE, height: 375*SCREEN_SCALE)
+		self.requestID = PHImageManager.default().requestImage(for: asset, targetSize: expectSize, contentMode: .default, options: opt, resultHandler: { (thum, info) in
+			MXSLog("done")
 			img = thum
 		})
+		
+////		let mySemaphore = DispatchSemaphore(value: 0)
+//		self.requestID = PHImageManager.default().requestImageData(for: asset, options: opt, resultHandler: { data, _, _, info in
+//			MXSLog("done")
+//			img = UIImage.init(data: data!, scale: SCREEN_SCALE)
+////			mySemaphore.signal()
+//		})
+////		let _ = mySemaphore.wait(timeout: DispatchTime.now() + 15)
 		return img!
 	}
 	

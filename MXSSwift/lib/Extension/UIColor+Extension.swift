@@ -19,7 +19,7 @@ extension UIColor {
 	
 	open class var lightBlack: UIColor {
 		get {
-			return UIColor.init(white: 0.15, alpha: 1)
+			return UIColor.init(white: 0.25, alpha: 1)
 		}
 	}
 	
