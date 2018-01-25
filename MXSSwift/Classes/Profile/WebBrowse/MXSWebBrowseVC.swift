@@ -51,7 +51,19 @@ class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate {
 	// MARK: - Layout
 	override func NavBarLayout() {
 		super.NavBarLayout()
-		
+		NavBar?.rightBtn?.setTitle("Close", for: .normal)
+	}
+	
+	override func didNavBarLeftClick() {
+		if (webView?.canGoBack)! {
+			webView?.goBack()
+		} else {
+			super.didNavBarLeftClick()
+		}
+	}
+	
+	override func didNavBarRightClick() {
+		super.didNavBarLeftClick()
 	}
 	
     // MARK: - Web Delegate
@@ -73,6 +85,8 @@ class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate {
 	func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
 		
 	}
+	
+	
 	
 }
 	

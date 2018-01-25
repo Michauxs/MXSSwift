@@ -23,12 +23,10 @@ class MXSXcodePSVC: MXSBaseVC {
 		do {
 			let json = try JSONSerialization.jsonObject(with: data!, options: .mutableContainers)
 			psData = json as? Dictionary
-            
             (TableView?.dlg as! MXSXcodePSTDlg).queryDataSub = json as? Dictionary
-            
-//            MXSLog(json as Any)
+			
 		} catch {
-			MXSLog("error in data->object")
+			MXSLog("error: data->object")
 		}
 		
     }
@@ -36,6 +34,8 @@ class MXSXcodePSVC: MXSBaseVC {
 	//MARK:Layout
 	override func NavBarLayout() {
 		super.NavBarLayout()
+		NavBar?.titleLabel?.text = "Xcode Complete"
+		NavBar?.rightBtn?.isHidden = true
 	}
 	
 	override func TableLayout() {
