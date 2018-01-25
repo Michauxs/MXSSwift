@@ -65,10 +65,13 @@ class MXSNavBar: UIView {
 		})
 		rightBtn?.addTarget(self, action: #selector(self.didRightBtnClick), for: .touchUpInside)
 		
-		titleLabel = UILabel.init(text:"Title", fontSize:16, textColor:UIColor.dullLine, alignment:.left)
+		titleLabel = UILabel.init(text:"Title", fontSize:16, textColor:UIColor.dullLine, alignment:.center)
+		titleLabel?.numberOfLines = 1
 		self.addSubview(titleLabel!)
 		titleLabel?.snp.makeConstraints({ (make) in
-			make.center.equalTo(self)
+			make.centerY.equalTo(self)
+			make.left.equalTo(leftBtn!.snp.right).offset(10)
+			make.right.equalTo(rightBtn!.snp.left).offset(10)
 		})
 		
 		setBackground(color: UIColor.lightBlack)

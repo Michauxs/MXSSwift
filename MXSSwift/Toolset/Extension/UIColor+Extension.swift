@@ -51,7 +51,17 @@ extension UIColor {
 		}
 	}
 	
-	
+	//MARK: - alpha
+	open class var alphaWhite: UIColor {
+		get {
+			return UIColor.init(white: 1, alpha: 0.25)
+		}
+	}
+	open class var alphaBlack: UIColor {
+		get {
+			return UIColor.init(white: 0, alpha: 0.5)
+		}
+	}
 }
 
 

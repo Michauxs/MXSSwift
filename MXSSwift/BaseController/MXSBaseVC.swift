@@ -17,9 +17,12 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	lazy var alertView : MXSBtmAlertView = {
 		let alert_view = MXSBtmAlertView.init(vc:self)
 		UIApplication.shared.keyWindow?.addSubview(alert_view)
-//		 .addSubview(alert_view)
-//		alert_view.showAlert()
 		return alert_view
+	}()
+	
+	lazy var loadingView : MXSProgressHUD = {
+		let loading_view = MXSProgressHUD.init(UIApplication.shared.keyWindow!)
+		return loading_view
 	}()
 	
 	public func receiveArgsBePost(args:Any) {
