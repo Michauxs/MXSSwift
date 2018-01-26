@@ -23,7 +23,7 @@ class MXSCollectionView: UICollectionView {
 		fatalError("init(coder:) has not been implemented")
 	}
 	
-	public func register(cellName:String, delegate:MXSCollectionDlg, vc:MXSBaseVC, itemSize:CGSize) {
+	public func register(cellName:String, delegate:MXSCollectionDlg, vc:MXSBaseVC, itemSize:CGSize = CGSize.zero) {
 		//获取命名空间
 		let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
 		let cellClass : AnyClass = NSClassFromString(namespace + "." + cellName)!
@@ -34,7 +34,10 @@ class MXSCollectionView: UICollectionView {
 		self.dataSource = dlg
 		dlg?.controller = vc
 		dlg?.cellName = cellName
-		dlg?.itemSize = itemSize
+		
+		if !itemSize.equalTo(CGSize.zero) {
+			dlg?.itemSize = itemSize
+		}
 		
 		// 告诉编译器它的真实类型
 //		let viewControllerClass = cellClass as! UIViewController.Type

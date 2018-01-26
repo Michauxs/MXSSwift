@@ -41,11 +41,20 @@ class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate {
 		webView?.load(URLRequest(url:  URL.init(string: urlStr!)!))
 		webView?.navigationDelegate = self
 		webView?.uiDelegate = self
+		webView?.allowsBackForwardNavigationGestures = true
+		if #available(iOS 9.0, *) {
+			webView?.allowsLinkPreview = true
+		} else {
+			// Fallback on earlier versions
+		}
 		
-//		var config = WkwebViewConfig()
-//		config.isShowScrollIndicator = false
-//		config.isProgressHidden = false
-		
+		let sign = UILabel.init(text: "Michauxs", fontSize: 13, textColor: .random, alignment: .center)
+		webView?.addSubview(sign)
+		sign.snp.makeConstraints { (make) in
+			make.top.equalTo(webView!).offset(10)
+			make.centerX.equalTo(webView!)
+		}
+		webView?.sendSubview(toBack: sign)
     }
 
 	// MARK: - Layout

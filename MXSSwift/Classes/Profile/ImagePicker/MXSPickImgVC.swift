@@ -11,7 +11,6 @@ import Photos
 
 class MXSPickImgVC: MXSBaseVC {
 	
-	var collectionView : MXSCollectionView?
 	var queryData : PHFetchResult<PHAsset>?
 	
 	override func viewDidLoad() {
@@ -25,16 +24,16 @@ class MXSPickImgVC: MXSBaseVC {
 		layout.minimumLineSpacing = 2
 		layout.minimumInteritemSpacing = 2
 		
-		collectionView = bindingCollectionView(layout: layout)
+		bindingCollectionView(layout: layout)
 		CollectionLayout()
 		
 		MXSPHAssetCmd.shard.enumPHAssets { (assets) in
-			(self.collectionView?.dlg as! MXSPickImgCDlg).queryDataSub = assets
+			(self.CollectionView?.dlg as! MXSPickImgCDlg).queryDataSub = assets
 			self.queryData = assets
 //			MXSLog(assets as Any)
 			
 			DispatchQueue.main.async{
-				self.collectionView?.reloadData()
+				self.CollectionView?.reloadData()
 			}
 		}
 //		MXSALAssetCmd.shard.enumALAsset { (assets) in
@@ -52,13 +51,16 @@ class MXSPickImgVC: MXSBaseVC {
 //		NavBar?.leftBtn?.isHidden = true
 	}
 	
-	func CollectionLayout () {
-		collectionView?.snp.makeConstraints({ (make) in
+	override func CollectionViewLayout() {
+		CollectionView?.snp.makeConstraints({ (make) in
 			make.edges.equalTo(self.view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
-
+		
 		let w_h = (SCREEN_WIDTH - 7) / 4
-		collectionView?.register(cellName: "MXSPickImgItem", delegate: MXSPickImgCDlg(), vc: self, itemSize: CGSize.init(width: w_h, height: w_h))
+		CollectionView?.register(cellName: "MXSPickImgItem", delegate: MXSPickImgCDlg(), vc: self, itemSize: CGSize.init(width: w_h, height: w_h))
+	}
+	
+	func CollectionLayout () {
 	}
 	
 	//MARK:notifies

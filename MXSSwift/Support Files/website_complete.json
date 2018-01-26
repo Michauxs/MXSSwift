@@ -1,0 +1,723 @@
+[
+  {
+    "name" : "视频",
+    "list" : [
+      {
+        "href" : "http:\/\/www.iqiyi.com\/",
+        "site" : "爱奇艺高清"
+      },
+      {
+        "href" : "http:\/\/www.youku.com\/",
+        "site" : "优酷网"
+      },
+      {
+        "href" : "http:\/\/v.baidu.com\/",
+        "site" : "百度视频"
+      },
+      {
+        "href" : "http:\/\/v.qq.com\/",
+        "site" : "腾讯视频"
+      },
+      {
+        "href" : "http:\/\/www.mgtv.com\/",
+        "site" : "芒果TV"
+      },
+      {
+        "href" : "http:\/\/tv.sohu.com\/",
+        "site" : "搜狐视频"
+      }
+    ]
+  },
+  {
+    "name" : "影视",
+    "list" : [
+      {
+        "href" : "http:\/\/v.hao123.baidu.com\/dianshi",
+        "site" : "电视剧"
+      },
+      {
+        "href" : "http:\/\/v.hao123.baidu.com\/dianying\/",
+        "site" : "电影"
+      },
+      {
+        "href" : "http:\/\/v.hao123.baidu.com\/dongman\/",
+        "site" : "动漫"
+      },
+      {
+        "href" : "http:\/\/v.hao123.baidu.com\/zongyi\/",
+        "site" : "综艺"
+      },
+      {
+        "href" : "http:\/\/live.hao123.com\/",
+        "site" : "电视直播"
+      },
+      {
+        "href" : "http:\/\/v.hao123.baidu.com\/v\/search?channel=movie",
+        "site" : "院线大片"
+      }
+    ]
+  },
+  {
+    "name" : "新闻",
+    "list" : [
+      {
+        "href" : "http:\/\/news.sina.com.cn\/",
+        "site" : "新浪新闻"
+      },
+      {
+        "href" : "http:\/\/mini.qq.com\/",
+        "site" : "腾讯新闻"
+      },
+      {
+        "href" : "http:\/\/mini.eastday.com?qid=01483",
+        "site" : "东方头条"
+      },
+      {
+        "href" : "http:\/\/news.baidu.com\/",
+        "site" : "百度新闻"
+      },
+      {
+        "href" : "http:\/\/news.sohu.com\/",
+        "site" : "搜狐新闻"
+      },
+      {
+        "href" : "http:\/\/www.cankaoxiaoxi.com\/",
+        "site" : "参考消息"
+      }
+    ]
+  },
+  {
+    "name" : "军事",
+    "list" : [
+      {
+        "href" : "http:\/\/military.china.com\/zh_cn\/",
+        "site" : "中华军事"
+      },
+      {
+        "href" : "http:\/\/www.miercn.com\/",
+        "site" : "米尔军事"
+      },
+      {
+        "href" : "http:\/\/www.tiexue.net\/",
+        "site" : "铁血军事"
+      },
+      {
+        "href" : "http:\/\/mil.huanqiu.com\/",
+        "site" : "环球军事"
+      },
+      {
+        "href" : "http:\/\/news.ifeng.com\/mil\/",
+        "site" : "凤凰军事"
+      },
+      {
+        "href" : "http:\/\/mil.news.sina.com.cn\/",
+        "site" : "新浪军事"
+      }
+    ]
+  },
+  {
+    "name" : "体育",
+    "list" : [
+      {
+        "href" : "http:\/\/sports.sina.com.cn\/",
+        "site" : "新浪"
+      },
+      {
+        "href" : "http:\/\/sports.sohu.com\/",
+        "site" : "搜狐体育"
+      },
+      {
+        "href" : "http:\/\/sports.cntv.cn\/",
+        "site" : "CCTV5"
+      },
+      {
+        "href" : "https:\/\/www.hupu.com\/",
+        "site" : "虎扑体育"
+      },
+      {
+        "href" : "http:\/\/www.dongqiudi.com\/",
+        "site" : "懂球帝"
+      },
+      {
+        "href" : "http:\/\/www.zhibo8.cc\/",
+        "site" : "直播吧"
+      }
+    ]
+  },
+  {
+    "name" : "购物",
+    "list" : [
+      {
+        "href" : "https:\/\/www.taobao.com\/",
+        "site" : "淘宝网"
+      },
+      {
+        "href" : "https:\/\/www.suning.com\/?utm_source=hao123&utm_medium=kuzhan",
+        "site" : "苏宁易购"
+      },
+      {
+        "href" : "http:\/\/tejia.hao123.com\/?tn=kzrk",
+        "site" : "今日特价"
+      },
+      {
+        "href" : "https:\/\/s.click.taobao.com\/qvi0lew",
+        "site" : "聚划算"
+      },
+      {
+        "href" : "https:\/\/s.click.taobao.com\/",
+        "site" : "天猫超市"
+      },
+      {
+        "href" : "http:\/\/you.163.com\/",
+        "site" : "网易严选"
+      }
+    ]
+  },
+  {
+    "name" : "商城",
+    "list" : [
+      {
+        "href" : "https:\/\/s.click.taobao.com\/GSNeuAx",
+        "site" : "天猫精选"
+      },
+      {
+        "href" : "https:\/\/www.amazon.cn",
+        "site" : "亚马逊"
+      },
+      {
+        "href" : "http:\/\/www.dangdang.com\/",
+        "site" : "当当网"
+      },
+      {
+        "href" : "http:\/\/www.yhd.com",
+        "site" : "1号店"
+      },
+      {
+        "href" : "http:\/\/www.jumei.com\/",
+        "site" : "聚美优品"
+      },
+      {
+        "href" : "http:\/\/tejia.hao123.com\/nanzhuang?tn=kzrk",
+        "site" : "精选男装"
+      }
+    ]
+  },
+  {
+    "name" : "旅游",
+    "list" : [
+      {
+        "href" : "http:\/\/www.ctrip.com\/",
+        "site" : "携程网"
+      },
+      {
+        "href" : "https:\/\/www.qunar.com\/?ex_track=auto_58c1128c",
+        "site" : "去哪儿"
+      },
+      {
+        "href" : "https:\/\/www.booking.com\/index.zh-cn.html?aid=1310341",
+        "site" : "Booking酒店预订"
+      },
+      {
+        "href" : "http:\/\/www.qyer.com\/",
+        "site" : "穷游网"
+      },
+      {
+        "href" : "http:\/\/go.hao123.com\/flight?tn=kuzhan1",
+        "site" : "机票"
+      },
+      {
+        "href" : "http:\/\/www.mafengwo.cn\/",
+        "site" : "蚂蜂窝"
+      }
+    ]
+  },
+  {
+    "name" : "小说",
+    "list" : [
+      {
+        "href" : "http:\/\/www.qidian.com\/",
+        "site" : "起点中文网"
+      },
+      {
+        "href" : "http:\/\/www.xxsy.net\/",
+        "site" : "潇湘书院"
+      },
+      {
+        "href" : "http:\/\/book.hao123.com\/rank.html",
+        "site" : "小说排行"
+      },
+      {
+        "href" : "http:\/\/book.hao123.com\/store\/c0\/w0\/s0\/p1\/all.html",
+        "site" : "热门小说"
+      },
+      {
+        "href" : "http:\/\/www.readnovel.com\/",
+        "site" : "小说阅读网"
+      },
+      {
+        "href" : "http:\/\/www.jjwxc.net\/",
+        "site" : "晋江文学城"
+      }
+    ]
+  },
+  {
+    "name" : "手机",
+    "list" : [
+      {
+        "href" : "http:\/\/www.10086.cn\/",
+        "site" : "移动"
+      },
+      {
+        "href" : "http:\/\/www.zol.com.cn\/",
+        "site" : "中关村在线"
+      },
+      {
+        "href" : "http:\/\/mobile.pconline.com.cn\/",
+        "site" : "太平洋手机"
+      },
+      {
+        "href" : "http:\/\/www.ithome.com\/",
+        "site" : "IT之家"
+      },
+      {
+        "href" : "http:\/\/www.zealer.com\/",
+        "site" : "zealer测评"
+      },
+      {
+        "href" : "http:\/\/www.mi.com\/",
+        "site" : "小米官网"
+      }
+    ]
+  },
+  {
+    "name" : "社交",
+    "list" : [
+      {
+        "href" : "http:\/\/tieba.baidu.com\/",
+        "site" : "百度贴吧"
+      },
+      {
+        "href" : "http:\/\/www.jiayuan.com\/",
+        "site" : "世纪佳缘"
+      },
+      {
+        "href" : "http:\/\/www.zhenai.com\/",
+        "site" : "珍爱网"
+      },
+      {
+        "href" : "http:\/\/www.baihe.com\/",
+        "site" : "百合网"
+      },
+      {
+        "href" : "http:\/\/bbs.tianya.cn\/",
+        "site" : "天涯社区"
+      },
+      {
+        "href" : "http:\/\/qzone.qq.com\/",
+        "site" : "QQ空间"
+      }
+    ]
+  },
+  {
+    "name" : "直播",
+    "list" : [
+      {
+        "href" : "https:\/\/www.6.cn",
+        "site" : "六间房直播"
+      },
+      {
+        "href" : "https:\/\/www.douyu.com\/",
+        "site" : "斗鱼TV"
+      },
+      {
+        "href" : "http:\/\/www.hao123.com\/video\/live",
+        "site" : "美女秀场"
+      },
+      {
+        "href" : "http:\/\/www.showself.com\/",
+        "site" : "秀色直播"
+      },
+      {
+        "href" : "http:\/\/www.panda.tv\/",
+        "site" : "熊猫直播"
+      },
+      {
+        "href" : "http:\/\/spread.xiu8.com\/spreed!baiduGo.jspa?pid=1906&sid=1901",
+        "site" : "秀吧直播"
+      }
+    ]
+  },
+  {
+    "name" : "生活",
+    "list" : [
+      {
+        "href" : "http:\/\/www.ganji.com\/",
+        "site" : "赶集网"
+      },
+      {
+        "href" : "http:\/\/www.baixing.com",
+        "site" : "百姓网"
+      },
+      {
+        "href" : "http:\/\/www.fang.com",
+        "site" : "房天下"
+      },
+      {
+        "href" : "http:\/\/www.lianjia.com\/",
+        "site" : "链家网"
+      },
+      {
+        "href" : "http:\/\/www.xiaozhu.com\/",
+        "site" : "小猪短租"
+      },
+      {
+        "href" : "http:\/\/life.hao123.com\/jiaotong\/?tn=kuzhan_site",
+        "site" : "交通违章"
+      }
+    ]
+  },
+  {
+    "name" : "招聘",
+    "list" : [
+      {
+        "href" : "http:\/\/www.zhaopin.com\/",
+        "site" : "智联招聘"
+      },
+      {
+        "href" : "http:\/\/www.51job.com\/",
+        "site" : "前程无忧"
+      },
+      {
+        "href" : "https:\/\/www.liepin.com\/",
+        "site" : "猎聘网"
+      },
+      {
+        "href" : "http:\/\/www.yingjiesheng.com\/",
+        "site" : "应届生求职网"
+      },
+      {
+        "href" : "http:\/\/www.chinahr.com\/",
+        "site" : "中华英才网"
+      },
+      {
+        "href" : "https:\/\/www.lagou.com",
+        "site" : "拉勾网"
+      }
+    ]
+  },
+  {
+    "name" : "汽车",
+    "list" : [
+      {
+        "href" : "http:\/\/www.autohome.com.cn",
+        "site" : "汽车之家"
+      },
+      {
+        "href" : "http:\/\/www.pcauto.com.cn\/",
+        "site" : "太平洋汽车"
+      },
+      {
+        "href" : "http:\/\/www.bitauto.com\/",
+        "site" : "易车网"
+      },
+      {
+        "href" : "http:\/\/www.hao123.com\/auto",
+        "site" : "汽车大全"
+      },
+      {
+        "href" : "http:\/\/auto.sina.com.cn\/",
+        "site" : "新浪汽车"
+      },
+      {
+        "href" : "http:\/\/che.hao123.com\/?tn=kuzhan",
+        "site" : "精选二手车"
+      }
+    ]
+  },
+  {
+    "name" : "动漫",
+    "list" : [
+      {
+        "href" : "http:\/\/www.hao123.com\/video\/shaoer",
+        "site" : "少儿动画"
+      },
+      {
+        "href" : "http:\/\/moe.hao123.com\/",
+        "site" : "萌主页"
+      },
+      {
+        "href" : "http:\/\/www.hao123.com\/manhua",
+        "site" : "漫画大全"
+      },
+      {
+        "href" : "http:\/\/www.hao123.com\/zhuanti\/dongman",
+        "site" : "热点动漫"
+      },
+      {
+        "href" : "http:\/\/www.bilibili.com\/",
+        "site" : "哔哩哔哩"
+      },
+      {
+        "href" : "http:\/\/www.acfun.cn\/",
+        "site" : "AcFun弹幕"
+      }
+    ]
+  },
+  {
+    "name" : "音乐",
+    "list" : [
+      {
+        "href" : "http:\/\/music.baidu.com\/",
+        "site" : "百度音乐"
+      },
+      {
+        "href" : "http:\/\/www.kugou.com\/",
+        "site" : "酷狗音乐"
+      },
+      {
+        "href" : "http:\/\/music.163.com\/",
+        "site" : "网易云音乐"
+      },
+      {
+        "href" : "http:\/\/y.qq.com",
+        "site" : "QQ音乐"
+      },
+      {
+        "href" : "http:\/\/music.hao123.com\/tag\/经典老歌",
+        "site" : "经典老歌"
+      },
+      {
+        "href" : "http:\/\/fm.baidu.com\/",
+        "site" : "音乐随心听"
+      }
+    ]
+  },
+  {
+    "name" : "金融",
+    "list" : [
+      {
+        "href" : "http:\/\/www.hao123.com\/stocknew#danmu",
+        "site" : "股票"
+      },
+      {
+        "href" : "http:\/\/www.hao123.com\/licaishuju",
+        "site" : "理财大数据"
+      },
+      {
+        "href" : "http:\/\/www.10jqka.com.cn\/",
+        "site" : "同花顺"
+      },
+      {
+        "href" : "https:\/\/8.baidu.com\/",
+        "site" : "百度理财"
+      },
+      {
+        "href" : "http:\/\/www.yicai.com\/",
+        "site" : "第一财经"
+      }
+    ]
+  },
+  {
+    "name" : "财经",
+    "list" : [
+      {
+        "href" : "http:\/\/www.eastmoney.com\/",
+        "site" : "东方财富"
+      },
+      {
+        "href" : "http:\/\/finance.sina.com.cn\/",
+        "site" : "新浪财经"
+      },
+      {
+        "href" : "http:\/\/www.stockstar.com\/",
+        "site" : "证券之星"
+      },
+      {
+        "href" : "http:\/\/www.cnfol.com\/",
+        "site" : "中金在线"
+      },
+      {
+        "href" : "http:\/\/finance.ifeng.com\/",
+        "site" : "凤凰财经"
+      },
+      {
+        "href" : "http:\/\/www.jrj.com.cn\/",
+        "site" : "金融界"
+      }
+    ]
+  },
+  {
+    "name" : "邮箱",
+    "list" : [
+      {
+        "href" : "http:\/\/mail.163.com\/",
+        "site" : "163邮箱"
+      },
+      {
+        "href" : "http:\/\/mail.126.com\/",
+        "site" : "126邮箱"
+      },
+      {
+        "href" : "http:\/\/mail.aliyun.com\/",
+        "site" : "阿里邮箱"
+      },
+      {
+        "href" : "http:\/\/mail.sina.com.cn\/",
+        "site" : "新浪邮箱"
+      },
+      {
+        "href" : "http:\/\/mail.qq.com\/",
+        "site" : "QQ邮箱"
+      },
+      {
+        "href" : "http:\/\/mail.10086.cn",
+        "site" : "139手机邮箱"
+      }
+    ]
+  },
+  {
+    "name" : "女性",
+    "list" : [
+      {
+        "href" : "https:\/\/s.click.taobao.com\/IGHeuAx",
+        "site" : "天猫女装"
+      },
+      {
+        "href" : "http:\/\/www.rayli.com.cn\/",
+        "site" : "瑞丽女性"
+      },
+      {
+        "href" : "http:\/\/pic.hao123.com\/",
+        "site" : "漂亮女人"
+      },
+      {
+        "href" : "http:\/\/www.haibao.com\/",
+        "site" : "海报时尚网"
+      },
+      {
+        "href" : "http:\/\/tejia.hao123.com\/nvzhuang?tn=kzrk",
+        "site" : "潮流女装"
+      },
+      {
+        "href" : "http:\/\/ent.sina.com.cn\/",
+        "site" : "娱乐八卦"
+      }
+    ]
+  },
+  {
+    "name" : "彩票",
+    "list" : [
+      {
+        "href" : "http:\/\/www.zhcw.com\/",
+        "site" : "中彩网"
+      },
+      {
+        "href" : "http:\/\/www.lottery.gov.cn\/",
+        "site" : "中国体彩"
+      },
+      {
+        "href" : "http:\/\/caipiao.hao123.com\/",
+        "site" : "全国开奖"
+      },
+      {
+        "href" : "http:\/\/lottery.sina.com.cn\/",
+        "site" : "新浪彩票"
+      },
+      {
+        "href" : "http:\/\/www.sporttery.cn\/",
+        "site" : "竞彩网"
+      },
+      {
+        "href" : "http:\/\/www.cwl.gov.cn\/",
+        "site" : "中国福彩网"
+      }
+    ]
+  },
+  {
+    "name" : "银行",
+    "list" : [
+      {
+        "href" : "http:\/\/www.icbc.com.cn\/",
+        "site" : "工商银行"
+      },
+      {
+        "href" : "http:\/\/www.ccb.com\/",
+        "site" : "建设银行"
+      },
+      {
+        "href" : "http:\/\/www.abchina.com\/",
+        "site" : "农业银行"
+      },
+      {
+        "href" : "http:\/\/www.boc.cn\/",
+        "site" : "中国银行"
+      },
+      {
+        "href" : "http:\/\/www.bankcomm.com\/",
+        "site" : "交通银行"
+      },
+      {
+        "href" : "http:\/\/www.cmbchina.com\/",
+        "site" : "招商银行"
+      }
+    ]
+  },
+  {
+    "name" : "酷站",
+    "list" : [
+      {
+        "href" : "http:\/\/www.hao123.com\/zxfy",
+        "site" : "在线翻译"
+      },
+      {
+        "href" : "https:\/\/www.qiushibaike.com\/",
+        "site" : "糗事百科"
+      },
+      {
+        "href" : "http:\/\/www.xiachufang.com\/",
+        "site" : "下厨房"
+      },
+      {
+        "href" : "https:\/\/www.douban.com\/",
+        "site" : "豆瓣"
+      },
+      {
+        "href" : "https:\/\/www.tianyancha.com\/",
+        "site" : "天眼查"
+      },
+      {
+        "href" : "http:\/\/huaban.com\/",
+        "site" : "养眼美图"
+      }
+    ]
+  },
+  {
+    "name" : "实用",
+    "list" : [
+      {
+        "href" : "http:\/\/life.hao123.com\/?tn=kuzhan",
+        "site" : "生活特惠"
+      },
+      {
+        "href" : "http:\/\/life.hao123.com\/menu\/?tn=kuzhan",
+        "site" : "美食菜谱"
+      },
+      {
+        "href" : "http:\/\/life.hao123.com\/health\/?tn=kuzhan",
+        "site" : "健康养生"
+      },
+      {
+        "href" : "http:\/\/life.hao123.com\/shfw\/?tn=kuzhan",
+        "site" : "本地生活"
+      },
+      {
+        "href" : "http:\/\/life.hao123.com\/jtcx\/?tn=kuzhan",
+        "site" : "交通出行"
+      },
+      {
+        "href" : "http:\/\/life.hao123.com\/jyxx\/?tn=kuzhan",
+        "site" : "教育学习"
+      }
+    ]
+  }
+]

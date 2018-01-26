@@ -13,6 +13,7 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 
 	var NavBar : MXSNavBar?
 	var TableView : MXSTableView?
+	var CollectionView : MXSCollectionView?
 	
 	lazy var alertView : MXSBtmAlertView = {
 		let alert_view = MXSBtmAlertView.init(vc:self)
@@ -49,11 +50,10 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 		view.addSubview(TableView!)
 		TableLayout()
 	}
-	public func bindingCollectionView (layout:UICollectionViewFlowLayout) -> MXSCollectionView {
-		let CollectionView = MXSCollectionView.init(frame: .zero, collectionViewLayout: layout)
-		view.addSubview(CollectionView)
-//		LayoutView(view: CollectionView)
-		return CollectionView
+	public func bindingCollectionView (layout:UICollectionViewFlowLayout) {
+		CollectionView = MXSCollectionView.init(frame: .zero, collectionViewLayout: layout)
+		view.addSubview(CollectionView!)
+		CollectionViewLayout()
 	}
 	public func bindingView () -> UIView {
 		let view_dest = UIView.init()
@@ -77,10 +77,12 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 			make.top.equalTo(view).offset(STATUS_BAR_H)
 			make.height.equalTo(NAV_BAR_H)
 		}
-//		NavBar?.setBackground(color: UIColor.white)
 	}
 	public func TableLayout() {
 		
+	}
+	public func CollectionViewLayout() {
+		CollectionView?.backgroundColor = UIColor.clear
 	}
 	public func LayoutView (view: UIView) {
 		

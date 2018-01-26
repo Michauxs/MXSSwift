@@ -67,7 +67,7 @@ class MXSProfileVC: MXSBaseVC {
 		TableView?.contentInset = UIEdgeInsetsMake(coverViewHeight, 0, 0, 0)
 		TableView?.register(cellName: "MXSProfileCell", delegate: MXSProfileDlg(), vc: self)
 		
-		TableView?.dlg?.queryData = ["My Diray", "Edit Diary",  "Xcode Complete","About DongDa -TODO", "App Setting -TODO"]
+		TableView?.dlg?.queryData = ["My Diray", "Edit Diary",  "Xcode Complete","WebSite Complete", "App Setting -TODO"]
 	}
 	
 	//MARK:actions
@@ -90,6 +90,7 @@ class MXSProfileVC: MXSBaseVC {
 			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSXcodePSVC(), args: MXSNothing.shared)
 			
 		} else if indexPath.row == 3 {
+			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSWebSitesVC(), args: MXSNothing.shared)
 			
 		} else if indexPath.row == 4 {
 			

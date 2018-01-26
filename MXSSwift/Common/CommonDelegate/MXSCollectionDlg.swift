@@ -17,7 +17,6 @@ class MXSCollectionDlg: NSObject, UICollectionViewDelegate, UICollectionViewData
 	
 	func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
 		if queryData != nil {
-			MXSLog(queryData as Any, "collection dlg")
 			return (queryData?.count)!
 		} else {
 			return 0
