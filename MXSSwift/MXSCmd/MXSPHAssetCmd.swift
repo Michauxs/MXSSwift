@@ -67,7 +67,7 @@ class MXSPHAssetCmd: NSObject {
 		var img : UIImage?
 		let opt = PHImageRequestOptions()
 		opt.isSynchronous = true
-		opt.deliveryMode = .fastFormat
+//		opt.deliveryMode = .fastFormat
 		opt.isNetworkAccessAllowed = true
 		opt.progressHandler = {(progress, error, stop, info) in
 			MXSLog("load progress:" + "\(progress)")

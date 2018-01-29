@@ -71,8 +71,9 @@ class MXSPickImgVC: MXSBaseVC {
 	override func collectionSelectedRowAt(_ indexPath: IndexPath) {
 		
 		let asset = queryData![indexPath.row] as PHAsset
+		loadingView.start()
 		let orig = MXSPHAssetCmd.shard.getOriginalImage(asset: asset)
-		
+		loadingView.stop()
 		MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: orig as Any)
 	}
 	

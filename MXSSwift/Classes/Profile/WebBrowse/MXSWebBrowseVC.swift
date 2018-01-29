@@ -13,6 +13,7 @@ class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate {
 
 	var webView : WKWebView?
 	var urlStr : String?
+	var progressView : UIView?
 	
 	override func receiveArgsBePost(args: Any) {
 		urlStr = args as? String
@@ -48,6 +49,8 @@ class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate {
 			// Fallback on earlier versions
 		}
 		
+		webView?.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+		
 		let sign = UILabel.init(text: "Michauxs", fontSize: 13, textColor: .random, alignment: .center)
 		webView?.addSubview(sign)
 		sign.snp.makeConstraints { (make) in
@@ -55,6 +58,16 @@ class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate {
 			make.centerX.equalTo(webView!)
 		}
 		webView?.sendSubview(toBack: sign)
+		
+		progressView = UIView()
+		progressView?.backgroundColor = .theme
+		NavBar!.addSubview(progressView!)
+		progressView?.snp.makeConstraints({ (make) in
+			make.bottom.equalTo(NavBar!)
+			make.left.equalTo(NavBar!)
+			make.height.equalTo(1)
+			make.width.equalTo(0)
+		})
     }
 
 	// MARK: - Layout
@@ -68,21 +81,33 @@ class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate {
 			webView?.goBack()
 		} else {
 			super.didNavBarLeftClick()
+			webView?.removeObserver(self, forKeyPath: "estimatedProgress")
 		}
 	}
 	
 	override func didNavBarRightClick() {
 		super.didNavBarLeftClick()
+		
+	}
+	
+	override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+		if keyPath == "estimatedProgress" {
+			progressView?.isHidden = webView!.estimatedProgress == 1
+			progressView!.snp.updateConstraints({ (make) in
+				make.width.equalTo(SCREEN_HEIGHT * CGFloat(webView!.estimatedProgress))
+			})
+		}
 	}
 	
     // MARK: - Web Delegate
 	func webView(_ webView: WKWebView, didStartProvisionalNavigation navigation: WKNavigation!) {
-		loadingView.start()
+//		loadingView.start()
+		progressView?.isHidden = false
 	}
 	
 	func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-		
-		loadingView.stop()
+		progressView?.isHidden = true
+//		loadingView.stop()
 		webView.evaluateJavaScript("document.title") { (data, error) in
 			self.NavBar?.titleLabel?.text = data as? String
 		}
