@@ -9,11 +9,12 @@
 import UIKit
 import WebKit
 
-class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate {
+class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate, UIScrollViewDelegate {
 
 	var webView : WKWebView?
 	var urlStr : String?
 	var progressView : UIView?
+	var scrollOffSetY : CGFloat = 0
 	
 	override func receiveArgsBePost(args: Any) {
 		urlStr = args as? String
@@ -50,9 +51,10 @@ class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate {
 		}
 		
 		webView?.addObserver(self, forKeyPath: "estimatedProgress", options: .new, context: nil)
+		webView?.scrollView.delegate = self
 		
 		let sign = UILabel.init(text: "Michauxs", fontSize: 13, textColor: .random, alignment: .center)
-		webView?.addSubview(sign)
+		webView!.addSubview(sign)
 		sign.snp.makeConstraints { (make) in
 			make.top.equalTo(webView!).offset(10)
 			make.centerX.equalTo(webView!)
@@ -120,7 +122,23 @@ class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate {
 		
 	}
 	
-	
+	//MARK: - scorll
+	func scrollViewDidScroll(_ scrollView: UIScrollView) {
+		let offset_y = scrollView.contentOffset.y
+		if scrollOffSetY - offset_y < 0 {
+			MXSLog("Page to Up")
+			
+		} else {
+			MXSLog("Page to Down")
+			
+			if scrollOffSetY < -44 {
+				webView?.reload()
+				scrollView.contentOffset = CGPoint.zero
+			}
+		}
+		
+		scrollOffSetY = offset_y
+	}
 	
 }
 	
