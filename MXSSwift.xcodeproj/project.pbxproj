@@ -114,6 +114,7 @@
 		70BF4D22201B4C9500A89EA6 /* MXSWebSitesCDlg.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BF4D21201B4C9500A89EA6 /* MXSWebSitesCDlg.swift */; };
 		70BF4D24201B4D5E00A89EA6 /* MXSWebSitesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70BF4D23201B4D5E00A89EA6 /* MXSWebSitesCell.swift */; };
 		70C8879E1FD6C389009F65A8 /* xcode_complete.json in Resources */ = {isa = PBXBuildFile; fileRef = 70C8879D1FD6C388009F65A8 /* xcode_complete.json */; };
+		70DEEC20204E94C40011C881 /* yinxiao_001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 70DEEC1F204E94C40011C881 /* yinxiao_001.mp3 */; };
 		9590C4F1BC17910CE38A89E5 /* Pods_MXSSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */; };
 /* End PBXBuildFile section */
 
@@ -252,6 +253,7 @@
 		70BF4D21201B4C9500A89EA6 /* MXSWebSitesCDlg.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSWebSitesCDlg.swift; sourceTree = "<group>"; };
 		70BF4D23201B4D5E00A89EA6 /* MXSWebSitesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MXSWebSitesCell.swift; sourceTree = "<group>"; };
 		70C8879D1FD6C388009F65A8 /* xcode_complete.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xcode_complete.json; sourceTree = "<group>"; };
+		70DEEC1F204E94C40011C881 /* yinxiao_001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = yinxiao_001.mp3; sourceTree = "<group>"; };
 		C44604FCE0499122A5244EAC /* Pods_MXSSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MXSSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -320,6 +322,7 @@
 		70253E1C1FBDA00A00A95274 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
+				70DEEC1F204E94C40011C881 /* yinxiao_001.mp3 */,
 				70BF4D1A201B1A0B00A89EA6 /* website_complete.json */,
 				70C8879D1FD6C388009F65A8 /* xcode_complete.json */,
 				70253E1D1FBDA04F00A95274 /* Header-Briding-Header.h */,
@@ -836,6 +839,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				70BF4D1B201B1A0B00A89EA6 /* website_complete.json in Resources */,
+				70DEEC20204E94C40011C881 /* yinxiao_001.mp3 in Resources */,
 				701E9AC81F9EEA61007AEE49 /* Assets.xcassets in Resources */,
 				70C8879E1FD6C389009F65A8 /* xcode_complete.json in Resources */,
 				7068829F1FEA6F5B003F21DD /* MJRefresh.bundle in Resources */,

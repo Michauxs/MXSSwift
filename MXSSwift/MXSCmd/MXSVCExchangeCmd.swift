@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import AVKit
 
 class MXSVCExchangeCmd: NSObject {
 	
@@ -34,6 +35,13 @@ class MXSVCExchangeCmd: NSObject {
 		return right_view
 	}()
 	
+	lazy var soundPlayer : AVAudioPlayer = {
+		
+		let sound = try? AVAudioPlayer.init(contentsOf: URL.init(fileURLWithPath: Bundle.main.path(forResource: "yinxiao_001", ofType: "mp3")!))
+		
+		return sound!
+	}()
+	
 	func SourseVCPushDestVC(sourse:MXSBaseVC, dest:MXSBaseVC, args:Any) {
 		if !(args is MXSNothing) {
 			dest.receiveArgsBePost(args: args)
@@ -41,6 +49,8 @@ class MXSVCExchangeCmd: NSObject {
 		
 		AnimateRightView.isHidden = false
 		AnimateLeftView.isHidden = false
+		
+		self.soundPlayer.play()
 		UIView.animate(withDuration: 0.35, animations: {
 			self.AnimateLeftView.frame = CGRect.init(x: 0, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 			self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH-self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
@@ -64,6 +74,8 @@ class MXSVCExchangeCmd: NSObject {
 	func SourseVCPop (sourse:MXSBaseVC, args:Any) {
 		self.AnimateRightView.isHidden = false
 		self.AnimateLeftView.isHidden = false
+		
+		self.soundPlayer.play()
 		UIView.animate(withDuration: 0.35, animations: {
 			self.AnimateLeftView.frame = CGRect.init(x: 0, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 			self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH-self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
