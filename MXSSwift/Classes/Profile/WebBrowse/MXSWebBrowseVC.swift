@@ -35,6 +35,10 @@ class MXSWebBrowseVC: MXSBaseVC, WKNavigationDelegate, WKUIDelegate, UIScrollVie
 		
 		
 		let configuration = WKWebViewConfiguration.init()
+        configuration.preferences = WKPreferences.init()
+        configuration.preferences.javaScriptCanOpenWindowsAutomatically = true
+        configuration.preferences.javaScriptEnabled = true
+        
 		webView = WKWebView.init(frame: CGRect.zero, configuration: configuration)
 		view.addSubview(webView!)
 		webView?.snp.makeConstraints({ (make) in

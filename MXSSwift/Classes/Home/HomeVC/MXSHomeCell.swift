@@ -109,7 +109,7 @@ class MXSHomeCell: MXSTableViewCell {
 			
 			let second = UserDefaults.standard.double(forKey: name!)
 			if second == 0 {
-				historyNoteLabel?.text = "Never played"
+				historyNoteLabel?.text = "No Progress"
 			} else {
 				
 				let second_t = Int(second)/60;
