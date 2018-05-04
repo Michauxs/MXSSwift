@@ -11,6 +11,7 @@ import UIKit
 class MXSHomeVC: MXSBaseVC {
 	
 	var fileNameList : Array<String>?
+    var touchCount : Int?
 	
 	//MARK:life cycle
 	override func receiveArgsBeBack(args: Any) {
@@ -22,6 +23,7 @@ class MXSHomeVC: MXSBaseVC {
 		super.viewDidLoad();
 		view.backgroundColor = UIColor.darkGray;
 		
+        touchCount = 0
 		super.bindingNavBar()
 		super.bindingTableView(style: .plain)
 		
@@ -47,6 +49,9 @@ class MXSHomeVC: MXSBaseVC {
 		}
 		exchangeBtn.addTarget(self, action: #selector(self.exBtnClick), for: .touchUpInside)
 		exchangeBtn.isHidden = true
+        
+        view.isUserInteractionEnabled = true
+        
 	}
 	
 	//MARK:layout
@@ -74,7 +79,7 @@ class MXSHomeVC: MXSBaseVC {
 	
 	//MARK:acions
 	@objc func loadNewData() {
-		
+		touchCount = 0
 		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
 		TableView?.dlg?.queryData = fileNameList
 		
@@ -111,6 +116,10 @@ class MXSHomeVC: MXSBaseVC {
 		
 	}
 	
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        touchCount = touchCount!+1
+        view.isUserInteractionEnabled = 18 != touchCount
+    }
 	
 	//MARK:notifies
 	override func didNavBarRightClick() {
@@ -118,6 +127,10 @@ class MXSHomeVC: MXSBaseVC {
 	}
 	
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
+        touchCount = touchCount!+1
+        if 18 != touchCount {
+            return
+        }
 		let videoName = TableView?.dlg?.queryData![indexPath.row]
 //		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSAVPlayVC(), args: videoName as Any)
 		MXSVCExchangeCmd.shared.PresentVC(self, dest: MXSAVPlayVC(), args: videoName as Any)
