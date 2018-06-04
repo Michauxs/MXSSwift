@@ -117,8 +117,7 @@ class MXSHomeVC: MXSBaseVC {
 	}
 	
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchCount = touchCount!+1
-        view.isUserInteractionEnabled = 18 != touchCount
+        
     }
 	
 	//MARK:notifies
@@ -128,7 +127,7 @@ class MXSHomeVC: MXSBaseVC {
 	
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
         touchCount = touchCount!+1
-        if 18 != touchCount {
+        if 12 != touchCount {
             return
         }
 		let videoName = TableView?.dlg?.queryData![indexPath.row]

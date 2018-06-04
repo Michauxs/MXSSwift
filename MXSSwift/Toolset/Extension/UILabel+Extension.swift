@@ -19,4 +19,14 @@ extension UILabel {
 		self.textAlignment = alignment
         self.numberOfLines = 0
 	}
+    
+    static public func makeLabelWith(text:String, font:CGFloat, textColor:UIColor, alignment:NSTextAlignment) -> UILabel {
+        let label = UILabel.init()
+        label.text = text
+        label.font = UIFont.systemFont(ofSize: font)
+        label.textColor = textColor
+        label.textAlignment = alignment
+        label.numberOfLines = 0
+        return label
+    }
 }

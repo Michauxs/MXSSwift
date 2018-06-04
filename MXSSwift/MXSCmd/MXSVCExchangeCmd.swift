@@ -50,7 +50,7 @@ class MXSVCExchangeCmd: NSObject {
 		AnimateRightView.isHidden = false
 		AnimateLeftView.isHidden = false
 		
-		self.soundPlayer.play()
+//        self.soundPlayer.play()
 		UIView.animate(withDuration: 0.35, animations: {
 			self.AnimateLeftView.frame = CGRect.init(x: 0, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 			self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH-self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
@@ -75,7 +75,7 @@ class MXSVCExchangeCmd: NSObject {
 		self.AnimateRightView.isHidden = false
 		self.AnimateLeftView.isHidden = false
 		
-		self.soundPlayer.play()
+//        self.soundPlayer.play()
 		UIView.animate(withDuration: 0.35, animations: {
 			self.AnimateLeftView.frame = CGRect.init(x: 0, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)
 			self.AnimateRightView.frame = CGRect.init(x: SCREEN_WIDTH-self.halfViewWidth, y: 0, width: self.halfViewWidth, height: SCREEN_HEIGHT)

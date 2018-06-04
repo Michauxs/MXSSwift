@@ -14,7 +14,8 @@ class MXSFileStorageCmd: NSObject {
 
 	static let shared = MXSFileStorageCmd()
 	
-	let videoSufix = ["mp4", "avi", "wmv", "flv", "mov", "3gp", "mpg", "rm", "rmvb"]
+    let videoSufix = ["mp4", "MP4", "avi", "wmv", "flv", "mov", "MOV", "3gp", "mpg", "rm", "rmvb"]
+    let imageSufix = ["mp4", "MP4", "avi", "wmv", "flv", "mov", "MOV", "3gp", "mpg", "rm", "rmvb"]
 	
 	public func enumVideoFileNameList() -> Array<String> {
 		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
@@ -34,4 +35,58 @@ class MXSFileStorageCmd: NSObject {
 		
 		return ilges
 	}
+    
+    //MARK:IMAGE
+    public func enumImagesFileName() -> Array<String> {
+        
+        let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let imageDirPath = docuDir.first?.appending("/IMAGE")
+        
+        var directory: ObjCBool = ObjCBool(false)
+        let isExists = FileManager.default.fileExists(atPath: imageDirPath!, isDirectory: &directory)
+        if (directory.boolValue == false || isExists == false) {
+            try? FileManager.default.createDirectory(at: URL.init(string: imageDirPath!)!, withIntermediateDirectories: true, attributes: nil)
+        }
+        
+        var ilges = Array<String>.init()
+        if let fileNameList = try? FileManager.default.contentsOfDirectory(atPath: imageDirPath!) {
+            for name in fileNameList {
+                MXSLog(name)
+                ilges.append(name)
+            }
+        }
+        return ilges
+    }
+    
+    public func loadImageWithName (_ name:String) -> UIImage {
+        let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let imagePath = docuDir.first?.appending("/IMAGE/").appending(name)
+        
+        var img = UIImage.init(contentsOfFile: imagePath!)
+        if img == nil {
+            img = UIImage.init(named: "default_img")
+        }
+        return img!
+    }
+    
+    public func loadImageDataWithName (_ name:String) -> NSData {
+        let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let imagePath = docuDir.first?.appending("/IMAGE/").appending(name)
+        
+        guard let data = NSData.init(contentsOfFile: imagePath!) else {
+            return NSData.init()
+        }
+        return data
+    }
+    
+    public func delImageWithName (_ name:String) {
+        let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let imagePath = docuDir.first?.appending("/IMAGE/").appending(name)
+        
+        do {
+            try FileManager.default.removeItem(atPath: imagePath!)
+        } catch {
+            
+        }
+    }
 }

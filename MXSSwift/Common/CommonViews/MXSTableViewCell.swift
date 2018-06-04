@@ -10,6 +10,9 @@ import UIKit
 
 class MXSTableViewCell: UITableViewCell {
 
+    var SepBtmLine : UIView?
+    var SepBtmLine2 : UIView?
+    
 	var cellData : Any? {
 		didSet {
 			
@@ -21,6 +24,9 @@ class MXSTableViewCell: UITableViewCell {
 		
 		backgroundColor = UIColor.lightBlack
 		selectionStyle = .none
+        
+        drawBtmLine()
+        setupUI()
 	}
 	
 	required init?(coder aDecoder: NSCoder) {
@@ -28,20 +34,24 @@ class MXSTableViewCell: UITableViewCell {
 	}
 	
 	//MARK:actions
+    public func setupUI() {
+        
+    }
+    
 	public func drawBtmLine() {
-		let line = UIView.init()
-		addSubview(line)
-		line.backgroundColor = UIColor.darkLine
-		line.snp.makeConstraints { (make) in
+		SepBtmLine = UIView.init()
+        addSubview(SepBtmLine!)
+		SepBtmLine!.backgroundColor = UIColor.darkLine
+		SepBtmLine!.snp.makeConstraints { (make) in
 			make.right.equalTo(self)
 			make.left.equalTo(self).offset(15)
 			make.bottom.equalTo(self)
 			make.height.equalTo(0.5)
 		}
-		let line2 = UIView.init()
-		addSubview(line2)
-		line2.backgroundColor = UIColor.black
-		line2.snp.makeConstraints { (make) in
+		SepBtmLine2 = UIView.init()
+		addSubview(SepBtmLine2!)
+		SepBtmLine2!.backgroundColor = UIColor.black
+		SepBtmLine2!.snp.makeConstraints { (make) in
 			make.right.equalTo(self)
 			make.left.equalTo(self).offset(15)
 			make.bottom.equalTo(self).offset(-0.5)

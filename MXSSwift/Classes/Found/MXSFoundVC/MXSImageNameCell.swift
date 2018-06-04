@@ -1,0 +1,32 @@
+//
+//  MXSImageNameCell.swift
+//  MXSSwift
+//
+//  Created by Sunfei on 2018/6/4.
+//  Copyright © 2018年 MXS. All rights reserved.
+//
+
+import UIKit
+
+class MXSImageNameCell: MXSTableViewCell {
+
+    var nameLabel : UILabel?
+    var signLabel : UILabel?
+    
+    override func setupUI() {
+        nameLabel = UILabel.makeLabelWith(text: "Name", font: 14, textColor: .alphaWhite, alignment: .left)
+        addSubview(nameLabel!)
+        nameLabel?.snp.makeConstraints({ (make) in
+            make.left.equalTo(self).offset(15)
+            make.centerY.equalTo(self)
+        })
+        
+    }
+    
+    override var cellData: Any? {
+        didSet {
+            nameLabel?.text = cellData as? String
+        }
+    }
+
+}
