@@ -11,7 +11,6 @@ import UIKit
 class MXSHomeVC: MXSBaseVC {
 	
 	var fileNameList : Array<String>?
-    var touchCount : Int?
 	
 	//MARK:life cycle
 	override func receiveArgsBeBack(args: Any) {
@@ -23,12 +22,12 @@ class MXSHomeVC: MXSBaseVC {
 		super.viewDidLoad();
 		view.backgroundColor = UIColor.darkGray;
 		
-        touchCount = 0
 		super.bindingNavBar()
 		super.bindingTableView(style: .plain)
 		
 		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
 		TableView?.dlg?.queryData = fileNameList
+        TableView?.isHidden = true
 		
 		let btn = UIButton.init(text: "Push", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(btn)
@@ -52,7 +51,18 @@ class MXSHomeVC: MXSBaseVC {
         
         view.isUserInteractionEnabled = true
         
-	}
+        let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture))
+        view.addGestureRecognizer(pinchGesture)
+    }
+    
+    @objc func handlePinchGesture (pinch:UIPinchGestureRecognizer) {
+        let factor = pinch.scale
+        if factor > 3 {
+            TableView?.isHidden = false
+        } else if factor < 0.3 {
+            TableView?.isHidden = true
+        }
+    }
 	
 	//MARK:layout
 	override func NavBarLayout() {
@@ -79,7 +89,7 @@ class MXSHomeVC: MXSBaseVC {
 	
 	//MARK:acions
 	@objc func loadNewData() {
-		touchCount = 0
+
 		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
 		TableView?.dlg?.queryData = fileNameList
 		
@@ -126,10 +136,7 @@ class MXSHomeVC: MXSBaseVC {
 	}
 	
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
-        touchCount = touchCount!+1
-        if 12 != touchCount {
-            return
-        }
+
 		let videoName = TableView?.dlg?.queryData![indexPath.row]
 //		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSAVPlayVC(), args: videoName as Any)
 		MXSVCExchangeCmd.shared.PresentVC(self, dest: MXSAVPlayVC(), args: videoName as Any)

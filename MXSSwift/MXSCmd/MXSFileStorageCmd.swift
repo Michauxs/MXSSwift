@@ -14,8 +14,9 @@ class MXSFileStorageCmd: NSObject {
 
 	static let shared = MXSFileStorageCmd()
 	
+    let IMAGEDIRECT = "/IMAGE"
     let videoSufix = ["mp4", "MP4", "avi", "wmv", "flv", "mov", "MOV", "3gp", "mpg", "rm", "rmvb"]
-    let imageSufix = ["mp4", "MP4", "avi", "wmv", "flv", "mov", "MOV", "3gp", "mpg", "rm", "rmvb"]
+    let imageSufix = ["jpg", "JPG", "png", "PNG", "gif", "GIF", "bmp", "BMP", "jpeg", "JPEG"]
 	
 	public func enumVideoFileNameList() -> Array<String> {
 		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
@@ -40,7 +41,7 @@ class MXSFileStorageCmd: NSObject {
     public func enumImagesFileName() -> Array<String> {
         
         let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let imageDirPath = docuDir.first?.appending("/IMAGE")
+        let imageDirPath = docuDir.first?.appending(IMAGEDIRECT)
         
         var directory: ObjCBool = ObjCBool(false)
         let isExists = FileManager.default.fileExists(atPath: imageDirPath!, isDirectory: &directory)
@@ -60,7 +61,7 @@ class MXSFileStorageCmd: NSObject {
     
     public func loadImageWithName (_ name:String) -> UIImage {
         let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let imagePath = docuDir.first?.appending("/IMAGE/").appending(name)
+        let imagePath = docuDir.first?.appending(IMAGEDIRECT).appending("/").appending(name)
         
         var img = UIImage.init(contentsOfFile: imagePath!)
         if img == nil {
@@ -71,7 +72,7 @@ class MXSFileStorageCmd: NSObject {
     
     public func loadImageDataWithName (_ name:String) -> NSData {
         let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let imagePath = docuDir.first?.appending("/IMAGE/").appending(name)
+        let imagePath = docuDir.first?.appending(IMAGEDIRECT).appending("/").appending(name)
         
         guard let data = NSData.init(contentsOfFile: imagePath!) else {
             return NSData.init()
@@ -81,7 +82,7 @@ class MXSFileStorageCmd: NSObject {
     
     public func delImageWithName (_ name:String) {
         let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let imagePath = docuDir.first?.appending("/IMAGE/").appending(name)
+        let imagePath = docuDir.first?.appending(IMAGEDIRECT).appending("/").appending(name)
         
         do {
             try FileManager.default.removeItem(atPath: imagePath!)

@@ -14,7 +14,7 @@ class MXSImageNameCell: MXSTableViewCell {
     var signLabel : UILabel?
     
     override func setupUI() {
-        nameLabel = UILabel.makeLabelWith(text: "Name", font: 14, textColor: .alphaWhite, alignment: .left)
+        nameLabel = UILabel.makeLabelWith(text: "Name", font: 14, textColor: .dullWhite, alignment: .left)
         addSubview(nameLabel!)
         nameLabel?.snp.makeConstraints({ (make) in
             make.left.equalTo(self).offset(15)

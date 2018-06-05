@@ -40,7 +40,28 @@ class MXSShowImgVC: MXSBaseVC {
         view.addGestureRecognizer(pinchGesture)
         
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture))
-        self.view.addGestureRecognizer(tapGesture)
+        view.addGestureRecognizer(tapGesture)
+        let pressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongPressGesture))
+        view.addGestureRecognizer(pressGesture)
+    }
+    
+    @objc func handleLongPressGesture (press:UILongPressGestureRecognizer) {
+        if press.state == .began {
+            let sheet = UIAlertController.init(title: "提示", message: "请选择", preferredStyle: .actionSheet)
+            sheet.addAction(UIAlertAction.init(title: "DELECT", style: .destructive, handler: { (alert:UIAlertAction!) in
+                MXSFileStorageCmd.shared.delImageWithName(self.imageName!)
+                
+                let indexCurrent = MXSSingletonCmd.shared.FileImageNams.index(of: self.imageName!)
+                if indexCurrent! < MXSSingletonCmd.shared.FileImageNams.count - 1 {
+                    self.imageName = MXSSingletonCmd.shared.FileImageNams[indexCurrent!+1]
+                    self.updateShowImage()
+                }
+            }))
+            sheet.addAction(UIAlertAction.init(title: "CANCEL", style: .cancel, handler: { (alert:UIAlertAction!) in
+                
+            }))
+            present(sheet, animated: false, completion: nil)
+        }
     }
     
     @objc func handleTapGesture (tap:UITapGestureRecognizer) {
@@ -53,7 +74,7 @@ class MXSShowImgVC: MXSBaseVC {
                 imageName = MXSSingletonCmd.shared.FileImageNams[indexCurrent!-1]
             } else {return}
         } else if p_x < SCREEN_WIDTH/3*2 {
-            MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: MXSNothing.shared)
+            MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: imageName!)
             return
         } else {
             if indexCurrent! < MXSSingletonCmd.shared.FileImageNams.count - 1 {
@@ -65,18 +86,16 @@ class MXSShowImgVC: MXSBaseVC {
     
     @objc func handlePinchGesture (pinch:UIPinchGestureRecognizer) {
         let factor = pinch.scale
-        if factor > 1{
-            //图片放大
+        if factor > 1 {     //图片放大
             showImgView?.transform = CGAffineTransform(scaleX: lastScaleFactor+factor-1, y: lastScaleFactor+factor-1)
-        }else{
-            //缩小
+        } else {     //缩小
             showImgView?.transform = CGAffineTransform(scaleX: lastScaleFactor*factor, y: lastScaleFactor*factor)
         }
-        //状态是否结束，如果结束保存数据
-        if pinch.state == .ended{
-            if factor > 1{
+        
+        if pinch.state == .ended {      //状态是否结束，如果结束保存数据
+            if factor > 1 {
                 lastScaleFactor = lastScaleFactor + factor - 1
-            }else{
+            } else {
                 lastScaleFactor = lastScaleFactor * factor
             }
         }
@@ -100,31 +119,24 @@ class MXSShowImgVC: MXSBaseVC {
         if imageName!.hasSuffix(".gif") {
             let data = MXSFileStorageCmd.shared.loadImageDataWithName(imageName!)
             let options: NSDictionary = [kCGImageSourceShouldCache as String: NSNumber(value: true), kCGImageSourceTypeIdentifierHint as String: "kUTTypeGIF"]
-            guard let imageSource = CGImageSourceCreateWithData(data, options) else {
-                return
-            }
+            guard let imageSource = CGImageSourceCreateWithData(data, options) else { return }
             
             let frameCount = CGImageSourceGetCount(imageSource)
             var images = [UIImage]()
-            
             var gifDuration = 0.0
             
             for i in 0 ..< frameCount {
-                guard let imageRef = CGImageSourceCreateImageAtIndex(imageSource, i, options) else {
-                    return
-                }
+                guard let imageRef = CGImageSourceCreateImageAtIndex(imageSource, i, options) else { return }
                 if frameCount == 1 {
                     gifDuration = Double.infinity
                 } else {
                     // 获取到 gif每帧时间间隔
-                    guard let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil) , let gifInfo = (properties as NSDictionary)[kCGImagePropertyGIFDictionary as String] as? NSDictionary,
-                        let frameDuration = (gifInfo[kCGImagePropertyGIFDelayTime as String] as? NSNumber) else
-                    {
-                        return
-                    }
+                    guard let properties = CGImageSourceCopyPropertiesAtIndex(imageSource, i, nil) ,
+                        let gifInfo = (properties as NSDictionary)[kCGImagePropertyGIFDictionary as String] as? NSDictionary,
+                        let frameDuration = (gifInfo[kCGImagePropertyGIFDelayTime as String] as? NSNumber) else { return }
+                    
                     gifDuration += frameDuration.doubleValue
-                    // 获取帧的img
-                    let  image = UIImage.init(cgImage: imageRef, scale: UIScreen.main.scale, orientation: .up)
+                    let image = UIImage.init(cgImage: imageRef, scale: UIScreen.main.scale, orientation: .up)  // 获取帧的img
                     images.append(image)
                 }
             }
