@@ -42,7 +42,7 @@ class MXSXcodePSVC: MXSBaseVC {
 		TableView?.snp.makeConstraints({ (make) in
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
-        TableView?.register(cellName: "MXSXcodePSCell", delegate: MXSXcodePSTDlg(), vc: self)
+        TableView?.register(cellNames: [ "MXSXcodePSCell"], delegate: MXSXcodePSTDlg(), vc: self)
 		TableView?.register(MXSXcodeTableHeadView.classForCoder(), forHeaderFooterViewReuseIdentifier: "MXSXcodeTableHeadView")
 	}
 	

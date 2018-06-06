@@ -13,7 +13,7 @@ class MXSTabBarController: UITabBarController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		let vc_arr = [MXSHomeVC(), MXSContentVC(), MXSFoundVC(), MXSProfileVC()]
+		let vc_arr = [MXSHomeVC(), MXSContVC(), MXSFoundVC(), MXSProfileVC()]
 		var nav_arr = Array<UINavigationController>()
 		
 		for vc in vc_arr {

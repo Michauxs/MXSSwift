@@ -48,7 +48,7 @@ class MXSShowImgVC: MXSBaseVC {
     @objc func handleLongPressGesture (press:UILongPressGestureRecognizer) {
         if press.state == .began {
             let sheet = UIAlertController.init(title: "提示", message: "请选择", preferredStyle: .actionSheet)
-            sheet.addAction(UIAlertAction.init(title: "DELECT", style: .destructive, handler: { (alert:UIAlertAction!) in
+            sheet.addAction(UIAlertAction.init(title: "删除", style: .destructive, handler: { (alert:UIAlertAction!) in
                 MXSFileStorageCmd.shared.delImageWithName(self.imageName!)
                 
                 let indexCurrent = MXSSingletonCmd.shared.FileImageNams.index(of: self.imageName!)
@@ -57,7 +57,7 @@ class MXSShowImgVC: MXSBaseVC {
                     self.updateShowImage()
                 }
             }))
-            sheet.addAction(UIAlertAction.init(title: "CANCEL", style: .cancel, handler: { (alert:UIAlertAction!) in
+            sheet.addAction(UIAlertAction.init(title: "取消", style: .cancel, handler: { (alert:UIAlertAction!) in
                 
             }))
             present(sheet, animated: false, completion: nil)

@@ -11,23 +11,32 @@ import UIKit
 class MXSHomeVC: MXSBaseVC {
 	
 	var fileNameList : Array<String>?
-	
+    var videoesTable : MXSTableView?
+    
 	//MARK:life cycle
 	override func receiveArgsBeBack(args: Any) {
 		MXSLog("MXSHomeVC receive back : " + (args as! String))
-		TableView?.reloadData()
+		 videoesTable?.reloadData()
 	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad();
 		view.backgroundColor = UIColor.darkGray;
 		
-		super.bindingNavBar()
-		super.bindingTableView(style: .plain)
-		
-		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
-		TableView?.dlg?.queryData = fileNameList
-        TableView?.isHidden = true
+        videoesTable = MXSTableView.init(frame: .zero, style: .plain)
+        view.addSubview(videoesTable!)
+        videoesTable?.snp.makeConstraints({ (make) in
+            make.edges.equalTo(view).inset(UIEdgeInsets.init(top: STATUS_BAR_H, left: 0, bottom: 0, right: 0))
+        })
+        videoesTable?.register(cellNames: ["MXSHomeCell"], delegate: MXSHomeDlg(), vc: self)
+        videoesTable?.addPullToRefreshWithAction {
+            OperationQueue().addOperation {
+                self.loadNewData()
+            }
+        }
+        fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
+        videoesTable?.dlg?.queryData = fileNameList
+        videoesTable?.isHidden = true
 		
 		let btn = UIButton.init(text: "Push", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(btn)
@@ -58,9 +67,9 @@ class MXSHomeVC: MXSBaseVC {
     @objc func handlePinchGesture (pinch:UIPinchGestureRecognizer) {
         let factor = pinch.scale
         if factor > 3 {
-            TableView?.isHidden = false
+            videoesTable?.isHidden = false
         } else if factor < 0.3 {
-            TableView?.isHidden = true
+            videoesTable?.isHidden = true
         }
     }
 	
@@ -75,15 +84,6 @@ class MXSHomeVC: MXSBaseVC {
 	
 	override func TableLayout() {
 		super.TableLayout()
-		TableView?.snp.makeConstraints({ (make) in
-			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
-		})
-		TableView?.register(cellName: "MXSHomeCell", delegate: MXSHomeDlg(), vc: self)
-		TableView?.addPullToRefreshWithAction {
-			OperationQueue().addOperation {
-				self.loadNewData()
-			}
-		}
 		
 	}
 	
@@ -91,18 +91,18 @@ class MXSHomeVC: MXSBaseVC {
 	@objc func loadNewData() {
 
 		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
-		TableView?.dlg?.queryData = fileNameList
+        videoesTable?.dlg?.queryData = fileNameList
 		
 		OperationQueue.main.addOperation {
-			self.TableView?.reloadData()
-			self.TableView?.stopPullToRefresh()
+			self.videoesTable?.reloadData()
+			self.videoesTable?.stopPullToRefresh()
 		}
 	}
 	@objc func loadMoreData() {
 		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
-		TableView?.dlg?.queryData = fileNameList
+        videoesTable?.dlg?.queryData = fileNameList
 		
-		TableView?.reloadData()
+        videoesTable?.reloadData()
 	}
 	
 	
@@ -114,7 +114,7 @@ class MXSHomeVC: MXSBaseVC {
 //		let btn = UIButton.init(text: "Exchange", fontSize: 14, textColor: UIColor.black, background: kMXSNil)
 //		NavBar?.replaceRightBtn(btn: btn)
 		
-		TableView?.reloadData()
+		 videoesTable?.reloadData()
 		
 //		let para = ["phone":"17600365924"]
 //		MXSLog("_____start01______")
@@ -137,7 +137,7 @@ class MXSHomeVC: MXSBaseVC {
 	
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
 
-		let videoName = TableView?.dlg?.queryData![indexPath.row]
+		let videoName = videoesTable?.dlg?.queryData![indexPath.row]
 //		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSAVPlayVC(), args: videoName as Any)
 		MXSVCExchangeCmd.shared.PresentVC(self, dest: MXSAVPlayVC(), args: videoName as Any)
 	}
@@ -149,8 +149,8 @@ class MXSHomeVC: MXSBaseVC {
 		try? FileManager.default.removeItem(atPath: docuDir.first!+"/"+name)
 		
 		fileNameList?.remove(at: indexPath.row)
-		TableView?.dlg?.queryData = fileNameList
-		TableView?.deleteRows(at: [indexPath], with: .left)
+		videoesTable?.dlg?.queryData = fileNameList
+		videoesTable?.deleteRows(at: [indexPath], with: .left)
 	}
 	
 }

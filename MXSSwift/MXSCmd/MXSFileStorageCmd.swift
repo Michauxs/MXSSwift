@@ -14,7 +14,10 @@ class MXSFileStorageCmd: NSObject {
 
 	static let shared = MXSFileStorageCmd()
 	
+    let DOCUMENTSDIRECT = "/Documents"
     let IMAGEDIRECT = "/IMAGE"
+    let TEXTDIRECT = "/TEXT"
+    
     let videoSufix = ["mp4", "MP4", "avi", "wmv", "flv", "mov", "MOV", "3gp", "mpg", "rm", "rmvb"]
     let imageSufix = ["jpg", "JPG", "png", "PNG", "gif", "GIF", "bmp", "BMP", "jpeg", "JPEG"]
 	
@@ -25,15 +28,12 @@ class MXSFileStorageCmd: NSObject {
 		var ilges = Array<String>.init()
 		for name in fileNameList! {
 			print(name)
-			
 			if let sufix = name.components(separatedBy: ".").last {
 				if videoSufix.contains(sufix) {
 					ilges.append(name)
 				}
 			}
-			
 		}
-		
 		return ilges
 	}
     
@@ -81,11 +81,60 @@ class MXSFileStorageCmd: NSObject {
     }
     
     public func delImageWithName (_ name:String) {
-        let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-        let imagePath = docuDir.first?.appending(IMAGEDIRECT).appending("/").appending(name)
+        let imagePath = NSHomeDirectory().appending(DOCUMENTSDIRECT).appending(IMAGEDIRECT).appending("/").appending(name)
         
         do {
-            try FileManager.default.removeItem(atPath: imagePath!)
+            try FileManager.default.removeItem(atPath: imagePath)
+        } catch {
+            
+        }
+    }
+    
+    
+    //MARK:IMAGE
+    public func enumTextFileName() -> Array<String> {
+        
+        let textDirPath = NSHomeDirectory().appending(DOCUMENTSDIRECT).appending(TEXTDIRECT)
+        var ilges = Array<String>.init()
+        
+        var directory: ObjCBool = ObjCBool(false)
+        let isExists = FileManager.default.fileExists(atPath: textDirPath, isDirectory: &directory)
+        if !(directory.boolValue == true && isExists == true) {
+            do {
+              try FileManager.default.createDirectory(atPath: textDirPath, withIntermediateDirectories: true, attributes: nil)
+            } catch {  }
+        }
+        
+        if let list = try? FileManager.default.contentsOfDirectory(atPath: textDirPath) {
+            for name in list {
+                MXSLog(name)
+                ilges.append(name)
+            }
+        }
+        return ilges
+    }
+    
+    public func loadTextWithName (_ name:String) -> String {
+        let filePath = NSHomeDirectory().appending(DOCUMENTSDIRECT).appending(TEXTDIRECT).appending("/").appending(name)
+        guard let txt = try? String.init(contentsOfFile: filePath, encoding: .utf8) else {
+            return "无法识别文件编码"
+        }
+        return txt
+    }
+    
+    public func delTextWithName (_ name:String) {
+        let filePath = NSHomeDirectory().appending(DOCUMENTSDIRECT).appending(TEXTDIRECT).appending("/").appending(name)
+        do {
+            try FileManager.default.removeItem(atPath: filePath)
+        } catch {
+            
+        }
+    }
+    
+    public func saveTextFile (_ content: String, name:String) {
+        let filePath = NSHomeDirectory().appending(DOCUMENTSDIRECT).appending(TEXTDIRECT).appending("/").appending(name)
+        do {
+            try content.write(toFile: filePath, atomically: true, encoding: .utf8)
         } catch {
             
         }

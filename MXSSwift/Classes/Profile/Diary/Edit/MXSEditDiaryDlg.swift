@@ -20,7 +20,7 @@ class MXSEditDiaryDlg: MXSTableDlg {
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
-		let cell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSEditDiaryCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: (cellNames?.first)!, for: indexPath) as! MXSEditDiaryCell
 		cell.titleLabel?.text = title_arr[indexPath.row]
 		
 		if indexPath.row == 0 {

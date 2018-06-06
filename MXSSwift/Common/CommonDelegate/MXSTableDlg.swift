@@ -16,7 +16,7 @@ import UIKit
 class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 	
 	var queryData : Array<Any>?
-	var cellName : String?
+	var cellNames : Array<String>?
 	var controller : MXSBaseVC?
 	
 	
@@ -29,8 +29,8 @@ class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell:MXSTableViewCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSTableViewCell
-		cell.cellData = queryData?[indexPath.row]
+        let cell:UITableViewCell = tableView.dequeueReusableCell(withIdentifier: (cellNames?.first)!, for: indexPath)
+        (cell as! MXSTableViewCell).cellData = queryData?[indexPath.row]
 		return cell
 	}
 	

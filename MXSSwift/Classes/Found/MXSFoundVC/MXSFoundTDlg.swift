@@ -9,11 +9,11 @@
 import UIKit
 
 class MXSFoundTDlg: MXSTableDlg {
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell:MXSImageNameCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSImageNameCell
-        cell.cellData = queryData?[indexPath.row]
-        return cell
-    }
+//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        let cell:MXSImageNameCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSImageNameCell
+//        cell.cellData = queryData?[indexPath.row]
+//        return cell
+//    }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 54

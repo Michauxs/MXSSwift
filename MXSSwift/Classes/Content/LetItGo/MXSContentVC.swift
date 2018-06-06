@@ -51,7 +51,7 @@ class MXSContentVC: MXSBaseVC {
 		TableView!.snp.makeConstraints { (make) in
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		}
-		TableView?.register(cellName: "MXSContentCell", delegate: MXSContentTDlg(), vc: self)
+		TableView?.register(cellNames: ["MXSContentCell"], delegate: MXSContentTDlg(), vc: self)
 		TableView?.addPullToRefreshWithAction {
 			OperationQueue().addOperation {
 				self.loadNewData()

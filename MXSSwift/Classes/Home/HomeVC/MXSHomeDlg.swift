@@ -11,7 +11,7 @@ import UIKit
 class MXSHomeDlg: MXSTableDlg {
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell:MXSHomeCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSHomeCell
+        let cell:MXSHomeCell = tableView.dequeueReusableCell(withIdentifier: (cellNames?.first)!, for: indexPath) as! MXSHomeCell
 		cell.cellData = queryData?[indexPath.row]
 		return cell
 	}

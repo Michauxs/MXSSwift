@@ -37,7 +37,7 @@ class MXSEditDiaryVC: MXSBaseVC {
 		TableView?.snp.makeConstraints({ (make) in
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
-		TableView?.register(cellName: "MXSEditDiaryCell", delegate: MXSEditDiaryDlg(), vc: self)
+		TableView?.register(cellNames: ["MXSEditDiaryCell"], delegate: MXSEditDiaryDlg(), vc: self)
 		
 	}
 	

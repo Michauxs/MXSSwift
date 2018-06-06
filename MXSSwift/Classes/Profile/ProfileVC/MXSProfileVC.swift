@@ -65,7 +65,7 @@ class MXSProfileVC: MXSBaseVC {
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: 0, left: 0, bottom: 0, right: 0))
 		}
 		TableView?.contentInset = UIEdgeInsetsMake(coverViewHeight, 0, 0, 0)
-		TableView?.register(cellName: "MXSProfileCell", delegate: MXSProfileDlg(), vc: self)
+		TableView?.register(cellNames: ["MXSProfileCell"], delegate: MXSProfileDlg(), vc: self)
 		
 		TableView?.dlg?.queryData = ["My Diray", "Edit Diary",  "Xcode Complete","WebSite Complete", "App Setting -TODO"]
 	}
@@ -93,7 +93,15 @@ class MXSProfileVC: MXSBaseVC {
 			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSWebSitesVC(), args: MXSNothing.shared)
 			
 		} else if indexPath.row == 4 {
-			
+            var request = URLRequest.init(url: URL.init(string: "https://www.997cf.com/htm/novellist5")!)
+            request.httpMethod = "GET"
+            var response : URLResponse?
+            guard let data = try? NSURLConnection.sendSynchronousRequest(request, returning: &response) else {
+                return
+            }
+            let html = String.init(data: data, encoding: .utf8)
+            MXSFileStorageCmd.shared.saveTextFile(html!, name: String.MD5String())
+            
 		}
 	}
 	

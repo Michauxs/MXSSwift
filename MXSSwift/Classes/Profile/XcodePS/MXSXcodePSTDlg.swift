@@ -32,7 +32,7 @@ class MXSXcodePSTDlg: MXSTableDlg {
     }
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell : MXSXcodePSCell = tableView.dequeueReusableCell(withIdentifier: cellName!, for: indexPath) as! MXSXcodePSCell
+        let cell : MXSXcodePSCell = tableView.dequeueReusableCell(withIdentifier: (cellNames?.first)!, for: indexPath) as! MXSXcodePSCell
         cell.cellData = (queryDataSub![sections![indexPath.section] as String] as! Array<Dictionary<String,Any>>)[indexPath.row]
 		return cell
 	}

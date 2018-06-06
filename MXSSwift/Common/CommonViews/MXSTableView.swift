@@ -31,18 +31,20 @@ class MXSTableView: UITableView {
 //        separatorStyle = .none
 //    }
     
-	func register(cellName:String, delegate:MXSTableDlg, vc:MXSBaseVC) {
+	func register(cellNames:Array<String>, delegate:MXSTableDlg, vc:MXSBaseVC) {
 		
 		let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
-		let cellClass : AnyClass = NSClassFromString(namespace + "." + cellName)!
-		register(cellClass, forCellReuseIdentifier: cellName)
+        for cellName in cellNames {
+            let cellClass : AnyClass = NSClassFromString(namespace + "." + cellName)!
+            register(cellClass, forCellReuseIdentifier: cellName)
+        }
 //		register(MXSHomeCell.classForCoder(), forCellReuseIdentifier: cellName)
 		
 		dlg = delegate
 		self.delegate = dlg
 		self.dataSource = dlg
 		dlg?.controller = vc
-		dlg?.cellName = cellName
+		dlg?.cellNames = cellNames
 	}
 	
 	

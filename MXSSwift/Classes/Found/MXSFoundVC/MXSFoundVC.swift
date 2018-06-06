@@ -22,7 +22,7 @@ class MXSFoundVC: MXSBaseVC {
         view.backgroundColor = UIColor.darkGray;
 		
         imageNameList = MXSTableView.init(frame: .zero, style: .plain)
-        imageNameList?.register(cellName: "MXSImageNameCell", delegate: MXSFoundTDlg(), vc: self)
+        imageNameList?.register(cellNames: [ "MXSImageNameCell"], delegate: MXSFoundTDlg(), vc: self)
         view.addSubview(imageNameList!)
         imageNameList?.snp.makeConstraints({ (make) in
             make.edges.equalTo(view).inset(UIEdgeInsets.init(top: 20, left: 0, bottom: 0, right: 0));
@@ -34,7 +34,8 @@ class MXSFoundVC: MXSBaseVC {
         imageNameList!.addPullToRefreshWithAction {
             MXSSingletonCmd.shared.FileImageNams = MXSFileStorageCmd.shared.enumImagesFileName()
             self.imageNameList?.dlg?.queryData = MXSSingletonCmd.shared.FileImageNams;
-            OperationQueue().addOperation {
+            
+            DispatchQueue.main.async {
                 self.imageNameList!.reloadData()
                 self.imageNameList!.stopPullToRefresh()
             }
