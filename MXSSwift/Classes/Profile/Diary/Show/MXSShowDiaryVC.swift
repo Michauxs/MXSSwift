@@ -173,8 +173,8 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 	override func didNavBarRightClick() {
 		
 		if contentTextView?.text.count == 0 || thinkTextView?.text.count == 0 {
-			alertView.titleLabel?.text = "Diary is not complete"
-			alertView.showAlert()
+			MXSBtmAlert.titleLabel?.text = "Diary is not complete"
+			MXSBtmAlert.showAlert()
 			return
 		}
 		
@@ -196,8 +196,8 @@ class MXSShowDiaryVC: MXSBaseVC, UITextViewDelegate {
 		dic["diary_think"] = thinkTextView?.text
 		MXSDiary.addDiaryWithDictionary(dic)
 		
-		alertView.titleLabel?.text = "Diary has been saved"
-		alertView.showAlert()
+		MXSBtmAlert.titleLabel?.text = "Diary has been saved"
+		MXSBtmAlert.showAlert()
 	}
 	
 	override func hideBtmAlertComplete(_ title: String) {

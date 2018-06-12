@@ -132,11 +132,17 @@ class MXSFileStorageCmd: NSObject {
     }
     
     public func saveTextFile (_ content: String, name:String) {
+        
         let filePath = NSHomeDirectory().appending(DOCUMENTSDIRECT).appending(TEXTDIRECT).appending("/").appending(name)
-        do {
-            try content.write(toFile: filePath, atomically: true, encoding: .utf8)
-        } catch {
-            
+//        do {
+//            try content.write(toFile: filePath, atomically: true, encoding: .utf8)
+//            
+//        } catch {
+//            
+//        }
+        guard ((try? content.write(toFile: filePath, atomically: true, encoding: .utf8)) != nil) else {
+            return
         }
+        MXSLog("save:\(name)")
     }
 }

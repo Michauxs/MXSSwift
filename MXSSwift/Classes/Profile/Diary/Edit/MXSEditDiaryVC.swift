@@ -45,8 +45,8 @@ class MXSEditDiaryVC: MXSBaseVC {
 	override func didNavBarRightClick() {
 		MXSDiary.removeDiaryObjects([DiaryData!])
 		
-		alertView.titleLabel?.text = "Diary has been clear"
-		alertView.showAlert()
+		MXSBtmAlert.titleLabel?.text = "Diary has been clear"
+		MXSBtmAlert.showAlert()
 		
 	}
 	override func hideBtmAlertComplete(_ title: String) {

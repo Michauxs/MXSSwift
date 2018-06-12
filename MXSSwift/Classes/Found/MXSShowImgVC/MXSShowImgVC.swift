@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import AssetsLibrary
+import Photos
 
 class MXSShowImgVC: MXSBaseVC {
 
@@ -45,9 +47,41 @@ class MXSShowImgVC: MXSBaseVC {
         view.addGestureRecognizer(pressGesture)
     }
     
+    @objc func savedPhotosAlbum(image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: AnyObject) {
+        if error == nil {
+            MXSBtmAlert.titleLabel?.text = "Image was Saved"
+            MXSBtmAlert.showAlert()
+        } else {
+        }
+    }
+    
     @objc func handleLongPressGesture (press:UILongPressGestureRecognizer) {
         if press.state == .began {
             let sheet = UIAlertController.init(title: "提示", message: "请选择", preferredStyle: .actionSheet)
+            sheet.addAction(UIAlertAction.init(title: "保存到相册", style: .default, handler: { (alert:UIAlertAction!) in
+
+//                UIImageWriteToSavedPhotosAlbum(MXSFileStorageCmd.shared.loadImageWithName(self.imageName!), self, #selector(self.savedPhotosAlbum(image:didFinishSavingWithError:contextInfo:)), nil)
+                
+                let library = ALAssetsLibrary.init()
+                library.writeImageData(toSavedPhotosAlbum: MXSFileStorageCmd.shared.loadImageDataWithName(self.imageName!) as Data?, metadata: nil, completionBlock: { (asset, error) in
+                    if error == nil {
+                        self.MXSBtmAlert.titleLabel?.text = "Image was Saved"
+                        self.MXSBtmAlert.showAlert()
+                    }
+                })
+                
+                
+                let ph = PHPhotoLibrary.shared()
+                ph.performChanges({
+                    PHAssetChangeRequest.creationRequestForAsset(from: MXSFileStorageCmd.shared.loadImageWithName(self.imageName!))
+                }, completionHandler: { (success, error) in
+                    if error == nil {
+                        self.MXSBtmAlert.titleLabel?.text = "Image was Saved"
+                        self.MXSBtmAlert.showAlert()
+                    }
+                })
+                
+            }))
             sheet.addAction(UIAlertAction.init(title: "删除", style: .destructive, handler: { (alert:UIAlertAction!) in
                 MXSFileStorageCmd.shared.delImageWithName(self.imageName!)
                 

@@ -15,7 +15,7 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	var TableView : MXSTableView?
 	var CollectionView : MXSCollectionView?
 	
-	lazy var alertView : MXSBtmAlertView = {
+	lazy var MXSBtmAlert : MXSBtmAlertView = {
 		let alert_view = MXSBtmAlertView.init(vc:self)
 		UIApplication.shared.keyWindow?.addSubview(alert_view)
 		return alert_view

@@ -46,9 +46,10 @@ class MXSTXTReaderVC: MXSBaseVC {
     //MARK:layout
     override func NavBarLayout() {
         super.NavBarLayout()
-        NavBar?.titleLabel?.text = "Local"
+        NavBar?.titleLabel?.text = fileName
+        NavBar?.titleLabel?.textColor = UIColor.black
         NavBar?.rightBtn?.isHidden = true
-        NavBar?.setBackground(color: UIColor.clear)
+        NavBar?.setBackground(color: UIColor.lightBlack)
     }
 
     
