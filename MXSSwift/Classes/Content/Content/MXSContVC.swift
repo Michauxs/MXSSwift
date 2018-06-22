@@ -31,7 +31,7 @@ class MXSContVC: MXSBaseVC {
                 self.txtNameTable!.stopPullToRefresh()
             }
         }
-        txtNameTable?.isHidden = true
+//        txtNameTable?.isHidden = true
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture))
         view.addGestureRecognizer(pinchGesture)

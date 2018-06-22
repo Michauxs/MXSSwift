@@ -43,7 +43,6 @@ class MXSPHAssetCmd: NSObject {
 //			self.imageManager = PHCachingImageManager()
 //			self.resetCachedAssets()
 			
-			
 		})
 	}
 	
@@ -68,7 +67,7 @@ class MXSPHAssetCmd: NSObject {
 		let opt = PHImageRequestOptions()
 		opt.isSynchronous = true
 //		opt.deliveryMode = .fastFormat
-		opt.isNetworkAccessAllowed = true
+		opt.isNetworkAccessAllowed = false
 		opt.progressHandler = {(progress, error, stop, info) in
 			MXSLog("load progress:" + "\(progress)")
 		}
@@ -77,8 +76,14 @@ class MXSPHAssetCmd: NSObject {
 		
 		let expectSize = CGSize.init(width: 375*SCREEN_SCALE, height: 375*SCREEN_SCALE)
 		self.requestID = PHImageManager.default().requestImage(for: asset, targetSize: expectSize, contentMode: .default, options: opt, resultHandler: { (thum, info) in
-			MXSLog("done")
-			img = thum
+            let isCloud = info!["PHImageResultIsInCloudKey"]
+            if isCloud != nil {
+                MXSLog("isCloud")
+                img = UIImage.init(named: "default_img")
+            } else {
+                MXSLog("done")
+                img = thum
+            }
 		})
 		
 ////		let mySemaphore = DispatchSemaphore(value: 0)

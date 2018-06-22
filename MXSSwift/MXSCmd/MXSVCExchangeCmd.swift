@@ -16,7 +16,7 @@ class MXSVCExchangeCmd: NSObject {
 	
 	let keyView = UIApplication.shared.keyWindow
 	let halfViewWidth:CGFloat = 243.5
-	var moduleSourse : MXSBaseVC?
+	var moduleSourse : Array<MXSBaseVC>?
 	
 	lazy var AnimateLeftView : UIImageView = {
 		
@@ -125,14 +125,20 @@ class MXSVCExchangeCmd: NSObject {
 		if !(args is MXSNothing) {
 			dest.receiveArgsBePost(args:args)
 		}
-		moduleSourse = sourse.navigationController?.viewControllers.last as? MXSBaseVC
+        if moduleSourse == nil {
+            moduleSourse = Array.init()
+        }
+        let moduleVC = sourse.navigationController?.viewControllers.last as? MXSBaseVC
+        moduleSourse?.append(moduleVC!)
 		sourse.navigationController?.present(dest, animated: true, completion: {
 			
 		})
 	}
 	public func DismissVC (_ vc:MXSBaseVC, args:Any) {
+        let moduleVC = moduleSourse?.last
 		vc.dismiss(animated: true) {
-			self.moduleSourse?.receiveArgsBeBack(args:args)
+            self.moduleSourse?.removeLast()
+			moduleVC?.receiveArgsBeBack(args:args)
 		}
 	}
 	

@@ -57,7 +57,7 @@ class MXSShowImgVC: MXSBaseVC {
     
     @objc func handleLongPressGesture (press:UILongPressGestureRecognizer) {
         if press.state == .began {
-            let sheet = UIAlertController.init(title: "提示", message: "请选择", preferredStyle: .actionSheet)
+            let sheet = UIAlertController.init(title: nil, message: nil, preferredStyle: .actionSheet)
             sheet.addAction(UIAlertAction.init(title: "保存到相册", style: .default, handler: { (alert:UIAlertAction!) in
 
 //                UIImageWriteToSavedPhotosAlbum(MXSFileStorageCmd.shared.loadImageWithName(self.imageName!), self, #selector(self.savedPhotosAlbum(image:didFinishSavingWithError:contextInfo:)), nil)
@@ -71,15 +71,15 @@ class MXSShowImgVC: MXSBaseVC {
                 })
                 
                 
-                let ph = PHPhotoLibrary.shared()
-                ph.performChanges({
-                    PHAssetChangeRequest.creationRequestForAsset(from: MXSFileStorageCmd.shared.loadImageWithName(self.imageName!))
-                }, completionHandler: { (success, error) in
-                    if error == nil {
-                        self.MXSBtmAlert.titleLabel?.text = "Image was Saved"
-                        self.MXSBtmAlert.showAlert()
-                    }
-                })
+//                let ph = PHPhotoLibrary.shared()
+//                ph.performChanges({
+//                    PHAssetChangeRequest.creationRequestForAsset(from: MXSFileStorageCmd.shared.loadImageWithName(self.imageName!))
+//                }, completionHandler: { (success, error) in
+//                    if error == nil {
+//                        self.MXSBtmAlert.titleLabel?.text = "Image was Saved"
+//                        self.MXSBtmAlert.showAlert()
+//                    }
+//                })
                 
             }))
             sheet.addAction(UIAlertAction.init(title: "删除", style: .destructive, handler: { (alert:UIAlertAction!) in
@@ -108,7 +108,8 @@ class MXSShowImgVC: MXSBaseVC {
                 imageName = MXSSingletonCmd.shared.FileImageNams[indexCurrent!-1]
             } else {return}
         } else if p_x < SCREEN_WIDTH/3*2 {
-            MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: imageName!)
+//            MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: imageName!)
+            MXSVCExchangeCmd.shared.DismissVC(self, args: imageName!)
             return
         } else {
             if indexCurrent! < MXSSingletonCmd.shared.FileImageNams.count - 1 {
@@ -143,13 +144,16 @@ class MXSShowImgVC: MXSBaseVC {
             netTranslation = showImgView!.center
         }
         case .changed: do {
-                showImgView?.center = CGPoint.init(x: netTranslation.x+translation.x, y: netTranslation.y+translation.y)
+            showImgView?.center = CGPoint.init(x: netTranslation.x+translation.x, y: netTranslation.y+translation.y)
         }
         default: do {}
         }
     }
     
     public func updateShowImage () {
+        showImgView?.transform = .identity
+        lastScaleFactor = 1.0
+        
         if imageName!.hasSuffix(".gif") {
             let data = MXSFileStorageCmd.shared.loadImageDataWithName(imageName!)
             let options: NSDictionary = [kCGImageSourceShouldCache as String: NSNumber(value: true), kCGImageSourceTypeIdentifierHint as String: "kUTTypeGIF"]
@@ -185,9 +189,7 @@ class MXSShowImgVC: MXSBaseVC {
             showImgView?.image = MXSFileStorageCmd.shared.loadImageWithName(imageName!)
         }
         
-        
     }
-    
     
 //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 //        let touch = touches.first
@@ -196,15 +198,5 @@ class MXSShowImgVC: MXSBaseVC {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

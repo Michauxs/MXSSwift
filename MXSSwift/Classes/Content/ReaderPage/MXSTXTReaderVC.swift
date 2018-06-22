@@ -24,6 +24,7 @@ class MXSTXTReaderVC: MXSBaseVC {
         
         textView = UITextView.init()
         textView?.isEditable = false
+        textView?.bounces = false
         textView!.backgroundColor = UIColor.clear
         textView?.font = UIFont.systemFont(ofSize: 15)
         textView?.contentInset = UIEdgeInsets.init(top: 20, left: 15, bottom: 0, right: 15)
@@ -53,7 +54,7 @@ class MXSTXTReaderVC: MXSBaseVC {
     }
 
     
-    // MARK: - Navigation
+    //MARK: - Navigation
     @objc func handleTapGesture (tap:UITapGestureRecognizer) {
         let tapPoint : CGPoint = tap.location(in: view)
         let p_x = tapPoint.x
@@ -61,7 +62,6 @@ class MXSTXTReaderVC: MXSBaseVC {
         if p_x < SCREEN_WIDTH/3 {
             
         } else if p_x < SCREEN_WIDTH/3*2 {
-//            MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: fileName!)
             MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: MXSNothing.shared)
             return
         } else {

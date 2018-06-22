@@ -57,7 +57,9 @@ class MXSFoundVC: MXSBaseVC {
     
     override func tableSelectedRowAt(_ indexPath: IndexPath) {
         let name = imageNameList?.dlg?.queryData![indexPath.row]
-        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSShowImgVC(), args: name as Any)
+//        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSShowImgVC(), args: name as Any)
+        
+        MXSVCExchangeCmd.shared.PresentVC(self, dest: MXSShowImgVC(), args: name as Any)
     }
     
     override func tableDeletedRowAt(_ indexPath: IndexPath) {

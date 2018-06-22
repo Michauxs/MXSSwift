@@ -17,6 +17,7 @@ class MXSFileStorageCmd: NSObject {
     let DOCUMENTSDIRECT = "/Documents"
     let IMAGEDIRECT = "/IMAGE"
     let TEXTDIRECT = "/TEXT"
+//    let VIDEODIRECT = "/VIDEO"
     
     let videoSufix = ["mp4", "MP4", "avi", "wmv", "flv", "mov", "MOV", "3gp", "mpg", "rm", "rmvb"]
     let imageSufix = ["jpg", "JPG", "png", "PNG", "gif", "GIF", "bmp", "BMP", "jpeg", "JPEG"]
@@ -91,7 +92,7 @@ class MXSFileStorageCmd: NSObject {
     }
     
     
-    //MARK:IMAGE
+    //MARK:TEXT
     public func enumTextFileName() -> Array<String> {
         
         let textDirPath = NSHomeDirectory().appending(DOCUMENTSDIRECT).appending(TEXTDIRECT)
@@ -107,7 +108,6 @@ class MXSFileStorageCmd: NSObject {
         
         if let list = try? FileManager.default.contentsOfDirectory(atPath: textDirPath) {
             for name in list {
-                MXSLog(name)
                 ilges.append(name)
             }
         }
@@ -117,7 +117,28 @@ class MXSFileStorageCmd: NSObject {
     public func loadTextWithName (_ name:String) -> String {
         let filePath = NSHomeDirectory().appending(DOCUMENTSDIRECT).appending(TEXTDIRECT).appending("/").appending(name)
         guard let txt = try? String.init(contentsOfFile: filePath, encoding: .utf8) else {
-            return "无法识别文件编码"
+            MXSLog("utf8 无法识别")
+            
+            let enc = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(CFStringEncodings.GB_18030_2000.rawValue))
+            guard let txt = try? String.init(contentsOfFile: filePath, encoding: String.Encoding(rawValue: enc)) else {
+                
+                guard let txt = try? String.init(contentsOfFile: filePath, encoding: .unicode) else {
+                    MXSLog("unicode 无法识别")
+                    
+                    guard let txt = try? String.init(contentsOfFile: filePath, encoding: .ascii) else {
+                        MXSLog("ascii 无法识别")
+                        
+                        guard let txt = try? String.init(contentsOfFile: filePath, encoding: .windowsCP1250) else {
+                            MXSLog("gbk 无法识别")
+                            return "无法识别文件编码"
+                        }
+                        return txt
+                    }
+                    return txt
+                }
+                return txt
+            }
+            return txt
         }
         return txt
     }

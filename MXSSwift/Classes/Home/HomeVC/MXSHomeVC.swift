@@ -62,6 +62,7 @@ class MXSHomeVC: MXSBaseVC {
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture))
         view.addGestureRecognizer(pinchGesture)
+        
     }
     
     @objc func handlePinchGesture (pinch:UIPinchGestureRecognizer) {

@@ -15,6 +15,13 @@ class MXSProfileVC: MXSBaseVC {
 	
 	override func receiveArgsBeBack(args: Any) {
 		if args is UIImage {
+            
+            if (args as! UIImage) == UIImage.init(named: "default_img") {
+                MXSBtmAlert.titleLabel?.text = "Downloaded and set on iCloud"
+                MXSBtmAlert.showAlert()
+                return
+            }
+            
 			userImageView?.image = args as? UIImage
 			
 			let dir = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first
@@ -23,7 +30,6 @@ class MXSProfileVC: MXSBaseVC {
 			
 			do {
 				try UIImageJPEGRepresentation(args as! UIImage, 0.5)?.write(to: url as URL, options: .atomicWrite)
-//				UIImageJPEGRepresentation(args as! UIImage, 0.5).w
 			} catch {
 				fatalError("不能保存：\(error)")
 			}
@@ -82,6 +88,9 @@ class MXSProfileVC: MXSBaseVC {
 	}
 	
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
+        
+//        self.perform(NSSelectorFromString("action16"))
+        
 		if indexPath.row == 0 {
 			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSDiaryVC(), args: MXSNothing.shared)
 		} else if indexPath.row == 1 {
@@ -93,39 +102,39 @@ class MXSProfileVC: MXSBaseVC {
 			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSWebSitesVC(), args: MXSNothing.shared)
 			
 		} else if indexPath.row == 4 {
-//            var request = URLRequest.init(url: URL.init(string: "https://www.997cf.com/htm/novellist5")!)
-            var request = URLRequest.init(url: URL.init(string: "http://www.runoob.com/svn/svn-tutorial.html")!)
-            request.httpMethod = "GET"
-            var response : URLResponse?
-            guard let data = try? NSURLConnection.sendSynchronousRequest(request, returning: &response) else {
-                return
-            }
-            let html :String? = String.init(data: data, encoding: .utf8)
-            let bigScanner = Scanner(string: html!)
-            var titleStr: NSString?
-            var hrefStr: NSString?
-            var context : String = ""
-//            <a target="_top" title="SVN 简介" href="/svn/svn-intro.html">
-//            SVN 简介            </a>
-            while !bigScanner.isAtEnd {
-                MXSLog("continu")
-                bigScanner.scanUpTo("<a target=\"_top\" title=\"", into: nil)
-                bigScanner.scanUpTo("\"  href=", into: &titleStr)
-                let part = titleStr!.replacingOccurrences(of: "<a target=\"_top\" title=\"", with: "")
-                
-                bigScanner.scanUpTo("\"  href=\"", into: nil)
-                bigScanner.scanUpTo("\" >", into: &hrefStr)
-                let part2 = hrefStr!.replacingOccurrences(of: "\"  href=\"", with: "")
-                
-                context.append(part+":"+part2+"\n")
-            }
-            var name = context
-            if context.count > 10 {
-                name = String(context.prefix(10)).appending("...")
-                name = name.replacingOccurrences(of: "/", with: "_")
-                name = name.replacingOccurrences(of: ":", with: "_")
-            }
-            MXSFileStorageCmd.shared.saveTextFile(context, name: name)
+            
+//            var request = URLRequest.init(url: URL.init(string: "http://www.runoob.com/svn/svn-tutorial.html")!)
+//            request.httpMethod = "GET"
+//            var response : URLResponse?
+//            guard let data = try? NSURLConnection.sendSynchronousRequest(request, returning: &response) else {
+//                return
+//            }
+//            let html :String? = String.init(data: data, encoding: .utf8)
+//            let bigScanner = Scanner(string: html!)
+//            var titleStr: NSString?
+//            var hrefStr: NSString?
+//            var context : String = ""
+////            <a target="_top" title="SVN 简介" href="/svn/svn-intro.html">
+////            SVN 简介            </a>
+//            while !bigScanner.isAtEnd {
+//                MXSLog("continu")
+//                bigScanner.scanUpTo("<a target=\"_top\" title=\"", into: nil)
+//                bigScanner.scanUpTo("\"  href=", into: &titleStr)
+//                let part = titleStr!.replacingOccurrences(of: "<a target=\"_top\" title=\"", with: "")
+//
+//                bigScanner.scanUpTo("\"  href=\"", into: nil)
+//                bigScanner.scanUpTo("\" >", into: &hrefStr)
+//                let part2 = hrefStr!.replacingOccurrences(of: "\"  href=\"", with: "")
+//
+//                context.append(part+":"+part2+"\n")
+//            }
+//            var name = context
+//            if context.count > 10 {
+//                name = String(context.prefix(10)).appending("...")
+//                name = name.replacingOccurrences(of: "/", with: "_")
+//                name = name.replacingOccurrences(of: ":", with: "_")
+//            }
+//            MXSFileStorageCmd.shared.saveTextFile(context, name: name)
             
         }
 	}
