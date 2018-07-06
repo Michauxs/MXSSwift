@@ -20,6 +20,12 @@ let TAB_BAR_H: CGFloat =					49
 let BTM_COMMON_H: CGFloat =					49
 
 
+let kMXSDocumentsDirectory =                "/Documents"
+let kMXSLibraryDirectory =                  "/Library"
+let kMXSSystemDataDirectory =               "/SystemData"
+let kMXSTmpDirectory =                      "/tmp"
+let kMXSPreferencesDirectory =              "/Preferences"
+
 let kNAVAttrArgsText =						"text"
 let kNAVAttrArgsFont =						"font"
 let kNAVAttrArgsTextColor =					"text_color"

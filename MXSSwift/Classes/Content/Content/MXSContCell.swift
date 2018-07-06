@@ -25,6 +25,7 @@ class MXSContCell: MXSTableViewCell {
     
     override var cellData: Any? {
         didSet {
+//            NSAttributedStringKey.font
             nameLabel?.text = cellData as? String
         }
     }

@@ -76,13 +76,15 @@ class MXSPHAssetCmd: NSObject {
 		
 		let expectSize = CGSize.init(width: 375*SCREEN_SCALE, height: 375*SCREEN_SCALE)
 		self.requestID = PHImageManager.default().requestImage(for: asset, targetSize: expectSize, contentMode: .default, options: opt, resultHandler: { (thum, info) in
-            let isCloud = info!["PHImageResultIsInCloudKey"]
-            if isCloud != nil {
-                MXSLog("isCloud")
-                img = UIImage.init(named: "default_img")
-            } else {
+//            let isCloud = info!["PHImageResultIsInCloudKey"]
+//            let origin = info!["PHImageFileUTIKey"]
+            
+            if thum != nil {
                 MXSLog("done")
                 img = thum
+            } else {
+                MXSLog("isCloud")
+                img = UIImage.init(named: "default_img")
             }
 		})
 		

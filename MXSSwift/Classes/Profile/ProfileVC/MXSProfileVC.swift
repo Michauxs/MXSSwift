@@ -10,22 +10,18 @@ import UIKit
 
 class MXSProfileVC: MXSBaseVC {
 	
+    let MXSProfileCoverImagePath : String = kMXSPreferencesDirectory + "/mxs_profile_cover_img.png"
+    
 	var userImageView : UIImageView?
 	var coverViewHeight : CGFloat = 150
+    let methodNameArr : Array<String> = ["MyDiray", "EditDiary",  "XcodeComplete","WebSiteComplete", "AppSetting"]
 	
 	override func receiveArgsBeBack(args: Any) {
 		if args is UIImage {
             
-            if (args as! UIImage) == UIImage.init(named: "default_img") {
-                MXSBtmAlert.titleLabel?.text = "Downloaded and set on iCloud"
-                MXSBtmAlert.showAlert()
-                return
-            }
-            
 			userImageView?.image = args as? UIImage
-			
-			let dir = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first
-			let path = (dir! as NSString).appendingPathComponent("Preferences/mxs_profile_cover_img.png")
+            
+			let path = NSHomeDirectory() + kMXSLibraryDirectory + MXSProfileCoverImagePath
 			let url = NSURL.init(fileURLWithPath: path)
 			
 			do {
@@ -43,26 +39,25 @@ class MXSProfileVC: MXSBaseVC {
 		super.bindingTableView()
 		
 		userImageView = UIImageView.init(image: UIImage.init(named: "default_img"))
-		
-		let dir = NSSearchPathForDirectoriesInDomains(.libraryDirectory, .userDomainMask, true).first
-		let path = (dir! as NSString).appendingPathComponent("Preferences/mxs_profile_cover_img.png")
-		let cover_img = UIImage.init(contentsOfFile: path)
-		if (cover_img != nil) {
-			userImageView?.image = cover_img
-		}
-		
-		userImageView?.contentMode = UIViewContentMode.scaleAspectFill
-		userImageView?.clipsToBounds = true
-		TableView?.addSubview(userImageView!)
-		userImageView!.snp.makeConstraints { (make) in
-			make.bottom.equalTo(TableView!.snp.bottom)
-			make.width.equalTo(SCREEN_WIDTH)
-			make.centerX.equalTo(TableView!)
-			make.height.equalTo(coverViewHeight)
-		}
+        userImageView?.contentMode = UIViewContentMode.scaleAspectFill
+        userImageView?.clipsToBounds = true
+        TableView?.addSubview(userImageView!)
+        userImageView!.snp.makeConstraints { (make) in
+            make.bottom.equalTo(TableView!.snp.bottom)
+            make.width.equalTo(SCREEN_WIDTH)
+            make.centerX.equalTo(TableView!)
+            make.height.equalTo(coverViewHeight)
+        }
+        
+        let path = NSHomeDirectory() + kMXSLibraryDirectory + MXSProfileCoverImagePath
+        let cover_img = UIImage.init(contentsOfFile: path)
+        if (cover_img != nil) {
+            userImageView?.image = cover_img
+        }
 		
 		userImageView?.isUserInteractionEnabled = true
-		userImageView?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(coverTap)))
+        userImageView?.addGestureRecognizer(UITapGestureRecognizer.init(target: self, action: #selector(coverTap)))
+        
 	}
 	
 	//MARK:layout
@@ -81,28 +76,43 @@ class MXSProfileVC: MXSBaseVC {
 		MXSBtmAlert.titleLabel?.text = "To pick image for the view of cover"
 		MXSBtmAlert.showAlert()
 	}
+    
 	
+    @objc public func MyDiray () {
+        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSDiaryVC(), args: MXSNothing.shared)
+    }
+    
+    @objc public func EditDiary () {
+        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSShowDiaryVC(), args: MXSNothing.shared)
+    }
+    
+    @objc public func XcodeComplete () {
+        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSXcodePSVC(), args: MXSNothing.shared)
+    }
+    
+    @objc public func WebSiteComplete () {
+        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSWebSitesVC(), args: MXSNothing.shared)
+    }
+    
+    @objc public func AppSetting () {
+        
+    }
+    
 	//MARK:notifies
 	override func hideBtmAlertComplete(_ title: String) {
-		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSPickImgVC(), args: MXSNothing.shared)
+        if title == "Downloaded and set on iCloud" {
+            return
+        }
+        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSPickImgVC(), args: MXSNothing.shared)
 	}
 	
 	override func tableSelectedRowAt(_ indexPath: IndexPath) {
         
-//        self.perform(NSSelectorFromString("action16"))
+        let name = methodNameArr[indexPath.row]
+//        self.perform(NSSelectorFromString(name))
+        perform(Selector.init(name))
+//        perform(#selector(self.MyDiray))
         
-		if indexPath.row == 0 {
-			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSDiaryVC(), args: MXSNothing.shared)
-		} else if indexPath.row == 1 {
-			MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSShowDiaryVC(), args: MXSNothing.shared)
-		} else if indexPath.row == 2 {
-			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSXcodePSVC(), args: MXSNothing.shared)
-			
-		} else if indexPath.row == 3 {
-			MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSWebSitesVC(), args: MXSNothing.shared)
-			
-		} else if indexPath.row == 4 {
-            
 //            var request = URLRequest.init(url: URL.init(string: "http://www.runoob.com/svn/svn-tutorial.html")!)
 //            request.httpMethod = "GET"
 //            var response : URLResponse?
@@ -135,8 +145,7 @@ class MXSProfileVC: MXSBaseVC {
 //                name = name.replacingOccurrences(of: ":", with: "_")
 //            }
 //            MXSFileStorageCmd.shared.saveTextFile(context, name: name)
-            
-        }
+        
 	}
 	
 	override func tableDidScroll(offset_y: CGFloat) {

@@ -31,6 +31,23 @@ class MXSTableView: UITableView {
 //        separatorStyle = .none
 //    }
     
+    init(_ controller:MXSBaseVC, delegate:MXSTableDlg, style:UITableViewStyle, registerCells:Array<String>) {
+        super.init(frame: .zero, style: style)
+        backgroundColor = UIColor.lightBlack
+        separatorStyle = .none
+        let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String
+        for cellName in registerCells {
+            let cellClass : AnyClass = NSClassFromString(namespace + "." + cellName)!
+            register(cellClass, forCellReuseIdentifier: cellName)
+        }
+        
+        dlg = delegate
+        self.delegate = dlg
+        self.dataSource = dlg
+        dlg?.controller = controller
+        dlg?.cellNames = registerCells
+    }
+    
 	func register(cellNames:Array<String>, delegate:MXSTableDlg, vc:MXSBaseVC) {
 		
 		let namespace = Bundle.main.infoDictionary!["CFBundleExecutable"] as! String

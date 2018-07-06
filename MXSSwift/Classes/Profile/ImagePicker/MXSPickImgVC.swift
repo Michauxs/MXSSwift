@@ -74,7 +74,14 @@ class MXSPickImgVC: MXSBaseVC {
 		loadingView.start()
 		let orig = MXSPHAssetCmd.shard.getOriginalImage(asset: asset)
 		loadingView.stop()
-		MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: orig as Any)
+        
+        if orig == UIImage.init(named: "default_img") {
+            MXSBtmAlert.titleLabel?.text = "Downloaded and set on iCloud"
+            MXSBtmAlert.showAlert()
+        } else {
+            MXSVCExchangeCmd.shared.SourseVCPop(sourse: self, args: orig as Any)
+        }
+        
 	}
 	
 	
