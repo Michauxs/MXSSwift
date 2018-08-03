@@ -17,10 +17,12 @@ class MXSAVPlayVC: MXSBaseVC {
 	var avPlayer :AVPlayer?
 	
 	var BtmControlView : UIView?
-	var pauseResumBtn :UIButton?
-	var progressSecond :UILabel?
-	var progressView : UIView?
-	
+    var progressView : UIProgressView?
+    var pauseResumBtn :UIButton?
+    var progressSecond :UILabel?
+    var rateBtn :UIButton?
+    var rateCount : Int = 0
+    
 	var expectProgress :UILabel?
 	var signShowView :UILabel?
 	
@@ -30,7 +32,7 @@ class MXSAVPlayVC: MXSBaseVC {
 	var isUserInter : Bool = false
 	var isBePlaying : Bool = false
 	
-	var moniInterval : TimeInterval = 0.1
+	var moniInterval : TimeInterval = 1.0
 	var time_node : Double = 0
 	var pan_node : CGFloat = 0
 	
@@ -58,7 +60,7 @@ class MXSAVPlayVC: MXSBaseVC {
 		autoActionTimer = Timer.scheduledTimer(timeInterval: moniInterval, target: self, selector: #selector(timerRun), userInfo: nil, repeats: true)
 		autoActionTimer?.fireDate = Date.distantFuture
 		
-		signShowView = UILabel.init(text: "Michauxs", fontSize: 80, textColor: UIColor.init(white: 1, alpha: 0.65), alignment: .center)
+		signShowView = UILabel.init(text: "MXS", fontSize: 80, textColor: UIColor.init(white: 1, alpha: 0.65), alignment: .center)
 		view.addSubview(signShowView!)
 		signShowView!.snp.makeConstraints { (make) in
 			make.center.equalToSuperview()
@@ -95,32 +97,34 @@ class MXSAVPlayVC: MXSBaseVC {
 			make.size.equalTo(CGSize.init(width: 40, height: 40))
 		}
 		pauseResumBtn?.addTarget(self, action: #selector(pauseResumClicked(_:)), for: .touchUpInside)
-		let progressViewBg = UIView.init()
-		progressViewBg.backgroundColor = UIColor.black
-		view.addSubview(progressViewBg)
-		progressViewBg.snp.makeConstraints { (make) in
-			make.top.equalTo(BtmControlView!)
-			make.left.equalTo(BtmControlView!)
-			make.right.equalTo(BtmControlView!)
-			make.height.equalTo(1.5)
-		}
-		progressView = UIView.init()
-		progressView?.backgroundColor = UIColor.orange
+        
+		progressView = UIProgressView.init(progressViewStyle: .default)
+		progressView?.trackTintColor = UIColor.black
+        progressView?.progressTintColor = UIColor.orange
 		view.addSubview(progressView!)
 		progressView!.snp.makeConstraints { (make) in
 			make.top.equalTo(BtmControlView!)
 			make.left.equalTo(BtmControlView!)
-//			make.width.equalToSuperview().dividedBy(0.2)
-			make.width.equalTo(0)
+            make.right.equalTo(BtmControlView!)
 			make.height.equalTo(1.5)
 		}
-		progressSecond = UILabel.init(text: "00:00 / 00:00", fontSize: 14, textColor: .white, alignment: .right)
+		progressSecond = UILabel.init(text: "00:00 - 00:00", fontSize: 14, textColor: .white, alignment: .right)
 		BtmControlView?.addSubview(progressSecond!)
 		progressSecond!.snp.makeConstraints { (make) in
-			make.right.equalTo(BtmControlView!).offset(-15)
+//            make.right.equalTo(BtmControlView!).offset(-15)
+            make.left.equalTo(pauseResumBtn!.snp.right).offset(20)
 			make.centerY.equalTo(BtmControlView!)
 		}
 		
+        rateBtn = UIButton.init(text: "1.0", fontSize: 14, textColor: .white, background: UIColor.clear)
+        BtmControlView?.addSubview(rateBtn!)
+        rateBtn?.snp.makeConstraints({ (mxs) in
+            mxs.right.equalTo(BtmControlView!).offset(-15)
+            mxs.centerY.equalTo(BtmControlView!)
+            mxs.size.equalTo(CGSize.init(width: 44, height: 44))
+        })
+        rateBtn?.addTarget(self, action: #selector(rateBtnClicked(_:)), for: .touchUpInside)
+        
 		view.bringSubview(toFront: NavBar!)
 		
 		view.isUserInteractionEnabled = true
@@ -213,10 +217,7 @@ class MXSAVPlayVC: MXSBaseVC {
 					progressSecond?.text = str
 				}
 				
-				progressView?.snp.updateConstraints({ (make) in
-					make.width.equalTo(SCREEN_HEIGHT*expect/CGFloat.init(duration!))
-				})
-				
+                progressView?.progress = Float(expect/CGFloat(duration!))
 			}
 			case .ended : do {
 				let p = pan.translation(in: view).x
@@ -251,21 +252,27 @@ class MXSAVPlayVC: MXSBaseVC {
 		if btn.isSelected {
 			avPlayer?.play()
 			self.isBePlaying = true
-		} else {
-			avPlayer?.pause()
-			self.isBePlaying = false
+        } else {
+            avPlayer?.pause()
+            self.isBePlaying = false
 		}
 		btn.isSelected = !btn.isSelected
 	}
+    
+    @objc func rateBtnClicked (_ btn:UIButton) {
+        idleCount = 0
+        rateCount+=1
+        let rate = Float(Int(rateCount%3)) * 0.5 + 1
+        avPlayer?.rate = rate
+        rateBtn?.setTitle("\(rate)", for: .normal)
+    }
 	
 	@objc func timerRun () {
 		
 		let duration = (avPlayer!.currentItem?.duration.seconds)!
 		let current = (avPlayer!.currentItem?.currentTime().seconds)!
 		
-		progressView?.snp.updateConstraints({ (make) in
-			make.width.equalTo(SCREEN_HEIGHT*CGFloat.init(current/duration))
-		})
+        progressView?.setProgress(Float(current/duration), animated: true)
 		
 		let second_d = Int(duration)/60;
 		let miniter_d = Int(duration)%60;
