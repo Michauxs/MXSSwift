@@ -377,41 +377,41 @@
 		703DA8C91FBA9C350059A632 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				703DA8CA1FBA9C350059A632 /* Content */,
-				703DA8CB1FBA9C350059A632 /* Found */,
-				703DA8CC1FBA9C350059A632 /* Home */,
-				703DA8CF1FBA9C350059A632 /* Profile */,
+				703DA8CA1FBA9C350059A632 /* EBook */,
+				703DA8CB1FBA9C350059A632 /* Image */,
+				703DA8CC1FBA9C350059A632 /* Video */,
+				703DA8CF1FBA9C350059A632 /* Diary */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		703DA8CA1FBA9C350059A632 /* Content */ = {
+		703DA8CA1FBA9C350059A632 /* EBook */ = {
 			isa = PBXGroup;
 			children = (
 				76900ACA20C7A7540082B22D /* LetItGo */,
 				76900ACE20C7A7540082B22D /* Content */,
 				76900ACF20C7A7540082B22D /* ReaderPage */,
 			);
-			path = Content;
+			path = EBook;
 			sourceTree = "<group>";
 		};
-		703DA8CB1FBA9C350059A632 /* Found */ = {
+		703DA8CB1FBA9C350059A632 /* Image */ = {
 			isa = PBXGroup;
 			children = (
 				76AC6C3B20C50D4900F470C8 /* MXSFoundVC */,
 				76AC6C3820C50C1C00F470C8 /* MXSShowImgVC */,
 			);
-			path = Found;
+			path = Image;
 			sourceTree = "<group>";
 		};
-		703DA8CC1FBA9C350059A632 /* Home */ = {
+		703DA8CC1FBA9C350059A632 /* Video */ = {
 			isa = PBXGroup;
 			children = (
 				704CC93D20063A25007740EC /* AVPlayVC */,
 				703DA8CD1FBA9C350059A632 /* HomeVC */,
 				703DA8CE1FBA9C350059A632 /* NoteVC */,
 			);
-			path = Home;
+			path = Video;
 			sourceTree = "<group>";
 		};
 		703DA8CD1FBA9C350059A632 /* HomeVC */ = {
@@ -432,7 +432,7 @@
 			path = NoteVC;
 			sourceTree = "<group>";
 		};
-		703DA8CF1FBA9C350059A632 /* Profile */ = {
+		703DA8CF1FBA9C350059A632 /* Diary */ = {
 			isa = PBXGroup;
 			children = (
 				70BF4D1C201B499300A89EA6 /* WebSites */,
@@ -442,7 +442,7 @@
 				704660861FD7B72C006EA759 /* XcodePS */,
 				70A7E7951FCC002400B80A7B /* ImagePicker */,
 			);
-			path = Profile;
+			path = Diary;
 			sourceTree = "<group>";
 		};
 		703DA8D01FBA9C350059A632 /* Common */ = {

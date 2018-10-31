@@ -127,6 +127,11 @@ class MXSHomeVC: MXSBaseVC {
 		
 	}
 	
+    @objc func hideCellItemWith (args:Any) {
+        let row = args
+        MXSLog("vc hide: " + "\(row)")
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         
     }

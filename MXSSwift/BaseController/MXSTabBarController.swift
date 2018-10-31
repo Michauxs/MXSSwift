@@ -25,7 +25,7 @@ class MXSTabBarController: UITabBarController {
 		
 		self.viewControllers = nav_arr
 		
-		let title_arr = ["HOME", "CONT", "FOUN", "SET"]
+		let title_arr = ["Video", "EBook", "Image", "Diary"]
 		for i in 0...nav_arr.count-1 {
 			let str = title_arr[i] as String
 			setVCTabBarItem(vc: vc_arr[i], title: str, imageName: "tab_icon_" + String(i))
