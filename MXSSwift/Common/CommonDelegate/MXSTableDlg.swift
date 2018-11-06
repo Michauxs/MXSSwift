@@ -35,7 +35,10 @@ class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-		controller?.tableSelectedRowAt(indexPath)
+        var info = Dictionary<String, Any>.init(minimumCapacity: 2)
+        info["indexPath"] = indexPath
+        info["tableView"] = tableView
+        self.controller?.perform(NSSelectorFromString("tableDidSelectedRowWithArgs:"), with: info)
 	}
 	
 	
@@ -48,7 +51,10 @@ class MXSTableDlg: NSObject, UITableViewDelegate, UITableViewDataSource {
 	}
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-		controller?.tableDeletedRowAt(indexPath)
+        var info = Dictionary<String, Any>.init(minimumCapacity: 2)
+        info["indexPath"] = indexPath
+        info["tableView"] = tableView
+        self.controller?.perform(NSSelectorFromString("tableDidDeletedRowWithArgs:"), with: info)
 	}
 	
     

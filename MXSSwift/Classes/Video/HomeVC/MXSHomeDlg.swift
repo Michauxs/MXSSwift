@@ -27,14 +27,19 @@ class MXSHomeDlg: MXSTableDlg {
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let actionHide = UITableViewRowAction.init(style: .normal, title: "hide") { action, indexPath in
-            MXSLog("hide" + "\(indexPath.row)")
-//            self.controller?.perform(NSSelectorFromString("hideCellItem"), with:indexPath.row)
-            self.controller?.perform(NSSelectorFromString("hideCellItemWithArgs:"), with: indexPath.row)
+            var info = Dictionary<String, Any>.init(minimumCapacity: 2)
+            info["indexPath"] = indexPath
+            info["tableView"] = tableView
+            self.controller?.perform(NSSelectorFromString("hideCellItemWithArgs:"), with: info)
             
-//            self.controller?.perform(NSSelectorFromString("hideCellItem"), with)
         }
-        let actionEdit = UITableViewRowAction.init(style: .normal, title: "Delet") { (action:UITableViewRowAction, indexPath:IndexPath) in
+        let actionEdit = UITableViewRowAction.init(style: .default, title: "Delet") { (action:UITableViewRowAction, indexPath:IndexPath) in
             MXSLog("Delet" + "\(indexPath.row)")
+            
+            var info = Dictionary<String, Any>.init(minimumCapacity: 2)
+            info["indexPath"] = indexPath
+            info["tableView"] = tableView
+            self.controller?.perform(NSSelectorFromString("tableDidDeletedRowWith:"), with: info)
         }
         return [actionEdit, actionHide]
     }

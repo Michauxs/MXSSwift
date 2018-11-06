@@ -53,7 +53,4 @@ class MXSEditDiaryVC: MXSBaseVC {
 		didNavBarLeftClick()
 	}
 	
-	override func tableSelectedRowAt(_ indexPath: IndexPath) {
-		
-	}
 }

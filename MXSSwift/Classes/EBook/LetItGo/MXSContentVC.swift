@@ -52,11 +52,11 @@ class MXSContentVC: MXSBaseVC {
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		}
 		TableView?.register(cellNames: ["MXSContentCell"], delegate: MXSContentTDlg(), vc: self)
-		TableView?.addPullToRefreshWithAction {
-			OperationQueue().addOperation {
-				self.loadNewData()
-			}
-		}
+		TableView?.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
+            OperationQueue().addOperation {
+                self?.loadNewData()
+            }
+        })
 	}
 	//MARK:acions
 	@objc func loadNewData() {
@@ -65,7 +65,7 @@ class MXSContentVC: MXSBaseVC {
 		
 		OperationQueue.main.addOperation {
 			self.TableView?.reloadData()
-			self.TableView?.stopPullToRefresh()
+			self.TableView?.header?.endRefreshing()
 		}
 	}
 
@@ -120,13 +120,16 @@ class MXSContentVC: MXSBaseVC {
 		present(alert, animated: true, completion: nil)
 		
 	}
-	
-	override func tableDeletedRowAt(_ indexPath: IndexPath) {
-		let name = menuArr![indexPath.row]
-		MXSMenu.removeDish(name)
-		
-		menuArr?.remove(at: indexPath.row)
-		TableView?.dlg?.queryData = menuArr
-		TableView?.deleteRows(at: [indexPath], with: .left)
-	}
+    
+    
+    @objc override func tableDidDeletedRowWith (args : Any) {
+        
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
+        let name = menuArr![indexPath.row]
+        MXSMenu.removeDish(name)
+        
+        menuArr?.remove(at: indexPath.row)
+        TableView?.dlg?.queryData = menuArr
+        TableView?.deleteRows(at: [indexPath], with: .left)
+    }
 }

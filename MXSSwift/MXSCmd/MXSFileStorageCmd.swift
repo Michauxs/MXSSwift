@@ -26,11 +26,18 @@ class MXSFileStorageCmd: NSObject {
 		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
 		let fileNameList = try? FileManager.default.contentsOfDirectory(atPath: docuDir.first!)
 		
+//        let arr_hide : Array = MXSDataFileCmd.init().getPreference(key: kMXSVideoNamesHide) as! Array<String>
+        let tmp = UserDefaults.standard.array(forKey: kMXSVideoNamesHide)
+        var arr_hide = Array<String>.init()
+        if (tmp != nil) {
+            arr_hide = tmp as! Array<String>
+        }
+        
 		var ilges = Array<String>.init()
 		for name in fileNameList! {
 			print(name)
 			if let sufix = name.components(separatedBy: ".").last {
-				if videoSufix.contains(sufix) {
+                if videoSufix.contains(sufix) && !arr_hide.contains(name) {
 					ilges.append(name)
 				}
 			}

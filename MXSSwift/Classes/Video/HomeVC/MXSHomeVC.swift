@@ -29,11 +29,11 @@ class MXSHomeVC: MXSBaseVC {
             make.edges.equalTo(view).inset(UIEdgeInsets.init(top: STATUS_BAR_H, left: 0, bottom: 0, right: 0))
         })
         videoesTable?.register(cellNames: ["MXSHomeCell"], delegate: MXSHomeDlg(), vc: self)
-        videoesTable?.addPullToRefreshWithAction {
+        videoesTable?.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
             OperationQueue().addOperation {
-                self.loadNewData()
+                self?.loadNewData()
             }
-        }
+        })
         fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
         videoesTable?.dlg?.queryData = fileNameList
         videoesTable?.isHidden = true
@@ -96,14 +96,8 @@ class MXSHomeVC: MXSBaseVC {
 		
 		OperationQueue.main.addOperation {
 			self.videoesTable?.reloadData()
-			self.videoesTable?.stopPullToRefresh()
+			self.videoesTable?.header?.endRefreshing()
 		}
-	}
-	@objc func loadMoreData() {
-		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
-        videoesTable?.dlg?.queryData = fileNameList
-		
-        videoesTable?.reloadData()
 	}
 	
 	
@@ -126,37 +120,39 @@ class MXSHomeVC: MXSBaseVC {
 //		MXSLog("_____continue01______")
 		
 	}
-	
+    
+    //MARK:notifies
+    override func didNavBarRightClick() {
+        
+    }
+    
+    
     @objc func hideCellItemWith (args:Any) {
         let row = args
         MXSLog("vc hide: " + "\(row)")
+        
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
+        let name = fileNameList![indexPath.row]
+        MXSDataFileCmd.init().appendPreference(name, key: kMXSVideoNamesHide)
     }
     
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    @objc override func tableDidDeletedRowWith (args : Any) {
         
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
+        
+        let name = fileNameList![indexPath.row]
+        let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        try? FileManager.default.removeItem(atPath: docuDir.first!+"/"+name)
+        
+        fileNameList?.remove(at: indexPath.row)
+        videoesTable?.dlg?.queryData = fileNameList
+        videoesTable?.deleteRows(at: [indexPath], with: .left)
     }
-	
-	//MARK:notifies
-	override func didNavBarRightClick() {
-		
-	}
-	
-	override func tableSelectedRowAt(_ indexPath: IndexPath) {
-
-		let videoName = videoesTable?.dlg?.queryData![indexPath.row]
-//		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSAVPlayVC(), args: videoName as Any)
-		MXSVCExchangeCmd.shared.PresentVC(self, dest: MXSAVPlayVC(), args: videoName as Any)
-	}
-	
-	override func tableDeletedRowAt(_ indexPath: IndexPath) {
-		let name = fileNameList![indexPath.row]
-		
-		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
-		try? FileManager.default.removeItem(atPath: docuDir.first!+"/"+name)
-		
-		fileNameList?.remove(at: indexPath.row)
-		videoesTable?.dlg?.queryData = fileNameList
-		videoesTable?.deleteRows(at: [indexPath], with: .left)
-	}
-	
+    
+    @objc override func tableDidSelectedRowWith (args : Any) {
+        
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
+        let videoName = videoesTable?.dlg?.queryData![indexPath.row]
+        MXSVCExchangeCmd.shared.PresentVC(self, dest: MXSAVPlayVC(), args: videoName as Any)
+    }
 }

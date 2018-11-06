@@ -95,7 +95,7 @@ class MXSProfileVC: MXSBaseVC {
     }
     
     @objc public func AppSetting () {
-        
+        UserDefaults.standard.removeObject(forKey: kMXSVideoNamesHide)
     }
     
 	//MARK:notifies
@@ -106,48 +106,49 @@ class MXSProfileVC: MXSBaseVC {
         MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSPickImgVC(), args: MXSNothing.shared)
 	}
 	
-	override func tableSelectedRowAt(_ indexPath: IndexPath) {
+    
+    @objc override func tableDidSelectedRowWith (args : Any) {
         
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
         let name = methodNameArr[indexPath.row]
-//        self.perform(NSSelectorFromString(name))
+        //        self.perform(NSSelectorFromString(name))
         perform(Selector.init(name))
-//        perform(#selector(self.MyDiray))
+        //        perform(#selector(self.MyDiray))
         
-//            var request = URLRequest.init(url: URL.init(string: "http://www.runoob.com/svn/svn-tutorial.html")!)
-//            request.httpMethod = "GET"
-//            var response : URLResponse?
-//            guard let data = try? NSURLConnection.sendSynchronousRequest(request, returning: &response) else {
-//                return
-//            }
-//            let html :String? = String.init(data: data, encoding: .utf8)
-//            let bigScanner = Scanner(string: html!)
-//            var titleStr: NSString?
-//            var hrefStr: NSString?
-//            var context : String = ""
-////            <a target="_top" title="SVN 简介" href="/svn/svn-intro.html">
-////            SVN 简介            </a>
-//            while !bigScanner.isAtEnd {
-//                MXSLog("continu")
-//                bigScanner.scanUpTo("<a target=\"_top\" title=\"", into: nil)
-//                bigScanner.scanUpTo("\"  href=", into: &titleStr)
-//                let part = titleStr!.replacingOccurrences(of: "<a target=\"_top\" title=\"", with: "")
-//
-//                bigScanner.scanUpTo("\"  href=\"", into: nil)
-//                bigScanner.scanUpTo("\" >", into: &hrefStr)
-//                let part2 = hrefStr!.replacingOccurrences(of: "\"  href=\"", with: "")
-//
-//                context.append(part+":"+part2+"\n")
-//            }
-//            var name = context
-//            if context.count > 10 {
-//                name = String(context.prefix(10)).appending("...")
-//                name = name.replacingOccurrences(of: "/", with: "_")
-//                name = name.replacingOccurrences(of: ":", with: "_")
-//            }
-//            MXSFileStorageCmd.shared.saveTextFile(context, name: name)
-        
-	}
-	
+        //            var request = URLRequest.init(url: URL.init(string: "http://www.runoob.com/svn/svn-tutorial.html")!)
+        //            request.httpMethod = "GET"
+        //            var response : URLResponse?
+        //            guard let data = try? NSURLConnection.sendSynchronousRequest(request, returning: &response) else {
+        //                return
+        //            }
+        //            let html :String? = String.init(data: data, encoding: .utf8)
+        //            let bigScanner = Scanner(string: html!)
+        //            var titleStr: NSString?
+        //            var hrefStr: NSString?
+        //            var context : String = ""
+        ////            <a target="_top" title="SVN 简介" href="/svn/svn-intro.html">
+        ////            SVN 简介            </a>
+        //            while !bigScanner.isAtEnd {
+        //                MXSLog("continu")
+        //                bigScanner.scanUpTo("<a target=\"_top\" title=\"", into: nil)
+        //                bigScanner.scanUpTo("\"  href=", into: &titleStr)
+        //                let part = titleStr!.replacingOccurrences(of: "<a target=\"_top\" title=\"", with: "")
+        //
+        //                bigScanner.scanUpTo("\"  href=\"", into: nil)
+        //                bigScanner.scanUpTo("\" >", into: &hrefStr)
+        //                let part2 = hrefStr!.replacingOccurrences(of: "\"  href=\"", with: "")
+        //
+        //                context.append(part+":"+part2+"\n")
+        //            }
+        //            var name = context
+        //            if context.count > 10 {
+        //                name = String(context.prefix(10)).appending("...")
+        //                name = name.replacingOccurrences(of: "/", with: "_")
+        //                name = name.replacingOccurrences(of: ":", with: "_")
+        //            }
+        //            MXSFileStorageCmd.shared.saveTextFile(context, name: name)
+    }
+    
 	override func tableDidScroll(offset_y: CGFloat) {
 		let y = coverViewHeight + offset_y
 		if y < 0 {

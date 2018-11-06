@@ -98,13 +98,14 @@ class MXSBaseVC: UIViewController, MXSVCPtc {
 	}
 	
 	//MARK: table notify
-	public func tableSelectedRowAt (_ indexPath:IndexPath) {
-		
-	}
+	
+    @objc func tableDidDeletedRowWith (args : Any) {
+        
+    }
 	public func tableDidScroll (offset_y:CGFloat) {
 		
 	}
-	public func tableDeletedRowAt (_ indexPath:IndexPath) {
+	public func tableDidSelectedRowWith (args : Any) {
 		
 	}
 	

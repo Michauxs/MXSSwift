@@ -46,11 +46,13 @@ class MXSXcodePSVC: MXSBaseVC {
 		TableView?.register(MXSXcodeTableHeadView.classForCoder(), forHeaderFooterViewReuseIdentifier: "MXSXcodeTableHeadView")
 	}
 	
-	override func tableSelectedRowAt(_ indexPath: IndexPath) {
-		let cell = TableView?.cellForRow(at: indexPath) as! MXSXcodePSCell
-		let urlStr = cell.urlLabel?.text!
-		
-		MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSWebBrowseVC(), args: urlStr as Any)
-	}
-	
+    
+    @objc override func tableDidSelectedRowWith (args : Any) {
+        
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
+        let cell = TableView?.cellForRow(at: indexPath) as! MXSXcodePSCell
+        let urlStr = cell.urlLabel?.text!
+        
+        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSWebBrowseVC(), args: urlStr as Any)
+    }
 }

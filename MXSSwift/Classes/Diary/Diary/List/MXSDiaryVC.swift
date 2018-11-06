@@ -52,21 +52,23 @@ class MXSDiaryVC: MXSBaseVC {
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		})
 		TableView?.register(cellNames: ["MXSDiaryCell"], delegate: MXSDiaryDlg(), vc: self)
-		TableView?.addPullToRefreshWithAction {
-			OperationQueue().addOperation {
-				self.loadNewData()
-			}
-		}
-	}
-	
-	//MARK:acions
-	@objc func loadNewData() {
-		diaryData = MXSDiary.fetchDiaryObjects()
-		TableView?.dlg?.queryData = diaryData
-		
-		OperationQueue.main.addOperation {
-			self.TableView?.reloadData()
-			self.TableView?.stopPullToRefresh()
+        TableView?.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
+            guard let `self` = self else {return}
+//            OperationQueue().addOperation {
+//            }
+            self.loadNewData()
+        })
+        TableView?.header?.beginRefreshing()
+    }
+    
+    //MARK:acions
+    @objc func loadNewData() {
+        diaryData = MXSDiary.fetchDiaryObjects()
+        TableView?.dlg?.queryData = diaryData
+        
+        OperationQueue.main.addOperation {
+            self.TableView?.reloadData()
+            self.TableView?.header?.endRefreshing()
 		}
 		
 	}
@@ -93,19 +95,23 @@ class MXSDiaryVC: MXSBaseVC {
 		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSShowDiaryVC(), args: MXSNothing.shared)
 	}
 	
-	override func tableSelectedRowAt(_ indexPath: IndexPath) {
-		
-		let diary = TableView?.dlg?.queryData![indexPath.row]
-		MXSVCExchangeCmd.shared .SourseVCPushDestVC(sourse: self, dest: MXSEditDiaryVC(), args: diary as Any)
-	}
+    @objc override func tableDidSelectedRowWith (args : Any) {
+        
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
+        let diary = TableView?.dlg?.queryData![indexPath.row]
+        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSEditDiaryVC(), args: diary as Any)
+    }
 	
-	override func tableDeletedRowAt(_ indexPath: IndexPath) {
-		let diary = diaryData![indexPath.row]
-//		diaryData?.remove(at: indexPath.row)
-		MXSDiary.removeDiaryObjects([diary])
-		
-		diaryData = MXSDiary.fetchDiaryObjects()
-		TableView?.dlg?.queryData = diaryData
-		TableView?.deleteRows(at: [indexPath], with: .left)
-	}
+    
+    @objc override func tableDidDeletedRowWith (args : Any) {
+        
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
+        let diary = diaryData![indexPath.row]
+        //        diaryData?.remove(at: indexPath.row)
+        MXSDiary.removeDiaryObjects([diary])
+        
+        diaryData = MXSDiary.fetchDiaryObjects()
+        TableView?.dlg?.queryData = diaryData
+        TableView?.deleteRows(at: [indexPath], with: .left)
+    }
 }

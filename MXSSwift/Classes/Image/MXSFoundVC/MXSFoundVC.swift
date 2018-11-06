@@ -31,15 +31,15 @@ class MXSFoundVC: MXSBaseVC {
         MXSSingletonCmd.shared.FileImageNams = MXSFileStorageCmd.shared.enumImagesFileName()
         imageNameList?.dlg?.queryData = MXSSingletonCmd.shared.FileImageNams;
         
-        imageNameList!.addPullToRefreshWithAction {
+        imageNameList!.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
             MXSSingletonCmd.shared.FileImageNams = MXSFileStorageCmd.shared.enumImagesFileName()
-            self.imageNameList?.dlg?.queryData = MXSSingletonCmd.shared.FileImageNams;
+            self?.imageNameList?.dlg?.queryData = MXSSingletonCmd.shared.FileImageNams;
             
             DispatchQueue.main.async {
-                self.imageNameList!.reloadData()
-                self.imageNameList!.stopPullToRefresh()
+                self?.imageNameList!.reloadData()
+                self?.imageNameList!.header?.endRefreshing()
             }
-        }
+        })
         imageNameList?.isHidden = true
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture))
@@ -55,14 +55,17 @@ class MXSFoundVC: MXSBaseVC {
         }
     }
     
-    override func tableSelectedRowAt(_ indexPath: IndexPath) {
-        let name = imageNameList?.dlg?.queryData![indexPath.row]
-//        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSShowImgVC(), args: name as Any)
+    @objc override func tableDidSelectedRowWith (args : Any) {
         
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
+        let name = imageNameList?.dlg?.queryData![indexPath.row]
         MXSVCExchangeCmd.shared.PresentVC(self, dest: MXSShowImgVC(), args: name as Any)
     }
     
-    override func tableDeletedRowAt(_ indexPath: IndexPath) {
+    
+    @objc override func tableDidDeletedRowWith (args : Any) {
+        
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
         let name = imageNameList?.dlg?.queryData![indexPath.row]
         MXSFileStorageCmd.shared.delImageWithName(name as! String)
         

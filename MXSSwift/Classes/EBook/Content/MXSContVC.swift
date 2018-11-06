@@ -24,13 +24,15 @@ class MXSContVC: MXSBaseVC {
         })
         
         txtNameTable?.dlg?.queryData =  MXSFileStorageCmd.shared.enumTextFileName()
-        txtNameTable!.addPullToRefreshWithAction {
-            self.txtNameTable?.dlg?.queryData = MXSFileStorageCmd.shared.enumTextFileName()
+        txtNameTable!.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
+            
+            self?.txtNameTable?.dlg?.queryData = MXSFileStorageCmd.shared.enumTextFileName()
             DispatchQueue.main.async {
-                self.txtNameTable!.reloadData()
-                self.txtNameTable!.stopPullToRefresh()
+                self?.txtNameTable!.reloadData()
+                self?.txtNameTable!.header?.endRefreshing()
             }
-        }
+        })
+
 //        txtNameTable?.isHidden = true
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture))
@@ -46,17 +48,23 @@ class MXSContVC: MXSBaseVC {
         }
     }
     
-    override func tableSelectedRowAt(_ indexPath: IndexPath) {
+    
+    @objc override func tableDidSelectedRowWith (args : Any) {
+        
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
         let name = txtNameTable?.dlg?.queryData![indexPath.row]
         MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSTXTReaderVC(), args: name as Any)
     }
     
-    override func tableDeletedRowAt(_ indexPath: IndexPath) {
+
+    
+    @objc override func tableDidDeletedRowWith (args : Any) {
+        
+        let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
         let name = txtNameTable?.dlg?.queryData![indexPath.row]
         MXSFileStorageCmd.shared.delTextWithName(name as! String)
         
         txtNameTable?.dlg?.queryData?.remove(at: indexPath.row)
         txtNameTable?.deleteRows(at: [indexPath], with: .left)
     }
-
 }

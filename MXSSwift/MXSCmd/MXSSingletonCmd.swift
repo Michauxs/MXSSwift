@@ -17,4 +17,10 @@ class MXSSingletonCmd: NSObject {
         
         return names
     }()
+    
+    lazy var DataFileCmd : MXSDataFileCmd = {
+        var cmd = MXSDataFileCmd.init()
+        
+        return cmd
+    }()
 }
