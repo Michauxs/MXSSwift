@@ -10,8 +10,9 @@ import UIKit
 
 class MXSHomeVC: MXSBaseVC {
 	
-	var fileNameList : Array<String>?
+	var fileNameList : Dictionary<String, Array<String>>?
     var videoesTable : MXSTableView?
+    var keyForHide : String? = "normal"
     
 	//MARK:life cycle
 	override func receiveArgsBeBack(args: Any) {
@@ -34,9 +35,9 @@ class MXSHomeVC: MXSBaseVC {
                 self?.loadNewData()
             }
         })
+        
         fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
-        videoesTable?.dlg?.queryData = fileNameList
-        videoesTable?.isHidden = true
+        videoesTable?.dlg?.queryData = fileNameList?[keyForHide!]
 		
 		let btn = UIButton.init(text: "Push", fontSize: 18, textColor: UIColor.orange, background: UIColor.white)
 		view .addSubview(btn)
@@ -67,13 +68,23 @@ class MXSHomeVC: MXSBaseVC {
     
     @objc func handlePinchGesture (pinch:UIPinchGestureRecognizer) {
         let factor = pinch.scale
-        if factor > 3 {
-            videoesTable?.isHidden = false
-        } else if factor < 0.3 {
-            videoesTable?.isHidden = true
+        let state = pinch.state
+        if factor > 3 && state == UIGestureRecognizerState.ended {
+            MXSLog("---")
+            keyForHide = "hidden"
+            reloadDataWithKey()
+        } else if factor < 0.3 && state == UIGestureRecognizerState.ended {
+            keyForHide = "normal"
+            reloadDataWithKey()
         }
+        
     }
 	
+    func reloadDataWithKey () {
+        videoesTable?.dlg?.queryData = fileNameList?[keyForHide!]
+        videoesTable?.reloadData()
+    }
+    
 	//MARK:layout
 	override func NavBarLayout() {
 		super.NavBarLayout()
@@ -92,7 +103,7 @@ class MXSHomeVC: MXSBaseVC {
 	@objc func loadNewData() {
 
 		fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
-        videoesTable?.dlg?.queryData = fileNameList
+        videoesTable?.dlg?.queryData = fileNameList?[keyForHide!]
 		
 		OperationQueue.main.addOperation {
 			self.videoesTable?.reloadData()
@@ -131,8 +142,9 @@ class MXSHomeVC: MXSBaseVC {
         let row = args
         MXSLog("vc hide: " + "\(row)")
         
+        let list = fileNameList?[keyForHide!]
         let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
-        let name = fileNameList![indexPath.row]
+        let name = list![indexPath.row]
         MXSDataFileCmd.init().appendPreference(name, key: kMXSVideoNamesHide)
     }
     
@@ -140,12 +152,13 @@ class MXSHomeVC: MXSBaseVC {
         
         let indexPath : IndexPath = (args as! Dictionary<String,Any>)["indexPath"] as! IndexPath
         
-        let name = fileNameList![indexPath.row]
+        var list = fileNameList?[keyForHide!]
+        let name = list![indexPath.row]
         let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
         try? FileManager.default.removeItem(atPath: docuDir.first!+"/"+name)
         
-        fileNameList?.remove(at: indexPath.row)
-        videoesTable?.dlg?.queryData = fileNameList
+        list?.remove(at: indexPath.row)
+        videoesTable?.dlg?.queryData = list
         videoesTable?.deleteRows(at: [indexPath], with: .left)
     }
     

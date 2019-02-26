@@ -22,27 +22,36 @@ class MXSFileStorageCmd: NSObject {
     let videoSufix = ["mp4", "MP4", "avi", "wmv", "flv", "mov", "MOV", "3gp", "mpg", "rm", "rmvb"]
     let imageSufix = ["jpg", "JPG", "png", "PNG", "gif", "GIF", "bmp", "BMP", "jpeg", "JPEG"]
 	
-	public func enumVideoFileNameList() -> Array<String> {
+	public func enumVideoFileNameList() -> Dictionary<String, Array<String>> {
 		let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
 		let fileNameList = try? FileManager.default.contentsOfDirectory(atPath: docuDir.first!)
 		
-//        let arr_hide : Array = MXSDataFileCmd.init().getPreference(key: kMXSVideoNamesHide) as! Array<String>
-        let tmp = UserDefaults.standard.array(forKey: kMXSVideoNamesHide)
         var arr_hide = Array<String>.init()
+        let tmp = UserDefaults.standard.array(forKey: kMXSVideoNamesHide)
         if (tmp != nil) {
             arr_hide = tmp as! Array<String>
         }
         
 		var ilges = Array<String>.init()
+        var ilges_hide = Array<String>.init()
 		for name in fileNameList! {
 			print(name)
 			if let sufix = name.components(separatedBy: ".").last {
-                if videoSufix.contains(sufix) && !arr_hide.contains(name) {
-					ilges.append(name)
+                if videoSufix.contains(sufix) {
+                    if arr_hide.contains(name) {
+                        ilges_hide.append(name)
+                    } else {
+                        ilges.append(name)
+                    }
 				}
 			}
 		}
-		return ilges
+        
+        var ret = Dictionary<String, Array<String>>.init()
+        ret["normal"] = ilges
+        ret["hidden"] = ilges_hide
+        
+		return ret
 	}
     
     //MARK:IMAGE
@@ -98,6 +107,25 @@ class MXSFileStorageCmd: NSObject {
         }
     }
     
+    public func saveImageWithName (_ image:UIImage, name:String) {
+        
+        let docuDir = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let imageDirPath = docuDir.first?.appending(IMAGEDIRECT)
+        
+        var directory: ObjCBool = ObjCBool(false)
+        let isExists = FileManager.default.fileExists(atPath: imageDirPath!, isDirectory: &directory)
+        if (directory.boolValue == false || isExists == false) {
+            try? FileManager.default.createDirectory(at: URL.init(string: imageDirPath!)!, withIntermediateDirectories: true, attributes: nil)
+        }
+        
+        let imagePath = NSHomeDirectory().appending(DOCUMENTSDIRECT).appending(IMAGEDIRECT).appending("/").appending(name)
+        let url : URL = URL.init(fileURLWithPath: imagePath)
+        do {
+            try UIImageJPEGRepresentation(image, 0.5)?.write(to: url, options: .atomicWrite)
+        } catch {
+            fatalError("不能保存：\(error)")
+        }
+    }
     
     //MARK:TEXT
     public func enumTextFileName() -> Array<String> {
@@ -173,4 +201,5 @@ class MXSFileStorageCmd: NSObject {
         }
         MXSLog("save:\(name)")
     }
+    
 }

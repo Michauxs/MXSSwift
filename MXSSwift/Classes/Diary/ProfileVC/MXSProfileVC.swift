@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class MXSProfileVC: MXSBaseVC {
 	
     let MXSProfileCoverImagePath : String = kMXSPreferencesDirectory + "/mxs_profile_cover_img.png"
@@ -15,21 +16,29 @@ class MXSProfileVC: MXSBaseVC {
 	var userImageView : UIImageView?
 	var coverViewHeight : CGFloat = 150
     let methodNameArr : Array<String> = ["MyDiray", "EditDiary",  "XcodeComplete","WebSiteComplete", "AppSetting"]
-	
+    var pickerImageForSome = 0
+    
 	override func receiveArgsBeBack(args: Any) {
 		if args is UIImage {
-            
-			userImageView?.image = args as? UIImage
-            
-			let path = NSHomeDirectory() + kMXSLibraryDirectory + MXSProfileCoverImagePath
-			let url = NSURL.init(fileURLWithPath: path)
-			
-			do {
-				try UIImageJPEGRepresentation(args as! UIImage, 0.5)?.write(to: url as URL, options: .atomicWrite)
-			} catch {
-				fatalError("不能保存：\(error)")
-			}
-			
+            var url : URL?
+            if pickerImageForSome == 1 {
+                let date = Date.init().timeIntervalSince1970
+                
+                let name = "\(date)" + ".jpg"
+                MXSFileStorageCmd.shared.saveImageWithName(args as! UIImage, name: name)
+            }
+            else {
+                
+                userImageView?.image = args as? UIImage
+                
+                let path = NSHomeDirectory() + kMXSLibraryDirectory + MXSProfileCoverImagePath
+                url = URL.init(fileURLWithPath: path)
+                do {
+                    try UIImageJPEGRepresentation(args as! UIImage, 0.5)?.write(to: url!, options: .atomicWrite)
+                } catch {
+                    fatalError("不能保存：\(error)")
+                }
+            } 
 		}
 	}
 	
@@ -68,12 +77,13 @@ class MXSProfileVC: MXSBaseVC {
 		TableView?.contentInset = UIEdgeInsetsMake(coverViewHeight, 0, 0, 0)
 		TableView?.register(cellNames: ["MXSProfileCell"], delegate: MXSProfileDlg(), vc: self)
 		
-		TableView?.dlg?.queryData = ["My Diray", "Edit Diary",  "Xcode Complete","WebSite Complete", "App Setting -TODO"]
+		TableView?.dlg?.queryData = ["My Diray", "Edit Diary",  "Photo Append","WebSite Complete", "App Setting -TODO"]
 	}
 	
 	//MARK:actions
 	@objc func coverTap () {
 		MXSBtmAlert.titleLabel?.text = "To pick image for the view of cover"
+        pickerImageForSome = 0
 		MXSBtmAlert.showAlert()
 	}
     
@@ -87,7 +97,10 @@ class MXSProfileVC: MXSBaseVC {
     }
     
     @objc public func XcodeComplete () {
-        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSXcodePSVC(), args: MXSNothing.shared)
+//        MXSVCExchangeCmd.shared.SourseVCPushDestVC(sourse: self, dest: MXSXcodePSVC(), args: MXSNothing.shared)
+        pickerImageForSome = 1
+        MXSBtmAlert.titleLabel?.text = "To pick image for append photos"
+        MXSBtmAlert.showAlert()
     }
     
     @objc public func WebSiteComplete () {

@@ -39,7 +39,7 @@ class MXSHomeDlg: MXSTableDlg {
             var info = Dictionary<String, Any>.init(minimumCapacity: 2)
             info["indexPath"] = indexPath
             info["tableView"] = tableView
-            self.controller?.perform(NSSelectorFromString("tableDidDeletedRowWith:"), with: info)
+            self.controller?.perform(NSSelectorFromString("tableDidDeletedRowWithArgs:"), with: info)
         }
         return [actionEdit, actionHide]
     }
