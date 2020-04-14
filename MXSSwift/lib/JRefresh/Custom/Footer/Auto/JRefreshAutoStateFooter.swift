@@ -21,7 +21,7 @@ open class JRefreshAutoStateFooter: JRefreshAutoFooter {
     ///隐藏刷新状态的文字
     public var refreshingTitleHidden: Bool = false
     ///所有状态对应的文字
-    lazy var stateTitles: Dictionary = [:]
+    lazy var stateTitles: Dictionary = Dictionary<String, Any>.init()
     
     override open var state: JRefreshState {
         set(newState) {

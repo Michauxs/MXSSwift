@@ -30,16 +30,23 @@ class MXSFoundVC: MXSBaseVC {
         
         MXSSingletonCmd.shared.FileImageNams = MXSFileStorageCmd.shared.enumImagesFileName()
         imageNameList?.dlg?.queryData = MXSSingletonCmd.shared.FileImageNams;
-        
-        imageNameList!.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
+        imageNameList?.mj_header = MJRefreshStateHeader.init(refreshingBlock: {
             MXSSingletonCmd.shared.FileImageNams = MXSFileStorageCmd.shared.enumImagesFileName()
-            self?.imageNameList?.dlg?.queryData = MXSSingletonCmd.shared.FileImageNams;
-            
-            DispatchQueue.main.async {
-                self?.imageNameList!.reloadData()
-                self?.imageNameList!.header?.endRefreshing()
+            self.imageNameList?.dlg?.queryData = MXSSingletonCmd.shared.FileImageNams;
+            OperationQueue().addOperation {
+                self.imageNameList!.reloadData()
+                self.imageNameList!.mj_header.endRefreshing()
             }
         })
+//        imageNameList!.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
+//            MXSSingletonCmd.shared.FileImageNams = MXSFileStorageCmd.shared.enumImagesFileName()
+//            self?.imageNameList?.dlg?.queryData = MXSSingletonCmd.shared.FileImageNams;
+//
+//            DispatchQueue.main.async {
+//                self?.imageNameList!.reloadData()
+//                self?.imageNameList!.header?.endRefreshing()
+//            }
+//        })
         imageNameList?.isHidden = true
         
         let pinchGesture = UIPinchGestureRecognizer(target: self, action: #selector(handlePinchGesture))

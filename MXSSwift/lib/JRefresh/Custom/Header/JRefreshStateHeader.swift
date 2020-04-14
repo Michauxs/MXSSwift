@@ -31,7 +31,7 @@ open class JRefreshStateHeader: JRefreshHeader {
     }()
     
     ///所有状态对应的文字
-    lazy var stateTitles: Dictionary = [:]
+    lazy var stateTitles: Dictionary = Dictionary<String, Any>.init()
     
     ///key的处理
     override var lastUpdatedTimeKey: String? {

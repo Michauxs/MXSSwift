@@ -18,7 +18,7 @@ extension String {
 		
 		var digest = [UInt8](repeating: 0, count: Int(CC_MD5_DIGEST_LENGTH))
 		
-		CC_MD5(cStr, CC_LONG(strlen(cStr)), &digest)
+        CC_MD5(cStr, CC_LONG(strlen(cStr!)), &digest)
 		
 		var output = String()
 		

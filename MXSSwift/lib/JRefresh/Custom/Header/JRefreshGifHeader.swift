@@ -15,8 +15,8 @@ open class JRefreshGifHeader: JRefreshStateHeader {
         return gifView
     }()
     
-    lazy var stateImages: Dictionary = [:]
-    lazy var stateDurations: Dictionary = [:]
+    lazy var stateImages: Dictionary = Dictionary<String, Any>.init()
+    lazy var stateDurations: Dictionary = Dictionary<String, Any>.init()
     
     override open var pullingPercent: CGFloat? {
         set(newPullingPercent) {

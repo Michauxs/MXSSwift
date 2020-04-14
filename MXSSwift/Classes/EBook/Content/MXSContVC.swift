@@ -24,14 +24,21 @@ class MXSContVC: MXSBaseVC {
         })
         
         txtNameTable?.dlg?.queryData =  MXSFileStorageCmd.shared.enumTextFileName()
-        txtNameTable!.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
-            
-            self?.txtNameTable?.dlg?.queryData = MXSFileStorageCmd.shared.enumTextFileName()
+        txtNameTable?.mj_header = MJRefreshStateHeader.init(refreshingBlock: {
+            self.txtNameTable?.dlg?.queryData = MXSFileStorageCmd.shared.enumTextFileName()
             DispatchQueue.main.async {
-                self?.txtNameTable!.reloadData()
-                self?.txtNameTable!.header?.endRefreshing()
+                self.txtNameTable!.reloadData()
+                self.txtNameTable?.mj_header.endRefreshing()
             }
         })
+//        txtNameTable!.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
+//
+//            self?.txtNameTable?.dlg?.queryData = MXSFileStorageCmd.shared.enumTextFileName()
+//            DispatchQueue.main.async {
+//                self?.txtNameTable!.reloadData()
+//                self?.txtNameTable!.header?.endRefreshing()
+//            }
+//        })
 
 //        txtNameTable?.isHidden = true
         

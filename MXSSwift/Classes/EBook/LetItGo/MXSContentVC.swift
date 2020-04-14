@@ -52,11 +52,16 @@ class MXSContentVC: MXSBaseVC {
 			make.edges.equalTo(view).inset(UIEdgeInsets.init(top: S_N_BAR_H, left: 0, bottom: 0, right: 0))
 		}
 		TableView?.register(cellNames: ["MXSContentCell"], delegate: MXSContentTDlg(), vc: self)
-		TableView?.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
+        TableView?.mj_header = MJRefreshStateHeader.init(refreshingBlock: {
             OperationQueue().addOperation {
-                self?.loadNewData()
+                self.loadNewData()
             }
         })
+//		TableView?.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
+//            OperationQueue().addOperation {
+//                self?.loadNewData()
+//            }
+//        })
 	}
 	//MARK:acions
 	@objc func loadNewData() {
@@ -65,7 +70,7 @@ class MXSContentVC: MXSBaseVC {
 		
 		OperationQueue.main.addOperation {
 			self.TableView?.reloadData()
-			self.TableView?.header?.endRefreshing()
+            self.TableView?.mj_header.endRefreshing()
 		}
 	}
 

@@ -1,24 +1,24 @@
 PODS:
   - Alamofire (4.5.1)
-  - ESPullToRefresh (2.7)
+  - MJRefresh (3.1.15.7)
   - SnapKit (4.0.0)
 
 DEPENDENCIES:
   - Alamofire (~> 4.5)
-  - ESPullToRefresh
+  - MJRefresh
   - SnapKit (~> 4.0.0)
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
-    - ESPullToRefresh
+    - MJRefresh
     - SnapKit
 
 SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
-  ESPullToRefresh: 119e2710b82b75536aab2bbe4883ba119fca35c8
+  MJRefresh: 697f8ec75ebdbe9207767bb682cf0f51b0d8a41f
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
 
-PODFILE CHECKSUM: 56ad4e51d58919b9eded4e81ae5a02b76cc1b4c6
+PODFILE CHECKSUM: ee57bf4908ca75c87645f62fb4d5e2de4d5301a1
 
-COCOAPODS: 1.5.0
+COCOAPODS: 1.5.3

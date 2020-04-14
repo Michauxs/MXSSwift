@@ -30,11 +30,16 @@ class MXSHomeVC: MXSBaseVC {
             make.edges.equalTo(view).inset(UIEdgeInsets.init(top: STATUS_BAR_H, left: 0, bottom: 0, right: 0))
         })
         videoesTable?.register(cellNames: ["MXSHomeCell"], delegate: MXSHomeDlg(), vc: self)
-        videoesTable?.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
+        videoesTable?.mj_header = MJRefreshStateHeader.init(refreshingBlock: {
             OperationQueue().addOperation {
-                self?.loadNewData()
+                self.loadNewData()
             }
         })
+//        videoesTable?.header = JRefreshStateHeader.headerWithRefreshingBlock({[weak self] in
+//            OperationQueue().addOperation {
+//                self?.loadNewData()
+//            }
+//        })
         
         fileNameList = MXSFileStorageCmd.shared.enumVideoFileNameList()
         videoesTable?.dlg?.queryData = fileNameList?[keyForHide!]
@@ -107,7 +112,7 @@ class MXSHomeVC: MXSBaseVC {
 		
 		OperationQueue.main.addOperation {
 			self.videoesTable?.reloadData()
-			self.videoesTable?.header?.endRefreshing()
+            self.videoesTable?.mj_header.endRefreshing()
 		}
 	}
 	

@@ -19,7 +19,7 @@ class MXSFileStorageCmd: NSObject {
     let TEXTDIRECT = "/TEXT"
 //    let VIDEODIRECT = "/VIDEO"
     
-    let videoSufix = ["mp4", "MP4", "avi", "wmv", "flv", "mov", "MOV", "3gp", "mpg", "rm", "rmvb"]
+    let videoSufix = ["mp4", "MP4", "avi", "wmv", "flv", "mov", "MOV", "3gp", "mpg", "rm", "rmvb", "RMVB"]
     let imageSufix = ["jpg", "JPG", "png", "PNG", "gif", "GIF", "bmp", "BMP", "jpeg", "JPEG"]
 	
 	public func enumVideoFileNameList() -> Dictionary<String, Array<String>> {
