@@ -130,6 +130,7 @@ class MXSVCExchangeCmd: NSObject {
         }
         let moduleVC = sourse.navigationController?.viewControllers.last as? MXSBaseVC
         moduleSourse?.append(moduleVC!)
+        dest.modalPresentationStyle = .overFullScreen
 		sourse.navigationController?.present(dest, animated: true, completion: {
 			
 		})
